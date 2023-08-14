@@ -9,7 +9,7 @@ import {
   TextField,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-// import SearchIcon from '../../assets/icons/search_icon.svg';
+// import SearchIcon from 'src/assets/icons/search_icon.svg';
 import _debounce from "lodash/debounce";
 
 interface SearchOptionsListI {
@@ -27,7 +27,7 @@ interface InputInterface {
   setValue: Function;
   placeholder: string;
   label?: string;
-  setDebouncedSearch?:any
+  setDebouncedSearch?: any;
 }
 
 export default function SearchFieldInput({
@@ -43,10 +43,7 @@ export default function SearchFieldInput({
     setDebouncedSearch(value);
   };
 
-  const debounceFn = React.useCallback(
-    _debounce(debouncedSearchInput, 400),
-    []
-  );
+  const debounceFn = React.useCallback(_debounce(debouncedSearchInput, 400), []);
 
   const handleChange = (e: any) => {
     const searchTerm = e.target.value;

@@ -1,5 +1,5 @@
 import { Button, Card, Grid, Typography } from "@mui/material";
-import { commonTypeProps } from "interfaces/configs";
+import { commonTypeProps } from "src/interfaces/configs";
 import { FC } from "react";
 import { ActivityStatus } from "src/utils/url";
 

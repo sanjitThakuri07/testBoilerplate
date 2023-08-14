@@ -1,22 +1,22 @@
-import { create } from 'zustand';
-import { DashboardFilter } from 'interfaces/dashboardFilter';
-import CardIcon from '../assets/icons/card_icon.svg';
+import { create } from "zustand";
+import { DashboardFilter } from "interfaces/dashboardFilter";
+import CardIcon from "src/assets/icons/card_icon.svg";
 
 export const useDashboardFilter = create<DashboardFilter>((set) => ({
-  searchValue: '',
-  debouncedSearch: '',
+  searchValue: "",
+  debouncedSearch: "",
   sortBy: {
-    id: 'NEW_TO_OLD',
-    label: 'Newest to Oldest',
+    id: "NEW_TO_OLD",
+    label: "Newest to Oldest",
   },
   view: {
-    id: 'card',
-    label: 'card',
+    id: "card",
+    label: "card",
     icon: CardIcon,
   },
   tenantCreated: {
-    id: '180',
-    label: 'Past 6 month',
+    id: "180",
+    label: "Past 6 month",
   },
   countryFilters: [],
 

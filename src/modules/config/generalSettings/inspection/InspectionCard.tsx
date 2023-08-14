@@ -1,5 +1,5 @@
 import { Button, Card, Grid, Typography } from "@mui/material";
-import { RegionProps } from "interfaces/configs";
+import { RegionProps } from "src/interfaces/configs";
 import { FC } from "react";
 
 const InspectionCard: FC<
@@ -7,14 +7,7 @@ const InspectionCard: FC<
     handleDeleteRegion: (id?: number) => void;
     editRegion: (id?: number) => void;
   }
-> = ({
-  name,
-  notification_email,
-  id,
-  status,
-  handleDeleteRegion,
-  editRegion,
-}) => {
+> = ({ name, notification_email, id, status, handleDeleteRegion, editRegion }) => {
   const isActive = Number(status) === 1;
   return (
     <div className="region-card">
@@ -24,9 +17,7 @@ const InspectionCard: FC<
             <Typography variant="h5" component="h5">
               {name}{" "}
               <img
-                src={`/assets/icons/${
-                  isActive ? "active" : "disable"
-                }-polygon.svg`}
+                src={`/assets/icons/${isActive ? "active" : "disable"}-polygon.svg`}
                 alt="online"
                 title={isActive ? "active" : "disable"}
               />
@@ -42,9 +33,7 @@ const InspectionCard: FC<
                 onClick={() => editRegion(id)}
               />
               <Button
-                startIcon={
-                  <img src="/assets/icons/icon-trash.svg" alt="delete" />
-                }
+                startIcon={<img src="/assets/icons/icon-trash.svg" alt="delete" />}
                 onClick={() => handleDeleteRegion(id)}
               />
             </div>

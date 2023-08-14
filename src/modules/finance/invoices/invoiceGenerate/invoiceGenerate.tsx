@@ -1,15 +1,15 @@
-import { Box } from '@mui/system';
-import React from 'react';
-import DragAndDrop from './DragAndDrop';
-import InvoiceBillingForm from './InvoiceBillingForm';
-import InvoiceDraftForm from './invoiceDraftForm';
-import './invoiceGenerate.scss';
-import InvoiceGenerateHeading from './invoiceGenerateHeading';
+import { Box } from "@mui/system";
+import React from "react";
+import DragAndDrop from "./DragAndDrop";
+import InvoiceBillingForm from "./InvoiceBillingForm";
+import InvoiceDraftForm from "./invoiceDraftForm";
+import "./invoiceGenerate.scss";
+import InvoiceGenerateHeading from "./invoiceGenerateHeading";
 
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-import { Button } from '@mui/material';
-import { useAdjustmentModal } from 'globalStates/invoice/invoice';
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { Button } from "@mui/material";
+import { useAdjustmentModal } from "src/store/zustand/globalStates/invoice/invoice";
 
 const InvoiceGenerate = () => {
   const [isInvoiceSend, setIsInvoiceSend] = React.useState<boolean>(false);
@@ -21,26 +21,29 @@ const InvoiceGenerate = () => {
       <Box
         sx={{
           p: 2,
-        }}>
+        }}
+      >
         {/* <DragAndDrop /> */}
         <InvoiceGenerateHeading />
       </Box>
       <Box
         sx={{
           m: 2,
-          backgroundColor: '#FCFCFD',
-        }}>
+          backgroundColor: "#FCFCFD",
+        }}
+      >
         <InvoiceDraftForm />
 
         <Button
           variant="outlined"
           sx={{
             mr: 2,
-            float: 'right',
+            float: "right",
             mb: 2,
           }}
-          onClick={() => setAdjustmentModal(true)}>
-          Add Price Adjustment{' '}
+          onClick={() => setAdjustmentModal(true)}
+        >
+          Add Price Adjustment{" "}
         </Button>
         <DndProvider backend={HTML5Backend}>
           <InvoiceBillingForm />

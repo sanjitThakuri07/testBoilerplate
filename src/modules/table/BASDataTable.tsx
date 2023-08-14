@@ -29,11 +29,11 @@ import {
   Switch,
   Tooltip,
 } from "@mui/material";
-import { BASConfigTableProps, RegionProps } from "interfaces/configs";
+import { BASConfigTableProps, RegionProps } from "src/interfaces/configs";
 import { useLocation, useNavigate } from "react-router-dom";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { deleteAPI, getAPI } from "src/lib/axios";
-import { useConfigStore } from "globalStates/config";
+import { useConfigStore } from "src/store/zustand/globalStates/config";
 import { Link } from "react-router-dom";
 import TableColumns from "./TableColumns";
 import moment from "moment";

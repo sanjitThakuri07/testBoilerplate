@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { useSnackbar } from "notistack";
-import { useConfigStore } from "globalStates/config";
+import { useConfigStore } from "src/store/zustand/globalStates/config";
 import { Box } from "@mui/system";
 import { CircularProgress } from "@mui/material";
 import OrganizationConfiguration, {
@@ -9,8 +9,8 @@ import OrganizationConfiguration, {
 } from "src/modules/config/generalSettings/OrganizationConfiguration";
 import BASDataTable from "src/modules/table/BASDataTable";
 import { deleteAPI, getAPI } from "src/lib/axios";
-import { BASConfigTableProps } from "interfaces/configs";
-import { useContractorServicesStore } from "globalStates/config";
+import { BASConfigTableProps } from "src/interfaces/configs";
+import { useContractorServicesStore } from "src/store/zustand/globalStates/config";
 import FullPageLoader from "src/components/FullPageLoader";
 import { fetchApI } from "src/modules/apiRequest/apiRequest";
 import { usePermissionStore } from "src/store/zustand/permission";

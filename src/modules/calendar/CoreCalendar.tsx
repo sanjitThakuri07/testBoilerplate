@@ -6,7 +6,7 @@ import moment, { weekdays } from "moment";
 import { deleteAPI, getAPI, postAPI } from "src/lib/axios";
 import CalendarFilter from "./CalendarFilter";
 import { Button, CircularProgress, Fade, Grid } from "@mui/material";
-import { ICalendarFilter } from "interfaces/calendarFilter";
+import { ICalendarFilter } from "src/interfaces/calendarFilter";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import FilterListOffIcon from "@mui/icons-material/FilterListOff";
 import InsertInvitationIcon from "@mui/icons-material/InsertInvitation";

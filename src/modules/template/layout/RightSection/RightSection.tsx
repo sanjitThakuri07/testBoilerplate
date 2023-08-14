@@ -1,12 +1,12 @@
 // import { CustomTextField, ResponseTab } from 'containers/template/components';
-import { CustomTextField } from 'containers/template/components';
-import ResponseTab from 'containers/template/components/ResponseTab/OldResponseTab';
-import { TabContext, TabList, TabPanel } from '@mui/lab';
-import { Box, Tab } from '@mui/material';
-import React from 'react';
-import { useTextAnswer } from 'globalStates/templates/TextAnswer';
+import { CustomTextField } from "containers/template/components";
+import ResponseTab from "containers/template/components/ResponseTab/OldResponseTab";
+import { TabContext, TabList, TabPanel } from "@mui/lab";
+import { Box, Tab } from "@mui/material";
+import React from "react";
+import { useTextAnswer } from "src/store/zustand/globalStates/templates/TextAnswer";
 
-import './RightSection.scss';
+import "./RightSection.scss";
 
 const RightSection = (updateDataState: any) => {
   const { rightSectionTabValue, setRightSectionTabValue } = useTextAnswer();
@@ -19,7 +19,7 @@ const RightSection = (updateDataState: any) => {
     <div>
       <div id="RightSection">
         <TabContext value={rightSectionTabValue}>
-          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <TabList onChange={handleChange}>
               <Tab label="Question" value="1" />
               <Tab label="Response" value="2" />
@@ -28,8 +28,9 @@ const RightSection = (updateDataState: any) => {
           <TabPanel
             value="1"
             style={{
-              padding: '24px 0',
-            }}>
+              padding: "24px 0",
+            }}
+          >
             <>
               <CustomTextField />
             </>
@@ -37,8 +38,9 @@ const RightSection = (updateDataState: any) => {
           <TabPanel
             value="2"
             style={{
-              padding: '24px 0',
-            }}>
+              padding: "24px 0",
+            }}
+          >
             <ResponseTab updateDataState={updateDataState} />
           </TabPanel>
         </TabContext>

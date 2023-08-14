@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { PublicRoute } from "constants/variables";
+import { PublicRoute } from "src/constants/variables";
 import { Box, Button, Chip, Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { getAPI, postAPI } from "src/lib/axios";

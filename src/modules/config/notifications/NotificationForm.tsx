@@ -19,7 +19,7 @@ import { useSnackbar, SnackbarKey, SnackbarMessage, OptionsObject } from "notist
 import EmailPopUpBox from "./EmailPopUpBox";
 import { useAlertPopup } from "globalStates/alertPopup";
 import FullPageLoader from "src/components/FullPageLoader/index";
-import useNotificationConfigStore from "store/notification-config";
+import useNotificationConfigStore "src/store/zustand/notification-config";
 
 interface commonFieldProps {
   is_app?: boolean;

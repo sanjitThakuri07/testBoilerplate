@@ -11,7 +11,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { ReactComponent as InfoIcon } from "../src/assets/icons/info_icon.svg";
+import { ReactComponent as InfoIcon } from "/src/assets/icons/info_icon.svg";
 import { useCurrentLayout } from "containers/inspections/store/inspection";
 
 export default function CreateLayout({ layouts = [] }: any) {

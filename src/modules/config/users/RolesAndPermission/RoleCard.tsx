@@ -1,6 +1,6 @@
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { Button, Card, Grid, Typography } from "@mui/material";
-import { UserRolesProps } from "interfaces/configs";
+import { UserRolesProps } from "src/interfaces/configs";
 import { FC, useState } from "react";
 import { useParams } from "react-router-dom";
 import { lockFields } from "src/utils/url";

@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Grid, IconButton, LinearProgress, Paper } from '@mui/material';
-import MultiUpload, { RenderArea } from './PopupMultiFileUploader';
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
-import CropIcon from '@mui/icons-material/Crop';
-import { previousDay } from 'date-fns';
-import UploadImage from '../../assets/icons/Icon.svg';
-import FileDataModal from 'components/FileDataModal';
-import ImageCropper from 'components/ImageCropper/index';
-import MaterialModal from 'components/MaterailModal';
-import PictureAsPdfOutlinedIcon from '@mui/icons-material/PictureAsPdfOutlined';
-import { fileExtensions } from 'utils/fileExtensionChecker';
-import BASTooltip from 'components/BASTooltip/BASTooltip';
-import { CommonTooltip } from 'components/tooltips';
-import { fileTypes } from 'interfaces/utils';
+import React, { useState, useEffect } from "react";
+import { Button, Grid, IconButton, LinearProgress, Paper } from "@mui/material";
+import MultiUpload, { RenderArea } from "./PopupMultiFileUploader";
+import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+import CropIcon from "@mui/icons-material/Crop";
+import { previousDay } from "date-fns";
+import UploadImage from "src/assets/icons/Icon.svg";
+import FileDataModal from "components/FileDataModal";
+import ImageCropper from "components/ImageCropper/index";
+import MaterialModal from "components/MaterailModal";
+import PictureAsPdfOutlinedIcon from "@mui/icons-material/PictureAsPdfOutlined";
+import { fileExtensions } from "utils/fileExtensionChecker";
+import BASTooltip from "components/BASTooltip/BASTooltip";
+import { CommonTooltip } from "components/tooltips";
+import { fileTypes } from "interfaces/utils";
 
 type file = {
   documents: any[];
@@ -51,12 +51,12 @@ export const IndividualFile = ({
   const [cropActive, setCropActive] = useState(false);
   let { fileOpen, isFile, fileInModal } = fileExtensions(file);
 
-  let newFileName = '';
-  let fileSize = '';
+  let newFileName = "";
+  let fileSize = "";
   if (!file?.preview) {
-    let fileFullName = file?.toString().split('/')?.reverse()[0];
-    newFileName = fileFullName?.toString().split('--')?.reverse()[0] || '';
-    fileSize = fileFullName?.toString().split('--')[0] || '';
+    let fileFullName = file?.toString().split("/")?.reverse()[0];
+    newFileName = fileFullName?.toString().split("--")?.reverse()[0] || "";
+    fileSize = fileFullName?.toString().split("--")[0] || "";
   } else {
     newFileName = file?.name;
     fileSize = file?.formatedFileSize;
@@ -70,7 +70,8 @@ export const IndividualFile = ({
         <MaterialModal
           openModal={cropActive}
           setOpenModal={setCropActive}
-          className="image__cropper-container">
+          className="image__cropper-container"
+        >
           <ImageCropper file={file} updateFile={updateFile} />
         </MaterialModal>
       )}
@@ -82,7 +83,7 @@ export const IndividualFile = ({
                 <PictureAsPdfOutlinedIcon />
               ) : ( */}
               <img
-                src={fileOpen ? fileOpen : '/assets/icons/uploaded.svg'}
+                src={fileOpen ? fileOpen : "/assets/icons/uploaded.svg"}
                 width={40}
                 height={40}
                 alt="upload here"
@@ -99,7 +100,8 @@ export const IndividualFile = ({
                       e.stopPropagation();
                       onDelete();
                     }}
-                    size="small">
+                    size="small"
+                  >
                     {/* <DeleteOutlinedIcon /> */}
                     <img src={UploadImage} alt="" />
                   </IconButton>
@@ -113,13 +115,13 @@ export const IndividualFile = ({
                     <LinearProgress
                       variant="determinate"
                       value={file?.progress || 0}
-                      color={'primary'}
+                      color={"primary"}
                       className="progress"
                     />
                   </Grid>
                   <Grid item xs={1}>
                     {/* {progress.toFixed(0)}% */}
-                    {file?.progress || ''}
+                    {file?.progress || ""}
                   </Grid>
                 </Grid>
               ) : (
@@ -138,14 +140,15 @@ export const IndividualFile = ({
             //   <CropIcon />
             // </div>
             <>
-              <CommonTooltip title={'Crop Image'} placement="top" style={{ width: 'min-content' }}>
+              <CommonTooltip title={"Crop Image"} placement="top" style={{ width: "min-content" }}>
                 <IconButton
                   onClick={(e) => {
                     e.stopPropagation();
                     setCropActive((prev: any) => !prev);
                   }}
-                  style={{ width: 'min-content' }}
-                  size="small">
+                  style={{ width: "min-content" }}
+                  size="small"
+                >
                   {/* <DeleteOutlinedIcon /> */}
                   <CropIcon />
                 </IconButton>
@@ -171,14 +174,14 @@ const Index = ({
   icon = null,
   defaultViewer = true,
   requireDescription = true,
-  For = 'normal',
+  For = "normal",
   multiple,
   disabled,
   title,
 }: IndexProps) => {
   // handling outer file upload
-  const [files, setFiles] = useState<file>({ documents: [], title: '' });
-  const [showFileData, setShowFileData] = useState('');
+  const [files, setFiles] = useState<file>({ documents: [], title: "" });
+  const [showFileData, setShowFileData] = useState("");
 
   const handleRemoveFile = (index: number) => {
     const updatedFiles = { ...files };
@@ -190,7 +193,7 @@ const Index = ({
 
   useEffect(() => {
     if (clearData) {
-      setFiles({ documents: [], title: '' });
+      setFiles({ documents: [], title: "" });
       setClearData(false);
     }
   }, [clearData]);
@@ -215,7 +218,8 @@ const Index = ({
                 onClick={() => {
                   setOpenMultiImage(true);
                 }}
-                style={{ cursor: 'pointer' }}>
+                style={{ cursor: "pointer" }}
+              >
                 {icon}
               </div>
             ) : defaultViewer ? (
@@ -224,7 +228,8 @@ const Index = ({
                 maxFileSize={maxFileSize}
                 onClick={() => {
                   setOpenMultiImage(true);
-                }}></RenderArea>
+                }}
+              ></RenderArea>
             ) : (
               <></>
             )}
@@ -235,8 +240,8 @@ const Index = ({
           open={openMultiImage}
           onClose={({ reset, closePopup }: any) => {
             if (reset === true) {
-              setFiles({ documents: [], title: '' });
-              getFileData({ documents: [], title: '' });
+              setFiles({ documents: [], title: "" });
+              getFileData({ documents: [], title: "" });
             }
             closePopup && setOpenMultiImage(false);
           }}
@@ -261,7 +266,7 @@ const Index = ({
       {!!defaultViewer &&
         files?.documents?.map((doc, index) => (
           <Grid item xs={12} md={12} key={index} className="individual__file-container-box">
-            <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div style={{ display: "flex", alignItems: "center" }}>
               <IndividualFile
                 file={doc}
                 openInNewWindow={!openMultiImage}
@@ -277,10 +282,11 @@ const Index = ({
                     preview: data?.preview,
                   });
                   setFiles?.((prev: any) => {
-                    return { documents: docs, title: prev?.title || '' };
+                    return { documents: docs, title: prev?.title || "" };
                   });
                 }}
-                disabled={disabled}></IndividualFile>
+                disabled={disabled}
+              ></IndividualFile>
             </div>
           </Grid>
         ))}

@@ -1,4 +1,4 @@
-import { AuthRoute } from "constants/variables";
+import { AuthRoute } from "src/constants/variables";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Button,
@@ -18,10 +18,10 @@ import { ChangeEvent } from "react";
 import { useFormik } from "formik";
 import PasswordSchema from "validationSchemas/Password";
 import SettingFooter from "src/components/footer/SettingFooter";
-import { FormikFormHelpers } from "interfaces/utils";
+import { FormikFormHelpers } from "src/interfaces/utils";
 import { postAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
-import { PasswordPayload } from "interfaces/passwordValidation";
+import { PasswordPayload } from "src/interfaces/passwordValidation";
 import ModalLayout from "src/components/ModalLayout";
 import ForgotPassword from "src/modules/auth/forgotPassword";
 import useAppStore from "src/store/zustand/app";

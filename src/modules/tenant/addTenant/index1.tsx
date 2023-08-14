@@ -21,7 +21,7 @@ import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModa
 import PhoneNumberInput from "containers/setting/profile/PhoneNumberInput";
 import ProfilePicture from "containers/setting/profile/ProfilePicture";
 import { Field, Formik, FormikProps } from "formik";
-import { MenuOptions, Phone } from "interfaces/profile";
+import { MenuOptions, Phone } from "src/interfaces/profile";
 import { useNavigate, useParams } from "react-router-dom";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import OrganizationSchema from "validationSchemas/Organization";

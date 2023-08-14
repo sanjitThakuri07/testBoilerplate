@@ -4,7 +4,7 @@ import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { permissionFilter } from "../generalSettings/OrganizationConfiguration";
 import { usePermissionStore } from "src/store/zustand/permission";
-import { PrivateRoute } from "constants/variables";
+import { PrivateRoute } from "src/constants/variables";
 
 export const subTabContainerGeneral = [
   {

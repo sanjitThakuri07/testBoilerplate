@@ -8,7 +8,7 @@
                           onClick={() => setIsBlurTitle(!isBlurTitle)}>
                           {values.title}{' '}
                           <img
-                            src={require('../../assets/icons/Icon2.png')}
+                            src={require('src/assets/icons/Icon2.png')}
                             alt=""
                             style={{
                               width: '15px',

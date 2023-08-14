@@ -1,14 +1,14 @@
 import { deleteAPI, getAPI } from "src/lib/axios";
-import { RegionProps } from "interfaces/configs";
+import { RegionProps } from "src/interfaces/configs";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Breadcrumbs, Button, Link, Stack, Typography } from "@mui/material";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import BackButton from "src/components/buttons/back";
-import { PrivateRoute } from "constants/variables";
+import { PrivateRoute } from "src/constants/variables";
 import UploadCsv from "src/modules/config/generalSettings/upload/UploadCsv";
 import { ConfigTableUrlUtils } from "src/modules/config/generalSettings";
-import { useDepartmentConfigStore } from "globalStates/config";
+import { useDepartmentConfigStore } from "src/store/zustand/globalStates/config";
 import { Box } from "@mui/system";
 import OrgForms from "./OrgForms";
 

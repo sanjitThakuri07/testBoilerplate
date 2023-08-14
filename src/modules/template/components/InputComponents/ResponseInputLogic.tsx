@@ -1,4 +1,4 @@
-import { useTextAnswer } from 'globalStates/templates/TextAnswer';
+import { useTextAnswer } from "src/store/zustand/globalStates/templates/TextAnswer";
 import {
   Button,
   Checkbox,
@@ -14,21 +14,21 @@ import {
   OutlinedInput,
   Select,
   TextField,
-} from '@mui/material';
-import React, { FC, MouseEvent, useEffect, useState, useRef } from 'react';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
-import AddIcon from '@mui/icons-material/Add';
-import ModalLayout from 'components/ModalLayout';
-import { useTemplateFieldsStore } from 'containers/template/store/templateFieldsStore';
-import { Field, FieldArray, Form, Formik } from 'formik';
-import { v4 as uuidv4 } from 'uuid';
-import EvidenceBlankIcon from 'assets/icons/Evidence__blank.svg';
-import './responseInputLogic.scss';
-import { Diversity2 } from '@mui/icons-material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { useParams } from 'react-router-dom';
-import { jaJP } from '@mui/x-data-grid';
+} from "@mui/material";
+import React, { FC, MouseEvent, useEffect, useState, useRef } from "react";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
+import AddIcon from "@mui/icons-material/Add";
+import ModalLayout from "components/ModalLayout";
+import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { Field, FieldArray, Form, Formik } from "formik";
+import { v4 as uuidv4 } from "uuid";
+import EvidenceBlankIcon from "assets/icons/Evidence__blank.svg";
+import "./responseInputLogic.scss";
+import { Diversity2 } from "@mui/icons-material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useParams } from "react-router-dom";
+import { jaJP } from "@mui/x-data-grid";
 
 type ResponseInputLogicProps = {
   responseTypeId?: any;
@@ -44,10 +44,10 @@ type ResponseInputLogicProps = {
 // { value: [''], name: '' }
 
 const KeyOptionsName = {
-  EVIDENCE: 'Require Evidence',
-  ACTION: 'Require Action',
-  NOTIFY: 'Notify',
-  ASK_QUESTION: 'Ask Question',
+  EVIDENCE: "Require Evidence",
+  ACTION: "Require Action",
+  NOTIFY: "Notify",
+  ASK_QUESTION: "Ask Question",
 };
 
 const triggerActions = [
@@ -108,10 +108,10 @@ const ModalEvidenceConformation = ({
                 <FormControlLabel
                   control={
                     <Checkbox
-                      checked={prevEvidences.includes('notes') || false}
+                      checked={prevEvidences.includes("notes") || false}
                       onChange={(e) => {
                         let checked = e.target.checked;
-                        handleCheckboxes(checked, 'notes');
+                        handleCheckboxes(checked, "notes");
                       }}
                     />
                   }
@@ -120,10 +120,10 @@ const ModalEvidenceConformation = ({
                 <FormControlLabel
                   control={
                     <Checkbox
-                      checked={prevEvidences.includes('media') || false}
+                      checked={prevEvidences.includes("media") || false}
                       onChange={(e) => {
                         let checked = e.target.checked;
-                        handleCheckboxes(checked, 'media');
+                        handleCheckboxes(checked, "media");
                       }}
                     />
                   }
@@ -133,14 +133,16 @@ const ModalEvidenceConformation = ({
               <div
                 className="document_number_format_footer"
                 style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  gap: '1rem',
-                }}>
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: "1rem",
+                }}
+              >
                 <Button
                   variant="outlined"
                   className="buttonContainer"
-                  onClick={() => setOpenModal(false)}>
+                  onClick={() => setOpenModal(false)}
+                >
                   Cancel
                 </Button>
                 <Button
@@ -148,8 +150,9 @@ const ModalEvidenceConformation = ({
                   className="buttonContainer"
                   onClick={() => {
                     submitForm();
-                  }}>
-                  {' '}
+                  }}
+                >
+                  {" "}
                   Save & Apply
                 </Button>
               </div>
@@ -198,11 +201,12 @@ const DynamicAdditionFormField = ({
             item
             xs={12}
             sx={{
-              backgroundColor: '#F4F6FA;',
-              paddingBottom: '15px',
-              marginLeft: '30px',
-              marginTop: '10px',
-            }}>
+              backgroundColor: "#F4F6FA;",
+              paddingBottom: "15px",
+              marginLeft: "30px",
+              marginTop: "10px",
+            }}
+          >
             <div className="text_answer_add_logic">
               <div className="text_answer_add_logic_inner">
                 If the answer
@@ -211,7 +215,7 @@ const DynamicAdditionFormField = ({
                   MenuProps={{
                     PaperProps: { style: { maxHeight: 200, maxWidth: 150 } },
                   }}
-                  sx={{ width: 'auto' }}
+                  sx={{ width: "auto" }}
                   id={`logic.logics.${index}.condition`}
                   size="small"
                   fullWidth
@@ -224,7 +228,8 @@ const DynamicAdditionFormField = ({
                     handleChange(e);
                     submitForm();
                   }}
-                  onBlur={handleBlur}>
+                  onBlur={handleBlur}
+                >
                   {renderCondition?.map((item: any, index: number) => (
                     <MenuItem key={item} value={`${item}`}>
                       {item}
@@ -237,7 +242,7 @@ const DynamicAdditionFormField = ({
                     MenuProps={{
                       PaperProps: { style: { maxHeight: 200, maxWidth: 150 } },
                     }}
-                    sx={{ width: 'auto' }}
+                    sx={{ width: "auto" }}
                     id={`logic.logics.${index}.value`}
                     size="small"
                     fullWidth
@@ -252,7 +257,8 @@ const DynamicAdditionFormField = ({
                       handleChange(e);
                       submitForm();
                     }}
-                    onBlur={handleBlur}>
+                    onBlur={handleBlur}
+                  >
                     {logicOptions?.options?.map((item: any, index: number) => (
                       <MenuItem key={item?.name} value={`${item?.name}`}>
                         {item?.name}
@@ -264,7 +270,8 @@ const DynamicAdditionFormField = ({
                     className="input__field-select"
                     onClick={() => {
                       setEnableInputBlankField(true);
-                    }}>
+                    }}
+                  >
                     {enableInputBlankField ? (
                       <input
                         autoFocus
@@ -274,7 +281,7 @@ const DynamicAdditionFormField = ({
                         name={`logic.logics.${index}.value`}
                         value={values?.logic?.logics?.[`${index}`]?.value}
                         onChange={handleChange}
-                        placeholder={'_blank'}
+                        placeholder={"_blank"}
                         onBlur={() => {
                           setEnableInputBlankField(false);
                         }}
@@ -284,14 +291,14 @@ const DynamicAdditionFormField = ({
                         <span>
                           {values?.logic?.logics?.[`${index}`]?.value
                             ? values?.logic?.logics?.[`${index}`]?.value
-                            : 'blank'}
+                            : "blank"}
                         </span>
                         <DriveFileRenameOutlineIcon />
                       </span>
                     )}
                   </div>
                 )}
-                then{' '}
+                then{" "}
                 <div className="trigger_value">
                   {values?.logic?.logics?.[`${index}`]?.trigger
                     ? values?.logic?.logics?.[`${index}`]?.trigger.map(
@@ -302,11 +309,11 @@ const DynamicAdditionFormField = ({
                                 label={parentItem?.name}
                                 size="small"
                                 sx={{
-                                  border: 'none',
-                                  marginLeft: '5px',
-                                  transform: 'scale(0.9)',
-                                  backgroundColor: '#FFFAEB',
-                                  color: '#B14608',
+                                  border: "none",
+                                  marginLeft: "5px",
+                                  transform: "scale(0.9)",
+                                  backgroundColor: "#FFFAEB",
+                                  color: "#B14608",
                                 }}
                                 variant="outlined"
                                 onClick={() => {
@@ -366,7 +373,7 @@ const DynamicAdditionFormField = ({
                           );
                         },
                       )
-                    : ''}
+                    : ""}
                 </div>
                 {/* <span onClick={handleMenuClickTrigger}>Trigger</span> */}
               </div>
@@ -376,7 +383,7 @@ const DynamicAdditionFormField = ({
                   MenuProps={{
                     PaperProps: { style: { maxHeight: 200, maxWidth: 150 } },
                   }}
-                  sx={{ width: 'auto' }}
+                  sx={{ width: "auto" }}
                   id={`logic.logics.${index}.trigger`}
                   size="small"
                   fullWidth
@@ -384,7 +391,7 @@ const DynamicAdditionFormField = ({
                   disabled={false}
                   name={`logic.logics.${index}.trigger`}
                   // value={values?.logic[`${index}`]?.value}
-                  value={'+ trigger'}
+                  value={"+ trigger"}
                   onChange={(e) => {
                     let prevFormValues = { ...values };
                     let updatedValue: any = values?.logic?.logics?.[`${index}`]?.trigger
@@ -410,7 +417,7 @@ const DynamicAdditionFormField = ({
                         previousData?.linkQuestions.push(uniqueId);
                       } else {
                         updatedValue.push({
-                          value: [''],
+                          value: [""],
                           name: e.target.value,
                         });
                       }
@@ -427,7 +434,8 @@ const DynamicAdditionFormField = ({
 
                     submitForm();
                   }}
-                  onBlur={handleBlur}>
+                  onBlur={handleBlur}
+                >
                   {triggerActions?.map((item: any, index: number) => (
                     <MenuItem key={item} value={`${item}`}>
                       {item}
@@ -455,7 +463,8 @@ const DynamicAdditionFormField = ({
               (templateData: any) => !linkQuestions?.includes(templateData?.id),
             ),
           );
-        }}>
+        }}
+      >
         Remove
       </button>
     </div>
@@ -526,7 +535,8 @@ const TabbedFormikField = (props: any) => {
                   linkQuestions: logic?.linkQuestions || [],
                 });
               }}
-              className={activeTab === logic?.id ? 'active' : ''}>
+              className={activeTab === logic?.id ? "active" : ""}
+            >
               {logic?.value}
             </button>
           ))}
@@ -567,7 +577,8 @@ const TabbedFormikField = (props: any) => {
           //   linkQuestions: [],
           // });
           // submitForm();
-        }}>
+        }}
+      >
         Add Logic
       </button>
     </>
@@ -593,8 +604,8 @@ const ResponseInputLogic: FC<ResponseInputLogicProps> = ({
       logics: [
         {
           id: createGlobalLogicId,
-          condition: '',
-          value: '',
+          condition: "",
+          value: "",
           trigger: [],
           logicQuestions: [],
         },
@@ -628,8 +639,8 @@ const ResponseInputLogic: FC<ResponseInputLogicProps> = ({
         flaggedResponse: [],
         logics: [
           {
-            condition: '',
-            value: '',
+            condition: "",
+            value: "",
             trigger: [],
             linkQuestions: [],
           },
@@ -643,15 +654,15 @@ const ResponseInputLogic: FC<ResponseInputLogicProps> = ({
           logics: [
             {
               id: createGlobalLogicId,
-              condition: renderCondition?.[0] || '',
-              value: selectField ? logicOptions?.options?.[0]?.name : '',
+              condition: renderCondition?.[0] || "",
+              value: selectField ? logicOptions?.options?.[0]?.name : "",
               trigger: [],
               linkQuestions: [],
             },
           ],
         },
       }));
-      updateTemplateDatasets(selectedDataset, 'logic', logic);
+      updateTemplateDatasets(selectedDataset, "logic", logic);
     }
   }, [responseTypeId]);
 
@@ -668,8 +679,9 @@ const ResponseInputLogic: FC<ResponseInputLogicProps> = ({
           variant="outlined"
           onClick={() => {
             setIsAddLogicClicked(!isAddLogicClicked);
-          }}>
-          {isAddLogicClicked ? 'Hide ' : 'Show '}
+          }}
+        >
+          {isAddLogicClicked ? "Hide " : "Show "}
           Logic
         </Button>
       </div>
@@ -677,9 +689,10 @@ const ResponseInputLogic: FC<ResponseInputLogicProps> = ({
         key={responseTypeId}
         initialValues={initialValues}
         onSubmit={(values) => {
-          updateTemplateDatasets(selectedDataset, 'logic', values?.logic);
+          updateTemplateDatasets(selectedDataset, "logic", values?.logic);
         }}
-        enableReinitialize={true}>
+        enableReinitialize={true}
+      >
         {({ values, handleChange, handleBlur, setFieldValue, submitForm }: any) => {
           return (
             <Form className="logic__display-part">
@@ -711,7 +724,7 @@ const ResponseInputLogic: FC<ResponseInputLogicProps> = ({
                   label="Multiple Selection"
                 />
                 {/* flagged response */}
-                <div style={{ overflow: 'hidden' }}>
+                <div style={{ overflow: "hidden" }}>
                   <FormControl sx={{ m: 1, width: 300 }}>
                     <InputLabel id="demo-multiple-checkbox-label">Flagged Response</InputLabel>
                     <Select
@@ -724,18 +737,20 @@ const ResponseInputLogic: FC<ResponseInputLogicProps> = ({
                         const {
                           target: { value },
                         } = event;
-                        let newValue = typeof value === 'string' ? value.split(',') : value;
+                        let newValue = typeof value === "string" ? value.split(",") : value;
                         setFieldValue(`logic.flaggedResponse`, newValue);
                         submitForm();
                       }}
                       input={<OutlinedInput label="Flagged Response" />}
-                      renderValue={(selected) => selected.join(', ')}
-                      MenuProps={MenuProps}>
+                      renderValue={(selected) => selected.join(", ")}
+                      MenuProps={MenuProps}
+                    >
                       {logicOptions?.options?.map((item: any) => (
                         <MenuItem
                           key={item?.name}
                           value={item?.name}
-                          className="menu__options-logic">
+                          className="menu__options-logic"
+                        >
                           <Checkbox
                             checked={values?.logic?.flaggedResponse?.indexOf(item?.name) > -1}
                           />
@@ -768,8 +783,8 @@ const ResponseInputLogic: FC<ResponseInputLogicProps> = ({
                         const newId = uuidv4();
                         push({
                           id: newId,
-                          condition: renderCondition?.[0] || '',
-                          value: selectField ? logicOptions?.options?.[0]?.name : '',
+                          condition: renderCondition?.[0] || "",
+                          value: selectField ? logicOptions?.options?.[0]?.name : "",
                           trigger: [],
                           linkQuestions: [],
                         });

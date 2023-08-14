@@ -1,7 +1,7 @@
 import { Box, FormGroup, Grid, InputLabel, Typography } from "@mui/material";
 import { getAPI } from "src/lib/axios";
 import { FormikProps } from "formik";
-import { MenuOptions, TenantProfile } from "interfaces/profile";
+import { MenuOptions, TenantProfile } from "src/interfaces/profile";
 import React, { useState } from "react";
 import { FC } from "react";
 import DynamicSelectField from "./DynamicSelectField";

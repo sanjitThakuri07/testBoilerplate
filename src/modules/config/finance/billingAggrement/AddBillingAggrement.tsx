@@ -14,11 +14,11 @@ import {
   TextField,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { BillingAgreementProps } from "interfaces/configs";
+import { BillingAgreementProps } from "src/interfaces/configs";
 import React, { FC, useEffect, useState } from "react";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
-import { useFinanceBillingAgreementStore } from "globalStates/config";
+import { useFinanceBillingAgreementStore } from "src/store/zustand/globalStates/config";
 import { BillingAgreementSchema } from "validationSchemas/config";
 import { useParams, useNavigate } from "react-router-dom";
 import FullPageLoader from "src/components/FullPageLoader";

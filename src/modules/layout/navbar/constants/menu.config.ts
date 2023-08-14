@@ -1,10 +1,10 @@
-import { tabContainerBookings } from "containers/Bookings/Layouts/BookingTableLayouts";
-import { permissionList } from "src/constants/permssion";
-import { PrivateRoute } from "constants/variables";
-import { tabContainerQuotation } from "containers/Quotation/Layouts/QuotationTableLayouts";
-import { tabContainerFinance } from "containers/finance/FinanceConfig";
+// import { tabContainerBookings } from "containers/Bookings/Layouts/BookingTableLayouts";
+import { permissionList } from "src/constants/permission";
+import { PrivateRoute } from "src/constants/variables";
+// import { tabContainerQuotation } from "containers/Quotation/Layouts/QuotationTableLayouts";
+import { tabContainerFinance } from "src/modules/finance/FinanceConfig";
 import { tabContainerConfiguration } from "src/modules/config/generalSettings/OrganizationConfiguration";
-import { rolesList } from "constants/roles";
+import { rolesList } from "src/constants/roles";
 
 export const menuData = {
   PLATFORM_OWNER: [
@@ -46,24 +46,24 @@ export const menuData = {
       tabsContainer: [],
       depth: 1,
     },
-    {
-      label: "Quotations",
-      path: tabContainerQuotation[0].link,
-      icon: "quotation",
-      role: [],
-      permission: [permissionList.Quotations.view, permissionList.QuotationTemplates.view],
-      tabsContainer: tabContainerQuotation,
-      depth: 1,
-    },
-    {
-      label: "Bookings",
-      path: PrivateRoute.BOOKINGS.CHILD_LINKS.ALL_BOOKING.ALL_BOOKING.LINK,
-      icon: "booking",
-      role: [],
-      permission: [permissionList.BookingTemplates.view, permissionList.Bookings.view],
-      tabsContainer: tabContainerBookings,
-      depth: 1,
-    },
+    // {
+    //   label: "Quotations",
+    //   path: tabContainerQuotation[0].link,
+    //   icon: "quotation",
+    //   role: [],
+    //   permission: [permissionList.Quotations.view, permissionList.QuotationTemplates.view],
+    //   tabsContainer: tabContainerQuotation,
+    //   depth: 1,
+    // },
+    // {
+    //   label: "Bookings",
+    //   path: PrivateRoute.BOOKINGS.CHILD_LINKS.ALL_BOOKING.ALL_BOOKING.LINK,
+    //   icon: "booking",
+    //   role: [],
+    //   permission: [permissionList.BookingTemplates.view, permissionList.Bookings.view],
+    //   tabsContainer: tabContainerBookings,
+    //   depth: 1,
+    // },
     {
       label: "Form Builder",
       path: "/template",

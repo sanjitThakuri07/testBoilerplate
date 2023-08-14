@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import { useAlertPopup } from "globalStates/alertPopup";
 import { IOSSwitch } from "src/components/switch/IosSwitch";
 import NotificationForm from "./NotificationForm";
-import { TextSeperator } from "containers/utils";
+import { TextSeperator } from "src/modules/utils";
 import BackButton from "src/components/buttons/back";
 
 export default function SignUpAlertModal({

@@ -13,12 +13,12 @@ import {
   TextareaAutosize,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { RegionProps } from "interfaces/configs";
+import { RegionProps } from "src/interfaces/configs";
 import React, { FC, useState } from "react";
 import { ConfigRegionsSchema } from "validationSchemas/config";
 import { postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
-import { useConfigStore } from "globalStates/config";
+import { useConfigStore } from "src/store/zustand/globalStates/config";
 import { useParams } from "react-router-dom";
 
 const InspectionForm: FC<{ region: RegionProps }> = ({ region }) => {

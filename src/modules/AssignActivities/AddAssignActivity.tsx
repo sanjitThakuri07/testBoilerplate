@@ -14,7 +14,7 @@ import {
   TextField,
 } from "@mui/material";
 import { Field, Formik, FormikProps } from "formik";
-import { AssignActivityProps } from "interfaces/configs";
+import { AssignActivityProps } from "src/interfaces/configs";
 import { useEffect, useState } from "react";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";

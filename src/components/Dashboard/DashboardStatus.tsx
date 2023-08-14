@@ -1,12 +1,12 @@
 import { Box } from "@mui/system";
-import TenantUserCard from "components/TenantUserCard";
+import TenantUserCard from "src/components/TenantUserCard";
 import { Grid } from "@mui/material";
-import CardSkeletonLoader from "components/CardSkeletonLoader";
-import { useDashboardFilter } from "globalStates/dashboardFilter";
-import TenantUserTable from "components/TenantUserTable";
-import { TenantUserProps } from "interfaces/tenantUserProps";
-import NoDataFound from "components/NoDataFound";
-import { userDataStore } from "globalStates/userData";
+import CardSkeletonLoader from "src/components/CardSkeletonLoader";
+import { useDashboardFilter } from "src/store/zustand/globalStates/dashboardFilter";
+import TenantUserTable from "src/components/TenantUserTable";
+import { TenantUserProps } from "src/interfaces/tenantUserProps";
+import NoDataFound from "src/components/NoDataFound";
+import { userDataStore } from "src/store/zustand/globalStates/userData";
 
 interface AllTenantProps {
   loader: boolean;

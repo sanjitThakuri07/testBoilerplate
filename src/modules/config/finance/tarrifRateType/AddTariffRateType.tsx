@@ -15,11 +15,11 @@ import {
   TextareaAutosize,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { TariffRateTypeProps } from "interfaces/configs";
+import { TariffRateTypeProps } from "src/interfaces/configs";
 import React, { FC, useEffect, useState } from "react";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
-import { useFinanceBillingAgreementStore } from "globalStates/config";
+import { useFinanceBillingAgreementStore } from "src/store/zustand/globalStates/config";
 import { BillingAgreementSchema } from "validationSchemas/config";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchIndividualApi, postApiData, putApiData } from "src/modules/apiRequest/apiRequest";

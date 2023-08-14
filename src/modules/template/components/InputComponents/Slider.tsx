@@ -1,14 +1,14 @@
-import { useTextAnswer } from 'globalStates/templates/TextAnswer';
-import { Button, Divider, Grid, TextField, Slider } from '@mui/material';
-import React, { FC } from 'react';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import SliderIcon from 'assets/template/icons/slider.png';
-import ModalLayout from 'components/ModalLayout';
-import { useTemplateFieldsStore } from 'containers/template/store/templateFieldsStore';
+import { useTextAnswer } from "src/store/zustand/globalStates/templates/TextAnswer";
+import { Button, Divider, Grid, TextField, Slider } from "@mui/material";
+import React, { FC } from "react";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import SliderIcon from "assets/template/icons/slider.png";
+import ModalLayout from "components/ModalLayout";
+import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
 import ComponentWrapper, {
   LabelWrapper,
   BodyWrapper,
-} from 'containers/template/components/Wrapper';
+} from "containers/template/components/Wrapper";
 
 type SliderProps = {
   responseTypeId?: any;
@@ -34,7 +34,7 @@ const SliderInput = ({ responseTypeId, dataItem, questionLogicShow }: any) => {
   const { setRightSectionTabValue, selectedInputType, setSelectedInputId } = useTextAnswer();
 
   const onClick = () => {
-    setRightSectionTabValue('2');
+    setRightSectionTabValue("2");
     setOpen(!open);
     setSelectedInputId(responseTypeId);
 
@@ -47,18 +47,19 @@ const SliderInput = ({ responseTypeId, dataItem, questionLogicShow }: any) => {
         {questionLogicShow?.getActiveLogicQuestion()?.includes(dataItem.id) && (
           <BodyWrapper>
             <div className="question__answer-type">
-              Slider -{' '}
+              Slider -{" "}
               <span
                 id="document-number-positioned-button"
                 onClick={() => {
                   setOpenModal(true);
                 }}
                 style={{
-                  textDecoration: 'underline',
+                  textDecoration: "underline",
                   fontWeight: 500,
-                }}>
+                }}
+              >
                 {`${dataItem?.variables?.min_value} - ${dataItem?.variables?.max_value}`}
-              </span>{' '}
+              </span>{" "}
             </div>
           </BodyWrapper>
         )}
@@ -76,15 +77,16 @@ const SliderInput = ({ responseTypeId, dataItem, questionLogicShow }: any) => {
                   <div
                     className="document_number_format"
                     style={{
-                      marginTop: '20px',
-                    }}>
+                      marginTop: "20px",
+                    }}
+                  >
                     <div className="document_number_format_heading">Increment</div>
                     <TextField
                       variant="standard"
                       autoFocus
                       placeholder="Increment"
                       value={step}
-                      sx={{ backgroundColor: '#f9fafb', width: '100%' }}
+                      sx={{ backgroundColor: "#f9fafb", width: "100%" }}
                       InputProps={{
                         disableUnderline: true,
                       }}
@@ -95,7 +97,7 @@ const SliderInput = ({ responseTypeId, dataItem, questionLogicShow }: any) => {
                   <Slider
                     aria-label="Slider"
                     value={sliderValue}
-                    style={{ width: '100%' }}
+                    style={{ width: "100%" }}
                     valueLabelDisplay="auto"
                     onChange={(e: any, value: any) => setSliderValue(value)}
                     min={Number(minValue)}
@@ -104,10 +106,11 @@ const SliderInput = ({ responseTypeId, dataItem, questionLogicShow }: any) => {
                   />
                   <div
                     style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                    }}>
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                    }}
+                  >
                     <div>{minValue}</div>
                     <div>{sliderValue}</div>
                     <div>{maxValue}</div>
@@ -115,21 +118,23 @@ const SliderInput = ({ responseTypeId, dataItem, questionLogicShow }: any) => {
                   <div
                     className="document_number_format"
                     style={{
-                      marginTop: '20px',
-                    }}>
+                      marginTop: "20px",
+                    }}
+                  >
                     <div className="document_number_format_heading">Range</div>
                     <div
                       style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        gap: '1rem',
-                      }}>
+                        display: "flex",
+                        justifyContent: "space-between",
+                        gap: "1rem",
+                      }}
+                    >
                       <TextField
                         variant="standard"
                         autoFocus
                         placeholder="Min"
                         value={minValue}
-                        sx={{ backgroundColor: '#f9fafb', width: '100%' }}
+                        sx={{ backgroundColor: "#f9fafb", width: "100%" }}
                         InputProps={{
                           disableUnderline: true,
                         }}
@@ -140,7 +145,7 @@ const SliderInput = ({ responseTypeId, dataItem, questionLogicShow }: any) => {
                         autoFocus
                         placeholder="Max"
                         value={maxValue}
-                        sx={{ backgroundColor: '#f9fafb', width: '100%' }}
+                        sx={{ backgroundColor: "#f9fafb", width: "100%" }}
                         InputProps={{
                           disableUnderline: true,
                         }}
@@ -152,10 +157,11 @@ const SliderInput = ({ responseTypeId, dataItem, questionLogicShow }: any) => {
                   <div
                     className="document_number_format_footer"
                     style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      gap: '1rem',
-                    }}>
+                      display: "flex",
+                      justifyContent: "space-between",
+                      gap: "1rem",
+                    }}
+                  >
                     <Button variant="outlined" className="buttonContainer">
                       Reset All
                     </Button>
@@ -163,15 +169,16 @@ const SliderInput = ({ responseTypeId, dataItem, questionLogicShow }: any) => {
                       variant="contained"
                       className="buttonContainer"
                       onClick={() => {
-                        updateTemplateDatasets(dataItem, 'variables', {
+                        updateTemplateDatasets(dataItem, "variables", {
                           ...dataItem.variables,
                           step,
                           min_value: minValue,
                           max_value: maxValue,
                         });
                         setOpenModal(false);
-                      }}>
-                      {' '}
+                      }}
+                    >
+                      {" "}
                       Apply
                     </Button>
                   </div>

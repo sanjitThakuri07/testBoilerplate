@@ -5,7 +5,7 @@ import React from "react";
 import { BillingValidation } from "validationSchemas/BillingSchema";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
-import { AddBillingPlanProps, BillingInitialValues } from "interfaces/billingPlan";
+import { AddBillingPlanProps, BillingInitialValues } from "src/interfaces/billingPlan";
 import MultiStepProgressBar from "containers/customers/customer/FormProgress";
 
 import {
@@ -14,14 +14,14 @@ import {
   BillingPlanStepThree,
   BillingPlanStepTwo,
 } from "./BillingPlanForms";
-import { FormikFormHelpers } from "interfaces/utils";
+import { FormikFormHelpers } from "src/interfaces/utils";
 import SettingFooter from "src/components/footer/SettingFooter";
 import WestIcon from "@mui/icons-material/West";
 import EastIcon from "@mui/icons-material/East";
 import SendIcon from "@mui/icons-material/Send";
 import { useNavigate, useParams } from "react-router-dom";
 
-import useBillingPlanStore from "store/billingPlan";
+import useBillingPlanStore from "src/store/zustand/billingPlan";
 import { LoadingButton } from "@mui/lab";
 import BackButton from "src/components/buttons/back";
 

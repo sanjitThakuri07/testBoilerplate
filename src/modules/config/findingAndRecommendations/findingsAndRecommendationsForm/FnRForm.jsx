@@ -35,7 +35,7 @@ import {
   findingsAndRecommendationsValidationSchemaSubCategory,
 } from "validationSchemas/ContractorValidation";
 import FullPageLoader from "src/components/FullPageLoader";
-import { usePathUrlSettor } from "globalStates/config";
+import { usePathUrlSettor } from "src/store/zustand/globalStates/config";
 import { map } from "lodash";
 import { getByTitle } from "@testing-library/react";
 

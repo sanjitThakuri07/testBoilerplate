@@ -3,10 +3,10 @@ import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModa
 import { Breadcrumbs, Button, CircularProgress, Link, Stack, Typography } from "@mui/material";
 import BackButton from "src/components/buttons/back";
 import { useLocation, useParams, Link as Href, useNavigate } from "react-router-dom";
-import { useContractorServicesStore } from "globalStates/config";
-import { usePathUrlSettor } from "globalStates/config";
+import { useContractorServicesStore } from "src/store/zustand/globalStates/config";
+import { usePathUrlSettor } from "src/store/zustand/globalStates/config";
 import { fetchInitialValues } from "./Form/apiRequest";
-import { ExternalConnectionProps, ResponseSetPropsS, TableValue } from "interfaces/configs";
+import { ExternalConnectionProps, ResponseSetPropsS, TableValue } from "src/interfaces/configs";
 import ExternalResponseSetForm from "./Form/ExternalResponseSetForm";
 
 const Index = () => {

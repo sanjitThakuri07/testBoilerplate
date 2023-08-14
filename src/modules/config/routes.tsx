@@ -1,5 +1,5 @@
-import { PrivateRoute, userProfileRoot } from "constants/variables";
-import { IndexHOC } from "HOC/indexHOC";
+import { PrivateRoute, userProfileRoot } from "src/constants/variables";
+import { IndexHOC } from "src/hoc/indexHOC";
 import _401 from "pages/message/_401";
 import GeneralSetting from "src/modules/config/generalSettings/GeneralSetting";
 import AddRegionsConfig from "src/modules/config/generalSettings/region/AddRegionsConfig";

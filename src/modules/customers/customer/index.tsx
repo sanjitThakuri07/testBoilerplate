@@ -4,19 +4,19 @@ import { Breadcrumbs, Button, CircularProgress, Link, Stack, Typography } from "
 import BackButton from "src/components/buttons/back";
 import UploadCsv from "src/modules/config/generalSettings/upload/UploadCsv";
 import { useLocation, useParams, Link as Href, useNavigate } from "react-router-dom";
-import { useContractorServicesStore } from "globalStates/config";
+import { useContractorServicesStore } from "src/store/zustand/globalStates/config";
 import { deleteAPI, getAPI, postAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
 import { ConfigTableUrlUtils } from "src/modules/config/generalSettings/OrganizationConfiguration";
 import { Box } from "@mui/system";
-import { usePathUrlSettor } from "globalStates/config";
+import { usePathUrlSettor } from "src/store/zustand/globalStates/config";
 import { contractorsUrl } from "src/routers/routingsUrl";
 import MultiStepProgressBar from "./FormProgress";
 import PageOne from "./Form/CustomerForm";
 import PageTwo from "./Form/CustomerAddress";
 import PageThree from "./Form/CustomerAdd";
 import { fetchInitialValues } from "./Form/apiRequest";
-import { customerProps } from "interfaces/configs";
+import { customerProps } from "src/interfaces/configs";
 import EditView from "src/components/ViewEdit";
 import { permissionList } from "src/constants/permission";
 

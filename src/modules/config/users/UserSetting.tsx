@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { getAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
-import { useConfigStore } from "globalStates/config";
+import { useConfigStore } from "src/store/zustand/globalStates/config";
 import { Box } from "@mui/system";
 import { CircularProgress } from "@mui/material";
 import OrganizationConfiguration, {
   ConfigTableUrlUtils,
 } from "../generalSettings/OrganizationConfiguration";
 import BASDataTable from "../generalSettings/BASDataTable";
-import { BASConfigTableProps } from "interfaces/configs";
+import { BASConfigTableProps } from "src/interfaces/configs";
 import UsersSettingLayout from "./UserSettingLayout";
 import { usePermissionStore } from "src/store/zustand/permission";
 import { permissionList } from "src/constants/permission";

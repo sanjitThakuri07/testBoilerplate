@@ -13,14 +13,14 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { ReactComponent as InfoIcon } from "../src/assets/icons/info_icon.svg";
+import { ReactComponent as InfoIcon } from "/src/assets/icons/info_icon.svg";
 import AddModal from "src/components/AddModal/AddModal";
 import { deleteAPI, getAPI, postAPI } from "src/lib/axios";
 import { useNavigate, useParams } from "react-router-dom";
 import BASTooltip from "src/components/BASTooltip/BASTooltip";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
-import NoDataFoundImg from "../src/assets/images/no_data_found.svg";
-import { ReactComponent as LayoutIcon } from "../src/assets/icons/layout_icon.svg";
+import NoDataFoundImg from "/src/assets/images/no_data_found.svg";
+import { ReactComponent as LayoutIcon } from "/src/assets/icons/layout_icon.svg";
 import { useReportLayoutDataSets } from "../../store/ReportStoreDataSets";
 
 export default function CreateLayout({

@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { getAPI } from "src/lib/axios";
 import Inspection_Status_DataTable from "./Inspection_Status_DataTable";
-import { useConfigStore } from "globalStates/config";
+import { useConfigStore } from "src/store/zustand/globalStates/config";
 import { useSnackbar } from "notistack";
 import BASDataTable from "./BASDataTable";
 import "./config.scss";

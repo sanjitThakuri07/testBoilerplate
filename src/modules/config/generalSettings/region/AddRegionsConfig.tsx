@@ -1,14 +1,14 @@
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { Breadcrumbs, Button, CircularProgress, Link, Stack, Typography } from "@mui/material";
 import BackButton from "src/components/buttons/back";
-import { CountryProps, LocationProps, RegionProps, TerritoryProps } from "interfaces/configs";
+import { CountryProps, LocationProps, RegionProps, TerritoryProps } from "src/interfaces/configs";
 import { useEffect, useState } from "react";
 import RegionForm from "./RegionForm";
 import "./regions.scss";
 import UploadCsv from "../upload/UploadCsv";
 import RegionCard from "./RegionCard";
 import { useLocation, useParams, Link as Href, useNavigate } from "react-router-dom";
-import { useConfigStore } from "globalStates/config";
+import { useConfigStore } from "src/store/zustand/globalStates/config";
 import { deleteAPI, getAPI, postAPI } from "src/lib/axios";
 import TerritoryForm from "../territory/TerritotyForm";
 import CountryForm from "../country/CountryForm";

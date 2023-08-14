@@ -11,7 +11,7 @@ import { FC, useEffect, useState } from "react";
 import { FormikProps } from "formik";
 import { ChromePicker } from "react-color";
 
-import { MenuOptions, Profile } from "interfaces/profile";
+import { MenuOptions, Profile } from "src/interfaces/profile";
 import { getAPI } from "src/lib/axios";
 import DynamicSelectField from "./DynamicSelectField";
 

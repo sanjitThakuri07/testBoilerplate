@@ -1,4 +1,4 @@
-import { useTextAnswer } from 'globalStates/templates/TextAnswer';
+import { useTextAnswer } from "src/store/zustand/globalStates/templates/TextAnswer";
 import {
   Button,
   Checkbox,
@@ -14,21 +14,21 @@ import {
   OutlinedInput,
   Select,
   TextField,
-} from '@mui/material';
-import React, { FC, MouseEvent, useEffect, useState, useRef } from 'react';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
-import AddIcon from '@mui/icons-material/Add';
-import ModalLayout from 'components/ModalLayout';
-import { useTemplateFieldsStore } from 'containers/template/store/templateFieldsStore';
-import { Field, FieldArray, Form, Formik } from 'formik';
-import { v4 as uuidv4 } from 'uuid';
-import EvidenceBlankIcon from 'assets/icons/Evidence__blank.svg';
-import { Close, Diversity2 } from '@mui/icons-material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { useParams } from 'react-router-dom';
-import { jaJP } from '@mui/x-data-grid';
-import CloseIcon from '@mui/icons-material/Close';
+} from "@mui/material";
+import React, { FC, MouseEvent, useEffect, useState, useRef } from "react";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
+import AddIcon from "@mui/icons-material/Add";
+import ModalLayout from "components/ModalLayout";
+import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { Field, FieldArray, Form, Formik } from "formik";
+import { v4 as uuidv4 } from "uuid";
+import EvidenceBlankIcon from "assets/icons/Evidence__blank.svg";
+import { Close, Diversity2 } from "@mui/icons-material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useParams } from "react-router-dom";
+import { jaJP } from "@mui/x-data-grid";
+import CloseIcon from "@mui/icons-material/Close";
 
 type ResponseInputLogicProps = {
   responseTypeId?: any;
@@ -44,10 +44,10 @@ type ResponseInputLogicProps = {
 // { value: [''], name: '' }
 
 const KeyOptionsName = {
-  EVIDENCE: 'Require Evidence',
-  ACTION: 'Require Action',
-  NOTIFY: 'Notify',
-  ASK_QUESTION: 'Ask Question',
+  EVIDENCE: "Require Evidence",
+  ACTION: "Require Action",
+  NOTIFY: "Notify",
+  ASK_QUESTION: "Ask Question",
 };
 
 const triggerActions = [
@@ -58,33 +58,33 @@ const triggerActions = [
 ];
 
 const renderConditionDeafaultOptions: any = {
-  multiple: ['is', 'is not', 'is selected', 'is not selected', 'is one of', 'is not one of'],
-  global: ['is', 'is not', 'is selected', 'is not selected', 'is one of', 'is not one of'],
-  internal: ['is', 'is not', 'is selected', 'is not selected', 'is one of', 'is not one of'],
-  TEMP_001: [''],
-  CHECK_001: ['is checked', 'is not checked'],
-  TEXT_001: ['is', 'is not'],
+  multiple: ["is", "is not", "is selected", "is not selected", "is one of", "is not one of"],
+  global: ["is", "is not", "is selected", "is not selected", "is one of", "is not one of"],
+  internal: ["is", "is not", "is selected", "is not selected", "is one of", "is not one of"],
+  TEMP_001: [""],
+  CHECK_001: ["is checked", "is not checked"],
+  TEXT_001: ["is", "is not"],
   SLID_001: [
-    'less than',
-    'less than or equal to',
-    'equal to',
-    'not equal to',
-    'greater than or equal to',
-    'is greater than',
-    'between',
-    'not between',
+    "less than",
+    "less than or equal to",
+    "equal to",
+    "not equal to",
+    "greater than or equal to",
+    "is greater than",
+    "between",
+    "not between",
   ],
   NUM_001: [
-    'less than',
-    'less than or equal to',
-    'equal to',
-    'not equal to',
-    'greater than or equal to',
-    'is greater than',
-    'between',
-    'not between',
+    "less than",
+    "less than or equal to",
+    "equal to",
+    "not equal to",
+    "greater than or equal to",
+    "is greater than",
+    "between",
+    "not between",
   ],
-  SIGN_001: ['name is', 'name is not', 'exist', 'does not exist'],
+  SIGN_001: ["name is", "name is not", "exist", "does not exist"],
 };
 
 const ModalEvidenceConformation = ({
@@ -113,7 +113,7 @@ const ModalEvidenceConformation = ({
       } else {
         setPrevEvidences((prev: any) => prev?.filter((data: string) => data !== key));
       }
-    } else if (action === 'save') {
+    } else if (action === "save") {
       prevTriggerEvidenceValues.value = prevValues;
     }
   };
@@ -137,10 +137,10 @@ const ModalEvidenceConformation = ({
                 <FormControlLabel
                   control={
                     <Checkbox
-                      checked={prevEvidences.includes('notes') || false}
+                      checked={prevEvidences.includes("notes") || false}
                       onChange={(e) => {
                         let checked = e.target.checked;
-                        handleCheckboxes({ checked, key: 'notes' });
+                        handleCheckboxes({ checked, key: "notes" });
                       }}
                     />
                   }
@@ -149,10 +149,10 @@ const ModalEvidenceConformation = ({
                 <FormControlLabel
                   control={
                     <Checkbox
-                      checked={prevEvidences.includes('media') || false}
+                      checked={prevEvidences.includes("media") || false}
                       onChange={(e) => {
                         let checked = e.target.checked;
-                        handleCheckboxes({ checked, key: 'media' });
+                        handleCheckboxes({ checked, key: "media" });
                       }}
                     />
                   }
@@ -162,10 +162,11 @@ const ModalEvidenceConformation = ({
               <div
                 className="document_number_format_footer"
                 style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  gap: '1rem',
-                }}>
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: "1rem",
+                }}
+              >
                 <Button
                   variant="outlined"
                   className="buttonContainer"
@@ -177,7 +178,8 @@ const ModalEvidenceConformation = ({
                           ?.find((item: any) => item?.name === KeyOptionsName?.EVIDENCE)
                           ?.value?.filter((data: any) => Boolean(data)) || [],
                     );
-                  }}>
+                  }}
+                >
                   Cancel
                 </Button>
                 <Button
@@ -185,10 +187,11 @@ const ModalEvidenceConformation = ({
                   className="buttonContainer"
                   onClick={() => {
                     setOpenModal(false);
-                    handleCheckboxes({ action: 'save' });
+                    handleCheckboxes({ action: "save" });
                     submitForm();
-                  }}>
-                  {' '}
+                  }}
+                >
+                  {" "}
                   Save & Apply
                 </Button>
               </div>
@@ -241,11 +244,12 @@ const DynamicAdditionFormField = ({
           item
           xs={12}
           sx={{
-            backgroundColor: '#F4F6FA;',
-            paddingBottom: '15px',
+            backgroundColor: "#F4F6FA;",
+            paddingBottom: "15px",
             // marginLeft: '30px',
-            marginTop: '10px',
-          }}>
+            marginTop: "10px",
+          }}
+        >
           <div className="text_answer_add_logic">
             <div className="text_answer_add_logic_inner">
               If the answer
@@ -254,7 +258,7 @@ const DynamicAdditionFormField = ({
                 MenuProps={{
                   PaperProps: { style: { maxHeight: 200, maxWidth: 150 } },
                 }}
-                sx={{ width: 'auto' }}
+                sx={{ width: "auto" }}
                 id={`logics.${index}.condition`}
                 size="small"
                 fullWidth
@@ -265,7 +269,7 @@ const DynamicAdditionFormField = ({
                 value={`${values?.logics?.[`${index}`]?.condition}`}
                 onChange={(e) => {
                   handleChange(e);
-                  if (!['is one of', 'is not one of']?.includes(e.target.value)) {
+                  if (!["is one of", "is not one of"]?.includes(e.target.value)) {
                     if (Array.isArray(values?.logics?.[`${index}`]?.value)) {
                       values?.logics?.[`${index}`]?.value?.length > 0 &&
                         setFieldValue(
@@ -278,7 +282,8 @@ const DynamicAdditionFormField = ({
                   }
                   submitForm();
                 }}
-                onBlur={handleBlur}>
+                onBlur={handleBlur}
+              >
                 {renderConditionOption?.map((item: any, index: number) => (
                   <MenuItem key={item} value={`${item}`}>
                     {item}
@@ -287,7 +292,7 @@ const DynamicAdditionFormField = ({
               </Select>
               {selectField ? (
                 <>
-                  {!['is selected', 'is not selected']?.includes(
+                  {!["is selected", "is not selected"]?.includes(
                     values?.logics?.[`${index}`]?.condition,
                   ) && (
                     <Select
@@ -295,9 +300,9 @@ const DynamicAdditionFormField = ({
                       MenuProps={{
                         PaperProps: { style: { maxHeight: 200, maxWidth: 150 } },
                       }}
-                      sx={{ width: 'auto' }}
+                      sx={{ width: "auto" }}
                       multiple={
-                        ['is one of', 'is not one of']?.includes(
+                        ["is one of", "is not one of"]?.includes(
                           values?.logics?.[`${index}`]?.condition,
                         )
                           ? true
@@ -311,7 +316,7 @@ const DynamicAdditionFormField = ({
                       disabled={false}
                       name={`logics.${index}.value`}
                       value={
-                        ['is one of', 'is not one of']?.includes(
+                        ["is one of", "is not one of"]?.includes(
                           values?.logics?.[`${index}`]?.condition,
                         )
                           ? Array.isArray(values?.logics?.[`${index}`]?.value)
@@ -326,12 +331,13 @@ const DynamicAdditionFormField = ({
                         submitForm();
                       }}
                       renderValue={(selected) => {
-                        return Array.isArray(selected) ? selected?.join(', ') : selected;
+                        return Array.isArray(selected) ? selected?.join(", ") : selected;
                       }}
-                      onBlur={handleBlur}>
+                      onBlur={handleBlur}
+                    >
                       {logicOptions?.map((item: any, idx: number) => (
                         <MenuItem key={item} value={`${item}`}>
-                          {['is one of', 'is not one of']?.includes(
+                          {["is one of", "is not one of"]?.includes(
                             values?.logics?.[`${index}`]?.condition,
                           ) && (
                             <Checkbox
@@ -351,7 +357,8 @@ const DynamicAdditionFormField = ({
                     onClick={() => {
                       setEnableInputBlankField((prev) => ({ ...prev, first: true }));
                     }}
-                    style={{ marginRight: '4px' }}>
+                    style={{ marginRight: "4px" }}
+                  >
                     {enableInputBlankField?.first ? (
                       <input
                         autoFocus
@@ -364,7 +371,7 @@ const DynamicAdditionFormField = ({
                           handleChange(e);
                           submitForm();
                         }}
-                        placeholder={'_blank'}
+                        placeholder={"_blank"}
                         onBlur={() => {
                           setEnableInputBlankField((prev) => ({ ...prev, first: false }));
                         }}
@@ -374,20 +381,21 @@ const DynamicAdditionFormField = ({
                         <span>
                           {values?.logics?.[`${index}`]?.value?.[0]
                             ? values?.logics?.[`${index}`]?.value?.[0]
-                            : 'blank'}
+                            : "blank"}
                         </span>
                         <DriveFileRenameOutlineIcon />
                       </span>
                     )}
                   </div>
-                  {['between', 'not between']?.includes(values?.logics?.[`${index}`]?.condition) ? (
+                  {["between", "not between"]?.includes(values?.logics?.[`${index}`]?.condition) ? (
                     <>
                       and
                       <div
                         className="input__field-select"
                         onClick={() => {
                           setEnableInputBlankField((prev) => ({ ...prev, second: true }));
-                        }}>
+                        }}
+                      >
                         {enableInputBlankField?.second ? (
                           <input
                             autoFocus
@@ -400,7 +408,7 @@ const DynamicAdditionFormField = ({
                               handleChange(e);
                               submitForm();
                             }}
-                            placeholder={'_blank'}
+                            placeholder={"_blank"}
                             onBlur={() => {
                               setEnableInputBlankField((prev) => ({ ...prev, second: false }));
                             }}
@@ -410,7 +418,7 @@ const DynamicAdditionFormField = ({
                             <span>
                               {values?.logics?.[`${index}`]?.value?.[1]
                                 ? values?.logics?.[`${index}`]?.value?.[1]
-                                : 'blank'}
+                                : "blank"}
                             </span>
                             <DriveFileRenameOutlineIcon />
                           </span>
@@ -429,7 +437,7 @@ const DynamicAdditionFormField = ({
                   MenuProps={{
                     PaperProps: { style: { maxHeight: 200, maxWidth: 150 } },
                   }}
-                  sx={{ width: 'auto' }}
+                  sx={{ width: "auto" }}
                   id={`logics.${index}.trigger`}
                   size="small"
                   fullWidth
@@ -437,7 +445,7 @@ const DynamicAdditionFormField = ({
                   disabled={false}
                   name={`logics.${index}.trigger`}
                   // value={values?.logic[`${index}`]?.value}
-                  value={'+ trigger'}
+                  value={"+ trigger"}
                   onChange={(e: any) => {
                     e.stopPropagation();
                     let prevFormValues = { ...values };
@@ -455,7 +463,7 @@ const DynamicAdditionFormField = ({
                         previousData.linkQuestions = [...previousData?.linkQuestions, uniqueId];
                         submitForm();
                       } else if (e.target.value === KeyOptionsName?.ACTION) {
-                        updatedValue.push({ value: ['Require Action'], name: e.target.value });
+                        updatedValue.push({ value: ["Require Action"], name: e.target.value });
                       } else if (e.target.value === KeyOptionsName?.EVIDENCE) {
                         updatedValue.push({ value: [], name: e.target.value });
                         setOpenModal(true);
@@ -467,7 +475,8 @@ const DynamicAdditionFormField = ({
                     setFieldValue(`logics.${index}.trigger`, updatedValue);
                     submitForm();
                   }}
-                  onBlur={handleBlur}>
+                  onBlur={handleBlur}
+                >
                   {triggerActions?.map((item: any, index: number) => (
                     <MenuItem key={item} value={`${item}`}>
                       {item}
@@ -516,7 +525,8 @@ const DynamicAdditionFormField = ({
                             } else if (parentItem?.name === KeyOptionsName?.EVIDENCE) {
                               setOpenModal(true);
                             }
-                          }}>
+                          }}
+                        >
                           <span>{parentItem?.name}</span>
                           <span>
                             <CloseIcon
@@ -565,7 +575,7 @@ const DynamicAdditionFormField = ({
                       </>
                     );
                   })
-                : ''}
+                : ""}
             </div>
           </div>
         </Grid>
@@ -582,7 +592,8 @@ const DynamicAdditionFormField = ({
           );
           remove(index);
           submitForm();
-        }}>
+        }}
+      >
         Remove
       </button>
     </div>
@@ -611,7 +622,7 @@ function setActiveBlocksId({
     ...activeLogicBlocks,
     [`${blockId}`]: { [`${logicBlockId}`]: [...linkQuestions] },
   };
-  console.log('here');
+  console.log("here");
 
   setLogicBlocks({ ...prevLogicBlocks });
 }
@@ -660,11 +671,12 @@ const TabbedFormikField = React.forwardRef((props: any, ref: any) => {
               //   linkQuestions: [],
               // });
               submitForm();
-            }}>
+            }}
+          >
             Add Logic
           </Button>
         </div>
-        <div className={`${values?.logics?.length ? 'logic__tab-container' : ''}`}>
+        <div className={`${values?.logics?.length ? "logic__tab-container" : ""}`}>
           {values?.logics?.map((logic: any, index: number) => (
             <button
               key={logic?.id}
@@ -680,7 +692,8 @@ const TabbedFormikField = React.forwardRef((props: any, ref: any) => {
                     [...(logic?.linkQuestions || []), values?.logics?.[`${index}`]?.id] || [],
                 });
               }}
-              className={activeTab === logic?.id ? 'active' : ''}>
+              className={activeTab === logic?.id ? "active" : ""}
+            >
               {logic?.value}
             </button>
           ))}
@@ -730,7 +743,7 @@ const ResponseInputLogic: any = React.forwardRef(({ responseTypeId, data, dataIt
   const renderConditionOption =
     renderConditionDeafaultOptions?.[
       `${
-        parentData?.response_choice === 'default'
+        parentData?.response_choice === "default"
           ? parentData?.response_type
           : parentData?.response_choice
       }`
@@ -774,22 +787,24 @@ const ResponseInputLogic: any = React.forwardRef(({ responseTypeId, data, dataIt
           e.stopPropagation();
           setSelectedData?.(dataItem);
         }}
-        className={`logic__container logic__container-body`}>
+        className={`logic__container logic__container-body`}
+      >
         <Formik
           key={responseTypeId}
           initialValues={initialValues}
           onSubmit={(values) => {
-            if (selectedDataset.component === 'logic') {
-              updateTemplateDatasets(dataItem, 'logics', values?.logics);
+            if (selectedDataset.component === "logic") {
+              updateTemplateDatasets(dataItem, "logics", values?.logics);
             } else {
               const selectLogic = templateDatasets.find(
                 (lg: any) => lg.id === selectedDataset.logicId,
               );
               if (!selectLogic) return;
-              updateTemplateDatasets(dataItem, 'logics', values?.logics);
+              updateTemplateDatasets(dataItem, "logics", values?.logics);
             }
           }}
-          enableReinitialize={true}>
+          enableReinitialize={true}
+        >
           {({ values, handleChange, handleBlur, setFieldValue, handleSubmit }: any) => {
             return (
               <>
@@ -816,10 +831,10 @@ const ResponseInputLogic: any = React.forwardRef(({ responseTypeId, data, dataIt
                             const newId = uuidv4();
                             push({
                               id: newId,
-                              condition: renderConditionOption?.[0] || '',
+                              condition: renderConditionOption?.[0] || "",
                               trigger: [],
                               linkQuestions: [],
-                              value: logicOptions?.[0] || [''],
+                              value: logicOptions?.[0] || [""],
                             });
                             return newId;
                           }}

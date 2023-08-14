@@ -10,12 +10,12 @@ import {
   OutlinedInput,
   Typography,
 } from "@mui/material";
-import { UserSecurityPayload } from "interfaces/userSecurity";
+import { UserSecurityPayload } from "src/interfaces/userSecurity";
 import { useFormik } from "formik";
 import UserSecuritySchema from "validationSchemas/UserSecurity";
 import { ChangeEvent, useState } from "react";
 import SettingFooter from "src/components/footer/SettingFooter";
-import { FormikFormHelpers } from "interfaces/utils";
+import { FormikFormHelpers } from "src/interfaces/utils";
 import { getAPI, postAPI } from "src/lib/axios";
 import { useEffect } from "react";
 import { useSnackbar } from "notistack";

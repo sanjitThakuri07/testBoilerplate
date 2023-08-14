@@ -13,7 +13,7 @@ import CommonFilter, {
 } from "src/modules/config/Filters/CommonFilter";
 import { ASSIGN_ACTIVITY_INITIAL_VALUE } from "src/modules/config/filterOptionsList";
 import BASDataTable from "src/modules/table/BASDataTable";
-import { BASConfigTableProps } from "interfaces/configs";
+import { BASConfigTableProps } from "src/interfaces/configs";
 import { useSnackbar } from "notistack";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";

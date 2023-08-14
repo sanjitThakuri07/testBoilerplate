@@ -13,7 +13,7 @@ import {
   TextareaAutosize,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { serviceProps } from "interfaces/configs";
+import { serviceProps } from "src/interfaces/configs";
 import React, { FC, useEffect, useState } from "react";
 import {
   ConfigRegionsSchema,
@@ -22,7 +22,7 @@ import {
 } from "validationSchemas/config";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
-import { useContractorServicesStore } from "globalStates/config";
+import { useContractorServicesStore } from "src/store/zustand/globalStates/config";
 import { useNavigate, useParams } from "react-router-dom";
 
 const ServiceForm: FC<{

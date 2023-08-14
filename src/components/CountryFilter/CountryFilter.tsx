@@ -18,7 +18,7 @@ import {
 import React, { useEffect } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import { getAPI } from "src/lib/axios";
-import { useDashboardFilter } from "globalStates/dashboardFilter";
+import { useDashboardFilter } from "src/store/zustand/globalStates/dashboardFilter";
 
 export interface DialogTitleProps {
   id: string;

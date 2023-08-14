@@ -13,12 +13,12 @@ import {
   TextField,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { RegionProps } from "interfaces/configs";
+import { RegionProps } from "src/interfaces/configs";
 import React, { FC, useEffect, useState } from "react";
 import { ConfigRegionsSchema, ConfigRegionsSchemaOptional } from "validationSchemas/config";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
-import { useConfigStore } from "globalStates/config";
+import { useConfigStore } from "src/store/zustand/globalStates/config";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import MultiEmail from "src/components/MultiEmail/MultiEmail";
 import MultiEmailCustom from "src/components/MultiEmail/MultiEmail2";
@@ -26,7 +26,7 @@ import EditView from "src/components/ViewEdit";
 import { permissionList } from "src/constants/permission";
 import { postApiData, putApiData, fetchIndividualApi } from "src/modules/apiRequest/apiRequest";
 import { REGION_DEFAULT_DATA, NAVIGATE_ROUTES } from "../constantsForm";
-import useRegionStore from "store/generalSettings/region";
+import useRegionStore "src/store/zustand/generalSettings/region";
 import useAppStore from "src/store/zustand/app";
 
 const RegionForm: FC<{

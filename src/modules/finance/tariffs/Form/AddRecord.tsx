@@ -35,7 +35,7 @@ import DynamicSelectField from "containers/setting/profile/DynamicSelectField";
 import "./form.style.scss";
 import ModalLayout from "src/components/ModalLayout";
 import ServiceForm from "../../services/ServiceForm";
-import { serviceProps } from "interfaces/configs";
+import { serviceProps } from "src/interfaces/configs";
 import {
   putApiData,
   postApiData,
@@ -43,11 +43,11 @@ import {
   fetchIndividualApi,
 } from "src/modules/apiRequest/apiRequest";
 import { useLocation } from "react-router-dom";
-import { usePathUrlSettor } from "globalStates/config";
+import { usePathUrlSettor } from "src/store/zustand/globalStates/config";
 import CustomerForm from "containers/customers/customer/Form/CustomerForm";
 import { allRoutes } from "src/routers/routingsUrl";
 import NewCustomMultiSelect from "src/components/NewCustomMultiSelect/NewCustomMultiSelect";
-import { PrivateRoute } from "constants/variables";
+import { PrivateRoute } from "src/constants/variables";
 import { Link } from "react-router-dom";
 
 interface rateProps {

@@ -13,13 +13,13 @@ import {
   TextField,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { CountryProps, TerritoryProps } from "interfaces/configs";
+import { CountryProps, TerritoryProps } from "src/interfaces/configs";
 import { FC, useEffect, useState } from "react";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
-import { useConfigStore } from "globalStates/config";
+import { useConfigStore } from "src/store/zustand/globalStates/config";
 import DynamicSelectField from "containers/setting/profile/DynamicSelectField";
-import { MenuOptions } from "interfaces/profile";
+import { MenuOptions } from "src/interfaces/profile";
 import { ConfigTerritoriesSchema, ConfigTerritoriesSchemaOptional } from "validationSchemas/config";
 import ModalLayout from "src/components/ModalLayout";
 import CountryForm from "../country/CountryForm";
@@ -28,8 +28,8 @@ import { fetchApI } from "src/modules/apiRequest/apiRequest";
 import { TERRITORY_DEFAULT_DATA, NAVIGATE_ROUTES } from "../constantsForm";
 import { postApiData, putApiData } from "src/modules/apiRequest/apiRequest";
 import FullPageLoader from "src/components/FullPageLoader";
-import useCountryStore from "store/generalSettings/country";
-import useTerriotryStore from "store/generalSettings/territory";
+import useCountryStore "src/store/zustand/generalSettings/country";
+import useTerriotryStore "src/store/zustand/generalSettings/territory";
 import useAppStore from "src/store/zustand/app";
 
 const TerritoryForm: FC<{

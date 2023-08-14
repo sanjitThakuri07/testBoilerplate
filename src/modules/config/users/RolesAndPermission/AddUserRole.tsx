@@ -14,11 +14,11 @@ import {
   TextField,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { UserRolesProps } from "interfaces/configs";
+import { UserRolesProps } from "src/interfaces/configs";
 import { useEffect, useState } from "react";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
-import { useConfigStore, userRolesStore } from "globalStates/config";
+import { useConfigStore, userRolesStore } from "src/store/zustand/globalStates/config";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import * as Yup from "yup";
 

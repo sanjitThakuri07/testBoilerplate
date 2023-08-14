@@ -10,12 +10,12 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import { Notifications as NotificationsPayload } from "interfaces/notifications";
+import { Notifications as NotificationsPayload } from "src/interfaces/notifications";
 import { ChangeEvent, useState } from "react";
 import { useSnackbar } from "notistack";
 import { useFormik } from "formik";
 import NotificationSchema from "validationSchemas/Notifications";
-import { FormikFormHelpers } from "interfaces/utils";
+import { FormikFormHelpers } from "src/interfaces/utils";
 import SettingFooter from "src/components/footer/SettingFooter";
 import { getAPI, postAPI } from "src/lib/axios";
 import { useEffect } from "react";

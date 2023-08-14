@@ -1,9 +1,9 @@
 import { permissionList } from "src/constants/permission";
-import { PrivateRoute } from "constants/variables";
+import { PrivateRoute } from "src/constants/variables";
 import Organization from "containers/organization";
 import NoDataOrganizations from "containers/organization/NoData";
 
-import { IndexHOC } from "HOC/indexHOC";
+import { IndexHOC } from "src/hoc/indexHOC";
 
 export default [
   {

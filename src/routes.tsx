@@ -10,6 +10,13 @@ import Index from "src/modules/dashboard/index";
 import ProjectRouter from "src/routers/index";
 
 import app from "src/constants/app";
+import { useEffect } from "react";
+import { fetchApI } from "./modules/apiRequest/apiRequest";
+import { useLayoutStore } from "./store/zustand/globalStates/layout";
+import { usePermissionStore } from "./store/zustand/permission";
+import { userDataStore } from "./store/zustand/globalStates/userData";
+import { loggedUserDataStore } from "./store/zustand/globalStates/loggedUserData";
+import useAppStore from "./store/zustand/app/index";
 // import Layout from "src/containers/Layout";
 
 // import withAuth from "src/hoc/withAuth";
@@ -85,6 +92,45 @@ import app from "src/constants/app";
 // ];
 
 function AppRoutes() {
+  const layoutStore = useLayoutStore((state) => state);
+  const { systemParameters, fetchSystemParameters, fetchSystemSecurity }: any = useAppStore();
+  const { getPermissions } = usePermissionStore();
+  const { userType } = userDataStore();
+  const { setOrgData } = loggedUserDataStore();
+  const { fetchProfile }: any = useAppStore();
+
+  const fetchDetails = async ({ url }: any) => {
+    await fetchApI({
+      url: url,
+      getAll: true,
+      setterFunction: (data: any) => {
+        setOrgData({
+          org_name: data?.org_name,
+          logo: data?.profilePicture,
+          country_code: data?.country,
+        });
+      },
+    });
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem("access")) {
+      getPermissions();
+      fetchProfile({});
+    }
+    if (userType === "Organization" || userType === "Customer") {
+      fetchSystemParameters({});
+    }
+  }, [localStorage.getItem("access")]);
+
+  useEffect(() => {
+    if (userType === "Organization") {
+      fetchDetails({ url: "organization-global-settings/details" });
+      fetchSystemSecurity({});
+    } else if (userType === "Customer") {
+      fetchDetails({ url: "organization-global-settings/organization_details" });
+    }
+  }, [userType]);
   // const appRouters = useRoutes(routes);
   return <ProjectRouter />;
 }

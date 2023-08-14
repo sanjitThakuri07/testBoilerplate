@@ -15,11 +15,11 @@ import {
   TextField,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { RegionProps } from "interfaces/configs";
+import { RegionProps } from "src/interfaces/configs";
 import { useEffect, useState } from "react";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
-import { useConfigStore } from "globalStates/config";
+import { useConfigStore } from "src/store/zustand/globalStates/config";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import MultiEmail from "src/components/MultiEmail/MultiEmail";
 import { INSPECTION_STATUS_DEFAULT } from "src/modules/config/generalSettings/constantsForm";

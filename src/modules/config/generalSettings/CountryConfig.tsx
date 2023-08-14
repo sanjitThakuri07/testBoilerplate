@@ -6,7 +6,7 @@ import UserFilter from "./UserFilter";
 import InspectionSubTabs from "./InspectionSubTabs";
 import BASDataTable from "./BASDataTable";
 import { getAPI } from "src/lib/axios";
-import { useConfigStore } from "globalStates/config";
+import { useConfigStore } from "src/store/zustand/globalStates/config";
 import { useSnackbar } from "notistack";
 import { useLocation, useNavigate } from "react-router-dom";
 import TwoFactorAuthentication from "containers/setting/security/TwoFactorAuthentication";

@@ -1,7 +1,7 @@
 import * as React from "react";
 import Stack from "@mui/material/Stack";
 import { Box, Popover } from "@mui/material";
-import { TenantUserProps } from "interfaces/tenantUserProps";
+import { TenantUserProps } from "src/interfaces/tenantUserProps";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";

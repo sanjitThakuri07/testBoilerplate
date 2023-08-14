@@ -13,7 +13,7 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 import "./TemplateHeading.scss";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import { FormikProps } from "formik";
-import { TemplateCreationFields } from "interfaces/templates/templateFields";
+import { TemplateCreationFields } from "src/interfaces/templates/templateFields";
 import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
 import MultiUploader from "src/components/MultiFileUploader/index";
 import BASTooltip from "src/components/BASTooltip/BASTooltip";

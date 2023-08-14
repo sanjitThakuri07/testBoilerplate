@@ -1,6 +1,6 @@
-import { PrivateRoute } from "constants/variables";
+import { PrivateRoute } from "src/constants/variables";
 
-import { IndexHOC } from "HOC/indexHOC";
+import { IndexHOC } from "src/hoc/indexHOC";
 import Calendar from "./Calendar";
 import { permissionList } from "src/constants/permission";
 

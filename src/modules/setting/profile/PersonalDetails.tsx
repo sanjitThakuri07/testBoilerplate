@@ -8,7 +8,7 @@ import {
   FormHelperText,
   FormGroup,
 } from "@mui/material";
-import { MenuOptions, Profile } from "interfaces/profile";
+import { MenuOptions, Profile } from "src/interfaces/profile";
 import { FormikProps } from "formik";
 import { ChangeEvent, FC } from "react";
 import { getAPI } from "../../../src/lib/axios/axiosClient";

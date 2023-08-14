@@ -24,9 +24,9 @@ function AppIndex() {
   return (
     <ErrorBoundary FallbackComponent={ReactError} onError={errorHandler}>
       <ReduxProvider store={store}>
-        <ReactThemeProvider>
-          <StyledThemeProvider>
-            <Notification
+        {/* <ReactThemeProvider> */}
+        {/* <StyledThemeProvider> */}
+        {/* <Notification
               position="bottom-right"
               autoClose={5000}
               hideProgressBar={false}
@@ -37,14 +37,14 @@ function AppIndex() {
               draggable
               pauseOnHover
               theme="light"
-            />
-            <MuiThemeProvider>
-              <BrowserRouter>
-                <Routes />
-              </BrowserRouter>
-            </MuiThemeProvider>
-          </StyledThemeProvider>
-        </ReactThemeProvider>
+            /> */}
+        {/* <MuiThemeProvider> */}
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
+        {/* </MuiThemeProvider> */}
+        {/* </StyledThemeProvider> */}
+        {/* </ReactThemeProvider> */}
       </ReduxProvider>
     </ErrorBoundary>
   );

@@ -25,20 +25,11 @@ type paginationProps = {
   changePage: Function;
 };
 
-export default function UsePagination({
-  pagination,
-  changePage,
-}: paginationProps) {
+export default function UsePagination({ pagination, changePage }: paginationProps) {
   // changing the default page on tab change or api hit
   const [defaultPage, setDefaultPage] = useState(1);
 
-  const {
-    currentPage = 1,
-    pages = 1,
-    size = 9,
-    noOfPages = 0,
-    total = 0,
-  } = pagination;
+  const { currentPage = 1, pages = 1, size = 9, noOfPages = 0, total = 0 } = pagination;
 
   // setting up for api
   const controller = new AbortController();
@@ -66,93 +57,75 @@ export default function UsePagination({
       <List>
         {items
           .slice(0, 1)
-          .map(
-            (
-              { page, type, selected, onClick: defaultClick, ...item },
-              index
-            ) => {
-              let children = null;
+          .map(({ page, type, selected, onClick: defaultClick, ...item }, index) => {
+            let children = null;
 
-              children = (
-                <button
-                  type="button"
-                  className="pagination__action-button"
-                  onClick={async (e) => {
-                    defaultClick(e);
-                    setDefaultPage(page ? page : 1);
-                    pageHandler(page ? page : 1);
-                  }}
-                  {...item}
-                >
-                  {type === "previous" ? <ArrowBackIcon /> : <></>}{" "}
-                  <p>{type}</p>
-                </button>
-              );
+            children = (
+              <button
+                type="button"
+                className="pagination__action-button"
+                onClick={async (e) => {
+                  defaultClick(e);
+                  setDefaultPage(page ? page : 1);
+                  pageHandler(page ? page : 1);
+                }}
+                {...item}
+              >
+                {type === "previous" ? <ArrowBackIcon /> : <></>} <p>{type}</p>
+              </button>
+            );
 
-              return <div key={index}>{children}</div>;
-            }
-          )}
+            return <div key={index}>{children}</div>;
+          })}
         <div className="pagination__box">
           {items
             .slice(1, items.length - 1)
-            .map(
-              (
-                { page, type, selected, onClick: defaultClick, ...item },
-                index
-              ) => {
-                let children = null;
+            .map(({ page, type, selected, onClick: defaultClick, ...item }, index) => {
+              let children = null;
 
-                if (type === "start-ellipsis" || type === "end-ellipsis") {
-                  children = <p className="pagination__button">…</p>;
-                } else if (type === "page") {
-                  children = (
-                    <button
-                      type="button"
-                      className={`pagination__button ${
-                        selected ? "active" : ""
-                      }`}
-                      onClick={async (e) => {
-                        defaultClick(e);
-                        setDefaultPage(page ? page : 1);
-                        pageHandler(page ? page : 1);
-                      }}
-                      {...item}
-                    >
-                      {page}
-                    </button>
-                  );
-                }
-                return <div key={index}>{children}</div>;
+              if (type === "start-ellipsis" || type === "end-ellipsis") {
+                children = <p className="pagination__button">…</p>;
+              } else if (type === "page") {
+                children = (
+                  <button
+                    type="button"
+                    className={`pagination__button ${selected ? "active" : ""}`}
+                    onClick={async (e) => {
+                      defaultClick(e);
+                      setDefaultPage(page ? page : 1);
+                      pageHandler(page ? page : 1);
+                    }}
+                    {...item}
+                  >
+                    {page}
+                  </button>
+                );
               }
-            )}
+              return <div key={index}>{children}</div>;
+            })}
         </div>
         {items
           .slice(items.length - 1, items.length)
-          .map(
-            (
-              { page, type, selected, onClick: defaultClick, ...item },
-              index
-            ) => {
-              let children = null;
+          .map(({ page, type, selected, onClick: defaultClick, ...item }, index) => {
+            let children = null;
 
-              children = (
-                <button
-                  type="button"
-                  className="pagination__action-button"
-                  onClick={async (e) => {
-                    defaultClick(e);
-                    setDefaultPage(page ? page : 1);
-                    pageHandler(page ? page : 1);
-                  }}
-                  {...item}
-                >
-                  <p>{type}</p>
-                  {<ArrowForwardIcon />}
-                </button>
-              );
-              return <div key={index}>{children}</div>;
-            }
-          )}
+            children = (
+              <button
+                type="button"
+                className="pagination__action-button"
+                onClick={async (e) => {
+                  defaultClick(e);
+                  setDefaultPage(page ? page : 1);
+                  pageHandler(page ? page : 1);
+                }}
+                {...item}
+              >
+                <p>{type}</p>
+                {<ArrowForwardIcon />}
+              </button>
+            );
+            return <div key={index}>{children}</div>;
+          })}
       </List>
     </nav>
   );

@@ -19,7 +19,7 @@ import ProfilePicture from "containers/setting/profile/ProfilePicture";
 import { useNavigate, useParams } from "react-router-dom";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import PhoneNumberInput from "containers/setting/profile/PhoneNumberInput";
-import { MenuOptions, Phone } from "interfaces/profile";
+import { MenuOptions, Phone } from "src/interfaces/profile";
 import SaveIcon from "../../../assets/icons/save_icon.svg";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { useSnackbar } from "notistack";

@@ -13,13 +13,13 @@ import {
   TextField,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { LocationProps, TerritoryProps } from "interfaces/configs";
+import { LocationProps, TerritoryProps } from "src/interfaces/configs";
 import { FC, useEffect, useState } from "react";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
-import { useConfigStore } from "globalStates/config";
+import { useConfigStore } from "src/store/zustand/globalStates/config";
 import DynamicSelectField from "containers/setting/profile/DynamicSelectField";
-import { MenuOptions } from "interfaces/profile";
+import { MenuOptions } from "src/interfaces/profile";
 import { ConfigLocationsSchema } from "validationSchemas/config";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import ModalLayout from "src/components/ModalLayout";
@@ -28,8 +28,8 @@ import { fetchApI } from "src/modules/apiRequest/apiRequest";
 import { LOCATION_DEFAULT_DATA, NAVIGATE_ROUTES } from "../constantsForm";
 import { postApiData, putApiData } from "src/modules/apiRequest/apiRequest";
 import FullPageLoader from "src/components/FullPageLoader";
-import useTerriotryStore from "store/generalSettings/territory";
-import useLocationStore from "store/generalSettings/location";
+import useTerriotryStore "src/store/zustand/generalSettings/territory";
+import useLocationStore "src/store/zustand/generalSettings/location";
 
 const LocationForm: FC<{
   location: LocationProps;

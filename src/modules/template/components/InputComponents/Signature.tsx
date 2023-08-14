@@ -1,14 +1,14 @@
-import { useTextAnswer } from 'globalStates/templates/TextAnswer';
-import { Button, Divider, Grid } from '@mui/material';
-import React, { FC } from 'react';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import SignatureIcon from 'assets/template/icons/signature.png';
-import ModalLayout from 'components/ModalLayout';
-import { useTemplateFieldsStore } from 'containers/template/store/templateFieldsStore';
+import { useTextAnswer } from "src/store/zustand/globalStates/templates/TextAnswer";
+import { Button, Divider, Grid } from "@mui/material";
+import React, { FC } from "react";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import SignatureIcon from "assets/template/icons/signature.png";
+import ModalLayout from "components/ModalLayout";
+import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
 import ComponentWrapper, {
   LabelWrapper,
   BodyWrapper,
-} from 'containers/template/components/Wrapper';
+} from "containers/template/components/Wrapper";
 
 type SignatureProps = {
   responseTypeId?: any;
@@ -28,7 +28,7 @@ const Signature = ({ responseTypeId, dataItem, questionLogicShow }: any) => {
   const { setRightSectionTabValue, selectedInputType, setSelectedInputId } = useTextAnswer();
 
   const onClick = () => {
-    setRightSectionTabValue('2');
+    setRightSectionTabValue("2");
     setOpen(!open);
     setSelectedInputId(responseTypeId);
 
@@ -36,7 +36,7 @@ const Signature = ({ responseTypeId, dataItem, questionLogicShow }: any) => {
   };
 
   const textFieldStyle = {
-    border: selectedDataset?.id === dataItem?.id ? '1px solid black' : '1px solid #e4e6eb',
+    border: selectedDataset?.id === dataItem?.id ? "1px solid black" : "1px solid #e4e6eb",
   };
   return {
     body: (
@@ -57,8 +57,9 @@ const Signature = ({ responseTypeId, dataItem, questionLogicShow }: any) => {
                   <div
                     className="document_number_format"
                     style={{
-                      marginTop: '20px',
-                    }}>
+                      marginTop: "20px",
+                    }}
+                  >
                     <div className="document_number_format_heading">Increment</div>
                   </div>
                   <br />
@@ -66,14 +67,16 @@ const Signature = ({ responseTypeId, dataItem, questionLogicShow }: any) => {
                   <div
                     className="document_number_format"
                     style={{
-                      marginTop: '20px',
-                    }}>
+                      marginTop: "20px",
+                    }}
+                  >
                     <div className="document_number_format_heading">Range</div>
                   </div>
 
                   <div
                     className="document_number_format_footer"
-                    style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem' }}>
+                    style={{ display: "flex", justifyContent: "space-between", gap: "1rem" }}
+                  >
                     <Button variant="outlined" className="buttonContainer">
                       Reset All
                     </Button>

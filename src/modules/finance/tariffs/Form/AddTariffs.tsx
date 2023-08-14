@@ -24,7 +24,7 @@ import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import PhoneNumberInput from "containers/setting/profile/PhoneNumberInput";
 import SaveIcon from "../../../assets/icons/save_icon.svg";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
-import { contractorAddressProps } from "interfaces/configs";
+import { contractorAddressProps } from "src/interfaces/configs";
 import { useSnackbar, SnackbarKey, SnackbarMessage, OptionsObject } from "notistack";
 import Radio from "src/components/Radio";
 import MultiEmailAdd from "src/components/MultiEmail/MultiEmailAdd";
@@ -37,7 +37,7 @@ import DynamicSelectField from "containers/setting/profile/DynamicSelectField";
 import "./form.style.scss";
 import ModalLayout from "src/components/ModalLayout";
 import ServiceForm from "../../services/ServiceForm";
-import { serviceProps } from "interfaces/configs";
+import { serviceProps } from "src/interfaces/configs";
 import {
   putApiData,
   postApiData,
@@ -45,7 +45,7 @@ import {
   fetchIndividualApi,
 } from "src/modules/apiRequest/apiRequest";
 import { useLocation } from "react-router-dom";
-import { usePathUrlSettor } from "globalStates/config";
+import { usePathUrlSettor } from "src/store/zustand/globalStates/config";
 import CustomerForm from "containers/customers/customer/Form/CustomerForm";
 import { allRoutes } from "src/routers/routingsUrl";
 

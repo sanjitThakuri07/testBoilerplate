@@ -7,10 +7,10 @@ import AddBillingPlan from "./AddBillingPlan";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { deleteAPI, getAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
-import { AddBillingPlanProps, BillingInitialValues } from "interfaces/billingPlan";
+import { AddBillingPlanProps, BillingInitialValues } from "src/interfaces/billingPlan";
 import BackButton from "src/components/buttons/back";
 import { useNavigate } from "react-router-dom";
-import useBillingPlanStore from "store/billingPlan";
+import useBillingPlanStore from "src/store/zustand/billingPlan";
 
 interface BillingProps {
   title: string;

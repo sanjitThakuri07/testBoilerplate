@@ -11,12 +11,12 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { ChangeEvent, useState, useEffect } from "react";
-import { SystemParamaterPayload } from "interfaces/systemParamaters";
+import { SystemParamaterPayload } from "src/interfaces/systemParamaters";
 import { useFormik } from "formik";
 import { getAPI, postAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
 import { SystemParamatersSchema } from "validationSchemas/SystemParamaters";
-import { FormikFormHelpers } from "interfaces/utils";
+import { FormikFormHelpers } from "src/interfaces/utils";
 import SettingFooter from "src/components/footer/SettingFooter";
 import * as yup from "yup";
 import OrganizationConfiguration from "src/modules/config/generalSettings/OrganizationConfiguration";

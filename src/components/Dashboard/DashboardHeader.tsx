@@ -1,4 +1,4 @@
-import { userDataStore } from "globalStates/userData";
+import { userDataStore } from "src/store/zustand/globalStates/userData";
 import { Button, Typography } from "@mui/material";
 import { Box, Stack } from "@mui/system";
 import { useNavigate } from "react-router-dom";

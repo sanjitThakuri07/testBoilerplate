@@ -3,7 +3,7 @@ import { CircularProgress } from "@mui/material";
 import { Box } from "@mui/system";
 import { permissionList } from "src/constants/permission";
 import BASDataTable from "src/modules/table/BASDataTable";
-import { useContractorServicesStore } from "globalStates/config";
+import { useContractorServicesStore } from "src/store/zustand/globalStates/config";
 import { useSnackbar } from "notistack";
 import { useLocation, useNavigate } from "react-router";
 import { getAPI } from "src/lib/axios";

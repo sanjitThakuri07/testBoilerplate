@@ -1,10 +1,10 @@
 import { Button, Stack, Typography } from "@mui/material";
-import { searchParamObject } from "containers/utils";
-import { usePathUrlSettor } from "globalStates/config";
+import { searchParamObject } from "src/modules/utils";
+import { usePathUrlSettor } from "src/store/zustand/globalStates/config";
 import { useLocation, useNavigate } from "react-router-dom";
-import { allRoutes } from "routers/routingsUrl";
+import { allRoutes } from "src/routers/routingsUrl";
 import "./finance.scss";
-import { permissionList } from "src/constants/permssion";
+import { permissionList } from "src/constants/permission";
 import { permissionFilter } from "src/modules/config/generalSettings/OrganizationConfiguration";
 import { usePermissionStore } from "src/store/zustand/permission";
 

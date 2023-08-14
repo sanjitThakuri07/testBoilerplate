@@ -15,7 +15,7 @@ import TickIcon from "src/assets/icons/tick_icon.svg";
 import DeactivateIcon from "src/assets/icons/deactivate_icon.svg";
 import LogoutIcon from "src/assets/icons/modal_logout.svg";
 import Fade from "@mui/material/Fade";
-import { TenantUserProps } from "interfaces/tenantUserProps";
+import { TenantUserProps } from "src/interfaces/tenantUserProps";
 import { styled } from "@mui/material/styles";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { getAPI, postAPI } from "src/lib/axios";

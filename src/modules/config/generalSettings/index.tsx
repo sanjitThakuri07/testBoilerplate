@@ -4,7 +4,7 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 import { getAPI } from "src/lib/axios";
 import BASDataTable from "./BASDataTable";
 import InspectionSubTabs from "./InspectionSubTabs";
-import { useConfigStore } from "globalStates/config";
+import { useConfigStore } from "src/store/zustand/globalStates/config";
 import { useSnackbar } from "notistack";
 import { usePayloadHook } from "constants/customHook/payloadOptions";
 

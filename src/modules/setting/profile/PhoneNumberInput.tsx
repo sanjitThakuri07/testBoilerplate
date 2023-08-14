@@ -6,13 +6,13 @@ import {
   MenuItem,
   OutlinedInput,
   Select,
-} from '@mui/material';
-import { FormikProps } from 'formik';
-import { MenuOptions, Phone, Profile } from 'interfaces/profile';
-import { FC, useEffect, useState } from 'react';
-import UploadImage from 'assets/icons/Icon.svg';
-import './phoneNumberInput.scss';
-import { loggedUserDataStore } from 'globalStates/loggedUserData';
+} from "@mui/material";
+import { FormikProps } from "formik";
+import { MenuOptions, Phone, Profile } from "src/interfaces/profile";
+import { FC, useEffect, useState } from "react";
+import UploadImage from "assets/icons/Icon.svg";
+import "./phoneNumberInput.scss";
+import { loggedUserDataStore } from "src/store/zustand/globalStates/loggedUserData";
 
 interface IProps {
   formikBag: FormikProps<Profile>;
@@ -37,7 +37,7 @@ const PhoneNumberInput: FC<IProps> = ({
 }) => {
   const { errors, values, touched, setFieldValue, handleChange, handleBlur } = formikBag;
   const { country_code } = loggedUserDataStore();
-  
+
   const countryMenuDrops = countryOptions?.map((mn) => {
     return {
       label: mn.phone_code,
@@ -48,8 +48,8 @@ const PhoneNumberInput: FC<IProps> = ({
   });
 
   const code = !!country_code
-  ? countryMenuDrops?.find((mn) => mn.country_code == country_code)
-  : countryMenuDrops?.find((mn) => mn.country_code == defaultCode)
+    ? countryMenuDrops?.find((mn) => mn.country_code == country_code)
+    : countryMenuDrops?.find((mn) => mn.country_code == defaultCode);
 
   const [phoneNumbers, setPhoneNumbers] = useState<Phone[]>([]);
 
@@ -58,8 +58,8 @@ const PhoneNumberInput: FC<IProps> = ({
     setPhoneNumbers([
       ...phoneNumbers,
       {
-        code: '',
-        phone: '',
+        code: "",
+        phone: "",
       },
     ]);
 
@@ -71,7 +71,7 @@ const PhoneNumberInput: FC<IProps> = ({
       setPhoneNumbers([
         {
           code: `${code?.value}`,
-          phone: '',
+          phone: "",
         },
       ]);
     } else {
@@ -90,18 +90,19 @@ const PhoneNumberInput: FC<IProps> = ({
       <Grid container spacing={2} justifyContent="space-between">
         {phoneNumbers?.map((ph, index) => {
           return (
-            <Grid item xs={12} key={index} className={`${className ? className : ''}`}>
+            <Grid item xs={12} key={index} className={`${className ? className : ""}`}>
               <div className="phone-holder">
                 <Select
                   MenuProps={{ PaperProps: { style: { maxHeight: 200 } } }}
-                  className={`${isViewOnly ? 'disabled' : ''} phone-select`}
-                  sx={{ border: '1px solid rgba(0, 0, 0, 0.23);' }}
+                  className={`${isViewOnly ? "disabled" : ""} phone-select`}
+                  sx={{ border: "1px solid rgba(0, 0, 0, 0.23);" }}
                   disabled={isViewOnly}
                   data-testid="phone-select"
                   value={values?.phone?.[index]?.code || `${code?.value}`}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  name={`phone.${index}.code`}>
+                  name={`phone.${index}.code`}
+                >
                   {countryMenuDrops?.map((option, index) => (
                     <MenuItem key={index} value={option.value}>
                       +{option.label}
@@ -110,9 +111,9 @@ const PhoneNumberInput: FC<IProps> = ({
                 </Select>
                 <OutlinedInput
                   name={`phone.${index}.phone`}
-                  className={`${isViewOnly ? 'disabled' : ''} phone-input`}
+                  className={`${isViewOnly ? "disabled" : ""} phone-input`}
                   disabled={isViewOnly}
-                  value={values?.phone?.[index]?.phone || ''}
+                  value={values?.phone?.[index]?.phone || ""}
                   error={Boolean(errors.phone?.[index])}
                   onChange={(ev) => {
                     !values?.phone?.[index]?.code &&
@@ -130,7 +131,7 @@ const PhoneNumberInput: FC<IProps> = ({
                   }}
                 />
                 {Boolean(touched.phone?.[index] && errors.phone?.[index]) && (
-                  <div className="input-feedback" style={{ color: 'red' }}>
+                  <div className="input-feedback" style={{ color: "red" }}>
                     Phone number is not valid
                   </div>
                 )}
@@ -142,7 +143,8 @@ const PhoneNumberInput: FC<IProps> = ({
                     prevNumbers?.splice(index, 1);
                     setFieldValue(`phone`, prevNumbers);
                     setPhoneNumbers(prevNumbers);
-                  }}>
+                  }}
+                >
                   <IconButton size="small">
                     {/* <DeleteOutlinedIcon /> */}
                     <img src={UploadImage} alt="" />
@@ -156,7 +158,8 @@ const PhoneNumberInput: FC<IProps> = ({
           <Grid
             item
             xs={4}
-            className={`grid-align-right ${addButtonClassName ? addButtonClassName : ''}`}>
+            className={`grid-align-right ${addButtonClassName ? addButtonClassName : ""}`}
+          >
             <Button
               disabled={isViewOnly}
               type="button"
@@ -170,7 +173,8 @@ const PhoneNumberInput: FC<IProps> = ({
                   }}
                 />
               }
-              className="link-icon">
+              className="link-icon"
+            >
               Add another
             </Button>
           </Grid>

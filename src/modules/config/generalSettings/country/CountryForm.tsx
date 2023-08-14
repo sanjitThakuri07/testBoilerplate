@@ -13,13 +13,13 @@ import {
   TextField,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { CountryProps, RegionProps } from "interfaces/configs";
+import { CountryProps, RegionProps } from "src/interfaces/configs";
 import { FC, useEffect, useState } from "react";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
-import { useConfigStore } from "globalStates/config";
+import { useConfigStore } from "src/store/zustand/globalStates/config";
 import DynamicSelectField from "containers/setting/profile/DynamicSelectField";
-import { MenuOptions } from "interfaces/profile";
+import { MenuOptions } from "src/interfaces/profile";
 import { ConfigCountriesSchema } from "validationSchemas/config";
 import { useNavigate, useParams } from "react-router-dom";
 import ModalLayout from "src/components/ModalLayout";
@@ -29,8 +29,8 @@ import FullPageLoader from "src/components/FullPageLoader";
 import MultiEmailCustom from "src/components/MultiEmail/MultiEmail2";
 
 import { COUNTRY_DEFAULT_DATA, NAVIGATE_ROUTES } from "../constantsForm";
-import useRegionStore from "store/generalSettings/region";
-import useCountryStore from "store/generalSettings/country";
+import useRegionStore "src/store/zustand/generalSettings/region";
+import useCountryStore "src/store/zustand/generalSettings/country";
 
 const CountryForm: FC<{
   country: CountryProps;

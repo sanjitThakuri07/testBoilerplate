@@ -665,7 +665,7 @@ import {
 } from "@mui/material";
 import { Formik, FormikProps, Field } from "formik";
 import { useNavigate, useParams } from "react-router-dom";
-import { BASConfigTableProps, ResponseSetPropsS, TableValue } from "interfaces/configs";
+import { BASConfigTableProps, ResponseSetPropsS, TableValue } from "src/interfaces/configs";
 import { useSnackbar, SnackbarKey, SnackbarMessage, OptionsObject } from "notistack";
 import { InternalResponseSetValidationSchema } from "validationSchemas/InternalResponseSet";
 import FullPageLoader from "src/components/FullPageLoader";

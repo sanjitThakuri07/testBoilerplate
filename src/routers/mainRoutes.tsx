@@ -12,35 +12,35 @@ import Setting from "src/modules/setting";
 import AddTenant from "src/modules/tenant/addTenant";
 import TermsAndConditions from "src/modules/terms";
 
-// import BookingsRoutes from 'containers/Bookings/routes';
-// import QuotationsRoutes from 'containers/Quotation/routes';
-// import CalendarRoutes from 'containers/calendar/routes';
+// import BookingsRoutes from 'src/modules/Bookings/routes';
+// import QuotationsRoutes from 'src/modules/Quotation/routes';
+// import CalendarRoutes from 'src/modules/calendar/routes';
 // import ConfigurationRoutes from 'src/modules/config/routes';
-// import CustomersRoutes from 'containers/customers/routes';
-// import FinanceRoutes from 'containers/finance/routes';
-// import InspectionRoutes from 'containers/inspections/routes';
-// import { routes as ScheduleRoutes } from 'containers/schedule/route';
-// import TemplateRoutes from 'containers/template/routes';
+// import CustomersRoutes from 'src/modules/customers/routes';
+// import FinanceRoutes from 'src/modules/finance/routes';
+// import InspectionRoutes from 'src/modules/inspections/routes';
+// import { routes as ScheduleRoutes } from 'src/modules/schedule/route';
+// import TemplateRoutes from 'src/modules/template/routes';
 // import _401 from 'pages/message/_401';
 
-// import ActivityRoutes from 'containers/AssignActivities/routes';
+// import ActivityRoutes from 'src/modules/AssignActivities/routes';
 // import AddInspectionStatusConfig from 'src/modules/config/generalSettings/inspection/AddInspectionStatusConfig';
-// import OrganizationRoutes from 'containers/organization/routes';
+// import OrganizationRoutes from 'src/modules/organization/routes';
 
 // import EmailIdContent from 'src/modules/config/notifications/EmailIdContent';
 
-// import IndexHOC from 'HOC/indexHOC';
-// import AddBillingPlan from 'containers/Billing/AddBillingPlan';
-// import BillingPlans from 'containers/Billing/BillingPlans';
+import IndexHOC from "src/hoc/indexHOC";
+// import AddBillingPlan from 'src/modules/Billing/AddBillingPlan';
+import BillingPlans from "src/modules/Billing/BillingPlans";
 // import AddRegionsConfig from 'src/modules/config/generalSettings/region/AddRegionsConfig';
-// import PublicPDFPreview from 'containers/inspections/Report/PDFPreview/PublicPDFPreview';
-// import NotificationList from 'containers/notificationList';
-// import AddOrganization from 'containers/tenant/addOrganization';
-// import TwoFactor_QR from 'containers/twofactor';
+// import PublicPDFPreview from 'src/modules/inspections/Report/PDFPreview/PublicPDFPreview';
+// import NotificationList from 'src/modules/notificationList';
+// import AddOrganization from 'src/modules/tenant/addOrganization';
+// import TwoFactor_QR from 'src/modules/twofactor';
 import PublicInvoicePage from "src/modules/pages/publicPages/invoicePage/invoicePage";
 // import { permissionList } from 'src/constants/permission';
-// import { rolesList } from 'constants/roles';
-// import PaymentPage from 'containers/Payment/PaymentPage';
+import { rolesList } from "src/constants/roles";
+// import PaymentPage from 'src/modules/Payment/PaymentPage';
 
 export const authRoutes = [
   {
@@ -131,37 +131,32 @@ export const publicRoutes = [
 
 export const privateRoutes: any = [
   {
-    title: "Login",
-    path: AuthRoute.LOGIN,
-    component: <Login />,
+    title: "Dashboard",
+    path: PrivateRoute.DASHBOARD,
+    component: IndexHOC({
+      component: Dashboard,
+      permission: [""],
+      role: [rolesList.tenant, rolesList.platformOwner],
+    }),
+    newPage: false,
   },
-  // {
-  //   title: 'Dashboard',
-  //   path: PrivateRoute.DASHBOARD,
-  //   component: IndexHOC({
-  //     component: Dashboard,
-  //     permission: [''],
-  //     role: [rolesList.tenant, rolesList.platformOwner],
-  //   }),
-  //   newPage: false,
-  // },
-  // {
-  //   title: 'Analytics',
-  //   path: PrivateRoute.ANALYTICS,
-  //   component: <Dashboard />,
-  //   newPage: false,
-  // },
-  // {
-  //   title: 'Billing',
-  //   path: PrivateRoute.BILLING,
-  //   // component: <BillingPlans />,
-  //   component: IndexHOC({
-  //     component: BillingPlans,
-  //     permission: [''],
-  //     role: [rolesList.platformOwner],
-  //   }),
-  //   newPage: false,
-  // },
+  {
+    title: "Analytics",
+    path: PrivateRoute.ANALYTICS,
+    component: <Dashboard />,
+    newPage: false,
+  },
+  {
+    title: "Billing",
+    path: PrivateRoute.BILLING,
+    // component: <BillingPlans />,
+    component: IndexHOC({
+      component: BillingPlans,
+      permission: [""],
+      role: [rolesList.platformOwner],
+    }),
+    newPage: false,
+  },
   // {
   //   title: 'Add Billing Plan',
   //   path: PrivateRoute.ADD_BILLING,

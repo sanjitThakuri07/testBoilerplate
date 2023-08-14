@@ -1,8 +1,8 @@
 import { CircularProgress } from "@mui/material";
 import { Box } from "@mui/system";
 import { permissionList } from "src/constants/permission";
-import { useContractorServicesStore } from "globalStates/config";
-import { BASConfigTableProps } from "interfaces/configs";
+import { useContractorServicesStore } from "src/store/zustand/globalStates/config";
+import { BASConfigTableProps } from "src/interfaces/configs";
 import { useSnackbar } from "notistack";
 import React, { useEffect } from "react";
 import { useLocation } from "react-router";

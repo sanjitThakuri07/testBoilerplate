@@ -6,7 +6,7 @@ import TableIcon from "src/assets/icons/table_icon.svg";
 import AutocompleteInput from "src/components/AutocompleteInput/AutocompleteInput";
 import SearchFieldInput from "src/components/SerachFieldInput/SearchFieldInput";
 import { Divider, Button, Stack, Chip } from "@mui/material";
-import { useDashboardFilter } from "globalStates/dashboardFilter";
+import { useDashboardFilter } from "src/store/zustand/globalStates/dashboardFilter";
 import CloseIcon from "@mui/icons-material/Close";
 import CountryFilter from "src/components/CountryFilter/CountryFilter";
 import CheckingSearchInput from "src/components/CheckingSearchInput";
@@ -188,7 +188,7 @@ export default function DashboardFilters() {
               fontSize: "15px",
             }}
             variant="outlined"
-            startIcon={<img src="/assets/icons/globe.svg" alt="location" />}
+            startIcon={<img src="src/assets/icons/globe.svg" alt="location" />}
           >
             Location Filters
           </Button>

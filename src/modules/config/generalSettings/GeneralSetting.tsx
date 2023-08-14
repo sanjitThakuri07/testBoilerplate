@@ -4,7 +4,7 @@ import { permissionList } from "src/constants/permission";
 import { fetchApI } from "src/modules/apiRequest/apiRequest";
 import GeneralSettingTableFilter from "src/modules/config/generalSettings/Filters/generalSettingTableFilter";
 import BASDataTableUpdate from "src/modules/table/BASDataTable";
-import { BASConfigTableProps } from "interfaces/configs";
+import { BASConfigTableProps } from "src/interfaces/configs";
 import { useSnackbar } from "notistack";
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router";

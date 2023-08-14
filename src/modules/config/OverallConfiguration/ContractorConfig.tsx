@@ -1,7 +1,7 @@
 import { Button, Stack } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
-import { contractorsUrl } from "routers/routingsUrl";
-import { usePathUrlSettor } from "globalStates/config";
+import { contractorsUrl } from "src/routers/routingsUrl";
+import { usePathUrlSettor } from "src/store/zustand/globalStates/config";
 import { permissionList } from "src/constants/permission";
 import { permissionFilter } from "../generalSettings/OrganizationConfiguration";
 import { usePermissionStore } from "src/store/zustand/permission";

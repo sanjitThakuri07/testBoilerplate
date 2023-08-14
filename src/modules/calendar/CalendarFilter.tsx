@@ -10,7 +10,7 @@ import makeAnimated from "react-select/animated";
 
 import { Formik, FormikProps } from "formik";
 
-import { ICalendarFilter } from "interfaces/calendarFilter";
+import { ICalendarFilter } from "src/interfaces/calendarFilter";
 
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 
@@ -28,7 +28,7 @@ import { usePermissionStore } from "src/store/zustand/permission";
 
 import { checkPermission } from "src/utils/permission";
 
-import useCountryStore from "store/generalSettings/country";
+import useCountryStore "src/store/zustand/generalSettings/country";
 
 const animatedComponents = makeAnimated();
 

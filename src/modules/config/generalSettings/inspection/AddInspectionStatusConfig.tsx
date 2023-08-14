@@ -1,13 +1,13 @@
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { Breadcrumbs, Button, Link, Stack, Typography } from "@mui/material";
 import BackButton from "src/components/buttons/back";
-import { RegionProps } from "interfaces/configs";
+import { RegionProps } from "src/interfaces/configs";
 import { useEffect, useState } from "react";
 import RegionForm from "./InspectionForm";
 import UploadCsv from "../upload/UploadCsv";
 import RegionCard from "./InspectionCard";
 import { useParams } from "react-router-dom";
-import { useConfigStore } from "globalStates/config";
+import { useConfigStore } from "src/store/zustand/globalStates/config";
 import { deleteAPI, getAPI } from "src/lib/axios";
 import { ConfigTableUrlUtils } from "../OrganizationConfiguration";
 

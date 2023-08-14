@@ -31,7 +31,7 @@ import ResponseInputLogicNew from "containers/template/components/InputComponent
 import DivSeperator from "../DivSeperator/index";
 import TabPage from "containers/template/layout/PageTab";
 
-import { FlattenObject } from "containers/utils";
+import { FlattenObject } from "src/modules/utils";
 import withScrolling from "react-dnd-scrolling";
 import { userDataStore } from "src/store/zustand/globalStates/userData";
 import { searchParamObject } from "containers/utils/index";

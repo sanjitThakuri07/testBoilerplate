@@ -4,7 +4,7 @@ import Select from "react-select";
 
 import { Form, Formik, FormikProps } from "formik";
 import ButtonLoaderSpinner from "src/components/ButtonLoaderSpinner/ButtonLoaderSpinner";
-import { useInspectionNameStore } from "store/inspection/inspectionName";
+import { useInspectionNameStore } "src/store/zustand/inspection/inspectionName";
 
 const AssignInspectionName = ({
   templateId,

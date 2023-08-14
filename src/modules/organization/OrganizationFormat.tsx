@@ -9,12 +9,12 @@ import {
 } from "@mui/material";
 import { ChangeEvent, useEffect, useState } from "react";
 import SettingFooter from "src/components/footer/SettingFooter";
-import { FormikFormHelpers } from "interfaces/utils";
+import { FormikFormHelpers } from "src/interfaces/utils";
 import { useFormik } from "formik";
 import { OrganizationSettingFormatSchema } from "validationSchemas/OrganizationSetting";
-import { IOrganizationSettingFormats } from "interfaces/organizationSetting";
+import { IOrganizationSettingFormats } from "src/interfaces/organizationSetting";
 import { getAPI, postAPI } from "src/lib/axios";
-import { MenuOptions } from "interfaces/profile";
+import { MenuOptions } from "src/interfaces/profile";
 import DynamicSelectField from "containers/setting/profile/DynamicSelectField";
 import { ChromePicker } from "react-color";
 import { useSnackbar } from "notistack";

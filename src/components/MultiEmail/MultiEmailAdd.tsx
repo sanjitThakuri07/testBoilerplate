@@ -6,12 +6,12 @@ import {
   MenuItem,
   OutlinedInput,
   Select,
-} from '@mui/material';
-import { FormikProps, getIn } from 'formik';
-import { MenuOptions, Phone, Profile } from 'interfaces/profile';
-import { FC, useEffect, useState } from 'react';
-import UploadImage from '../../assets/icons/Icon.svg';
-import './multiEmailAdd.scss';
+} from "@mui/material";
+import { FormikProps, getIn } from "formik";
+import { MenuOptions, Phone, Profile } from "interfaces/profile";
+import { FC, useEffect, useState } from "react";
+import UploadImage from "src/assets/icons/Icon.svg";
+import "./multiEmailAdd.scss";
 
 interface IProps {
   formikBag: FormikProps<Profile>;
@@ -33,15 +33,15 @@ interface NotificationType {
 }
 
 export const validateFieldTypeNames = {
-  FLOAT: 'FLOAT',
-  NUMBER: 'NUMBER',
+  FLOAT: "FLOAT",
+  NUMBER: "NUMBER",
 };
 
 export const inputFieldType: NotificationType = {
-  EMAIL: 'EMAIL',
-  EMAIL_OPTION: 'EMAIL-OPTION',
-  NORMAL: 'NORMAL',
-  NORMAL_OPTION: 'NORMAL_OPTION',
+  EMAIL: "EMAIL",
+  EMAIL_OPTION: "EMAIL-OPTION",
+  NORMAL: "NORMAL",
+  NORMAL_OPTION: "NORMAL_OPTION",
 };
 
 interface Accessor {
@@ -78,8 +78,8 @@ const MultiEmailInput: FC<IProps> = ({
   setClearData,
   countryOptions,
   inputType = inputFieldType.EMAIL,
-  validateFieldType = 'string',
-  returnType = 'multiple',
+  validateFieldType = "string",
+  returnType = "multiple",
   addAnotherButton,
   nestedName = false,
   disabled,
@@ -96,15 +96,15 @@ const MultiEmailInput: FC<IProps> = ({
   }: any = formikBag;
   const newValue: Accessor = values;
 
-  const [emails, setEmails] = useState<string[]>(['']);
-  const [objData, setObjData] = useState<any>([{ data: '', code: '' }]);
+  const [emails, setEmails] = useState<string[]>([""]);
+  const [objData, setObjData] = useState<any>([{ data: "", code: "" }]);
 
   const handleObjData = () => {
-    setObjData([...objData, { code: '', data: '' }]);
+    setObjData([...objData, { code: "", data: "" }]);
   };
 
   const handleEmails = () => {
-    setEmails([...emails, '']);
+    setEmails([...emails, ""]);
   };
 
   // for showing errors
@@ -119,7 +119,7 @@ const MultiEmailInput: FC<IProps> = ({
 
   useEffect(() => {
     if (clearData) {
-      setEmails(['']);
+      setEmails([""]);
       setObjData([[]]);
       setClearData?.(false);
     }
@@ -139,8 +139,8 @@ const MultiEmailInput: FC<IProps> = ({
   }, [newValue[`${name}`]]);
 
   useEffect(() => {
-    const keys: any = name?.toString().split('.');
-    if (keys?.length && returnType === 'single') {
+    const keys: any = name?.toString().split(".");
+    if (keys?.length && returnType === "single") {
       let value: any = newValue;
       for (const key of keys) {
         value = value[key];
@@ -168,23 +168,24 @@ const MultiEmailInput: FC<IProps> = ({
                   <div className="select__option-present">
                     <Select
                       MenuProps={{ PaperProps: { style: { maxHeight: 200 } } }}
-                      className={`${isViewOnly ? 'disabled' : ''} option__box`}
-                      sx={{ border: '1px solid rgba(0, 0, 0, 0.23);' }}
+                      className={`${isViewOnly ? "disabled" : ""} option__box`}
+                      sx={{ border: "1px solid rgba(0, 0, 0, 0.23);" }}
                       disabled={isViewOnly}
                       data-testid="phone-select"
                       // value={values?.phone?.[index]?.code || countryOptions?.[0].value}
-                      value={values?.[`${name}`]?.[index]?.code || countryOptions?.[0]?.value || ''}
+                      value={values?.[`${name}`]?.[index]?.code || countryOptions?.[0]?.value || ""}
                       onChange={(ev) => {
                         const newData = [...objData];
                         if (!newData?.length) {
-                          newData.push({ code: '', data: '' });
+                          newData.push({ code: "", data: "" });
                         }
                         newData[index].code = ev?.target?.value;
                         setObjData(newData);
                         handleChange(ev);
                       }}
                       onBlur={handleBlur}
-                      name={`${name}.${index}.code`}>
+                      name={`${name}.${index}.code`}
+                    >
                       {countryOptions?.map((option, index) => (
                         <MenuItem key={index} value={option.value}>
                           {option?.code}
@@ -196,12 +197,12 @@ const MultiEmailInput: FC<IProps> = ({
                       className="email-input another__box"
                       disabled={isViewOnly}
                       //   value={newValue[`${name}`][index] || ''}
-                      value={objData[index]?.data || ''}
+                      value={objData[index]?.data || ""}
                       error={getError(`${name}`, index)}
                       onChange={(ev) => {
                         const newData = [...objData];
                         if (!newData?.length) {
-                          newData.push({ code: '', data: '' });
+                          newData.push({ code: "", data: "" });
                         }
                         if (!newData[index]?.code) {
                           setFieldValue(`${name}.${index}.code`, `${countryOptions?.[0].value}`);
@@ -211,7 +212,7 @@ const MultiEmailInput: FC<IProps> = ({
                         if (!validateField(validateFieldType, value)) {
                           return;
                         }
-                        newData[index].data = newData[index]?.data ? newData[index]?.data : '';
+                        newData[index].data = newData[index]?.data ? newData[index]?.data : "";
                         newData[index].data = value;
                         setObjData(newData);
                         // setFieldValue(`${name}.${index}.code`, );
@@ -222,7 +223,7 @@ const MultiEmailInput: FC<IProps> = ({
                       }}
                     />
                     {getError(`${name}`, index) && (
-                      <div className="input-feedback" style={{ color: 'red' }}>
+                      <div className="input-feedback" style={{ color: "red" }}>
                         Invalid data
                       </div>
                     )}
@@ -236,7 +237,8 @@ const MultiEmailInput: FC<IProps> = ({
                         prevData?.splice(index, 1);
                         setFieldValue(`${name}`, prevData);
                         setObjData(prevData);
-                      }}>
+                      }}
+                    >
                       <IconButton size="small">
                         {/* <DeleteOutlinedIcon /> */}
                         <img src={UploadImage} alt="" />
@@ -260,7 +262,8 @@ const MultiEmailInput: FC<IProps> = ({
                       }}
                     />
                   }
-                  className="link-icon">
+                  className="link-icon"
+                >
                   Add another
                 </Button>
               </Grid>
@@ -276,10 +279,10 @@ const MultiEmailInput: FC<IProps> = ({
                   <div className="email-holder">
                     <OutlinedInput
                       name={`${name}.${index}`}
-                      className={`email-input ${isViewOnly ? 'disabled' : ''}`}
+                      className={`email-input ${isViewOnly ? "disabled" : ""}`}
                       disabled={isViewOnly}
                       //   value={newValue[`${name}`][index] || ''}
-                      value={emails?.[index] || ''}
+                      value={emails?.[index] || ""}
                       error={getError(`${name}`, index)}
                       onChange={(ev) => {
                         const newEmails = [...emails];
@@ -289,7 +292,7 @@ const MultiEmailInput: FC<IProps> = ({
                         }
                         newEmails[index] = ev?.target?.value;
                         setEmails(newEmails);
-                        if (returnType === 'single') {
+                        if (returnType === "single") {
                           setFieldValue(name, ev?.target?.value);
                           return;
                         }
@@ -301,7 +304,7 @@ const MultiEmailInput: FC<IProps> = ({
                     />
 
                     {getError(`${name}`, index) && (
-                      <div className="input-feedback" style={{ color: 'red' }}>
+                      <div className="input-feedback" style={{ color: "red" }}>
                         Invalid Email Format
                       </div>
                     )}
@@ -325,7 +328,8 @@ const MultiEmailInput: FC<IProps> = ({
                           setFieldValue(`${name}`, prevEmails);
                           setEmails(prevEmails);
                         }
-                      }}>
+                      }}
+                    >
                       <IconButton size="small">
                         {/* <DeleteOutlinedIcon /> */}
                         <img src={UploadImage} alt="" />
@@ -349,7 +353,8 @@ const MultiEmailInput: FC<IProps> = ({
                     }}
                   />
                 }
-                className="link-icon">
+                className="link-icon"
+              >
                 Add another
               </Button>
             )}

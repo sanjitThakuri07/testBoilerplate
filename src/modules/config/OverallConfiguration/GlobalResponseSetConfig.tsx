@@ -1,9 +1,9 @@
-import { Button, Stack } from '@mui/material';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { globalResponseSetUrl } from 'routers/routingsUrl';
-import { usePathUrlSettor } from 'globalStates/config';
-import { permissionFilter } from '../generalSettings/OrganizationConfiguration';
-import { usePermissionStore } from 'store/permission';
+import { Button, Stack } from "@mui/material";
+import { useNavigate, useLocation } from "react-router-dom";
+import { globalResponseSetUrl } from "routers/routingsUrl";
+import { usePathUrlSettor } from "src/store/zustand/globalStates/config";
+import { permissionFilter } from "../generalSettings/OrganizationConfiguration";
+import { usePermissionStore } from "src/store/zustand/permission";
 
 export default function FinanceConfig() {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ export default function FinanceConfig() {
   const { routes, setCustomRoutes } = usePathUrlSettor();
 
   const isActive = (path: string) => {
-    return location.pathname === path ? 'active' : '';
+    return location.pathname === path ? "active" : "";
   };
 
   return (
@@ -29,7 +29,8 @@ export default function FinanceConfig() {
                 backendUrl: menu.backendUrl,
               });
               navigate(`${`/config/${menu?.url}`}`);
-            }}>
+            }}
+          >
             {menu.label}
           </Button>
         ))}

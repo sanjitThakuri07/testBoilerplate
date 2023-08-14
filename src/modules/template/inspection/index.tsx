@@ -34,7 +34,7 @@ import QuestionToolBar from "./questionToolBar";
 import { activeScroll, checkActionTrigger } from "./SubComponents/activeScroll";
 import { GenerateQuestion } from "./SubComponents/inspectionSection";
 import { FormNode } from "./SubComponents/formNode";
-import useInspectionStatusStore from "store/generalSettings/InsepctionStatus";
+import useInspectionStatusStore "src/store/zustand/generalSettings/InsepctionStatus";
 import { moduleIdsFnR, possibleFnRWithoutMainCategory, url } from "src/utils/url";
 import { v4 as uuidv4 } from "uuid";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";

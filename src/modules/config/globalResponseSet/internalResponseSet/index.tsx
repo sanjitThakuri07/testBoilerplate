@@ -1,7 +1,10 @@
 import { Breadcrumbs, Link, Stack, Typography } from "@mui/material";
 import BackButton from "src/components/buttons/back";
-import { useContractorServicesStore, usePathUrlSettor } from "globalStates/config";
-import { ResponseSetPropsS } from "interfaces/configs";
+import {
+  useContractorServicesStore,
+  usePathUrlSettor,
+} from "src/store/zustand/globalStates/config";
+import { ResponseSetPropsS } from "src/interfaces/configs";
 import { useEffect, useState } from "react";
 import { Link as Href, useLocation, useNavigate, useParams } from "react-router-dom";
 import InternalResponseSetForm from "./Form/InternalResponseSetForm";

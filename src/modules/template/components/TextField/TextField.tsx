@@ -6,19 +6,19 @@ import {
   OutlinedInput,
   Switch,
   TextField,
-} from '@mui/material';
-import React from 'react';
-import './TextField.scss';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import { useTextAnswer } from 'globalStates/templates/TextAnswer';
+} from "@mui/material";
+import React from "react";
+import "./TextField.scss";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import { useTextAnswer } from "src/store/zustand/globalStates/templates/TextAnswer";
 
 const CustomTextField = () => {
   const { setRightSectionTabValue, selectedInputType } = useTextAnswer();
 
-  const label = { inputProps: { 'aria-label': 'Switch demo' } };
+  const label = { inputProps: { "aria-label": "Switch demo" } };
 
   const goToResponse = () => {
-    setRightSectionTabValue('2');
+    setRightSectionTabValue("2");
   };
   return (
     <div>
@@ -50,7 +50,7 @@ const CustomTextField = () => {
             </FormGroup>
           </Grid>
         </Grid>
-        <Grid container direction="row" alignItems="center" spacing={2} sx={{ marginTop: '10px' }}>
+        <Grid container direction="row" alignItems="center" spacing={2} sx={{ marginTop: "10px" }}>
           <Grid item>
             <InputLabel htmlFor="help_text">
               <div className="label-heading">Help Text</div>
@@ -77,7 +77,7 @@ const CustomTextField = () => {
             </FormGroup>
           </Grid>
         </Grid>
-        <Grid container direction="row" alignItems="center" spacing={2} sx={{ marginTop: '10px' }}>
+        <Grid container direction="row" alignItems="center" spacing={2} sx={{ marginTop: "10px" }}>
           <Grid item>
             <InputLabel htmlFor="placeholder">
               <div className="label-heading">Placeholder</div>
@@ -110,18 +110,19 @@ const CustomTextField = () => {
           direction="row"
           alignItems="center"
           spacing={2}
-          sx={{ marginTop: '10px' }}
-          className="required_switch">
+          sx={{ marginTop: "10px" }}
+          className="required_switch"
+        >
           <Grid item>
-            <Switch {...label} defaultChecked />{' '}
-          </Grid>{' '}
+            <Switch {...label} defaultChecked />{" "}
+          </Grid>{" "}
           <Grid item>
             <InputLabel htmlFor="placeholder">
               <div className="label-heading">Required</div>
             </InputLabel>
           </Grid>
           <Grid item>
-            <HelpOutlineIcon sx={{ marginBottom: '-5px', color: '#C1C6D4' }} />
+            <HelpOutlineIcon sx={{ marginBottom: "-5px", color: "#C1C6D4" }} />
           </Grid>
         </Grid>
 
@@ -130,12 +131,14 @@ const CustomTextField = () => {
           direction="row"
           alignItems="center"
           spacing={2}
-          sx={{ marginTop: '10px', marginLeft: '5px', width: '100%' }}>
+          sx={{ marginTop: "10px", marginLeft: "5px", width: "100%" }}
+        >
           <Button
             variant="outlined"
             fullWidth
-            sx={{ backgroundColor: ' #C1C6D4' }}
-            onClick={goToResponse}>
+            sx={{ backgroundColor: " #C1C6D4" }}
+            onClick={goToResponse}
+          >
             Choose Response Type
           </Button>
         </Grid>

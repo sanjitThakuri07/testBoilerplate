@@ -13,12 +13,12 @@ import {
   TextField,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { commonTypeProps } from "interfaces/configs";
+import { commonTypeProps } from "src/interfaces/configs";
 import React, { FC, useEffect, useState } from "react";
 import { ServiceSchema } from "validationSchemas/config";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
-import { activityTypeStore } from "globalStates/config";
+import { activityTypeStore } from "src/store/zustand/globalStates/config";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchApI, fetchIndividualApi } from "src/modules/apiRequest/apiRequest";
 import DynamicSelectField from "containers/setting/profile/DynamicSelectField";

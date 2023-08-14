@@ -4,7 +4,7 @@ import { permissionList } from "src/constants/permission";
 import { fetchIndividualApi, setErrorNotification } from "src/modules/apiRequest/apiRequest";
 import { ConfigTableUrlUtils } from "src/modules/config/generalSettings/OrganizationConfiguration";
 import { searchParamObject } from "containers/utils/index";
-import { useContractorServicesStore } from "globalStates/config";
+import { useContractorServicesStore } from "src/store/zustand/globalStates/config";
 import { useSnackbar } from "notistack";
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";

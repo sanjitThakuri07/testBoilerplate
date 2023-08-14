@@ -36,7 +36,7 @@ import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModa
 import SaveIcon from "src/assets/icons/save_icon.svg";
 import { usePayloadHook } from "constants/customHook/payloadOptions";
 import { invoiceStatusOptions } from "src/utils/url";
-import useInvoiceStore from "store/invoice";
+import useInvoiceStore "src/store/zustand/invoice";
 
 interface NavigateColumnProps {
   navigateColumnName: string;

@@ -1,11 +1,11 @@
-import { useTextAnswer } from 'globalStates/templates/TextAnswer';
-import { Menu, MenuItem } from '@mui/material';
-import React, { MouseEvent } from 'react';
+import { useTextAnswer } from "src/store/zustand/globalStates/templates/TextAnswer";
+import { Menu, MenuItem } from "@mui/material";
+import React, { MouseEvent } from "react";
 
-import TextAnswerIcon from 'assets/template/icons/Text_answer.png';
-import { useTemplateFieldsStore } from 'containers/template/store/templateFieldsStore';
-import { BodyWrapper } from 'containers/template/components/Wrapper';
-import { ArrowDropDown, KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
+import TextAnswerIcon from "assets/template/icons/Text_answer.png";
+import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { BodyWrapper } from "containers/template/components/Wrapper";
+import { ArrowDropDown, KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 
 type TextAnswerProps = {
   responseTypeId?: any;
@@ -18,12 +18,12 @@ const TextAnswer = ({ dataItem, questionLogicShow }: any) => {
   );
   const { selectedDataset } = useTemplateFieldsStore();
   const [open, setOpen] = React.useState<boolean>(false);
-  const [textAnswerFormat, setTextAnswerFormat] = React.useState<string>('Short Answer');
+  const [textAnswerFormat, setTextAnswerFormat] = React.useState<string>("Short Answer");
   const [isAddLogicClicked, setIsAddLogicClicked] = React.useState<boolean>(false);
 
   const [triggerValue, setTriggerValue] = React.useState<string[]>([]);
 
-  const [isAnswerLogic, setIsAnswerLogic] = React.useState<string>('is');
+  const [isAnswerLogic, setIsAnswerLogic] = React.useState<string>("is");
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [anchorElIsAnswerLogic, setAnchorElIsAnswerLogic] = React.useState<null | HTMLElement>(
@@ -52,8 +52,8 @@ const TextAnswer = ({ dataItem, questionLogicShow }: any) => {
   const handleMenuClose = (e: MouseEvent<HTMLLIElement>, value: string) => {
     const target = e.target as HTMLLIElement;
     setAnchorEl(null);
-    setTextAnswerFormat(value === 'text_area' ? 'Paragraph' : 'Short Answer');
-    updateTemplateDatasets(dataItem, 'variables', {
+    setTextAnswerFormat(value === "text_area" ? "Paragraph" : "Short Answer");
+    updateTemplateDatasets(dataItem, "variables", {
       ...dataItem.variables,
       format: value,
     });
@@ -80,14 +80,14 @@ const TextAnswer = ({ dataItem, questionLogicShow }: any) => {
   };
 
   const onClick = () => {
-    setRightSectionTabValue('2');
+    setRightSectionTabValue("2");
     setOpen(!open);
     // setSelectedInputId(responseTypeId);
 
     return;
   };
 
-  const triggerActions = ['Require Action', 'Require Evidence', 'Notify', 'Ask Question'];
+  const triggerActions = ["Require Action", "Require Evidence", "Notify", "Ask Question"];
 
   return {
     body: (
@@ -95,23 +95,25 @@ const TextAnswer = ({ dataItem, questionLogicShow }: any) => {
         {questionLogicShow?.getActiveLogicQuestion()?.includes(dataItem.id) ? (
           <BodyWrapper className="field__wrapper">
             <div className="question__answer-type">
-              <div style={{ display: 'flex', alignItems: 'center' }}>
+              <div style={{ display: "flex", alignItems: "center" }}>
                 <span>Format:</span>
                 <div
-                  style={{ display: 'flex', alignItems: 'center' }}
-                  onClick={(event) => handleMenuClick(event)}>
+                  style={{ display: "flex", alignItems: "center" }}
+                  onClick={(event) => handleMenuClick(event)}
+                >
                   <span
                     id="format-positioned-button"
-                    aria-controls={open ? 'format-positioned-menu' : undefined}
+                    aria-controls={open ? "format-positioned-menu" : undefined}
                     aria-haspopup="true"
-                    className={'custom__options-2'}
-                    aria-expanded={open ? 'true' : undefined}
+                    className={"custom__options-2"}
+                    aria-expanded={open ? "true" : undefined}
                     style={{
-                      textDecoration: 'underline',
-                      fontSize: '0.65rem !important',
-                      marginLeft: '0.35rem',
-                      color: '#2E7EC7',
-                    }}>
+                      textDecoration: "underline",
+                      fontSize: "0.65rem !important",
+                      marginLeft: "0.35rem",
+                      color: "#2E7EC7",
+                    }}
+                  >
                     {textAnswerFormat}
                   </span>
                   {!anchorEl ? <KeyboardArrowDown /> : <KeyboardArrowUp />}
@@ -122,21 +124,22 @@ const TextAnswer = ({ dataItem, questionLogicShow }: any) => {
                 aria-labelledby="format-positioned-button"
                 anchorEl={anchorEl}
                 open={openMenu}
-                sx={{ marginTop: '23px' }}
+                sx={{ marginTop: "23px" }}
                 onClose={handleMenuCloseAction}
                 anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
+                  vertical: "top",
+                  horizontal: "left",
                 }}
-                className={'custom__options-2'}
+                className={"custom__options-2"}
                 transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}>
-                <MenuItem onClick={(e) => handleMenuClose(e, 'text')} value="text">
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+              >
+                <MenuItem onClick={(e) => handleMenuClose(e, "text")} value="text">
                   Short Answer
                 </MenuItem>
-                <MenuItem onClick={(e) => handleMenuClose(e, 'text_area')} value="text_area">
+                <MenuItem onClick={(e) => handleMenuClose(e, "text_area")} value="text_area">
                   Paragraph
                 </MenuItem>
               </Menu>

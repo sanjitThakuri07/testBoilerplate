@@ -1,4 +1,4 @@
-import { PrivateRoute } from "constants/variables";
+import { PrivateRoute } from "src/constants/variables";
 import { Box, Button, Divider, Stack, Tab, Tabs, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";

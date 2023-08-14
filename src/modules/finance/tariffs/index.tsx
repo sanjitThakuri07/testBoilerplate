@@ -2,23 +2,23 @@ import React, { useState, useEffect } from "react";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { Breadcrumbs, Button, CircularProgress, Link, Stack, Typography } from "@mui/material";
 import BackButton from "src/components/buttons/back";
-import { serviceProps } from "interfaces/configs";
+import { serviceProps } from "src/interfaces/configs";
 import ServiceForm from "./ServiceForm";
 import "../services/regions.scss";
 import UploadCsv from "src/modules/config/generalSettings/upload/UploadCsv";
 import ServiceCard from "./ServiceCard";
 import { useLocation, useParams, Link as Href, useNavigate } from "react-router-dom";
-import { useContractorServicesStore } from "globalStates/config";
+import { useContractorServicesStore } from "src/store/zustand/globalStates/config";
 import { deleteAPI, getAPI, postAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
 import { ConfigTableUrlUtils } from "src/modules/config/generalSettings/OrganizationConfiguration";
 import { Box } from "@mui/system";
-import { usePathUrlSettor } from "globalStates/config";
+import { usePathUrlSettor } from "src/store/zustand/globalStates/config";
 import MultiStepProgressBar from "./FormProgress";
 import AddRecord from "./Form/AddRecord";
 import PageTwo from "./Form/AddTariffs";
 import { fetchIndividualApi } from "src/modules/apiRequest/apiRequest";
-import { contractorProps } from "interfaces/configs";
+import { contractorProps } from "src/interfaces/configs";
 import { allRoutes } from "src/routers/routingsUrl";
 
 interface ProgressStep {
