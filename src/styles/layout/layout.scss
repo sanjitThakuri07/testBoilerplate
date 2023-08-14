@@ -1,0 +1,109 @@
+#TextAnswer {
+  .speech__wrapper {
+    width: 100%;
+  }
+
+  .TextAnswer_wrapper_body {
+    display: grid;
+    grid-template-columns: minmax(17px, 28px) min-content 1fr;
+    position: relative;
+
+    .link__fields {
+      // position: absolute;
+      // right: 0;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        color: $color-primary;
+        text-decoration: underline;
+      }
+    }
+
+    width: 100%;
+    .speech__box {
+      grid-row: 1;
+      grid-column: 1/1;
+      align-self: center;
+    }
+
+    .fake_custom_select_field-body {
+      // grid-column: 1 / 2;
+      white-space: nowrap;
+    }
+
+    .logic__container {
+      &.logic__container-head {
+        grid-column: 2 / -1;
+        grid-row: 1;
+        display: flex;
+        align-items: center;
+      }
+
+      &.logic__container-body {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        width: 100%;
+        @media (min-width: 800px) {
+          width: 85%;
+        }
+      }
+    }
+  }
+}
+
+.checkbox__style {
+  padding: 0 !important;
+
+  & + span {
+    font-size: toRem(16) !important;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500 !important;
+  }
+
+  svg {
+    font-size: toRem(18);
+    padding-right: toRem(4);
+    font-weight: bold;
+  }
+}
+
+.custom__options-2 {
+  font-size: toRem(16) !important;
+  font-weight: normal;
+  font-family: 'Inter', sans-serif;
+}
+
+// pop up modal filter
+
+.filter__field {
+  max-width: toRem(500);
+  max-height: 80vh;
+  overflow: auto;
+}
+
+// mobile preview container
+.mobile_screen {
+  container-type: inline-size;
+}
+
+@container (max-width: 400px) {
+  #MobilePreview_container {
+    .mobile_component_box_wrapper_footer {
+      flex-direction: column;
+      gap: toRem(8);
+
+      .note__button {
+        outline: 1px solid #c1c6d4;
+      }
+
+      .common__button-comp {
+        font-size: toRem(14);
+        text-align: center;
+        justify-content: center;
+      }
+    }
+  }
+}

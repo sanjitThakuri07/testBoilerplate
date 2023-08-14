@@ -1,0 +1,20 @@
+.progress_bar_container {
+  width: 100%;
+  height: 50%;
+  background-color: #e0e0de;
+  border-radius: 50px;
+  margin-right: 100px;
+}
+
+.progress_dynamic_container {
+  height: 100%;
+  border-radius: inherit;
+  text-align: right;
+}
+
+.progress_bar_label {
+  padding: 3px;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 10px;
+}

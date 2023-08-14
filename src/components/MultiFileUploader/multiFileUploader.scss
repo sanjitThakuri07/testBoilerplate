@@ -1,0 +1,119 @@
+.upload__option-actions {
+  gap: 8px;
+  display: flex;
+  padding: 20px 24px;
+  & > * {
+    width: 100%;
+  }
+}
+
+.label-heading {
+  display: flex;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #e5e5e5;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.progress-bar-fill {
+  height: 10px;
+  background-color: #0099ff;
+  border-radius: 5px;
+  transition: width 1s;
+  animation: increaseWidth 1s linear forwards;
+}
+
+.progress-number {
+  //   position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+}
+.info{
+  text-transform: uppercase;
+}
+
+@keyframes increaseWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes animate-progress-number {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.upload__box {
+  width: 99%;
+  border: 1px solid #eaecf0;
+  border-radius: 12px;
+  margin: 12px 0;
+
+  &-wrapper {
+    padding: 18px 12px;
+    gap: 12px;
+  }
+
+  .image__container {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .img-upload-icon {
+    margin: 0;
+  }
+
+  .progress-holder {
+    flex: 1;
+    padding: 0;
+    width: calc(100% - 100px);
+    .pull-right {
+      top: -11px;
+    }
+  }
+
+  .file-name-details {
+    color: #344054;
+    text-transform: capitalize;
+    display: block;
+    color: #344054;
+    text-transform: capitalize;
+    white-space: nowrap;
+    max-width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.file__uploader-container {
+  .drag-drop {
+    .drop-input {
+      width: 100% !important;
+    }
+  }
+}
+
+.individual__file-container {
+  max-height: 300px;
+  overflow: auto;
+  overflow-x: hidden;
+}

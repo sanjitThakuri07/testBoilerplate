@@ -1,0 +1,69 @@
+.div__indicator {
+  position: relative;
+  padding-right: toRem(14);
+  padding-right: toRem(34);
+  &::after {
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(247, 144, 9, 0.1);
+  }
+
+  border-right: 2px solid rgba($color: $question-indicator, $alpha: 0.4);
+  // padding-right: 8px;
+  // margin-right: 10px;
+}
+
+// this is of template => starter template
+.template__question-block {
+  position: relative;
+
+  #TextAnswer .TextAnswer_wrapper {
+    padding: 0;
+    padding-bottom: toRem(12) !important;
+  }
+}
+
+.template__section-block {
+  & > .div__indicator {
+    border-right-color: rgba($color: $section-after-seperator-border, $alpha: 0.6);
+
+    &::after {
+      background: $section-after-seperator;
+      opacity: 0.2;
+    }
+  }
+
+  & > .box__container > .template__question-block {
+    & > .box__container {
+      padding-top: toRem(12);
+    }
+  }
+
+  & .template__question-block {
+    .box__container {
+      // padding-top: toRem(12);
+    }
+  }
+}
+
+.scroll__container {
+  height: calc(845px - 100px);
+  overflow: auto;
+  padding-bottom: toRem(400);
+
+  .common__template-block {
+    width: 90%;
+  }
+}
+
+// .template__content {
+//   width: 80%;
+// }
+
+.dragging {
+  background-color: rgba($color: $color-primary, $alpha: 0.4);
+}

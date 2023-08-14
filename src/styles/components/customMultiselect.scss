@@ -1,0 +1,194 @@
+.main__custom__container {
+  display: flex;
+  flex-direction: column;
+  width: min(20em, 100%);
+  border: 0.05em solid $color-pale-sky;
+  gap: 0.5em;
+  padding: 0.5em;
+  border-radius: 0.25em;
+  position: relative;
+}
+
+.main__continaer,
+* {
+  box-sizing: border-box;
+}
+
+/* .custom__container {
+    min-height: 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    outline: none;
+    border-top: 0.05em solid $color-pale-sky;
+    padding-top: 0.5em;
+  } */
+
+.custom__container {
+  min-height: 1.5em;
+  display: flex;
+  align-items: center;
+  min-width: 20em;
+  max-width: 100%;
+  width: 100%;
+  border: 0.05em solid $color-pale-sky;
+  gap: 0.5em;
+  padding: 0.5em;
+  border-radius: toRem(6);
+  position: relative;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+.custom__container input {
+  border: none;
+  outline: none;
+}
+
+.value {
+  flex-grow: 1;
+  display: flex;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+
+.value input {
+  min-width: 120px;
+  flex: 1;
+}
+
+.clear-btn {
+  background: none;
+  color: $color-pale-sky;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 1.25em;
+}
+
+.clear-btn:focus,
+.clear-btn:hover {
+  color: #333;
+}
+
+.divider {
+  background-color: $color-pale-sky;
+  align-self: stretch;
+  width: 0.05em;
+}
+
+// .caret {
+//   translate: 0 25%;
+//   border: 0.25em solid transparent;
+//   border-top-color: $color-pale-sky;
+// }
+
+.border__top {
+  position: relative;
+  &::after {
+    content: '';
+    width: 100%;
+    height: 10px;
+    background: red;
+    top: 0;
+    position: absolute;
+  }
+}
+
+.options__container {
+  overflow: auto;
+  max-height: toRem(150);
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.25em);
+  width: 100%;
+  display: none;
+  will-change: display;
+  z-index: 500;
+  background-color: $color-white;
+  border: 0.05em solid #777;
+  border-radius: 0.2475rem;
+
+  &.show {
+    display: block;
+  }
+}
+
+.custom__options {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  // border: 0.05em solid $color-pale-sky;
+  // border-radius: toRem(4.5);
+}
+
+.custom__options.show {
+  display: block;
+}
+
+.input-key {
+  background-color: $hover-code-dropdown-bg;
+
+  input {
+    width: 100%;
+    padding: toRem(6) toRem(12);
+  }
+}
+
+.custom__option {
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: toRem(14);
+  color: #000;
+  backface-visibility: hidden;
+}
+
+.custom__option:hover {
+  background-color: $hover-code-dropdown-bg;
+  color: $color-primary;
+}
+
+.custom__option.selected {
+  background-color: $hover-code-dropdown-bg;
+}
+
+.custom__option.highlighted {
+  background-color: $hover-code-dropdown-bg;
+  color: $color-white;
+}
+
+.custom__option-badge {
+  display: flex;
+  align-items: center;
+  border: 0.05em solid $color-pale-sky;
+  border-radius: toRem(6);
+  padding: 0.15em 0.25em;
+  gap: 0.25em;
+  cursor: pointer;
+  background: none;
+  outline: none;
+}
+
+.custom__option-badge:hover,
+.custom__option-badge:focus {
+  background-color: hsl(0, 100%, 90%);
+  border-color: hsl(0, 100%, 50%);
+}
+
+.custom__option-badge:hover > .remove-btn,
+.custom__option-badge:focus > .remove-btn {
+  color: hsl(0, 100%, 50%);
+}
+
+.custom__option-badge > .remove-btn {
+  font-size: 1.25em;
+  color: $color-pale-sky;
+}
+
+.select__all {
+  border-bottom: 0.05em solid $color-pale-sky;
+}

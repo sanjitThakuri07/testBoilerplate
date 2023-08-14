@@ -1,0 +1,15 @@
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.myClass {
+  font-size: 2rem;
+}
+
+.testColor {
+  background-color: var(--mui-palette-primary-main);
+  color: var(--mui-palette-primary-contrastText);
+  width: 300px;
+  font-weight: 600;
+}

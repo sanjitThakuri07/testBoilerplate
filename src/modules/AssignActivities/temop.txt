@@ -1,0 +1,254 @@
+ <div className="region-fieldset activity__modal">
+                <Grid container spacing={0.5} className="formGroupItem" flexDirection="column">
+                  {!isBlurTitle ? (
+                    <Grid item xs={12}>
+                      <InputLabel htmlFor="title">
+                        <div
+                          className="label-heading __no_uppercase __title"
+                          onClick={() => setIsBlurTitle(!isBlurTitle)}>
+                          {values.title}{' '}
+                          <img
+                            src={require('../../assets/icons/Icon2.png')}
+                            alt=""
+                            style={{
+                              width: '15px',
+                              height: '15px',
+                              marginLeft: '5px',
+                            }}
+                          />
+                        </div>
+                      </InputLabel>
+                    </Grid>
+                  ) : (
+                    <Grid item xs={12} id="title_event">
+                      <FormGroup className="input-holder">
+                        <OutlinedInput
+                          id="title"
+                          type="text"
+                          placeholder=""
+                          size="small"
+                          fullWidth
+                          name="title"
+                          onChange={handleChange}
+                          onBlur={() => setIsBlurTitle(false)}
+                          value={values.title}
+                          error={Boolean(touched.title && errors.title)}
+                        />
+                      </FormGroup>
+                    </Grid>
+                  )}
+                </Grid>
+                <Grid container spacing={0.5} className="formGroupItem" flexDirection="column">
+                  {!isBlurDescription ? (
+                    <Grid item xs={12}>
+                      <InputLabel htmlFor="description">
+                        <div
+                          className="label-heading __no_uppercase"
+                          onClick={() => setIsBlurDescription(!isBlurDescription)}>
+                          {values.description}{' '}
+                        </div>
+                      </InputLabel>
+                    </Grid>
+                  ) : (
+                    <Grid item xs={12} id="title_event">
+                      <FormGroup className="input-holder">
+                        <OutlinedInput
+                          id="description"
+                          type="text"
+                          placeholder=""
+                          size="small"
+                          fullWidth
+                          name="description"
+                          onChange={handleChange}
+                          onBlur={() => setIsBlurDescription(false)}
+                          value={values.description}
+                          error={Boolean(touched.description && errors.description)}
+                        />
+                      </FormGroup>
+                    </Grid>
+                  )}
+                </Grid>
+                <Grid container spacing={0.5} className="formGroupItem" flexDirection="column">
+                  <Grid item xs={12}>
+                    <InputLabel htmlFor="type">
+                      <div className="label-heading">
+                        Activity Type <sup>*</sup>
+                      </div>
+                    </InputLabel>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <FormGroup className="input-holder">
+                      <Select
+                        MenuProps={{
+                          PaperProps: { style: { maxHeight: 200 } },
+                        }}
+                        id="type"
+                        size="small"
+                        fullWidth
+                        placeholder="Active"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        name="type"
+                        value={values.type}
+                        error={Boolean(touched.type && errors.type)}>
+                        {activityTypeData?.map((item: any, index: number) => (
+                          <MenuItem key={item?.id} value={item?.id}>
+                            {item?.name}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </FormGroup>
+                  </Grid>
+                </Grid>
+                <Grid container spacing={1} className="formGroupItem" flexDirection="column">
+                  <Grid item xs={12}>
+                    <InputLabel htmlFor="user_department_id">
+                      <div className="label-heading">
+                        User Department <sup>*</sup>
+                      </div>
+                    </InputLabel>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <FormGroup className="input-holder">
+                      <Select
+                        MenuProps={{
+                          PaperProps: { style: { maxHeight: 200 } },
+                        }}
+                        id="user_department_id"
+                        size="small"
+                        fullWidth
+                        placeholder="Active"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        name="user_department_id"
+                        value={values.user_department_id}
+                        error={Boolean(touched.user_department_id && errors.user_department_id)}>
+                        {userDepartmentData?.map((item: any, index: number) => (
+                          <MenuItem key={item?.id} value={item?.id}>
+                            {item?.name}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </FormGroup>
+                  </Grid>
+                </Grid>
+                <Grid container spacing={1} className="formGroupItem" flexDirection="column">
+                  <Grid item xs={12}>
+                    <InputLabel htmlFor="territory">
+                      <div className="label-heading">
+                        Assigned Territories <sup>*</sup>
+                      </div>
+                    </InputLabel>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <FormGroup className="input-holder">
+                      <Select
+                        MenuProps={{
+                          PaperProps: { style: { maxHeight: 200 } },
+                        }}
+                        multiple
+                        id="territory"
+                        size="small"
+                        fullWidth
+                        placeholder="Active"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        name="territory"
+                        value={values.territory}
+                        error={Boolean(touched.territory && errors.territory)}>
+                        {territoryData?.map((item: any, index: number) => (
+                          <MenuItem key={item?.id} value={item?.name}>
+                            {item?.name}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </FormGroup>
+                  </Grid>
+                </Grid>
+                <Grid container spacing={1} className="formGroupItem" flexDirection="column">
+                  <Grid item xs={12}>
+                    <InputLabel htmlFor="users">
+                      <div className="label-heading">
+                        Assignees <sup>*</sup>
+                      </div>
+                    </InputLabel>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <FormGroup className="input-holder">
+                      <Select
+                        MenuProps={{
+                          PaperProps: { style: { maxHeight: 200 } },
+                        }}
+                        multiple
+                        id="users"
+                        size="small"
+                        fullWidth
+                        placeholder="Active"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        name="users"
+                        value={values.users}
+                        error={Boolean(touched.users && errors.users)}>
+                        {assigneesData?.map((item: any, index: number) => (
+                          <MenuItem key={item?.id} value={item?.id}>
+                            {item?.full_name}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </FormGroup>
+                  </Grid>
+                </Grid>
+
+                <Grid container spacing={1} className="formGroupItem" flexDirection="column">
+                  <Grid item xs={12}>
+                    <InputLabel htmlFor="priority">
+                      <div className="label-heading">
+                        Priority <sup>*</sup>
+                      </div>
+                    </InputLabel>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <FormGroup className="input-holder">
+                      <Select
+                        MenuProps={{
+                          PaperProps: { style: { maxHeight: 200 } },
+                        }}
+                        id="priority"
+                        size="small"
+                        fullWidth
+                        placeholder="Active"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        name="priority"
+                        value={values.priority}
+                        error={Boolean(touched.priority && errors.priority)}>
+                        <MenuItem value="High">High</MenuItem>
+                        <MenuItem value="Low">Low</MenuItem>
+                        <MenuItem value="Medium">Medium</MenuItem>
+                      </Select>
+                    </FormGroup>
+                  </Grid>
+                </Grid>
+                <Grid container spacing={1} className="formGroupItem" flexDirection="column">
+                  <Grid item xs={12}>
+                    <InputLabel htmlFor="due_date">
+                      <div className="label-heading">
+                        Due Date <sup>*</sup>
+                      </div>
+                    </InputLabel>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <FormGroup className="input-holder __date__time">
+                      <input
+                        id="due_date"
+                        type="datetime-local"
+                        placeholder=""
+                        name="due_date"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.due_date}
+                      />
+                    </FormGroup>
+                  </Grid>
+                </Grid>
+              </div>

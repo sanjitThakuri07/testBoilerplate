@@ -1,0 +1,162 @@
+//category
+
+                <FieldArray name="category">
+                  {({ push, remove }) => {
+                    return (
+                      <>
+                        {values?.category?.map((category, index) => {
+                          return (
+                            <>
+                              <div
+                                className="category__container"
+                                style={{ position: 'relative', paddingTop: '2rem' }}>
+                                <Grid container spacing={4} className="formGroupItem">
+                                  <Grid item xs={4}>
+                                    <InputLabel htmlFor="name">
+                                      <div className="label-heading">
+                                        {searchObject[`p_category`] ? 'Sub Category' : 'Category'}{' '}
+                                        Name <sup>*</sup>
+                                      </div>
+                                    </InputLabel>
+                                  </Grid>
+                                  <Grid item xs={7}>
+                                    <FormGroup className="input-holder">
+                                      <OutlinedInput
+                                        id="name"
+                                        type="text"
+                                        placeholder="Type here"
+                                        size="small"
+                                        fullWidth
+                                        name={`category.${index}.name`}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        value={values?.category?.[index]?.name}
+                                        error={Boolean(
+                                          touched?.category?.[index]?.name &&
+                                            errors?.category?.[index]?.name,
+                                        )}
+                                      />
+                                      {Boolean(
+                                        touched?.category?.[index]?.name &&
+                                          errors?.category?.[index]?.name,
+                                      ) && (
+                                        <FormHelperText error>
+                                          {errors?.category?.[index]?.name}
+                                        </FormHelperText>
+                                      )}
+                                    </FormGroup>
+                                  </Grid>
+                                </Grid>
+                                <Grid container spacing={4} className="formGroupItem">
+                                  <Grid item xs={4}>
+                                    <InputLabel htmlFor="status">
+                                      <div className="label-heading">
+                                        Status <sup>*</sup>
+                                      </div>
+                                    </InputLabel>
+                                  </Grid>
+                                  <Grid item xs={7}>
+                                    <FormGroup className="input-holder">
+                                      <Select
+                                        MenuProps={{ PaperProps: { style: { maxHeight: 200 } } }}
+                                        id="status"
+                                        size="small"
+                                        fullWidth
+                                        placeholder="Active"
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        name={`category.${index}.status`}
+                                        value={values?.category?.[index]?.status}
+                                        error={Boolean(
+                                          touched?.category?.[index]?.status &&
+                                            errors?.category?.[index]?.status,
+                                        )}>
+                                        <MenuItem value="Active">Active</MenuItem>
+                                        <MenuItem value="Inactive">Inactive</MenuItem>
+                                      </Select>
+                                      {Boolean(
+                                        touched?.category?.[index]?.status &&
+                                          errors?.category?.[index]?.status,
+                                      ) && (
+                                        <FormHelperText error>
+                                          {errors?.category?.[index]?.status}
+                                        </FormHelperText>
+                                      )}
+                                    </FormGroup>
+                                  </Grid>
+                                </Grid>
+                                <Grid container spacing={4} className="formGroupItem text-area">
+                                  <Grid item xs={4}>
+                                    <InputLabel htmlFor="notes">
+                                      <div className="label-heading">Add Notes</div>
+                                      <p>A message from you that has to communicated to.</p>
+                                    </InputLabel>
+                                  </Grid>
+                                  <Grid item xs={7}>
+                                    <FormGroup className="input-holder">
+                                      <TextareaAutosize
+                                        placeholder="Type any message that has to be passed on."
+                                        minRows={3}
+                                        id="notes"
+                                        onChange={(ev) => {
+                                          setFieldValue(`category.${index}.notes`, ev.target.value);
+                                          // setFieldTouched('categorynotes');
+                                        }}
+                                        className={`text__area-style `}
+                                        // disabled={disabled}
+                                        name={`category.${index}.notes`}
+                                        value={values.category?.[index].notes}
+                                        onBlur={handleBlur}
+                                        maxLength={300}
+                                      />
+                                      <FormHelperText>
+                                        {300 -
+                                          Number(
+                                            values?.category?.[index]?.notes?.length || 0,
+                                          )}{' '}
+                                        characters left
+                                      </FormHelperText>
+                                    </FormGroup>
+                                  </Grid>
+                                </Grid>
+                                {!!(values?.category?.length > 1) &&
+                                  cancelButton({
+                                    deleteFnk: (id) => remove(id),
+                                    deleteId: index,
+                                    iconStyle: {
+                                      position: 'absolute',
+                                      right: '15px',
+                                      top: '0',
+                                    },
+                                  })}
+                              </div>
+                            </>
+                          );
+                        })}
+                        {/* {!param?.findingsAndRecommendationsId &&
+                            !Object.keys(searchObject || {})?.length && (
+                              <Button
+                                type="button"
+                                variant="contained"
+                                sx={{ marginTop: '2rem' }}
+                                className="add-another__findings"
+                                onClick={() => {
+                                  push({ name: '', status: 'Active', notes: '' });
+                                }}>
+                                Add Another Category
+                              </Button>
+                            )} */}
+                        <Button
+                          type="button"
+                          variant="contained"
+                          sx={{ marginTop: '2rem' }}
+                          className="add-another__findings"
+                          onClick={() => {
+                            push({ name: '', status: 'Active', notes: '' });
+                          }}>
+                          Add Another Category
+                        </Button>
+                      </>
+                    );
+                  }}
+                </FieldArray>

@@ -1,0 +1,156 @@
+.individual__finding,
+.individual__recommendation {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+}
+
+.individual__recommendation {
+  background: #fff;
+  margin: 54px 0;
+}
+
+.individual {
+  &__ {
+    // margin-bottom: 3rem;
+  }
+}
+
+.individual__finding {
+  background: #f9fafb;
+
+  &:not(:last-child) {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: #eaecf0;
+      left: 0;
+      bottom: -30px;
+    }
+    margin-bottom: 5rem;
+  }
+}
+
+.category__container,
+.main__category-container {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #eaecf0;
+}
+
+.main__category-container {
+  border: none;
+  padding: 0;
+  &:not(:last-child) {
+    margin: toRem(32) 0;
+    padding-top: toRem(32);
+    border-top: 1px solid #eaecf0;
+  }
+}
+
+.for__recommendations {
+  & > div {
+    align-items: flex-start;
+  }
+
+  .pin__box {
+    position: relative;
+  }
+  .input-holder {
+    align-self: flex-start;
+    width: 90%;
+  }
+
+  .PrivateSwitchBase-input + span {
+    &.css-r8uj3u {
+      background: #283352;
+      opacity: 0.8;
+    }
+  }
+
+  .attach__files-icon {
+    background-color: #c1c6d4;
+    position: absolute;
+    right: -8.5%;
+    top: 33px;
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 5px;
+    transition: all 0.3s ease;
+    outline: 1px solid transparent;
+
+    &:hover,
+    &:active {
+      outline: 1px solid #283352;
+    }
+
+    svg,
+    img {
+      width: 100%;
+      height: 100%;
+      transform: rotate(45deg);
+    }
+  }
+
+  .individual__file-container-box {
+    flex-basis: 0;
+    width: 100%;
+  }
+
+  .nested__input-alignment {
+    padding-left: 16px !important;
+  }
+
+  &.individual__recommendation {
+    .nested__input-alignment {
+      padding-left: 0 !important;
+    }
+  }
+
+  .nested__input-radio-alignment {
+    padding-left: 16px !important;
+  }
+}
+
+.add-another__findings {
+  background: #c1c6d4 !important;
+  color: #283352 !important;
+  box-shadow: none !important;
+  margin-right: 16px !important;
+
+  &:hover,
+  &:active {
+    color: #fff !important;
+    background: #273251 !important;
+  }
+}
+
+.button__container {
+  padding-left: 16px !important;
+  padding-top: 24px !important;
+}
+
+.single {
+  &__recommendation {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  &__finding {
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: 0;
+
+    .individual__recommendation {
+      background: #f9fafb;
+      margin-bottom: 24px;
+    }
+  }
+}

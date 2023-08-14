@@ -1,0 +1,83 @@
+body {
+  color: #475467;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+
+  // background: #f9fafb;
+}
+
+.setting-holder {
+  padding: 31px 0 0 !important;
+}
+
+.container {
+  max-width: 1360px !important;
+}
+
+.override-container {
+  max-width: none !important;
+}
+
+.heading {
+  border-bottom: 1px solid #eaecf0;
+
+  margin: 0 0 12px !important;
+
+  padding: 26px 0 22px;
+}
+
+.setting-form-group {
+  margin: 20px 0;
+
+  padding: 24px 0;
+
+  border: solid #eaecf0;
+
+  border-width: 1px 0;
+}
+
+.label-heading {
+  color: #344054;
+
+  font-weight: 500;
+
+  & + p {
+    font-size: 14px;
+
+    color: #475467;
+
+    margin: 0;
+  }
+}
+
+.formGroupItem {
+  margin-bottom: 26px;
+
+  padding-right: 40px;
+}
+
+.TENANT_PAGE {
+  .css-181ery5-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled,
+  .css-aux6d7-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled,
+  .css-1a2lq1l-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled {
+    opacity: 1;
+    -webkit-text-fill-color: #384874 !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    // color: #384874 !important;
+  }
+
+  .css-jqb9td-MuiInputBase-root-MuiOutlinedInput-root {
+    opacity: 1;
+    -webkit-text-fill-color: #384874 !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    color: #384874 !important;
+  }
+}
+
+.remove__bg {
+  background: $color-white;
+}

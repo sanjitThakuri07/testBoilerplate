@@ -1,0 +1,27 @@
+// select pop up
+// do not remove this code
+.fix__layout {
+  .config_modal_heading {
+    padding-bottom: 0 !important;
+  }
+  .formGroupItem {
+    & > div {
+      max-width: none !important;
+    }
+
+    .multiple_email_address_id {
+      margin-bottom: toRem(40) !important;
+    }
+  }
+  .config_modal_form_css {
+    max-height: 80vh !important;
+    overflow: hidden auto !important;
+    border-radius: toRem(12) !important;
+  }
+}
+
+.common__filter-component {
+  label {
+    line-height: 2;
+  }
+}

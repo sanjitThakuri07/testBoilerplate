@@ -1,0 +1,59 @@
+#ChooseResponseType {
+  .select_item_icon_rotate {
+    transform: rotate(90deg);
+  }
+
+  .fake_custom_select_field_input_type {
+    display: flex;
+    align-items: center;
+
+    .select_icon_styling {
+      margin-right: 10px;
+      img {
+        width: 25px;
+        height: 25px;
+        margin-top: 3px;
+      }
+    }
+  }
+
+  .text_answer_add_logic {
+    .MuiInput-root {
+      height: 25px !important;
+    }
+    .text_answer_add_logic_inner {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.response_type_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px !important;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.response_type_inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.response_type_inner img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.response_type_inner .inner_text {
+  padding-left: 7px;
+}
+
+.response_type_border {
+  border: 2px solid #d0d5dd;
+}

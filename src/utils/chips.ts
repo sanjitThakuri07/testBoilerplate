@@ -1,0 +1,60 @@
+import { uniqueId } from "lodash";
+
+export const RadioOptions: any = {
+  High: {
+    id: uniqueId(),
+    value: "High",
+    backgroundColor: "#FEF3F2",
+    textColor: "#F04438",
+    dotColor: "#B42318",
+    label: "High",
+  },
+  Medium: {
+    id: uniqueId(),
+    value: "Medium",
+    backgroundColor: "#FFFAEB",
+    textColor: "#B54708",
+    dotColor: "#F79009",
+    label: "Medium",
+  },
+  Low: {
+    id: uniqueId(),
+    value: "Low",
+    backgroundColor: " #ECFDF3",
+    textColor: "#027A48",
+    dotColor: "#12B76A",
+    label: "Low",
+  },
+  "N/A": {
+    id: uniqueId(),
+    value: "N/A",
+    backgroundColor: "#F2F4F7",
+    textColor: "#667085",
+    dotColor: "#344054",
+    label: "N/A",
+  },
+  Active: {
+    id: uniqueId(),
+    value: "Active",
+    backgroundColor: "#2e7d32",
+    textColor: "#fff",
+    dotColor: "#fff",
+    label: "Active",
+  },
+  InActive: {
+    id: uniqueId(),
+    value: "Inactive",
+    backgroundColor: "rgb(229, 229, 229)",
+    textColor: "rgba(0, 0, 0, 0.87)",
+    dotColor: "#616161",
+    label: "Inactive",
+  },
+  default: {
+    id: uniqueId(),
+    value: "default",
+    backgroundColor: " #ECFDF3",
+    textColor: "#027A48",
+    dotColor: "#12B76A",
+    label: "default",
+  },
+};

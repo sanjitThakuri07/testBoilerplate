@@ -1,0 +1,67 @@
+// .Select.is-disabled > .Select-control {
+//   background-color: red !important;
+// }
+
+/**
+ * @Author: ZEESHAN AHMAD
+ * @Date:   2021-09-28 03:07:08
+ * @Last Modified by:   ZEESHAN AHMAD
+ * @Last Modified time: 2021-09-28 21:59:53
+ */
+.UserInfo .authenticated {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 50% 50%;
+}
+
+.UserInfo .authenticated .user {
+  grid-row: 1;
+}
+
+.UserInfo .authenticated .presence {
+  grid-row: 2;
+}
+
+.UserInfo a {
+  color: #868fb1;
+  padding: 4px;
+}
+
+.UserInfo a:hover {
+  color: #ffffff;
+}
+
+.UserInfo .username p {
+  margin: 14px 0;
+}
+
+.UserInfo .Select-control {
+  width: 50px;
+  margin: 5px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none !important;
+  float: left;
+}
+
+.UserInfo .Select-menu-outer {
+  width: 200px;
+  margin-top: 40px;
+  margin-left: 5px;
+}
+
+.presenceIcon {
+  margin-right: 8px;
+  font-size: 12px;
+}
+
+.presenceIcon.available {
+  color: #5cd068;
+}
+.presenceIcon.dnd {
+  color: red;
+}
+.presenceIcon.away {
+  color: orange;
+}

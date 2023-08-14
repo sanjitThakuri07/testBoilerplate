@@ -1,0 +1,101 @@
+.RichEditor-activeButton {
+  background-color: black;
+  color: white;
+}
+
+.RichEditor-controls {
+  display: flex;
+  align-items: center;
+}
+
+.editor__container {
+  border: 1px solid #d0d5dd;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  border-radius: 8px;
+  padding: 8px 16px;
+  display: grid;
+  grid-template-rows: 400px 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 24px;
+
+  .header__toolbar {
+    grid-row: 2;
+    grid-column: 1/2;
+  }
+
+  .editor__content {
+    grid-row: 1;
+    grid-column: 1/-1;
+    overflow: auto;
+  }
+
+  .image__uploader-box {
+    grid-row: 2;
+    grid-column: 2/-1;
+    justify-self: end;
+  }
+}
+
+.attach__document {
+  //   position: absolute;
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  border-radius: 8px !important;
+  padding: 1px 10px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px !important;
+  cursor: pointer;
+  font-size: 16px;
+  svg {
+    font-size: 20px;
+  }
+
+  & > span:first-of-type {
+    font-weight: bold;
+    margin-right: 8px;
+    color: #384874;
+  }
+
+  // span {
+  //   &:first-child {
+  //     font-weight: bold;
+  //     margin-right: 8px;
+  //     color: #384874;
+  //   }
+  // }
+
+  .light {
+    opacity: 0.6;
+  }
+}
+
+.custom__rich-button__style {
+  background: #c1c6d4;
+  border: none;
+  display: inline-flex;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  margin-right: 8px;
+  cursor: pointer;
+
+  &.RichEditor-activeButton {
+    outline: 2px solid #384874;
+    color: #384874;
+  }
+  .btn-editor-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      font-size: 24px;
+    }
+  }
+}

@@ -1,0 +1,120 @@
+#TextAnswer {
+  // padding: 20px 0;
+  // margin-bottom: 20px;
+  // margin-top: 10px;
+  .TextAnswer_wrapper {
+    // padding: 20px 15px;
+    padding: $custom-answer-padding;
+    padding-bottom: 4px;
+
+    .section_heading_icon {
+      background: $question-indicator;
+      margin-right: toRem(8);
+      border-radius: 5px;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      // margin-left: toRem(15);
+      color: $color-white;
+    }
+  }
+
+  .TextAnswer_wrapper:focus {
+    background-color: aqua;
+  }
+
+  .TextAnswer_wrapper_header {
+    display: flex;
+    align-items: center;
+    // margin-bottom: 5px;
+    // padding-top: toRem(12);
+    margin-bottom: toRem(10);
+
+    .draggable_icon {
+      cursor: grab;
+      margin-top: 3px;
+      margin-right: toRem(8);
+    }
+    .TextAnswer_input {
+      width: 100%;
+      padding-left: 10px;
+    }
+  }
+}
+
+#TextAnswer #HoverItems {
+  display: none;
+}
+
+.TextAnswer_wrapper_header:hover #HoverItems {
+  // display: block !important;
+
+  right: toRem(-54);
+
+  &.top {
+    top: 0;
+    bottom: auto;
+  }
+
+  &.bottom {
+    top: auto;
+    bottom: toRem(50);
+  }
+  // top: auto !important;
+  // bottom: toRem(50) !important;
+}
+
+.question__answer-type {
+  // text-align: center;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.speech__wrapper {
+  display: flex;
+  align-items: center;
+  place-items: start;
+
+  .body__wrapper {
+    margin-left: 0 !important;
+  }
+}
+
+.tooltip__addition {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: '';
+    position: absolute;
+    width: toRem(25);
+    height: toRem(25);
+    background: $color-white;
+    border: 1px solid #dddd;
+    left: toRem(3);
+    transform: rotate(45deg);
+    z-index: 5;
+    border-radius: 5px;
+    left: toRem(3);
+  }
+
+  &.top {
+    &::after {
+      top: toRem(0);
+    }
+  }
+
+  &.bottom {
+    &::after {
+      top: auto;
+      bottom: toRem(20);
+    }
+  }
+
+  & > div {
+    position: relative;
+    z-index: 10;
+  }
+}

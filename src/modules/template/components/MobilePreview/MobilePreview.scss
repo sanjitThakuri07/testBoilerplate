@@ -1,0 +1,120 @@
+#MobilePreview {
+  .mobile_screen {
+    position: relative;
+    width: 320px;
+    overflow: auto;
+  }
+
+  .mobile__picture {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+
+  .inside_mobile_container {
+    position: absolute;
+    top: 23px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 88%;
+    height: 93%;
+    overflow: auto;
+    /* height: 100%; */
+    border-radius: 43px;
+  }
+
+  .inside_mobile_container_wrapper {
+    overflow: auto;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
+  .mobile_preview_text .MuiTypography-body1 {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  #MobilePreview_container .MuiListItemButton-root {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  // Inner mobile screen
+
+  #MobileDateTime {
+    input {
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+
+  #MobileMedia {
+    .mobile_component_box_wrapper_footer {
+      justify-content: space-around;
+    }
+  }
+  .mobile_component_box {
+    margin-top: 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px 10px;
+    border: 1px solid #eaecf0;
+    .mobile_component_box_wrapper_input {
+      margin-top: 10px;
+    }
+    .action_buttons {
+      margin: 15px 0;
+      display: flex;
+      justify-content: space-between;
+
+      .MuiButton-outlined {
+        margin-right: 3px;
+      }
+      .MuiButton-contained {
+        margin-left: 3px;
+      }
+    }
+
+    .mobile_component_box_wrapper_footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 14px;
+      .footer_item {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        .footer_item_text {
+          font-size: 12px;
+          font-weight: 500;
+          color: #283352;
+        }
+      }
+      .footer_item_icon {
+        margin-top: 3px;
+        img {
+          width: 16px;
+          height: 16px;
+          margin-right: 5px;
+          filter: saturate(1.5);
+        }
+      }
+    }
+
+    .footer_items_action {
+      .footer_items_action_menu {
+        margin: 20px 0;
+        .create_action_ {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .create_action_right {
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}

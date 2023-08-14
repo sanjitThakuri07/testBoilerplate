@@ -1,0 +1,209 @@
+.container {
+  // max-width: 1500px !important;
+  max-width: 100% !important;
+  padding: 0px !important;
+  margin-top: 0px !important;
+}
+
+.full-page-holder {
+  padding: 0px !important;
+}
+
+// ============= COMMON RESUALBLE PROPERTIES ==============
+.generic-properties {
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  // color: #8189a1;
+}
+
+.booking-layout {
+  height: 100%;
+  padding: 0px !important;
+  width: 100%;
+}
+
+.booking-left-container {
+  @extend .generic-properties;
+  height: 100%;
+  border-right: 1px solid #eee;
+  padding: 15px 20px;
+}
+
+.booking-right-container {
+  @extend .generic-properties;
+  height: 100%;
+  border-left: 1px solid #eee;
+  padding: 15px 20px;
+}
+
+.booking-middle-container {
+  @extend .generic-properties;
+  height: auto;
+  margin-top: 15px;
+  border-radius: 10px;
+}
+
+.rotate_down {
+  transform: rotate(180deg);
+  transition: 0.3s ease-in-out;
+}
+
+.rotate_icon {
+  transition: 0.3s ease-in-out;
+}
+
+.fields-hammer-box {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.fields-hammer-box:hover {
+  box-shadow: 0px 1px 1px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #c1c6d4;
+  transition: all 0.3s ease;
+  transform: scaleY(1.1);
+}
+
+// ========= Booking Dynamic Forms ===============
+.booking-dynamic-forms-container {
+  border: 1.5px solid #eaecf0;
+  border-radius: 8px;
+  padding: 13px 15px;
+}
+
+.active-field-focused {
+  box-shadow: 0px 1px 1px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #c1c6d4;
+  border: 1px solid #7a84a2;
+  transition: all 0.3s ease;
+  transform: scaleY(1.1);
+}
+
+.active-input-focused {
+  border: 1px solid #283352 !important;
+}
+
+.booking-dynamic-forms-container {
+  .MuiOutlinedInput-notchedOutline {
+    border: 1px solid #eaecf0 !important;
+    transition: all 0.3s ease !important;
+  }
+}
+
+.booking_preview_wrapper {
+  position: relative;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
+  // overflow: hidden;
+  border-radius: 10px !important;
+  background-color: #fff;
+  // margin-top: 15px;
+}
+
+.remove-location-block {
+  position: absolute;
+  right: -15px;
+  top: -15px;
+  cursor: pointer;
+}
+
+.remove-location-block > img {
+  height: 40px;
+  width: 40px;
+}
+
+// .booking-form-container {
+//   margin: 10px 0px;
+// }
+
+.booking-inner-forms {
+  padding: 15px;
+}
+
+// .rate-block {
+//   background-color: #2f7ac6 !important;
+//   padding: 10px;
+//   border-bottom: 1px solid #eee;
+// }
+
+.exclude-rate-block {
+  padding: 0px 10px;
+}
+
+.remove-rate-btn-algnment {
+  position: absolute;
+  top: 62%;
+  cursor: pointer;
+}
+
+.create_booking_modal {
+  background: #eee;
+  padding: 15px;
+  border-radius: 50px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.rate_preview_wrapper {
+  position: relative;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
+  // overflow: hidden;
+  border-radius: 10px !important;
+  background-color: #fff;
+}
+
+.rate-inner-forms {
+  padding: 15px;
+}
+
+.rate-not-found-wrapper {
+  width: 35px;
+  height: 35px;
+  background: #fee4e2;
+  border: 8px solid #fef3f2;
+  border-radius: 28px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rate-not-found-inside {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d92d20;
+  // margin-top: 7px;
+}
+
+.create_new_tab {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  background-color: #fff;
+  cursor: pointer;
+  gap: 8px;
+  border: none !important;
+  color: #475467 !important;
+}
+
+.enable-booking-component {
+  pointer-events: none !important;
+  cursor: none !important;
+}
+
+// .rate-block-container {
+//   position: relative;
+// }
+
+// .remove-rate-block {
+//   position: absolute;
+//   // right: -15px;
+//   // top: -15px;
+//   cursor: pointer;
+// }
+
+.NewTextEditor .jodit-toolbar__box {
+  height: 100% !important;
+  padding: 10px 0px;
+}

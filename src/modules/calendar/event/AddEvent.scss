@@ -1,0 +1,66 @@
+#AddEventModal {
+  .config_modal_form_css .config_modal_heading {
+    padding: 20px 20px 0px 20px;
+  }
+
+  .config_modal_form_css button {
+    float: unset;
+  }
+
+  .rdw-editor-toolbar {
+    justify-content: flex-start !important;
+    padding: 0 !important;
+  }
+
+  // .config_modal_form_css .MuiGrid-item {
+  //   max-width: unset !important;
+  // }
+
+  .event_form_coantainer {
+    .MuiGrid-root {
+      margin-top: 13px;
+      // width: 100%;
+      margin-left: -5px;
+      padding: 0 14px;
+    }
+
+    .label-heading {
+      margin-bottom: 5px;
+    }
+
+    .MuiOutlinedInput-notchedOutline {
+      top: -3px;
+    }
+
+    .MuiInputBase-root {
+      height: 40px;
+    }
+  }
+
+  .jodit-toolbar__box {
+    all: unset;
+  }
+  .jodit-container {
+    flex-direction: column;
+    padding: 10px 2px;
+  }
+  .jodit-toolbar-editor-collection_mode_horizontal {
+    background-image: none;
+  }
+  .event_editor_container {
+    padding: 0 !important;
+  }
+  .jodit-toolbar-button {
+    background: none;
+  }
+
+  .jodit-ui-group__fullsize {
+    display: none;
+  }
+}
+
+#RepeatEventModal {
+  .label-heading {
+    margin-bottom: 5px;
+  }
+}

@@ -1,0 +1,60 @@
+.TwoFactor_QR {
+  background: #ffffff;
+  border: 1px solid #eaecf0;
+  box-shadow: 0px 1px 3px rgb(16 24 40 / 10%), 0px 1px 2px rgb(16 24 40 / 6%);
+  border-radius: 12px;
+  max-width: 100%;
+  padding: 32px;
+  margin-bottom: 50px;
+}
+.fh_box{
+  height:100vh
+}
+.TwoFactor_QR h2 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  border-bottom:none;
+  padding-bottom: 0px;
+  margin-bottom: 5px !important;
+}
+.sub-title{
+  border-bottom: 1px solid #EAECF0;
+  padding-bottom: 25px;
+  margin-bottom: 20px;
+}
+.p-bold{
+  font-weight: 500 !important;
+}
+.qr-image{
+  margin-top:50px;
+}
+.footer-btn{
+  text-align: right;
+    margin-top: 40px;
+}
+
+.TwoFactor_QR_H2 {
+  text-align: center;
+}
+
+.TwoFactor_QR_H4 {
+  text-align: center;
+  font-size: 14px !important;
+}
+.btnCancel{
+  background: #FFFFFF !important;
+/* Gray/300 */
+
+border: 1px solid #D0D5DD !important;
+/* Shadow/xs */
+
+box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05) !important ;
+border-radius: 8px !important;
+color: #344054 !important;
+    margin-right: 10px !important;
+}
+
+.otp-footer{
+  text-align: center !important;
+}

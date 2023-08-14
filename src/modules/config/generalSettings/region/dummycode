@@ -1,0 +1,55 @@
+// const setCurrentRegionFromLocal = (tempRegion: RegionProps) => {
+//   if (regionId) {
+//     setCurrentRegion(tempRegion);
+//   }
+// };
+
+// const getAllGeneralCard = async () => {
+//   try {
+//     if (configName?.singular) {
+//       setLoading(true);
+//       const { status, ...response } = await getAPI(
+//         `${configName?.singular.toLowerCase()}/?q=${urlUtils.q}&archived=${
+//           urlUtils.archived
+//         }&page=${urlUtils.page}&size=${urlUtils.size}`,
+//       );
+
+//       if (status === 200) {
+//         const { data } = response;
+//         setRegions(data?.items);
+//         setLocations(data?.items);
+//         setTerritories(data?.items);
+//         setCountries(data?.items);
+//         setCurrentRegionFromLocal(data.items.find((rg: any) => rg.id === Number(regionId)));
+//         setLoading(false);
+//       }
+//     }
+//   } catch (error) {
+//     setLoading(false);
+//   }
+// };
+
+// href={'/config/regions'}
+
+// const deleteRegion = async () => {
+//   try {
+//     await deleteAPI(`${configName.pathname}/`, {
+//       config_ids: [deleteId],
+//     }).then((res:any) => {
+//       if(status === 200) {
+//         setOpenModal(false)
+//       }
+//     })
+
+//   } catch (error) {}
+// };
+
+// useEffect(() => {
+//     // if (items.length === 0) {
+//     //   getAllGeneralCard();
+//     // } else {
+//     //   const currRegion = items.find((rg) => rg.id === Number(regionId));
+//     //   currRegion && setCurrentRegion(currRegion);
+//     // }
+
+//   }, [configName.pathname]);

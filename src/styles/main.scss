@@ -1,0 +1,1264 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+$theme-blue: #283352 !important;
+$theme-green: green !important;
+
+@import "./variables.scss";
+@import "./style.scss";
+@import "./components/roleForm.scss";
+@import "./pages/layout.scss";
+@import "./components/sidebar.scss";
+@import "./components/response.scss";
+@import "./components/TextAnswer.scss";
+@import "./components/templateSeperator.scss";
+@import "./components/responseInputLogic.scss";
+@import "./components/TitlePage.scss";
+@import "./components/Section.scss";
+@import "./components/HoverItems.scss";
+@import "./components/ResponseTab.scss";
+@import "./components/TabPage.scss";
+@import "./components/newResponseType.scss";
+@import "./pages/bottomTemplateNavigation.scss";
+@import "./layout/layout.scss";
+@import "./pages/Report.scss";
+@import "./pages/accessControl.scss";
+@import "./pages/inspections.scss";
+@import "./components/popupList.scss";
+@import "./pages/inspection.scss";
+@import "./variables.scss";
+@import "./pages/layout.scss";
+@import "./pages/template.scss";
+@import "./components/sidebar.scss";
+@import "./components/response.scss";
+@import "./components/TextAnswer.scss";
+@import "./components/templateSeperator.scss";
+@import "./components/responseInputLogic.scss";
+@import "./components/TitlePage.scss";
+@import "./components/Section.scss";
+@import "./components/HoverItems.scss";
+@import "./components/ResponseTab.scss";
+@import "./components/TabPage.scss";
+@import "./components/newResponseType.scss";
+@import "./pages/bottomTemplateNavigation.scss";
+@import "./layout/layout.scss";
+// @import './/table.scss';
+@import "./pages/Report.scss";
+@import "./pages/accessControl.scss";
+@import "./pages/inspections.scss";
+@import "./layout/ReportLayout.scss";
+@import "./pages/viewPage.scss";
+@import "./components/customMultiselect.scss";
+@import "./layout/important.scss";
+@import "./components/table.scss";
+@import "./components/assignActivityForm.scss";
+@import "./pages/forms.scss";
+@import "./components/customBreadcrumb.scss";
+// @import '../containers/calendar/event/AddEvent.scss';
+@import "./components/org.scss";
+@import "./pages/profile.scss";
+@import "./pages/Booking.scss";
+@import "./pages/template.scss";
+// @import "../containers/calendar/Calendar.scss";
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter;
+}
+
+textarea {
+  font-family: Inter !important;
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.text-white {
+  color: #fff !important;
+}
+
+.theme-blue {
+  color: $theme-blue;
+}
+
+.theme-green {
+  color: $theme-green;
+}
+
+a {
+  color: #283352;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.default-padding {
+  padding: 20px;
+}
+
+.input-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.chip-tab-labels {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blue {
+  .input-label {
+    color: #344054 !important;
+  }
+
+  .badge-tab-indicator {
+    background: #283352;
+  }
+}
+
+//  -------------------- overriding the tabs sections --------------
+.tenants_tabs.Mui-selected {
+  background-color: #ebedf1 !important;
+  font-weight: 600 !important;
+}
+
+.tenants_tabs.MuiTabs-flexContainer > .MuiButtonBase-root {
+  color: #667085;
+  font-weight: 600 !important;
+}
+
+// ----------------------------- overriding the button disabled section -----------------------
+.Mui-disabled.login_button {
+  color: #fff !important;
+  background-color: #a3abbf !important;
+  border: none !important;
+}
+
+// ------------------------------------ overriding the card components --------------------------------------
+
+.card-bottom-content {
+  padding-bottom: 16px !important;
+}
+
+.middle-card-content {
+  padding-top: 8px !important;
+  padding-bottom: 25px !important;
+}
+
+.MuiCardHeader-content > .MuiCardHeader-title {
+  color: #384874 !important;
+  font-weight: 500 !important;
+  font-size: 17px !important;
+}
+
+.MuiCardHeader-content > .MuiCardHeader-subheader {
+  margin-top: 3px !important;
+  color: #475467 !important;
+}
+
+// --------------- overriding the skeleton card compoent border ---------------------
+.skeleton_card_container.MuiPaper-root {
+  box-shadow: none !important;
+  border: 1px solid #eaecf0 !important;
+  border-radius: 12px !important;
+}
+
+// ----------------------- mui modal box --------------------
+.MuiBox-root {
+  border: none !important;
+}
+
+// removing the underline
+.custom_textfield > .MuiInputBase-root {
+  // display: none !important;
+  background-color: #fff !important;
+}
+
+.custom_textfield .MuiInputBase-input.MuiOutlinedInput-input {
+  height: 0px !important;
+}
+
+// ------------------ user avatar status --------------------------
+.dashboard_user_avatar {
+  position: relative !important;
+}
+
+.dashboard_user_avatar_status {
+  position: absolute !important;
+  bottom: -5px;
+  right: -3px;
+}
+
+//  ----------------- deactivate_tenant_user modal ---------------------
+.deactivate_tenant_user {
+  height: 40px;
+  width: 40px;
+  background: #fee4e2;
+  border: 8px solid #fef3f2;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deactivate_tenant_user > img {
+  height: 20px;
+  width: 20px;
+}
+
+.deactivate_modal_close {
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.deactivate_modal_close:hover {
+  background-color: #ebedf1;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.outlinedButton {
+  width: 100% !important;
+  border: 1px solid #d0d5dd !important;
+  padding: 10px 0px !important;
+  border-radius: 8px !important;
+  color: #344054 !important;
+}
+
+.containedButton {
+  width: 100% !important;
+  border: 1px solid #d0d5dd !important;
+  padding: 11px 0px !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.errorButton {
+  width: 100% !important;
+  background-color: #d92d20 !important;
+  padding: 10px 0px !important;
+  border-radius: 8px !important;
+  color: #fff !important;
+}
+
+.errorButton:hover {
+  background-color: #c9190c !important;
+}
+
+.buttonContainer {
+  height: 45px !important;
+  width: 100% !important;
+}
+
+.popover_button_profile {
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin-top: 2px;
+}
+
+.popover_button_deactivate {
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin-top: 2px;
+}
+
+.popover_button_profile:hover {
+  background-color: #f9fafb;
+}
+
+.popover_button_deactivate:hover {
+  background-color: #f9fafb;
+}
+
+.checkmark_popover_profile {
+  display: none;
+}
+
+.card_popover_profile:hover .checkmark_popover_profile {
+  display: block;
+}
+
+.checkmark_popover_deactivate {
+  display: none;
+}
+
+.card_popover_deactivate:hover .checkmark_popover_deactivate {
+  display: block;
+}
+
+// -------------------------------- custom scrollbar  ----------------------------------
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #33426a;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+// ----------------------- mui table --------------------
+.table_container {
+  // border: 1px solid #EAECF0 !important;
+  border-bottom: none !important;
+}
+
+.table_container.MuiTableContainer-root {
+  border-radius: 12px !important;
+}
+
+.SnackbarContainer-top {
+  margin-top: 70px;
+}
+
+//  -------------------------- tenant popover ---------------------------
+.table_popover .MuiPaper-root {
+  box-shadow: none !important;
+}
+
+.MuiPopover-root {
+  .MuiPaper-root {
+    background: #ffffff;
+    border: 1px solid #eaecf0;
+    box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+    border-radius: 8px;
+  }
+
+  .MuiList-root {
+    .MuiMenuItem-root {
+      position: relative;
+      z-index: 1;
+      padding-right: 30px;
+
+      &:before {
+        content: "";
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        background: url("../../public/assets/icons/check.svg");
+        margin-top: -10px;
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      &:hover,
+      &.Mui-selected {
+        &:before {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.MuiSelect-icon {
+  width: 20px !important;
+  height: 20px !important;
+  background: url("../../public/assets/icons/cheveron-down.svg") no-repeat 50% 50%;
+
+  path {
+    display: none;
+  }
+}
+
+.MuiButton-root {
+  &.Mui-disabled {
+    .MuiButton-startIcon {
+      opacity: 0.5;
+    }
+  }
+}
+
+.upload-image-edit-area {
+  width: 432px;
+  height: 333px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 5px;
+  display: grid;
+  place-content: center;
+
+  &:hover {
+    .image-edit-options {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  .image-edit-options {
+    position: absolute;
+    background: linear-gradient(
+      180deg,
+      #000000 0%,
+      rgba(0, 0, 0, 0.486958) 47.15%,
+      rgba(217, 217, 217, 0) 91.91%
+    );
+    border-radius: 12px;
+    height: 81px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    // visibility: hidden;
+    // opacity: 0;
+    transition: visibility, opacity 0.25s linear 0s;
+
+    button {
+      color: #fff;
+      padding: 0 !important;
+    }
+  }
+}
+
+.dialog-image-edit {
+  .MuiDialog-paper {
+    max-width: 480px;
+  }
+}
+
+.action-button-holder {
+  padding: 0 20px 10px;
+  border-top: 1px solid #eaecf0;
+}
+
+//  ----------------- mui step for tenants -------------------
+.tenant_password_step_label .MuiStepLabel-label {
+  color: #fff !important;
+  font-weight: 600 !important;
+  font-size: 18px !important;
+}
+
+.tenant_step_content .MuiCollapse-root {
+  color: #b9c0ce !important;
+  font-weight: 400 !important;
+  font-size: 8px !important;
+  line-height: 24px !important;
+}
+
+.tenant_step_content .MuiTypography-root {
+  font-size: 13px !important;
+}
+
+// privacy policy tabs
+.privacy_policy_tab_container.MuiTabs-root {
+  background-color: #f9fafb !important;
+  border-radius: 10px !important;
+}
+
+.privacy_policy_tab_container .MuiButtonBase-root {
+  text-transform: initial !important;
+  min-height: 0px !important;
+  width: 150px !important;
+}
+
+.privacy_policy_tab_container .Mui-selected {
+  color: #384874 !important;
+  background: white !important;
+  margin: 8px !important;
+  text-transform: initial !important;
+  border-radius: 5px !important;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
+}
+
+.privacy_policy_tab_container .MuiTabs-indicator {
+  display: none;
+}
+
+// Navbar css
+.navbar_menu_icon_list {
+  ul li img {
+    width: 20px;
+    height: 20px;
+    margin-right: 7.5px;
+  }
+
+  ul li span {
+    font-size: 16px;
+    font-weight: 500;
+    color: #c1c6d4;
+  }
+
+  ul li .MuiButtonBase-root {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+}
+
+.nav_help_topography {
+  span {
+    font-size: 16px;
+    font-weight: 500;
+    color: #c1c6d4;
+    margin-top: -10px;
+  }
+}
+
+.action-button-holder {
+  .MuiGrid-root {
+    align-items: flex-end;
+  }
+}
+
+// --------------------Config modal css--------------------
+.config_modal_form_css {
+  .config_modal_heading {
+    padding: 20px;
+  }
+
+  .config_modal_title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .config_modal_text {
+    font-size: 14px;
+    font-weight: 400;
+    padding-bottom: 20px;
+  }
+
+  .region-form .region-fieldset {
+    padding: 20px 25px 0px 25px;
+  }
+
+  .formGroupItem {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  .MuiGrid-item {
+    width: 100% !important;
+    // max-width: 100% !important;
+
+    button {
+      float: right;
+    }
+  }
+
+  .css-gj1fbr-MuiGrid-root {
+    width: 100% !important;
+    // max-width: 100% !important;
+  }
+
+  .MuiGrid-item {
+    padding-top: 0px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .region-form .input-holder .MuiOutlinedInput-root {
+    height: 37px;
+    margin-bottom: 28px !important;
+  }
+
+  .region-form .text-area .input-holder .MuiOutlinedInput-root {
+    margin-bottom: 4px !important;
+  }
+
+  .action-button-holder {
+    border-top: none;
+  }
+
+  .action-button-holder .add_another_btn {
+    display: none !important;
+  }
+
+  .css-1szdtvn-MuiFormHelperText-root.Mui-error {
+    position: absolute !important;
+    margin-top: 35px !important;
+  }
+
+  .document_number_format_heading {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .document_number_format_footer {
+    font-size: 13px;
+    color: #475467;
+    margin: 20px 0;
+  }
+
+  .document_number_format_part {
+    margin-top: 20px;
+  }
+}
+
+.custom-select-search-field-billing-aggrement .css-1455xpr-MuiInputBase-root-MuiOutlinedInput-root {
+  height: auto !important;
+}
+
+// ============= REMOVING THE MUI TABS LETTER STYLING ==============
+.MuiButtonBase-root.MuiTab-root {
+  text-transform: none !important;
+  font-size: 15px !important;
+}
+
+#multiple_email_address_id .multiple_email_address_id {
+  display: block;
+
+  .react-multi-email {
+    width: 96% !important;
+
+    .react-multi-email__tags {
+      width: 100%;
+
+      .react-multi-email__tag {
+        width: 100%;
+
+        .react-multi-email__tag__content {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .react-multi-email [data-tag] {
+    font-size: 0.9em;
+  }
+}
+
+#FORGET_PASSWORD_INNER_CONTAINER {
+  .main_container {
+    all: unset;
+    overflow: hidden;
+
+    .MuiBox-root {
+      width: initial;
+    }
+
+    .auth_footer {
+      display: none;
+    }
+
+    .back_to_login_btn {
+      display: none;
+    }
+  }
+}
+
+.css-xv2tp9 {
+  padding-bottom: 0px !important;
+}
+
+.MuiTooltip-tooltip {
+  background-color: #384874 !important;
+}
+
+.MuiTooltip-arrow {
+  color: #384874 !important;
+}
+
+.inner_field_component_styling_in_template {
+  font-weight: 500;
+  font-size: 14px;
+
+  .passwordContainerBox {
+    border: 1px solid #eaecf0 !important;
+    border-radius: 10px !important;
+  }
+
+  .passwordMainContainer {
+    transition: all 0.4s ease-in-out !important;
+  }
+
+  .user-border {
+    border-bottom: 1px solid #eaecf0;
+  }
+
+  .box-shadow-wrapper {
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px !important;
+    border-radius: 10px !important;
+  }
+
+  .anticipated_time_container {
+    position: relative !important;
+  }
+
+  .anticipated_inner_form {
+    position: absolute !important;
+    left: 0 !important;
+  }
+
+  .anticipated_select {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-left: 0px !important;
+    border-left: none !important;
+    background-color: #f9fafb !important;
+    border-bottom: 0px !important;
+  }
+
+  // disabled input styling
+  .disabled {
+    color: #777 !important; // gray color for text
+    background-color: #f5f5f5 !important; // light gray color for background
+    box-shadow: none !important;
+  }
+}
+
+#addResponseButton {
+  background-color: #c1c6d4 !important;
+  color: #283352 !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  border: 0px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease-in-out !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+// for sidebar bottom alignment
+
+.sidebar___comon-style {
+  display: flex !important;
+  height: 100% !important;
+  width: 100% !important;
+
+  ul {
+    width: 100% !important;
+  }
+}
+
+// for text area
+.text__area-style {
+  font: inherit;
+  letter-spacing: inherit;
+  color: currentColor;
+  font-weight: 400;
+  font-size: 16px;
+  // padding: 4px 0 5px;
+  padding: 8px 12px;
+  box-sizing: content-box;
+  display: block;
+  border: 1px solid;
+  border-color: rgba(0, 0, 0, 0.23);
+  border-radius: 10px;
+}
+
+.hover__effect-underline {
+  cursor: pointer;
+  text-decoration: underline;
+
+  &:hover {
+    transition: all 0.3s;
+  }
+}
+
+.nested-sections {
+  padding-left: 30px;
+  border-left: 1px solid black;
+}
+
+#GRSModal_menu {
+  .MuiPaper-root {
+    margin-top: 40px;
+    margin-left: -115px;
+  }
+}
+
+.finance__buttons {
+  // margin-bottom: 3rem;
+  // display: none;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-radius: 0;
+  padding: 0;
+
+  button {
+    &.active {
+      background: #ebedf1;
+      border-radius: 0;
+      box-shadow: none;
+      box-shadow: 2 10px 0px 5px red;
+      border-bottom: 2px solid;
+    }
+  }
+}
+
+#PriceAdjustmentFormModal {
+  .config_modal_form_css .region-form .region-fieldset {
+    padding: 0px 25px 0px 25px;
+  }
+}
+
+// strech layout
+.strech__content {
+  padding: 0 24px !important;
+  margin: 0 !important;
+  width: 100% !important;
+  // background: red;
+  max-width: 100% !important;
+}
+
+.custom_template_padding {
+  padding: 0 !important;
+}
+
+.right__fixed-template-layout {
+  position: fixed;
+  right: 26px;
+  height: calc(100% - 231px);
+  overflow: auto;
+  width: 100%;
+  padding-left: 50px !important;
+}
+
+.left__fixed-template-layout {
+  position: fixed;
+  left: 26px;
+  height: calc(100% - 231px);
+  overflow: auto;
+  width: 100%;
+  padding-left: 50px !important;
+}
+
+// error
+.error__box {
+  background: transparent !important;
+  padding: 8px !important;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.4 !important;
+  padding-left: 3px !important;
+
+  .MuiAlert-message {
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+  .MuiAlert-icon {
+    margin-right: 8px !important;
+    font-size: 18px !important;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.custom__label-activity {
+  font-size: 16px !important;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 1.4375em;
+  color: rgba(0, 0, 0) !important;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 12px !important;
+  outline: none;
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  background: #fff;
+  position: relative;
+  border-radius: 4px;
+  padding: 6px;
+  border-radius: 8px;
+  height: 44px;
+}
+
+.left_items {
+  display: flex;
+}
+
+.myStyle__box {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  .archive__container {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    gap: 4px;
+
+    svg {
+      font-size: 24px;
+    }
+  }
+}
+
+.assign__box-popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  & > div {
+    // filter: blur(8px);
+    position: absolute;
+    border-radius: 10px;
+    z-index: 77777777;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @media (min-width: "320px") {
+      width: 400px !important;
+    }
+
+    width: 300px !important;
+
+    .content {
+      color: #000;
+      padding: 16px 24px;
+      border-bottom: 2px solid #eaecf0;
+
+      .sub__title {
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 2;
+        color: $theme-blue;
+      }
+    }
+  }
+
+  .select__wrapper {
+    & > div {
+      width: 100%;
+    }
+  }
+
+  .actions__container {
+    padding: 16px 24px;
+
+    & > * {
+      width: 100%;
+    }
+  }
+}
+
+.bottomNavigation__container {
+  .status__container {
+    position: relative;
+
+    .status__box {
+      border-radius: 8px;
+      position: absolute;
+      bottom: 120%;
+      // height: 100px;
+      color: #000;
+      width: 100%;
+    }
+
+    .active__box {
+      span {
+        font-weight: bold !important;
+        color: $theme-blue;
+        letter-spacing: 1px;
+        transition: all 0.3s;
+      }
+    }
+  }
+}
+
+.text__overflow-row-ellipse {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+// .calendar__info-card {
+//   max-height: 300px;
+//   overflow: scroll !important;
+// }
+
+.default-actions__container {
+  // padding: 16px 24px;
+  padding: 0 24px 16px !important;
+
+  & > * {
+    width: 100%;
+  }
+}
+
+.active {
+  display: flex !important;
+}
+
+.de-active {
+  display: none !important;
+}
+
+// test purposes
+// .small-screen__viewport {
+//   position: fixed !important;
+//   top: 0 !important;
+//   left: 0px !important;
+//   .text-info {
+//     display: none !important;
+//   }
+// }
+
+.active {
+  display: flex !important;
+}
+
+.de-active {
+  display: none !important;
+}
+
+#AddCustomerModal {
+  .config_modal_form_css .formGroupItem {
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
+
+  .config_modal_form_css p {
+    display: block;
+  }
+
+  .MuiGrid-root {
+    margin-top: 0px !important;
+  }
+
+  .config_modal_form_css .config_modal_heading {
+    padding: 20px 20px 0px 20px;
+  }
+
+  .setting-form-group {
+    padding: 0px !important;
+    margin: 0px !important;
+  }
+
+  .formGroupItem {
+    padding-right: 0px !important;
+  }
+
+  /* Increase z-index of Alert */
+  .MuiSnackbar-root {
+    z-index: 9999;
+  }
+
+  .MuiAlert-root {
+    z-index: 9999;
+  }
+}
+
+.skeleton-box {
+  display: inline-block;
+  // height: 1em;
+  position: relative;
+  overflow: hidden;
+  background: rgb(179 179 179 / 29%);
+  // background: 'rgb(179 179 179 / 29%)',
+  margin: 0.75rem 0;
+  padding: 0.5rem 0;
+  border-radius: 4px;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+
+    background-image: linear-gradient(
+      90deg,
+      rgba(#aaa, 0) 0,
+      rgba(#aaa, 0.2) 20%,
+      rgba(#aaa, 0.5) 60%,
+      rgba(#aaa, 0)
+    );
+    animation: shimmer 2s infinite;
+    content: "";
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+#ViewSampleModal_Internal {
+  .MuiToolbar-root,
+  .action_header,
+  .MuiCheckbox-colorPrimary,
+  .MuiAppBar-colorPrimary {
+    display: none;
+  }
+}
+.DateTime {
+  .css-i4bv87-MuiSvgIcon-root {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+
+.repeat_every_weeks_number_field {
+  height: 39px !important;
+  .MuiInputBase-root {
+    height: 39px !important;
+    .MuiOutlinedInput-notchedOutline {
+      height: 39px !important;
+    }
+  }
+}
+
+.event_form_coantainer .DraftEditor-editorContainer {
+  z-index: 0 !important;
+}
+
+#custom_react_select_css ~ div {
+  position: absolute;
+}
+
+#react-select-2-listbox {
+  z-index: 9999999999 !important;
+}
+
+#InvoiceBillingForm table {
+  tr {
+    margin-bottom: 20px;
+  }
+}
+
+#price_adjustment_form {
+  .MuiGrid-root {
+    margin-bottom: 27px !important;
+  }
+
+  .input-holder .MuiOutlinedInput-root {
+    margin-bottom: 0 !important;
+  }
+  .MuiFormLabel-root {
+    margin-bottom: -20px !important;
+  }
+}
+
+.config-holder .invoice__buttons {
+  margin-top: -18px;
+  .display_block_p p {
+    display: block !important;
+  }
+}
+
+#StartInspectionBookingModal {
+  .fix__layout .config_modal_form_css {
+    overflow: unset !important;
+  }
+}
+
+#CoreCalendar {
+  .calendar_show_more_card {
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .calendar_show_more_card:hover {
+    cursor: pointer;
+    background-color: rgb(154 169 178 / 43%) !important;
+  }
+}
+
+#AddBillingPlan {
+  .config_modal_heading {
+    padding: 20px;
+  }
+  .config_modal_title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .config_modal_text {
+    font-size: 14px;
+    font-weight: 400;
+    padding-bottom: 20px;
+  }
+
+  #billing-component-helper-text {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .label-heading {
+    margin-bottom: 10px;
+  }
+
+  .setting-form-group {
+    width: 90%;
+    padding: 40px;
+    border: 1px solid grey;
+  }
+}
+
+.booking_quotation_create_location_align {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.bk_qu_label_heading {
+  color: #344054;
+
+  font-weight: 500;
+
+  & + p {
+    font-size: 14px;
+
+    color: #475467;
+
+    margin: 0;
+  }
+}
+
+.calendar__info-card {
+  .MuiTypography-body1 {
+  }
+
+  .text__overflow-row-ellipse {
+    margin-left: 8px;
+  }
+  .calendar__block-card {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    white-space: nowrap;
+
+    p {
+      margin: 0 8px;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      margin-bottom: -4px;
+      color: #667085;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+.alertDialog {
+  padding: 0;
+
+  .alertContent {
+    padding: 28px 24px 24px;
+    min-width: 408px;
+    max-width: 408px;
+    .iconBox {
+      text-align: center;
+      margin-bottom: 14px;
+      .iconItem {
+        font-size: 1.5em;
+        svg {
+          font-size: 24px;
+        }
+      }
+      .success {
+        svg {
+          color: var(--primary-main);
+        }
+      }
+      .warning {
+        svg {
+          color: var(--warning-main);
+        }
+      }
+    }
+    .title {
+      text-align: center;
+      color: var(--primary-dark);
+      margin-bottom: 16px;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 28px;
+    }
+    .text {
+      color: var(--secondary-dark);
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: center;
+      margin-bottom: 0;
+    }
+    .textBottom {
+      margin-bottom: 24px;
+    }
+    .custTextMargin {
+      margin-top: 16px;
+    }
+  }
+  .actionBlock {
+    padding: 24px;
+    justify-content: center;
+  }
+}

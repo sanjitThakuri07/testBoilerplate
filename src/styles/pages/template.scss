@@ -1,0 +1,341 @@
+#template {
+  #TemplateTopbar {
+    border-bottom: $custom-border;
+    .MuiGrid-container {
+      align-items: baseline;
+    }
+    .config-filter-buttons {
+      justify-content: space-around;
+    }
+    .config-filter-buttons button {
+      padding: 1% 12.5%;
+      margin: 5px;
+    }
+  }
+
+  #TemplateTopbar {
+    background-color: #f2f3f6;
+    padding: $custom-template-padding-wrapper;
+  }
+
+  .sidebar__container-grid {
+    padding-left: $custom-template-padding-wrapper-side;
+  }
+  // .MuiInputLabel-root {
+  //   line-height: 0.9em;
+  // }
+  #CustomTextField .required_switch .MuiGrid-item {
+    width: unset;
+  }
+  #CustomTextField .MuiGrid-item {
+    padding-top: 10px;
+    width: 100%;
+  }
+
+  #CustomTextField {
+    padding-left: 14px;
+  }
+
+  #MobilePreview {
+  }
+}
+
+.template__creation {
+  max-width: none !important;
+  width: auto !important;
+}
+
+.input__wrapper {
+  color: #000;
+  margin-left: 0.5rem;
+
+  &.section__wrapper {
+    .template__text-view {
+      font-weight: bold;
+      font-size: toRem(18);
+    }
+  }
+}
+
+.template__text-view {
+  display: block;
+  white-space: break-spaces;
+  color: #000;
+}
+
+.template__content {
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.template__container-box {
+  background-color: #f7fcffa9;
+  display: block;
+}
+
+.template__text-area {
+  line-height: 1.6;
+  font-size: toRem(16);
+}
+
+.template__body-container {
+  display: grid;
+  grid-template-columns: minmax(toRem(120), toRem(400)) 1fr;
+  transition: all 0.3s ease;
+
+  .collapse__btn {
+    position: absolute;
+    right: 0%;
+    top: 40%;
+    z-index: 1000;
+    // top: 50%;
+    transform: translateY(-50%) translateX(50%);
+    background: $color-white;
+    outline: none;
+    border: none;
+    padding: toRem(8) toRem(8);
+    border: $custom-border;
+    border-radius: toRem(5);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    svg {
+      font-size: toRem(14);
+      transform: rotate(180deg);
+    }
+  }
+
+  &.collapse {
+    grid-template-columns: minmax(toRem(118), toRem(118)) 1fr;
+
+    .sidebar__body-container {
+      & * {
+        white-space: nowrap !important;
+      }
+    }
+
+    .collapse__btn {
+      svg {
+        transition: all 0.3s;
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  .template__sidebar {
+    position: relative;
+  }
+}
+
+.rendering_multiple_choice_response {
+  overflow: hidden;
+}
+
+.fnr__template-modal {
+  padding: toRem(8) toRem(12);
+
+  h1 {
+    margin: 0;
+    font-size: toRem(18);
+    font-weight: 600;
+  }
+
+  .actions__container {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: toRem(8);
+    padding-bottom: toRem(16);
+  }
+
+  .fnr {
+    &__form-container {
+      display: flex;
+      flex-direction: column;
+      gap: toRem(8);
+
+      .nest__level-1 {
+        padding-left: toRem(32);
+        position: relative;
+
+        .label__style {
+          span {
+            padding-right: 4px;
+            padding-left: 14px;
+          }
+        }
+
+        &.active {
+          .label__style {
+            position: relative;
+            &::after {
+              content: '';
+              position: absolute;
+              width: 7px;
+              height: 7px;
+              transform: rotate(45deg);
+              background: $color-light;
+              left: 3px;
+            }
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            height: toRem(30);
+            width: 2px;
+            background: $color-light;
+            top: toRem(-10);
+            left: toRem(20);
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            width: toRem(22);
+            height: 2px;
+            background: $color-light;
+            top: 46%;
+            transform: translateY(50%);
+            left: toRem(20);
+          }
+        }
+      }
+      .nest__level-2 {
+        padding-left: toRem(64);
+        position: relative;
+
+        .label__style {
+          span {
+            padding-right: 4px;
+            padding-left: 14px;
+          }
+        }
+
+        &.active {
+          .label__style {
+            position: relative;
+            &::after {
+              content: '';
+              position: absolute;
+              width: 7px;
+              height: 7px;
+              transform: rotate(45deg);
+              background: $color-light;
+              left: 6px;
+            }
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            height: toRem(30);
+            width: 2px;
+            background: $color-light;
+            top: toRem(-8);
+            left: toRem(55);
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            width: toRem(22);
+            height: 2px;
+            background: $color-light;
+            top: 46%;
+            transform: translateY(50%);
+            left: toRem(55);
+          }
+        }
+      }
+
+      section {
+        &:first-child {
+          border-top: 1px solid silver;
+          border-bottom: 1px solid silver;
+          // border-top: ;
+        }
+
+        &:last-child {
+          border-bottom: 1px solid silver;
+        }
+      }
+    }
+  }
+}
+
+.todo__component {
+  .todo__list {
+    padding-top: toRem(8);
+    padding-bottom: toRem(8);
+    .list__item {
+      display: flex;
+      background-color: hsl(0, 0%, 100%);
+      border-color: #d0d5dd;
+      border-radius: 8px;
+      border-style: solid;
+      border-width: 1px;
+      box-sizing: border-box;
+      padding: toRem(8) toRem(16);
+      gap: toRem(8);
+
+      &:not(:first-child) {
+        margin-top: toRem(8);
+      }
+    }
+
+    .input__field {
+      flex: 1;
+    }
+
+    .actions {
+      font-size: 14px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: toRem(8);
+      color: $color-primary;
+
+      svg {
+        font-size: toRem(16);
+        transition: all 0.3s;
+        cursor: pointer;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      .delete__icon {
+        color: $error-color-code;
+      }
+    }
+  }
+  .todo__input {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    button {
+      align-self: flex-end;
+      margin-top: toRem(12);
+    }
+  }
+}
+
+.flex__style {
+  .TextAnswer_wrapper_body {
+    display: flex !important;
+    align-items: center;
+
+    .speech__box {
+      margin-right: 20px;
+    }
+  }
+}

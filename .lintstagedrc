@@ -1,0 +1,4 @@
+{
+  "*.{ts,js,tsx,jsx}": ["yarn run prettier", "yarn run eslint"],
+  "**/*.scss": ["stylelint scss"]
+}

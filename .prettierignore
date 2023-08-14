@@ -1,0 +1,13 @@
+public
+build
+coverage
+node_modules
+src/assets
+.eslintignore
+.gitignore
+.husky
+.prettierignore
+.env
+yarn.lock
+
+

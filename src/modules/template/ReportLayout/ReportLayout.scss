@@ -1,0 +1,117 @@
+#INSPECTION_REPORT {
+  // padding-bottom: 50px;
+
+  .generic_highlight_property {
+    mix-blend-mode: multiply;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 4px 12px;
+  }
+
+  .counting_highlight {
+    @extend .generic_highlight_property;
+    background: #fef3f2;
+    color: #b42318;
+  }
+
+  .status_highlight {
+    @extend .generic_highlight_property;
+    background-color: #fffaea;
+    color: rgb(181, 71, 8);
+  }
+
+  .date_highlight {
+    @extend .generic_highlight_property;
+    background-color: #f2f4f7;
+    color: #9499a3;
+  }
+
+  .layout_button {
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    background-color: #fff;
+    border: 1px solid #eaecf0;
+  }
+
+  .layout_button_active {
+    background-color: #f9fafb;
+    box-shadow: 0px 1px 1px rgba(16, 24, 40, 0.05), 0px 0px 0px 2px #c1c6d4;
+  }
+
+  .layout_button:hover {
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    border: 1px solid #eaecf0;
+    transform: scale(1.05);
+  }
+
+  .layout_button_icon {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.5s ease;
+  }
+
+  .layout_button_icon:hover {
+    background-color: #fff;
+    border-radius: 50px;
+    transition: all 0.5s ease;
+    box-shadow: 0px 1px 1px rgba(16, 24, 40, 0.05), 0px 0px 0px 1px #c1c6d4;
+  }
+
+  // remove layout btn
+  .remove_layout_btn {
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+  }
+
+  .remove_layout_btn > img {
+    height: 100%;
+    width: 100%;
+  }
+
+  // .text_inner_content {
+  //   overflow: hidden;
+  //   text-overflow: ellipsis;
+  //   width: 38%;
+  //   white-space: nowrap;
+  // }
+}
+
+.CUSTOM_TABS {
+  background: #f9fafb;
+  border: 1px solid #eaecf0;
+  border-radius: 8px;
+  padding: 3px;
+  margin: 0 0 22px;
+  width: fit-content;
+
+  button {
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    color: #667085;
+    padding: 6px 13px;
+
+    &.active {
+      background: #ffffff;
+      box-shadow: 0px 1px 3px rgba(16, 24, 40, 0.1),
+        0px 1px 2px rgba(16, 24, 40, 0.06);
+      color: #344054;
+    }
+
+    & + button {
+      margin-left: 7px;
+    }
+  }
+}

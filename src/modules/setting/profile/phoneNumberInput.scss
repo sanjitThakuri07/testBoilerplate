@@ -1,0 +1,45 @@
+.phone-holder {
+  position: relative;
+  overflow: hidden;
+
+  .phone-select {
+    border-top-right-radius   : 0;
+    border-bottom-right-radius: 0;
+    position                  : relative;
+    z-index                   : 2;
+    background                : transparent;
+    max-width                 : 650px !important;
+    padding-right             : 29px;
+
+    &>div {
+      padding-right: 0 !important;
+    }
+
+    img {
+      pointer-events: none;
+    }
+
+    .MuiOutlinedInput-notchedOutline {
+      border: 0;
+    }
+  }
+
+  .phone-input {
+    position    : absolute;
+    left        : 0;
+    right       : 0;
+    z-index     : 1;
+    padding-left: 101px;
+  }
+
+  .link-icon {
+    color      : #475467;
+    font-weight: 600;
+    display    : inline-flex;
+    align-items: center;
+  }
+}
+
+.grid-align-right {
+  text-align: right;
+}

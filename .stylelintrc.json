@@ -1,0 +1,16 @@
+{
+  "plugins": ["stylelint-scss", "stylelint-order"],
+  "processors": ["stylelint-processor-styled-components"],
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-standard-scss",
+    "stylelint-config-styled-components"
+  ],
+  "rules": {
+    "unit-allowed-list": ["px", "em", "rem", "%"],
+    "order/order": ["custom-properties", "declarations"],
+    "order/properties-order": ["width", "height"],
+    "scss/at-import-partial-extension": "always",
+    "scss/at-import-partial-extension-blacklist": [""]
+  }
+}

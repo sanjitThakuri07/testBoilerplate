@@ -1,0 +1,39 @@
+// map places autocomplete box
+.pac-container {
+  width: 17.2% !important;
+}
+.pac-item {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.locate-near-by {
+  position: absolute;
+  z-index: 999;
+  left: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.locate-near-by:hover .locate-near-by-inner {
+  transform: rotate(90deg);
+  transition: all 0.5s ease;
+}
+
+.locate-near-by-inner {
+  background-color: #fff;
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+  padding: 3px;
+  color: #33426a;
+  transition: all 0.5s ease;
+}
+
+.map-main-container {
+  position: relative;
+}
+
+.geomap-text-area {
+  resize: none;
+}

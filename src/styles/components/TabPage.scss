@@ -1,0 +1,126 @@
+.tab__page {
+  //   grid-template-columns: repeat(auto-fit, minmax(toRem(50), toRem(100)));
+  //   margin-left: toRem(12);
+  position: relative;
+  display: flex;
+  align-items: center;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: $color-light;
+    bottom: toRem(0);
+  }
+
+  &-item {
+    padding: $custom-template-sidebar-padding-tb;
+    &.active {
+      background: $page-tab-item;
+    }
+  }
+  & > div {
+    // background: red;
+    position: relative;
+    white-space: nowrap;
+    max-width: calc(100% - toRem(32));
+    overflow: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    // border-bottom: 1px solid $color-light;
+    &::-webkit-scrollbar {
+      // display: none !important;
+      height: toRem(5) !important;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $section-after;
+    }
+  }
+
+  &-add-button {
+    display: inline-flex;
+    align-items: center;
+    margin-left: toRem(0);
+    padding: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    height: toRem(30);
+    width: toRem(30);
+    border-radius: 50%;
+    // right: -toRem(26);
+    // top: 50%;
+    // transform: translateY(-50%);
+    transition: all 0.3s;
+
+    &:hover {
+      background: rgba($color: $color-light, $alpha: 0.4);
+    }
+    & svg {
+      font-size: toRem(22);
+      fill: $color-primary;
+    }
+  }
+}
+
+.page-tab {
+  display: inline-block;
+  height: toRem(30);
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  padding: 0 10px;
+  margin-right: 5px;
+  cursor: pointer;
+
+  &.active {
+    background-color: $page-tab-item;
+    border-color: #ccc #ccc #fff;
+  }
+
+  &-inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  &-title {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &-close {
+    width: toRem(15);
+    height: toRem(15);
+    margin-left: 5px;
+    cursor: pointer;
+    position: relative;
+    left: toRem(6);
+
+    .icon {
+      display: flex;
+      align-items: center;
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.wrap__text {
+  .page-tab-inner {
+    .page-tab-title {
+      max-width: toRem(50);
+    }
+  }
+}

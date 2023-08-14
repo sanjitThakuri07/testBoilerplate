@@ -1,0 +1,179 @@
+#TitlePage {
+  padding: toRem(0) 0 tpRem(5);
+
+  .title_page_text {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    border: none;
+    border-radius: toRem(20);
+    padding: 1px 8px;
+    width: 80px;
+    background: #c1c6d4;
+    .MuiTypography-body1 {
+      font-size: toRem(14);
+      font-weight: 500;
+      color: #485467;
+      font-family: 'Inter', sans-serif;
+      // border: 1.5px solid #384874;
+    }
+  }
+
+  .rotate_down {
+    transform: rotate(180deg);
+    transition: 0.3s ease-in-out;
+  }
+
+  .rotate_icon {
+    transition: 0.3s ease-in-out;
+  }
+
+  // .StarterForm_card {
+  //   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
+  //   overflow: hidden;
+  //   border-radius: 10px !important;
+  // }
+
+  .StarterForm_wrapper {
+    // box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
+    // // overflow: hidden;
+    // border-radius: 10px !important;
+  }
+
+  .StarterForm_card_heading {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: flex;
+    padding: 0 15px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .starter_card_container {
+    // background-color: #fff !important;
+    // border-radius: 12px !important;
+    // padding: 15px 0 !important;
+    // border: 1px solid #eaecf0 !important;
+  }
+}
+
+// ================== NEED TO REMOVE LAST DUMMY STARTER TEMPLATE =======================
+.box-container {
+  padding-left: 2rem;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-left: 1px solid black;
+}
+
+.toolbar-container {
+  display: none;
+}
+
+.main-container:hover .toolbar-container {
+  display: block;
+  background-color: #485467;
+  border-radius: 5px;
+  color: white;
+  padding: toRem(7);
+  cursor: pointer;
+}
+
+.title_page_desc {
+  font-size: toRem(14);
+  padding-top: toRem(10);
+  padding-bottom: toRem(10);
+  border-bottom: $custom-border;
+
+  span {
+    display: block;
+    max-height: toRem(100);
+    overflow: auto;
+  }
+}
+
+.tempalate-looping-image-main-container {
+  padding: 0px 15px;
+}
+
+.template-looping-image {
+  height: 200px;
+  width: 100%;
+  padding-top: 5px;
+}
+
+.template-inner-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.image-container-template {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  border: 1px solid #d0d5dd;
+  // margin: 0 10px;
+  margin-left: toRem(14);
+  margin-right: 0px;
+  border-radius: 10px;
+}
+
+.image-title-container {
+  padding: 10px 0px;
+}
+
+.image-container {
+  padding: 0px 10px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.image-container-actions {
+  position: absolute;
+  top: toRem(20);
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container-actions .delete-icon {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 8px 10px;
+  margin-left: 8px;
+  border: 1px solid #d0d5dd;
+  cursor: pointer;
+}
+
+.image-container-actions .refresh-icon {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 8px 10px;
+  border: 1px solid #d0d5dd;
+  cursor: pointer;
+}
+
+.template-image-flex-items {
+  display: flex;
+  margin-bottom: 5px;
+  .label-heading {
+    padding-left: 10px;
+    cursor: crosshair;
+    font-size: 16px;
+  }
+
+  .draggable_icon {
+    cursor: grab;
+  }
+  .image-text-field {
+    padding: 0 10px;
+  }
+}
+
+.image-des-field {
+  margin-left: 25px;
+}

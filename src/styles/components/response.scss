@@ -1,0 +1,57 @@
+.template__content {
+  padding: toRem(0) $custom-template-padding-wrapper-side 0 toRem(24);
+}
+
+.TextAnswer_wrapper_header {
+  margin-bottom: toRem(12);
+}
+
+.fake_custom_select_field_wrapper {
+  background: $color-white;
+  border-radius: toRem(4);
+  padding: toRem(12) toRem(16);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: flex-end;
+  outline: 1px solid $color-light;
+}
+
+.fake_custom_select_field_input_type {
+  display: flex;
+  align-items: center;
+
+  & > div {
+    display: flex;
+    margin-right: toRem(8);
+  }
+}
+
+#MultipleResponseItem {
+  .fake_custom_select_field_wrapper {
+    justify-content: space-between;
+
+    & > div {
+      display: flex;
+    }
+  }
+}
+
+.fake_custom_select_field {
+  & > div {
+    align-items: center !important;
+  }
+
+  .field__wrapper {
+    align-content: center;
+  }
+}
+
+#MultipleResponseItem {
+  // display: flex;
+  // align-items: center;
+
+  // .response_type_wrapper {
+  //   flex: 1;
+  // }
+}

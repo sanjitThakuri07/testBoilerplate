@@ -1,0 +1,66 @@
+#TextAnswer {
+  position: relative;
+}
+
+#HoverItems_active {
+  position: absolute !important;
+  right: -56px;
+  z-index: 1000;
+  width: toRem(55);
+  text-align: end;
+  position: relative;
+  .template_HoverItems {
+    border: 1px solid #eaecf0;
+    border-radius: 0px 12px 12px 12px;
+    background-color: #fff;
+    .css-1933k8a-MuiButtonBase-root-MuiToggleButton-root {
+      border: none;
+    }
+  }
+  display: block;
+  &.top {
+    top: 0;
+    bottom: auto;
+  }
+
+  &.bottom {
+    top: auto;
+    bottom: toRem(50);
+  }
+}
+
+#HoverItems {
+  position: absolute !important;
+  right: -40px;
+  z-index: 99999;
+  width: toRem(55);
+  text-align: end;
+  position: relative;
+  .template_HoverItems {
+    border: 1px solid #eaecf0;
+    border-radius: 0px 12px 12px 12px;
+    background-color: #fff;
+    .css-1933k8a-MuiButtonBase-root-MuiToggleButton-root {
+      border: none;
+    }
+  }
+  display: none;
+}
+
+// hover items
+#Section #HoverItems {
+  display: none;
+}
+
+#SectionHoverHeader:hover #HoverItems {
+  // display: block !important;
+}
+
+.Section_wrapper {
+  position: relative;
+
+  #HoverItems {
+    top: 0;
+    right: toRem(-40);
+  }
+}

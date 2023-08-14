@@ -1,0 +1,223 @@
+#InvoiceGenerateHeading {
+  .generate_invoice_heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+  }
+}
+
+.generate_invoices-page-container .MuiGrid-item {
+  padding-top: 40px !important;
+}
+
+.invoice_draft_form {
+  .setting-form-group {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+#invoiceGenerate {
+  .formGroupItem {
+    // margin-bottom: -35px;
+  }
+
+  .drop-input {
+    width: 100% !important;
+  }
+
+  .drag-drop {
+    margin-top: 50px;
+  }
+
+  .formGroupItem {
+    padding-right: 2px;
+  }
+
+  .draggable_icon {
+    display: inline-block;
+  }
+
+  .additional_drag_icon {
+    padding-left: 25px;
+    background: url("src/assets/icons/dotGrid2by2.svg") no-repeat left;
+    background-size: 14px;
+  }
+
+  .additional_drag_icon:hover {
+    cursor: grab;
+  }
+
+  .additional_input_icon {
+    background: url("src/assets/icons/plus.svg") no-repeat right;
+    background-size: 19px;
+  }
+
+  .additional_input_icon:hover {
+    cursor: context-menu !important;
+  }
+}
+
+#InvoiceBillingForm {
+  .invoice_Bl_Fm_header {
+    color: #475467;
+    border-bottom: 1px solid #d3cece;
+    text-align: left;
+    background: #eaecf0;
+
+    th {
+      padding: 9px 5px;
+      text-align: left;
+      font-size: 15px;
+      font-weight: 500;
+    }
+  }
+
+  .custom_input_field {
+    height: 100%;
+    padding: 8px;
+    margin: 4px 3px;
+    background: #ffffff;
+    border: 1px solid #d0d5dd;
+    box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+    border-radius: 8px;
+    color: #283352;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .MuiOutlinedInput-root {
+    height: 39px !important;
+  }
+
+  .invoice_total_container {
+    margin-top: 20px;
+    padding: 20px;
+    // background: #eaecf0;
+    border-radius: 8px;
+
+    .MuiListItem-root {
+      font-weight: 600;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .invoiceBillingData_row:nth-child(odd) {
+    background: #f5f5f5;
+  }
+
+  .custom_description_box_invoice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .description_control_input {
+      display: flex;
+      align-items: center;
+    }
+
+    input {
+      border: none;
+      background-color: transparent;
+      font-size: 15px;
+      color: #475467;
+    }
+
+    input:focus-visible {
+      border: none !important;
+      background-color: transparent !important;
+    }
+  }
+
+  .invoiceBillingData_row {
+    padding: 10px;
+
+    .Mui-disabled {
+      color: #283352 !important;
+      -webkit-text-fill-color: #283352 !important;
+    }
+  }
+
+  .invoiceBillingData_grid_row_total {
+    margin-top: 20px;
+  }
+
+  .invoiceBillingData_footer {
+    margin-top: 20px;
+
+    .invoiceBillingData_footer_btn {
+      display: flex;
+      justify-content: space-between;
+
+      .invoiceBillingData_footer_btn_right {
+        .MuiButton-containedPrimary {
+          margin-left: 10px;
+        }
+      }
+
+      .invoiceBillingData_footer_btn_left {
+        .MuiButton-outlinedPrimary {
+          background-color: #c1c6d4;
+          border-color: #c1c6d4;
+        }
+      }
+    }
+  }
+
+  .invoice_grand_total_container {
+    margin-top: 20px;
+    padding: 20px;
+    background: #283352;
+    border-radius: 0 0 8px 8px;
+    color: #ffffff;
+    font-size: 16px;
+
+    .MuiListItem-root {
+      font-weight: 600;
+    }
+
+    .MuiListItem-root {
+      font-weight: 600;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+#SendInvoice {
+}
+
+#AddInvoiceModal {
+  .jodit-toolbar__box {
+    all: unset;
+    border-bottom: 1px solid #eaecf0;
+  }
+
+  .jodit-container {
+    flex-direction: column;
+    border: none;
+    width: 100% !important;
+  }
+
+  .jodit-toolbar-editor-collection_mode_horizontal {
+    background-image: none;
+  }
+
+  .event_editor_container {
+    padding: 0 !important;
+  }
+
+  .jodit-toolbar-button {
+    margin: 10px 0;
+  }
+
+  .jodit-ui-group {
+    margin: 0 0 !important;
+  }
+
+  .jodit-ui-group__fullsize {
+    display: none;
+  }
+}

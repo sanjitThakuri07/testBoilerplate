@@ -1,0 +1,182 @@
+.template__body-container {
+  position: sticky;
+  top: toRem(20);
+  margin-bottom: toRem(20);
+}
+
+.sidebar__container {
+  position: sticky;
+  top: 100px;
+  // may be need to change
+  height: calc(100vh - 85px);
+  background-color: #f2f3f6;
+
+  & {
+    * {
+      box-sizing: border-box;
+    }
+  }
+
+  & > div {
+    height: 100%;
+    width: calc(100% + 14px) !important;
+    //
+    display: grid;
+    grid-template-columns: toRem(100) 1fr;
+  }
+
+  .block__container {
+    // border-left: $custom-border;
+    border-right: $custom-border;
+  }
+
+  .sidebar__body-container {
+    // max-height: calc(100vh - 161px - 61px);
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .custom__response-padding {
+      // border: 1px solid;
+    }
+  }
+}
+
+.sidebar__tab-item {
+  width: 100%;
+
+  .sidebar__tab-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: toRem(24) toRem(8);
+    font-family: inherit;
+    background-color: inherit;
+
+    color: $color-light;
+
+    &:first-child {
+      @include toRemProp(padding-top, 18);
+    }
+
+    .icon {
+      position: relative;
+      margin-bottom: toRem(12);
+
+      svg {
+        position: relative;
+        z-index: 10;
+
+        path {
+          stroke: $color-light;
+        }
+      }
+
+      &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: $color-light;
+        border-radius: 8px;
+        opacity: 0.2;
+        z-index: 5;
+      }
+
+      @include toRemProp(padding, 8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &.active {
+      color: $color-primary;
+
+      .icon {
+        &::after {
+          opacity: 1;
+        }
+
+        svg {
+          path {
+            stroke: $color-primary;
+          }
+        }
+      }
+    }
+
+    p {
+      text-align: center;
+      margin: 0;
+    }
+  }
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  width: 100%;
+  height: 100%;
+  border-right: $custom-border;
+  & > div {
+    // border-left: $custom-border;
+  }
+}
+
+.default__option-list {
+  display: flex;
+  align-items: center;
+  padding: toRem(12) $custom-template-sidebar-padding-lr;
+  cursor: pointer;
+
+  .icon {
+    padding-right: toRem(8);
+    display: flex;
+    align-items: center;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  &.active {
+    background: rgba($color: $color-light, $alpha: 0.3);
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: toRem(5);
+      height: 100%;
+      background: $color-primary;
+    }
+  }
+}
+
+#ResponseTab {
+  .custom__response-padding {
+    .action__button {
+      background: transparent !important;
+      border: 1px solid #d0d5dd !important;
+      box-shadow: none !important;
+    }
+  }
+}

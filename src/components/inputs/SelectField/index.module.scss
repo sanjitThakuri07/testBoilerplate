@@ -1,0 +1,25 @@
+.label {
+  .labelText {
+    margin-bottom: 8px;
+    display: inline-block;
+  }
+
+  .tooltip_ic {
+    position: relative;
+    margin-left: 8px;
+    top: 2px;
+    cursor: pointer;
+  }
+
+  .light {
+    color: var(--tertiary-dark);
+    float: right;
+    font-weight: 600;
+    font-size: 12px;
+  }
+}
+
+.fieldStyle > div {
+  max-height: initial !important;
+  padding-right: 65px !important;
+}

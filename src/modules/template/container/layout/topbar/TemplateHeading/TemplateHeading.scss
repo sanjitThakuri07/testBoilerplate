@@ -1,0 +1,87 @@
+.upload-main-container {
+  position: relative;
+  width: 6.5rem;
+  height: 6rem;
+  overflow: hidden;
+}
+
+.template-image-upload-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px dashed #eaecf0;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 0.5rem;
+}
+
+.template-image-upload-container:hover .hidden-edit-profile-template {
+  display: block;
+}
+
+.hidden-edit-profile-template {
+  display: none;
+}
+
+.inner-pen {
+  background-color: #fff;
+  border: 1px dashed #eaecf0;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 23px !important;
+  transition: all 0.3s ease-in-out;
+}
+
+.inner-pen:hover {
+  background-color: #eaecf0;
+  transition: all 0.3s ease-in-out;
+}
+
+.hidden-edit-profile-template {
+  position: absolute;
+  top: 5px;
+  right: -10px;
+}
+
+#TemplateHeading {
+  .drag-drop .drop-input {
+    width: 100% !important;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .custom_editable_text_field {
+    width: 100%;
+
+    input {
+      margin-top: -14px;
+      font-size: 30px;
+      font-weight: 500;
+      color: #485467;
+      font-family: 'Inter', sans-serif;
+    }
+  }
+  .css-1lwqf5m-MuiInputBase-root-MuiInput-root {
+    border-radius: unset;
+    border: unset;
+    background: transparent;
+  }
+
+  .MuiInputBase-root{
+    &::before{
+      border-bottom: none;
+    }
+  }
+  .custom_editable_desc_field {
+    width: 100%;
+    input {
+      margin-top: -8px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-bottom: 0.35em;
+    }
+  }
+}

@@ -1,0 +1,67 @@
+.drag-drop {
+  .drop-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 512px;
+    height: 126px;
+    background: #ffffff;
+    border: 1px dashed #eaecf0;
+    border-radius: 12px;
+
+    &.drag-active {
+      border-color: #283352;
+    }
+  }
+
+  .info-title {
+    font-weight: 600;
+  }
+
+  .info {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .image-dropped & {
+    width: 513px;
+    height: 96px;
+    background: #ffffff;
+    border: 1px solid #eaecf0;
+    border-radius: 12px;
+  }
+
+  .file-name-details {
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .size {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .progress {
+    height: 8px;
+    border-radius: 4px;
+  }
+}
+
+.progress-holder {
+  position: relative;
+  padding-top: 15px;
+  padding-right: 15px;
+
+  .pull-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.img-upload-icon {
+  margin: 20px 0 0 20px;
+}

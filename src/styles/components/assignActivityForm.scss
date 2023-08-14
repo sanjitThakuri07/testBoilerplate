@@ -1,0 +1,200 @@
+.assign-activity-form {
+  background-color: #ffffff;
+
+  border: 1px solid #eaecf0;
+
+  box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
+  border-radius: 12px;
+}
+
+.__date__time {
+  input {
+    font-style: inherit;
+    padding: 11px 8px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.23);
+  }
+}
+
+.text__editor-assign {
+  position: relative;
+
+  .editor-wrapper {
+    border: 1px solid rgba(0, 0, 0, 0.23);
+    display: flex !important;
+    flex-direction: column !important;
+    border-radius: 8px;
+    padding: 0 8px;
+
+    & div:first-child {
+      order: 6 !important;
+      border-bottom: none;
+
+      // padding-top  : 20px;
+    }
+
+    .templateHeight {
+      min-height: 90px;
+    }
+  }
+}
+
+.sent__chat {
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  position: relative;
+  border-radius: 8px !important;
+  padding: 0 8px !important;
+  // height        : 20rem;
+  padding-bottom: 6rem !important;
+}
+
+.custom__textfield {
+  position: relative;
+  height: min-content;
+
+  div {
+    height: 90px;
+  }
+
+  textarea {
+    height: inherit !important;
+    border-radius: 8px;
+    padding: 5px;
+    font-family: inherit;
+    border: 1px solid rgba(0, 0, 0, 0.23);
+  }
+}
+
+.send__attachments {
+  display: flex;
+  gap: 5px;
+  position: absolute;
+  bottom: 16px;
+  right: 0;
+  height: 40px !important;
+  padding: 10px;
+}
+
+.attachments__ {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px !important;
+  cursor: pointer;
+}
+
+.custom__message_scrollbar {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  padding-right: 20px;
+}
+
+.jodit-status-bar {
+  display: none !important;
+}
+
+.jodit-container {
+  background-color: transparent !important;
+  border-radius: 8px !important;
+  display: flex;
+  flex-direction: column-reverse;
+  font-family: Inter;
+}
+
+.jodit-workplace {
+  background-color: transparent !important;
+  border: none;
+}
+
+.jodit-toolbar__box {
+  background-color: transparent !important;
+}
+
+.jodit-toolbar-button {
+  background: #c1c6d4;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  height: 32px;
+  margin: 0 8px 0 0;
+  padding: 0;
+  // width        : 32px;
+}
+
+.jodit-ui-group {
+  gap: toRem(8);
+  margin: 0 toRem(5);
+}
+
+.jodit-toolbar__box {
+  display: flex;
+  align-items: center;
+  height: toRem(55);
+  border: none;
+}
+
+// .jodit
+.jodit-add-new-line_after {
+  display: none !important;
+}
+
+#send_email {
+  .jodit-toolbar__box {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .jodit-ui-spacer {
+    display: none;
+  }
+
+  .jodit-ui-group_before-spacer_true {
+    // display: none;
+  }
+
+  .jodit-ui-group_line_true {
+    width: 100%;
+  }
+
+  .jodit-ui-group {
+    gap: 0;
+    margin: 0;
+  }
+
+  .jodit-ui-separator {
+    display: none;
+  }
+
+  .jodit-toolbar__box:not(:empty) {
+    border: 0px;
+  }
+
+  // .jodit-ui-group:last-child {
+  //   display: none;
+  // }
+
+  // .jodit-ui-group {
+  //   gap: 0;
+  // }
+}
+
+.popup__content {
+  jodit-ui-group:last-child {
+    display: none !important;
+  }
+
+  .jodit-ui-group {
+    gap: 0;
+  }
+
+  .jodit-toolbar-editor-collection div:last-child {
+    display: none !important;
+  }
+}

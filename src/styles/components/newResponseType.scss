@@ -1,0 +1,135 @@
+.TextAnswer_wrapper {
+  .custom__input-styling {
+    border-bottom: 1px solid $border-color;
+    cursor: auto;
+    // font-size: 16px;
+    // width: 40%;
+    flex: 1;
+    padding: toRem(4) toRem(14);
+    background: white;
+    outline: none;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 0 .15rem .15rem 0;
+    justify-content: space-between;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: toRem(2);
+      background: $color-primary;
+      transition: 0.3s;
+    }
+
+    &.active {
+      &::after {
+        width: 100%;
+      }
+    }
+
+    .input__wrapper {
+      flex: 1;
+      display: grid;
+      align-self: stretch;
+      // padding: toRem(8);
+      input,
+      textarea {
+        width: 95%;
+        border: none;
+        outline: none;
+        border-radius: 2px;
+        padding-left: toRem(12);
+        color: #000;
+      }
+
+      textarea {
+        padding-top: toRem(8);
+      }
+
+      span {
+        display: flex;
+        align-items: center;
+      }
+    }
+    .indicator {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      padding: 0;
+
+      .select_icon_styling {
+        display: flex;
+      }
+
+      img {
+        width: toRem(20);
+        height: toRem(20);
+        margin-right: 8px;
+      }
+
+      .response__label-block {
+        display: flex;
+        padding-left: toRem(8);
+        padding-right: toRem(8);
+
+        & > div {
+          display: flex;
+          align-items: center;
+          font-size: toRem(12);
+        }
+        .fake_custom_select_field_input_type_icon {
+          display: flex;
+          transform: rotate(180deg);
+        }
+
+        .inner_field_component_styling_in_template {
+          font-size: toRem(12);
+        }
+
+        &.active {
+          outline: 1px solid $color-primary;
+          transition: all 0.3s;
+
+          & .fake_custom_select_field_input_type_icon {
+            transition: all 0.3s;
+            transform: rotate(90deg) !important;
+            svg {
+              font-size: toRem(14);
+            }
+          }
+        }
+
+        .multiple__options {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+.instruction__component-body {
+  svg {
+    font-size: 18px;
+  }
+  .toolTip__container {
+    display: flex;
+
+    & > div {
+      display: flex;
+    }
+  }
+}
+
+.input__logic-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 16px;
+}
+
+// className="question__answer-type"

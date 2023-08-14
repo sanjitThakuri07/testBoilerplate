@@ -1,0 +1,69 @@
+.custom__breadcrum-container {
+  padding: 0 20px;
+
+  .back__to {
+    font-weight: bold;
+  }
+
+  #my__own-breadcrumb {
+    display: flex;
+    align-items: center;
+    .custom__breeadcrum-findings {
+      cursor: pointer;
+      padding: 0 toRem(12);
+      // &:not(:last-child) {
+      //   padding-left: 5px;
+      //   position: relative;
+      //   &::before {
+      //     content: '/';
+      //     font-size: 1.2rem;
+      //     position: absolute;
+      //     left: -5px;
+      //     top: 50%;
+      //     transform: translateY(-50%);
+      //   }
+      // }
+      padding-left: 5px;
+      position: relative;
+      &::before {
+        content: '>';
+        font-size: toRem(12);
+        font-weight: bold;
+        position: absolute;
+        left: -6px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &:first-child {
+        &::before {
+          display: none;
+        }
+      }
+
+      text-decoration: none !important;
+      a {
+        transition: all 0.3s;
+        transform-origin: left;
+      }
+      &:hover {
+        text-decoration: underline !important;
+
+        a {
+          letter-spacing: 2px;
+        }
+
+        &::before {
+          text-decoration: none !important;
+        }
+      }
+
+      & > ol {
+        max-width: toRem(200);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
