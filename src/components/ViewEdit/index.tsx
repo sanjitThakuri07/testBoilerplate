@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { usePermissionStore } from "store/permission";
+import { usePermissionStore } from "src/store/zustand/permission";
 import { checkPermission } from "src/utils/permission";
 
 const EditView = ({ permission, link, name, className }: any) => {

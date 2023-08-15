@@ -3,7 +3,7 @@ import { Box } from "@mui/system";
 import FullPageLoader from "src/components/FullPageLoader";
 import { Button, CircularProgress, DialogContent, Stack, Typography } from "@mui/material";
 import { useLocation, useNavigate } from "react-router";
-import { allRoutes } from "routers/routingsUrl";
+import { allRoutes } from "src/routers/routingsUrl";
 import { usePathUrlSettor } from "src/store/zustand/globalStates/config";
 import FinanceLayout from "../FinanceLayout";
 

@@ -17,9 +17,9 @@ import { fetchApI, postApiData, putApiData } from "src/modules/apiRequest/apiReq
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import { useSnackbar, SnackbarKey, SnackbarMessage, OptionsObject } from "notistack";
 import EmailPopUpBox from "./EmailPopUpBox";
-import { useAlertPopup } from "globalStates/alertPopup";
+import { useAlertPopup } from "src/store/zustand/globalStates/alertPopup";
 import FullPageLoader from "src/components/FullPageLoader/index";
-import useNotificationConfigStore "src/store/zustand/notification-config";
+import useNotificationConfigStore from "src/store/zustand/notification-config";
 
 interface commonFieldProps {
   is_app?: boolean;

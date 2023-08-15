@@ -2,9 +2,9 @@ import { faAngleRight, faFileLines } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box, Collapse, Stack, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { useCurrentLayout, useReportDataSets } from "containers/inspections/store/inspection";
-import { validateInput } from "containers/template/validation/inputLogicCheck";
-import { findData } from "containers/template/validation/keyValidationFunction";
+import { useCurrentLayout, useReportDataSets } from "src/modules/inspections/store/inspection";
+import { validateInput } from "src/modules/template/validation/inputLogicCheck";
+import { findData } from "src/modules/template/validation/keyValidationFunction";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 

@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Fade, Modal, Stack } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
-import TimesIcon from "../../../assets/icons/times_icon.svg";
+import TimesIcon from "src/assets/icons/times_icon.svg";
 import { style } from "src/components/ConfirmationModal/ConfirmationModal";
-import { useAlertPopup } from "globalStates/alertPopup";
+import { useAlertPopup } from "src/store/zustand/globalStates/alertPopup";
 
 interface UserAlertModalLayoutI {
   children: React.ReactNode;

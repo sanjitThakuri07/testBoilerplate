@@ -1,7 +1,7 @@
 import React, { CSSProperties, useEffect, useState } from "react";
 import { Box, Divider, InputLabel, Stack, Switch, TextField } from "@mui/material";
 import { useDrag } from "react-dnd";
-import { useTextAnswer } from "globalStates/templates/TextAnswer";
+import { useTextAnswer } from "src/store/zustand/globalStates/templates/TextAnswer";
 import { itemTypes } from "src/modules/template/itemTypes/itemTypes";
 import TextEditor from "src/components/TextEditor/TextEditor";
 import { IOSSwitch } from "src/components/switch/IosSwitch";

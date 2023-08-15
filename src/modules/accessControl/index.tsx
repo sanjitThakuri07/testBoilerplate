@@ -15,9 +15,9 @@ import PersonIcon from "@mui/icons-material/Person";
 import { useOrganizationUserStore } "src/store/zustand/users/organizationUserStore";
 import { useUserRoleStore } "src/store/zustand/users/userRoleStore";
 import BackButton from "src/components/buttons/back";
-import { useTemplateAccessStore } from "containers/template/store/templateAccessStore";
-import { useBookingTemplateAccessStore } from "containers/template/store/bookingTemplateAccessStore";
-import { useQuotationTemplateAccessStore } from "containers/template/store/quotationTemplateAccessStore";
+import { useTemplateAccessStore } from  "src/modules/template/store/templateAccessStore";
+import { useBookingTemplateAccessStore } from  "src/modules/template/store/bookingTemplateAccessStore";
+import { useQuotationTemplateAccessStore } from  "src/modules/template/store/quotationTemplateAccessStore";
 
 const optionTypes: any = {
   1: "Start",

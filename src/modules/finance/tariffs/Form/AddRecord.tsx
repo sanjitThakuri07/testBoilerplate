@@ -44,7 +44,7 @@ import {
 } from "src/modules/apiRequest/apiRequest";
 import { useLocation } from "react-router-dom";
 import { usePathUrlSettor } from "src/store/zustand/globalStates/config";
-import CustomerForm from "containers/customers/customer/Form/CustomerForm";
+import CustomerForm from "src/modules/customers/customer/Form/CustomerForm";
 import { allRoutes } from "src/routers/routingsUrl";
 import NewCustomMultiSelect from "src/components/NewCustomMultiSelect/NewCustomMultiSelect";
 import { PrivateRoute } from "src/constants/variables";

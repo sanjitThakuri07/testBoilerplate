@@ -1,6 +1,6 @@
 // CalendarInspection.ts
 import { Button } from "@mui/material";
-import { useInspectionStore } from "containers/template/store/inspectionStore";
+import { useInspectionStore } from "src/modules/template/store/inspectionStore";
 import React, { useState, useEffect } from "react";
 import PlayCircleOutlineOutlinedIcon from "@mui/icons-material/PlayCircleOutlineOutlined";
 import { checkDate, formatDate } from "src/utils/keyFunction";

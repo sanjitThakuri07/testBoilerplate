@@ -1,8 +1,8 @@
 import { PrivateRoute } from "src/constants/variables";
-import InspectionStarter from "containers/template/inspection";
-import Inspections from "containers/inspections";
-import InspectionCreateUpdate from "containers/inspections/createUpdate";
-import Report from "containers/inspections/Report/Index";
+import InspectionStarter from "src/modules/template/inspection";
+import Inspections from "src/modules/inspections";
+import InspectionCreateUpdate from "src/modules/inspections/createUpdate";
+import Report from "src/modules/inspections/Report/Index";
 
 import { IndexHOC } from "src/hoc/indexHOC";
 import { permissionList } from "src/constants/permission";

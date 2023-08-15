@@ -1,7 +1,7 @@
 import { TextareaAutosize, TextField } from "@mui/material";
 import ErrorComponent from "src/components/Error";
-import { errorValue } from "containers/template/validation/inputLogicCheck";
-import ExtraUserFields from "containers/template/components/mobileComponents/ReusableMobileComponent/ExtraUserFields";
+import { errorValue } from "src/modules/template/validation/inputLogicCheck";
+import ExtraUserFields from "src/modules/template/components/mobileComponents/ReusableMobileComponent/ExtraUserFields";
 import SpeechPage from "../MobileSpeechRecognition/MobileSpeechRecognition";
 
 const MobileTextAnswer = ({

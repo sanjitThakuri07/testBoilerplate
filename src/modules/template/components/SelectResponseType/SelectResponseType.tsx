@@ -1,8 +1,8 @@
-import { useTextAnswer } from "globalStates/templates/TextAnswer";
+import { useTextAnswer } from "src/store/zustand/globalStates/templates/TextAnswer";
 import { useState } from "react";
 import "./SelectResponseType.scss";
 import ReactSelect from "src/components/ReactSelect/ReactSelect";
-import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
 import responseItems from "constants/template/responseItems";
 import { withDragHOC } from "HOC/withDragDropHoc";
 import { itemTypes } from "src/modules/template/itemTypes/itemTypes";

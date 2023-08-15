@@ -35,7 +35,7 @@ import FinanceConfiguration from "src/modules/config/finance";
 
 import FindingsAndRecommendationsLayout from "src/modules/config/findingAndRecommendations/FindingsAndRecommendationLayout";
 import AddFindingRecommendation from "src/modules/config/findingAndRecommendations/findingsAndRecommendationsForm/AddCategory";
-import { permissionList } from "src/constants/permssion";
+import { permissionList } from "src/constants/permission";
 
 const generalSettings = [
   {
@@ -381,6 +381,7 @@ const userProfiles = [
     newPage: false,
   },
 ];
+
 const notifications = [
   {
     title: "Notifications",

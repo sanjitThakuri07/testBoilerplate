@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 
 import { useTemplateStore } from "src/modules/template/store/templateStore";
-import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
 import LogoutIcon from "src/assets/icons/logout_icon.svg";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import FullPageLoader from "src/components/FullPageLoader";
@@ -27,14 +27,14 @@ import MobileCheckbox from "../components/mobileComponents/MobileCheckbox/mobile
 
 import { DynamicSchemaGenerator } from "../validation";
 import MobileMedia from "../components/mobileComponents/MobileMedia/MobileMedia";
-import useApiOptionsStore from "containers/template/store/apiOptionsTemplateStore";
+import useApiOptionsStore from "src/modules/template/store/apiOptionsTemplateStore";
 import { useInspectionStore } from "../store/inspectionStore";
 import { useSnackbar } from "notistack";
 import QuestionToolBar from "./questionToolBar";
 import { activeScroll, checkActionTrigger } from "./SubComponents/activeScroll";
 import { GenerateQuestion } from "./SubComponents/inspectionSection";
 import { FormNode } from "./SubComponents/formNode";
-import useInspectionStatusStore "src/store/zustand/generalSettings/InsepctionStatus";
+import useInspectionStatusStore from "src/store/zustand/generalSettings/InsepctionStatus";
 import { moduleIdsFnR, possibleFnRWithoutMainCategory, url } from "src/utils/url";
 import { v4 as uuidv4 } from "uuid";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";

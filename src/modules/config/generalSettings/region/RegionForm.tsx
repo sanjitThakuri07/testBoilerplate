@@ -26,7 +26,7 @@ import EditView from "src/components/ViewEdit";
 import { permissionList } from "src/constants/permission";
 import { postApiData, putApiData, fetchIndividualApi } from "src/modules/apiRequest/apiRequest";
 import { REGION_DEFAULT_DATA, NAVIGATE_ROUTES } from "../constantsForm";
-import useRegionStore "src/store/zustand/generalSettings/region";
+import useRegionStore from "src/store/zustand/generalSettings/region";
 import useAppStore from "src/store/zustand/app";
 
 const RegionForm: FC<{

@@ -6,7 +6,7 @@ import { ConfigTableUrlUtils } from "src/modules/config/generalSettings/Organiza
 import { getAPI } from "src/lib/axios";
 import { useContractorServicesStore } from "src/store/zustand/globalStates/config";
 import { fetchIndividualApi, setErrorNotification } from "src/modules/apiRequest/apiRequest";
-import { searchParamObject } from "containers/utils/index";
+import { searchParamObject } from  "src/modules/utils/index";
 import { fetchData } from "../finance/functionality";
 import FullPageLoader from "src/components/FullPageLoader";
 import "../finance/finance.scss";

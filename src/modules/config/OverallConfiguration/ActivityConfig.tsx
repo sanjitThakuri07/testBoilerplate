@@ -1,6 +1,6 @@
 import { Button, Stack } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
-import { allRoutes } from "routers/routingsUrl";
+import { allRoutes } from "src/routers/routingsUrl";
 import { usePathUrlSettor } from "src/store/zustand/globalStates/config";
 
 export default function FinanceConfig() {

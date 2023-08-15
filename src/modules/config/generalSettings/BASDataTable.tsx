@@ -20,7 +20,7 @@ import { visuallyHidden } from "@mui/utils";
 import AddModal from "src/components/AddModal/AddModal";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import NoDataFound from "src/components/NoDataFound";
-import { useAlertPopup } from "globalStates/alertPopup";
+import { useAlertPopup } from "src/store/zustand/globalStates/alertPopup";
 import { useConfigStore } from "src/store/zustand/globalStates/config";
 import { BASConfigTableProps, RegionProps } from "src/interfaces/configs";
 import moment from "moment";

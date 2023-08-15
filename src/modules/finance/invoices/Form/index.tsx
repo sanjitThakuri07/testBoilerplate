@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import { Box } from "@mui/system";
 import FullPageLoader from "src/components/FullPageLoader";
 import { useLocation, useNavigate } from "react-router";
-import { searchParamObject } from "containers/utils/index";
+import { searchParamObject } from "src/modules/utils/index";
 import { useSnackbar } from "notistack";
 import { Button, CircularProgress, DialogContent, TextField, Typography } from "@mui/material";
 import CustomBadgeCreator from "src/components/CustomBadgeCreator/index";
 import ReceiptIcon from "@mui/icons-material/Receipt";
 
 // import fakeData from "../fakedata";
-import "containers/finance/finance.scss";
+import "src/modules/finance/finance.scss";
 import { ConfigTableUrlUtils } from "src/modules/config/generalSettings/OrganizationConfiguration";
 import { allRoutes } from "src/routers/routingsUrl";
 import { deleteAPI, getAPI, postAPI } from "src/lib/axios";
@@ -18,9 +18,9 @@ import {
   fetchTableData,
   setErrorNotification,
 } from "src/modules/apiRequest/apiRequest";
-import { fetchData } from "containers/finance/functionality";
-import BASDataTableButton from "containers/table/BASDataTableButton";
-import { formatedDate } from "containers/utils/index";
+import { fetchData } from "src/modules/finance/functionality";
+import BASDataTableButton from "src/modules/table/BASDataTableButton";
+import { formatedDate } from "src/modules/utils/index";
 import BASDataTable from "src/modules/table/BASDataTable";
 import BASDataTableUpdate from "src/modules/table/BASDataTable";
 import CommonFilter, {
@@ -36,7 +36,7 @@ import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModa
 import SaveIcon from "src/assets/icons/save_icon.svg";
 import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 import { invoiceStatusOptions } from "src/utils/url";
-import useInvoiceStore "src/store/zustand/invoice";
+import useInvoiceStore from "src/store/zustand/invoice";
 
 interface NavigateColumnProps {
   navigateColumnName: string;

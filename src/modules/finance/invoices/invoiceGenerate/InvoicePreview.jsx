@@ -3,7 +3,7 @@ import {
   useBillingInvoceData,
   useInvoiceTableDatas,
   usePublicInvoice,
-} from "globalStates/invoice/invoice";
+} from "src/store/zustand/globalStates/invoice/invoice";
 
 import "./InvoicePreview.scss";
 import TestTable from "./invoiceTable";

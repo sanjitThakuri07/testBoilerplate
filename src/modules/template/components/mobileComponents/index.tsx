@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import MobileTextAnswer from "./MobileTextAnswer/MobileTextAnswer";
 import MobileSlider from "./MobileSlider/MobileSlider";
-import { useTemplate } from "globalStates/templates/templateData";
-import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { useTemplate } from "src/store/zustand/globalStates/templates/templateData";
+import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
 import responseItems from "constants/template/responseItems";
 import { Formik, FieldArray, Form, Field, getIn } from "formik";
 
@@ -21,9 +21,9 @@ import MobileSignature from "./MobileSignature";
 import MobileInstruction from "./MobileInstruction";
 import { Button } from "@mui/material";
 // validation
-import { validateInput } from "containers/template/validation/inputLogicCheck";
-import { findData } from "containers/template/validation/keyValidationFunction";
-import { DynamicSchemaGenerator } from "containers/template/validation/index";
+import { validateInput } from "src/modules/template/validation/inputLogicCheck";
+import { findData } from "src/modules/template/validation/keyValidationFunction";
+import { DynamicSchemaGenerator } from "src/modules/template/validation/index";
 import MobileAnnotation from "./MobileAnnotation/mobileAnnotation";
 import MobileCheckbox from "./MobileCheckbox/mobileCheckbox";
 import MobileMedia from "./MobileMedia/MobileMedia";

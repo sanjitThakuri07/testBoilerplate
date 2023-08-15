@@ -9,7 +9,7 @@ import { getAPI } from "src/lib/axios";
 import { useConfigStore } from "src/store/zustand/globalStates/config";
 import { useSnackbar } from "notistack";
 import { useLocation, useNavigate } from "react-router-dom";
-import TwoFactorAuthentication from "containers/setting/security/TwoFactorAuthentication";
+import TwoFactorAuthentication from "src/modules/setting/security/TwoFactorAuthentication";
 import ConfigurationUsers from "../users";
 import SystemParamaters from "../users/systemParamaters";
 import FinanceConfig from "../finance";

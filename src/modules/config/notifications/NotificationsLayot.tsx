@@ -2,7 +2,7 @@ import { CircularProgress } from "@mui/material";
 import { Box } from "@mui/system";
 import { permissionList } from "src/constants/permission";
 import { TextSeperator } from "src/modules/utils";
-import { useAlertPopup } from "globalStates/alertPopup";
+import { useAlertPopup } from "src/store/zustand/globalStates/alertPopup";
 import { BASConfigTableProps } from "src/interfaces/configs";
 import { useSnackbar } from "notistack";
 import React, { useEffect, useRef, useState } from "react";

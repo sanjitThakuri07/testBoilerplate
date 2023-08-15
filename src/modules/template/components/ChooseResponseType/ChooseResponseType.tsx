@@ -1,4 +1,4 @@
-import { useTextAnswer } from "globalStates/templates/TextAnswer";
+import { useTextAnswer } from "src/store/zustand/globalStates/templates/TextAnswer";
 import React, { FC, useEffect } from "react";
 import "./ChooseResponseType.scss";
 import { fetchApI } from "src/modules/apiRequest/apiRequest";

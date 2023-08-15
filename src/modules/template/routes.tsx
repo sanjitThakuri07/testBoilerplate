@@ -1,5 +1,5 @@
 import { PrivateRoute } from "src/constants/variables";
-import { Template, TemplateIndex } from "containers/template";
+import { Template, TemplateIndex } from "src/modules/template";
 
 import { IndexHOC } from "src/hoc/indexHOC";
 import { permissionList } from "src/constants/permission";

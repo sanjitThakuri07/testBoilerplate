@@ -11,7 +11,7 @@ import { MuiThemeProvider } from "src/theme/mui/MuiThemeProvider";
 // import "src/theme_old/sass/index.scss";
 import Routes from "./App";
 import StyledThemeProvider from "./theme/styled-component/StyledThemeProvider";
-// import ReactThemeProvider from "containers/ReactThemeProvider/ReactThemeProvider";
+// import ReactThemeProvider from  "src/modules/ReactThemeProvider/ReactThemeProvider";
 
 const store = initializeStore();
 const errorHandler = (error: any, errorInfo: any) => {

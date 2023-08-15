@@ -9,7 +9,7 @@ import DocumentNumberIcon from "src/assets/template/icons/documentNumber.png";
 import ComponentWrapper, {
   LabelWrapper,
   BodyWrapper,
-} from "containers/template/components/Wrapper";
+} from "src/modules/template/components/Wrapper";
 
 type DocumentNumberProps = {
   responseTypeId?: any;

@@ -1,4 +1,4 @@
-import { useTextAnswer } from "globalStates/templates/TextAnswer";
+import { useTextAnswer } from "src/store/zustand/globalStates/templates/TextAnswer";
 import {
   Grid,
   TextField,
@@ -20,11 +20,11 @@ import EditIcon from "src/assets/template/icons/chip_edit_icon.png";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import { fetchApI } from "src/modules/apiRequest/apiRequest";
 import useDebounceSearch from "hooks/useDebounceSearch";
-import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
 import { itemTypes, responseChoice } from "src/modules/template/itemTypes/itemTypes";
 import { withDragHOC } from "HOC/withDragDropHoc";
 
-import useApiOptionsStore from "containers/template/store/apiOptionsTemplateStore";
+import useApiOptionsStore from "src/modules/template/store/apiOptionsTemplateStore";
 import { moduleIdsFnR } from "src/utils/url";
 
 interface CustomDropDownProps {

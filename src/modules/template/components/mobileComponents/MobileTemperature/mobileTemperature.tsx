@@ -1,7 +1,7 @@
 import { Box, FormGroup, OutlinedInput, Stack } from "@mui/material";
 import ExtraUserFields from "../ReusableMobileComponent/ExtraUserFields";
 import ErrorComponent from "src/components/Error";
-import { errorValue } from "containers/template/validation/inputLogicCheck";
+import { errorValue } from "src/modules/template/validation/inputLogicCheck";
 
 export default function MobileTemperature({
   item,

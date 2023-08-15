@@ -17,7 +17,7 @@ import {
 import addQuestion from "src/assets/template/icons/addQuestion.svg";
 import { FormikProps } from "formik";
 import addSection from "src/assets/template/icons/addSection.svg";
-import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
 import Delete from "src/assets/template/icons/delete.svg";
 import { reduceDataSet } from "src/modules/utils/reducedDataSet";
 import { v4 as uuidv4 } from "uuid";

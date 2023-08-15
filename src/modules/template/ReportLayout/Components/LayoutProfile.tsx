@@ -1,7 +1,7 @@
 import { faCamera, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box } from "@mui/material";
-import DragAndUploadFields from "containers/Bookings/components/FormContainer/BookingDynamicForms/DragAndUploadFields";
+import DragAndUploadFields from "src/modules/Bookings/components/FormContainer/BookingDynamicForms/DragAndUploadFields";
 import React from "react";
 import MultiUploader from "../../../../components/MultiFileUploader/index";
 import { useReportLayoutDataSets } from "../store/ReportStoreDataSets";

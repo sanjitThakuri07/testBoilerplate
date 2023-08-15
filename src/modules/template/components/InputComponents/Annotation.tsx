@@ -6,7 +6,7 @@ import { Stack } from "@mui/material";
 import AddImgIcon from "assets/template/icons/add_image.svg";
 import MultiUploader from "src/components/MultiFileUploader/index";
 import TemplateImageContainer from "../TemplateImageContainer/TemplateImageContainer";
-import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
 
 export default function Annotation({ dataItem }: any) {
   const [open, setOpen] = React.useState(false);

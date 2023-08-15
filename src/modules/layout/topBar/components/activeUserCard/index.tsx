@@ -30,7 +30,7 @@ import AuditLogIcon from "src/assets/icons/layers-three-01.svg";
 import LogOutIcon from "src/assets/icons/log-out-04.svg";
 import AccountIcon from "src/assets/icons/user-check-02.svg";
 import EditIcon from "src/assets/icons/edit-03.svg";
-// import UserIcon from '../../../assets/icons/userIcon.png';
+// import UserIcon from '../src/assets/icons/userIcon.png';
 
 import useAppStore from "src/store/zustand/app";
 import { usePermissionStore } from "src/store/zustand/permission";

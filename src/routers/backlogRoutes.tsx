@@ -1,5 +1,5 @@
 import Login from ''src/modules/auth/login';
-import { AuthRoute, MessageRoute, PrivateRoute, PublicRoute } from 'constants/variables';
+import { AuthRoute, MessageRoute, PrivateRoute, PublicRoute } from 'src/constants/variables';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import PrivateRouter from './private/privateRoute';

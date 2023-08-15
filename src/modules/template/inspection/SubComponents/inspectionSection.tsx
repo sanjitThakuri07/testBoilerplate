@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import useApiOptionsStore from "containers/template/store/apiOptionsTemplateStore";
+import useApiOptionsStore from "src/modules/template/store/apiOptionsTemplateStore";
 import { useTemplateStore } from "src/modules/template/store/templateStore";
 import { reduceDataSet } from "src/modules/utils/reducedDataSet";
 import { deepCloneArray } from "src/modules/utils/deepCloneArray";

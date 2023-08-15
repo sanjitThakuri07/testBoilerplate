@@ -8,7 +8,7 @@ import {
   useBillingInvoceData,
   useInvoiceFile,
   useInvoiceTriggred,
-} from "globalStates/invoice/invoice";
+} from "src/store/zustand/globalStates/invoice/invoice";
 
 import InvoicePreview from "./InvoicePreview";
 import TestTable from "./invoiceTable";

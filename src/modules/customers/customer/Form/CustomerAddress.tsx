@@ -21,7 +21,7 @@ import ProfilePicture from "src/modules/setting/profile/ProfilePicture";
 import { useNavigate, useParams } from "react-router-dom";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import PhoneNumberInput from "src/modules/setting/profile/PhoneNumberInput";
-import SaveIcon from "../../../assets/icons/save_icon.svg";
+import SaveIcon from "src/assets/icons/save_icon.svg";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { contractorAddressProps } from "src/interfaces/configs";
 import { useSnackbar, SnackbarKey, SnackbarMessage, OptionsObject } from "notistack";

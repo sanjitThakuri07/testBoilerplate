@@ -1,8 +1,8 @@
-import { MenuItem, Select } from '@mui/material';
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import EmailIdContent from './EmailIdContent';
-import { SnackbarProvider } from 'notistack';
+import { MenuItem, Select } from "@mui/material";
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import EmailIdContent from "./EmailIdContent";
+import { SnackbarProvider } from "notistack";
 
 type PopupProps = {
   setEmailOpen: () => void;
@@ -41,10 +41,8 @@ const Popup: React.FC<PopupProps> = ({
               disabled={disabled}
               fetchAPIFunction={fetchAPIFunction}
             />
-            {/* Popup content here */}
-            {/* <button onClick={onClose}>Close</button> */}
           </div>,
-          document.getElementById('root') as Element | DocumentFragment, // Render the popup outside the current component hierarchy
+          document.getElementById("root") as Element | DocumentFragment, // Render the popup outside the current component hierarchy
         )}
     </>
   );

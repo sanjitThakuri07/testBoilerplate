@@ -25,7 +25,7 @@ import {
   fetchIndividualApi,
 } from "src/modules/apiRequest/apiRequest";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import { useSnackbar, SnackbarKey, SnackbarMessage, OptionsObject } from "notistack";
+import { useSnackbar } from "notistack";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import AddIcon from "@mui/icons-material/Add";
 import {

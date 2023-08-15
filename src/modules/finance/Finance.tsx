@@ -15,10 +15,10 @@ import {
   fetchTableData,
   setErrorNotification,
 } from "src/modules/apiRequest/apiRequest";
-import { searchParamObject } from "containers/utils/index";
+import { searchParamObject } from "src/modules/utils/index";
 import { fetchData } from "./functionality";
 import CustomBadgeCreator from "src/components/CustomBadgeCreator/index";
-import { formatedDate } from "containers/utils/index";
+import { formatedDate } from "src/modules/utils/index";
 import FullPageLoader from "src/components/FullPageLoader";
 import "./finance.scss";
 import FinanceLayout from "./FinanceLayout";

@@ -9,7 +9,6 @@ import {
 } from "src/modules/apiRequest/apiRequest";
 import { url } from "src/utils/url";
 import { queryMaker } from "src/utils/keyFunction";
-import { useSnackbar, SnackbarKey, SnackbarMessage, OptionsObject } from "notistack";
 
 const useNotificationConfigStore = create((set) => ({
   backendFields: [],

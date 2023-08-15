@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
-import { useAlertPopup } from "globalStates/alertPopup";
+import { useAlertPopup } from "src/store/zustand/globalStates/alertPopup";
 import { IOSSwitch } from "src/components/switch/IosSwitch";
 import NotificationForm from "./NotificationForm";
 import { TextSeperator } from "src/modules/utils";

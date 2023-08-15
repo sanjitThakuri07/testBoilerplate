@@ -27,7 +27,7 @@ import { useSnackbar } from "notistack";
 import { LoadingButton } from "@mui/lab";
 
 import AttachFileIcon from "@mui/icons-material/AttachFile";
-import { useBillingInvoceData } from "globalStates/invoice/invoice";
+import { useBillingInvoceData } from "src/store/zustand/globalStates/invoice/invoice";
 import TextEditor from "src/components/MyTextEditor/MyEditor";
 import { fetchIndividualApi } from "src/modules/apiRequest/apiRequest";
 import FullPageLoader from "src/components/FullPageLoader";

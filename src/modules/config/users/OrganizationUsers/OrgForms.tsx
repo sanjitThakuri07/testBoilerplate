@@ -24,7 +24,7 @@ import { useSnackbar } from "notistack";
 import ButtonLoaderSpinner from "src/components/ButtonLoaderSpinner/ButtonLoaderSpinner";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import ExclamationTooltip from "src/assets/iconsexclamationIcon.svg";
+import ExclamationTooltip from "src/assets/icons/exclamationIcon.svg";
 import styled from "@emotion/styled";
 import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
 import Fade from "@mui/material/Fade";

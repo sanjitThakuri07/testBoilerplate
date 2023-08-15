@@ -19,7 +19,7 @@ import {
   useAdjustmentData,
   useBillingInvoceData,
   useUpdatingAdjustment,
-} from "globalStates/invoice/invoice";
+} from "src/store/zustand/globalStates/invoice/invoice";
 import { useSnackbar } from "notistack";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useParams } from "react-router-dom";

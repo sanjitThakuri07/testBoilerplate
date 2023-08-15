@@ -14,10 +14,10 @@ import "./TemplateHeading.scss";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import { FormikProps } from "formik";
 import { TemplateCreationFields } from "src/interfaces/templates/templateFields";
-import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
 import MultiUploader from "src/components/MultiFileUploader/index";
 import BASTooltip from "src/components/BASTooltip/BASTooltip";
-import { loggedUserDataStore } from "globalStates/loggedUserData";
+import { loggedUserDataStore } from "src/store/zustand/globalStates/loggedUserData";
 import { useParams } from "react-router-dom";
 import BASLogo from "src/assets/icons/logo.png";
 

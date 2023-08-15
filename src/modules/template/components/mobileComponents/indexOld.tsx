@@ -1,11 +1,5 @@
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
-import {
-  Collapse,
-  List,
-  ListItemButton,
-  ListItemText,
-  Typography,
-} from "@mui/material";
+import { Collapse, List, ListItemButton, ListItemText, Typography } from "@mui/material";
 import React from "react";
 import MobileTextAnswer from "./MobileTextAnswer/MobileTextAnswer";
 // import MobileDateTime from './MobileDateTime/MobileDateTime';
@@ -16,7 +10,7 @@ import MobileLocation from "./MobileLocation/MobileLocation";
 import SingleSelectMobile from "./SingleSelectMobile/SingleSelectMobile";
 import MultipleSelectMobile from "./MultipleSelectMobile/MultipleSelectMobile";
 import ReusableMobileComponent from "./ReusableMobileComponent/ReusableMobileComponent";
-import { useTemplate } from "globalStates/templates/templateData";
+import { useTemplate } from "src/store/zustand/globalStates/templates/templateData";
 
 interface MobilePreviewProps {
   children?: React.ReactNode;
@@ -240,10 +234,7 @@ const MobileIndex = ({ children }: MobilePreviewProps) => {
           <div key={index}>
             {item.component === "page" ? (
               <>
-                <ListItemButton
-                  onClick={handleClick}
-                  sx={{ PaddingLeft: "0px !important" }}
-                >
+                <ListItemButton onClick={handleClick} sx={{ PaddingLeft: "0px !important" }}>
                   <ListItemText primary="Page 1 of 1" />
                   {open ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
@@ -254,11 +245,7 @@ const MobileIndex = ({ children }: MobilePreviewProps) => {
             ) : item.component === "section" ? (
               <>
                 <Collapse in={open} timeout="auto" unmountOnExit>
-                  <List
-                    component="div"
-                    disablePadding
-                    sx={{ marginTop: "17px" }}
-                  >
+                  <List component="div" disablePadding sx={{ marginTop: "17px" }}>
                     <div className="mobile_screen">
                       {JSONData.map((item, index) => {
                         return (

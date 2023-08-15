@@ -9,24 +9,24 @@ export const fileExtensions = (file: any) => {
 
     switch (fileExtension) {
       case "pdf":
-        fileOpen = require("../assets/images/pdf.png");
+        fileOpen = require("src/assets/images/pdf.png");
         fileType = "pdf";
         isFile = true;
         break;
       case "csv":
-        fileOpen = require("../assets/images/csv.png");
+        fileOpen = require("src/assets/images/csv.png");
         fileType = "excell";
         isFile = true;
         break;
       case "xls":
       case "xlsx":
-        fileOpen = require("../assets/images/excel.png");
+        fileOpen = require("src/assets/images/excel.png");
         fileType = "excell";
         isFile = true;
         break;
       case "docx":
       case "doc":
-        fileOpen = require("../assets/images/word.png");
+        fileOpen = require("src/assets/images/word.png");
         fileType = "doc";
         isFile = true;
         break;
@@ -42,24 +42,24 @@ export const fileExtensions = (file: any) => {
 
     switch (fileExtension) {
       case "pdf":
-        fileOpen = require("../assets/images/pdf.png");
+        fileOpen = require("src/assets/images/pdf.png");
         fileType = "pdf";
         isFile = true;
         break;
       case "csv":
-        fileOpen = require("../assets/images/csv.png");
+        fileOpen = require("src/assets/images/csv.png");
         fileType = "excell";
         isFile = true;
         break;
       case "xls":
       case "xlsx":
-        fileOpen = require("../assets/images/excel.png");
+        fileOpen = require("src/assets/images/excel.png");
         fileType = "excell";
         isFile = true;
         break;
       case "docx":
       case "doc":
-        fileOpen = require("../assets/images/word.png");
+        fileOpen = require("src/assets/images/word.png");
         fileType = "doc";
         isFile = true;
         break;

@@ -29,8 +29,8 @@ import FullPageLoader from "src/components/FullPageLoader";
 import MultiEmailCustom from "src/components/MultiEmail/MultiEmail2";
 
 import { COUNTRY_DEFAULT_DATA, NAVIGATE_ROUTES } from "../constantsForm";
-import useRegionStore "src/store/zustand/generalSettings/region";
-import useCountryStore "src/store/zustand/generalSettings/country";
+import useRegionStore from "src/store/zustand/generalSettings/region";
+import useCountryStore from "src/store/zustand/generalSettings/country";
 
 const CountryForm: FC<{
   country: CountryProps;

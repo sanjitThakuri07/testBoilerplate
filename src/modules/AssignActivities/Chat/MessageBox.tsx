@@ -2,7 +2,7 @@ import { faAngleRight, faFileLines } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Avatar, Box, Grid, Stack, Typography } from "@mui/material";
 import FacebookCircularProgress from "src/components/CircularLoader";
-import { useInspectionStore } from "containers/template/store/inspectionStore";
+import { useInspectionStore } from "src/modules/template/store/inspectionStore";
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { fileExtensions } from "src/utils/fileExtensionChecker";

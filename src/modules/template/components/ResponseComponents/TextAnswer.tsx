@@ -1,4 +1,4 @@
-import { useTextAnswer } from "globalStates/templates/TextAnswer";
+import { useTextAnswer } from "src/store/zustand/globalStates/templates/TextAnswer";
 import React, { FC } from "react";
 import "./ChooseResponseType.scss";
 import TextAnswerIcon from "src/assets/template/icons/Text_answer.png";

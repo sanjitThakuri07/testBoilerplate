@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 import { usePermissionStore } from "src/store/zustand/permission";
 import BASLogo from "src/assets/icons/logo.png";
 import Help from "src/assets/navIcons/help.svg";
-// import { userInfos } from "globalStates/UserInfos";
+// import { userInfos } from  "src/store/zustand/globalStates/UserInfos";
 
 const NavBar: React.FC<any> = () => {
   const layoutStore = useLayoutStore((state) => state);

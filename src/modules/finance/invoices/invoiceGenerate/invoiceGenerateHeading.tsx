@@ -11,7 +11,7 @@ import {
   useBillingInvoceData,
   useDraftTriggered,
   useUpdatingAdjustment,
-} from "globalStates/invoice/invoice";
+} from "src/store/zustand/globalStates/invoice/invoice";
 
 interface MCRModalProps {
   openModal: boolean;

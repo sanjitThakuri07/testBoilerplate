@@ -1,6 +1,6 @@
 import { ConfigTableUrlUtils } from "src/modules/config/generalSettings";
 import React, { useEffect, useState } from "react";
-import useAppStore from "src/store/zustand/app ";
+import useAppStore from "src/store/zustand/app/index";
 
 export const defaultPayloadValue = ({ systemParameters }: any) => ({
   page: 1,

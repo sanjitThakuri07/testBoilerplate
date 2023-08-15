@@ -3,8 +3,8 @@ import { Box, Button, FormHelperText, InputLabel, OutlinedInput, Typography } fr
 import { Stack } from "@mui/system";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import "../../../styles/authentication.scss";
-import KeyIcon from "../../../assets/icons/key_icon.svg";
-import LeftArrow from "../../../assets/icons/left_arrow.svg";
+import KeyIcon from "src/assets/icons/key_icon.svg";
+import LeftArrow from "src/assets/icons/left_arrow.svg";
 import AuthFooter from "../../../components/AuthFooter";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Visibility from "@mui/icons-material/Visibility";

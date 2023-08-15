@@ -3,7 +3,7 @@ import FullPageLoader from "src/components/FullPageLoader";
 import { permissionList } from "src/constants/permission";
 import { fetchIndividualApi, setErrorNotification } from "src/modules/apiRequest/apiRequest";
 import { ConfigTableUrlUtils } from "src/modules/config/generalSettings/OrganizationConfiguration";
-import { searchParamObject } from "containers/utils/index";
+import { searchParamObject } from "src/modules/utils/index";
 import { useContractorServicesStore } from "src/store/zustand/globalStates/config";
 import { useSnackbar } from "notistack";
 import React, { useEffect } from "react";
@@ -20,7 +20,7 @@ import CommonFilter, {
 } from "src/modules/config/Filters/CommonFilter";
 import { INSPECTION_INITIAL_VALUE } from "src/modules/config/filterOptionsList";
 import { usePayloadHook } from "src/constants/customHook/payloadOptions";
-import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
 
 interface NavigateColumnProps {
   navigateColumnName: string;

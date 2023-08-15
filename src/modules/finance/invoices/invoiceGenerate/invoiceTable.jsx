@@ -20,7 +20,7 @@ import {
   usePublicInvoice,
   useUpdateRemarkIndex,
   useUpdatingAdjustment,
-} from "globalStates/invoice/invoice";
+} from "src/store/zustand/globalStates/invoice/invoice";
 import SaveIcon from "src/assets/icons/save_icon.svg";
 import { getHighestLowestData, getObjectsWithinRange } from "src/utils/keyFunction";
 

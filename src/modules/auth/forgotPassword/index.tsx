@@ -12,8 +12,8 @@ import {
 import { Stack } from "@mui/system";
 import { Link } from "react-router-dom";
 import "../../../styles/authentication.scss";
-import KeyIcon from "../../../assets/icons/key_icon.svg";
-import LeftArrow from "../../../assets/icons/left_arrow.svg";
+import KeyIcon from "src/assets/icons/key_icon.svg";
+import LeftArrow from "src/assets/icons/left_arrow.svg";
 import AuthFooter from "../../../components/AuthFooter";
 import { Field, Form, Formik, FormikProps } from "formik";
 import { validEmailSchema } from "src/components/validationSchema";

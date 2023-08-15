@@ -20,7 +20,10 @@ import { useSnackbar } from "notistack";
 import { useConfigStore } from "src/store/zustand/globalStates/config";
 import DynamicSelectField from "src/modules/setting/profile/DynamicSelectField";
 import { MenuOptions } from "src/interfaces/profile";
-import { ConfigTerritoriesSchema, ConfigTerritoriesSchemaOptional } from "src/validationSchemas/config";
+import {
+  ConfigTerritoriesSchema,
+  ConfigTerritoriesSchemaOptional,
+} from "src/validationSchemas/config";
 import ModalLayout from "src/components/ModalLayout";
 import CountryForm from "../country/CountryForm";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
@@ -28,8 +31,8 @@ import { fetchApI } from "src/modules/apiRequest/apiRequest";
 import { TERRITORY_DEFAULT_DATA, NAVIGATE_ROUTES } from "../constantsForm";
 import { postApiData, putApiData } from "src/modules/apiRequest/apiRequest";
 import FullPageLoader from "src/components/FullPageLoader";
-import useCountryStore "src/store/zustand/generalSettings/country";
-import useTerriotryStore "src/store/zustand/generalSettings/territory";
+import useCountryStore from "src/store/zustand/generalSettings/country";
+import useTerriotryStore from "src/store/zustand/generalSettings/territory";
 import useAppStore from "src/store/zustand/app";
 
 const TerritoryForm: FC<{

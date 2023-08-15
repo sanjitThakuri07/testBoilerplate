@@ -1,4 +1,4 @@
-import { useTextAnswer } from "globalStates/templates/TextAnswer";
+import { useTextAnswer } from "src/store/zustand/globalStates/templates/TextAnswer";
 import {
   FormGroup,
   Grid,
@@ -26,7 +26,7 @@ import useDebounceSearch from "hooks/useDebounceSearch";
 import {
   useTemplateFieldsStore,
   selectFiledOptions,
-} from "containers/template/store/templateFieldsStore";
+} from "src/modules/template/store/templateFieldsStore";
 import { itemTypes, responseChoice } from "src/modules/template/itemTypes/itemTypes";
 import { useDrag, useDrop } from "react-dnd";
 import { withDragHOC } from "HOC/withDragDropHoc";

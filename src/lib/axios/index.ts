@@ -1,4 +1,4 @@
-import useAppStore from "src/store/zustand/app ";
+import useAppStore from "src/store/zustand/app/index";
 import axiosInstance from "./interceptor";
 
 const baseURL = process.env.VITE_BASE_URL;

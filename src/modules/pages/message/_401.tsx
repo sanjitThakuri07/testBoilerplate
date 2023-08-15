@@ -1,7 +1,7 @@
 import { Button, Stack, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import NotFoundImage from "../../assets/images/404Image.svg";
-import { ReactComponent as LeftArrowIcon } from "../../assets/icons/left_arrow.svg";
+import NotFoundImage from "src/assets/images/404Image.svg";
+import { ReactComponent as LeftArrowIcon } from "src/assets/icons/left_arrow.svg";
 import { useNavigate } from "react-router-dom";
 import { userDataStore } from "src/store/zustand/globalStates/userData";
 

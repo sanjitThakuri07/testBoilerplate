@@ -15,13 +15,13 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import AddIcon from "@mui/icons-material/Add";
 import ModalLayout from "src/components/ModalLayout";
-import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
 import InspectionDateIcon from "src/assets/template/icons/inspectionDate.png";
 import { CheckBox } from "@mui/icons-material";
 import ComponentWrapper, {
   LabelWrapper,
   BodyWrapper,
-} from "containers/template/components/Wrapper";
+} from "src/modules/template/components/Wrapper";
 
 type InspectionDateProps = {
   responseTypeId?: any;

@@ -1,6 +1,6 @@
 import TenantRegister from ''src/modules/auth/TenantDashboard/TenantRegister/TenantRegister';
 import { permissionList } from 'src/constants/permission';
-import { AuthRoute, PrivateRoute } from 'constants/variables';
+import { AuthRoute, PrivateRoute } from 'src/constants/variables';
 import CustomerDashboard from 'containers/customers/Customer';
 import CustomerAdd from 'containers/customers/customer/index';
 

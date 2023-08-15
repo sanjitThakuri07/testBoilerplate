@@ -34,7 +34,7 @@ import KebabIcon from "src/assets/icons/Kebab.png";
 import { RadioOptions } from "src/modules/config/findingAndRecommendations/findingsAndRecommendationsForm/FindingsUtils";
 import { GetShorterText } from "src/components/GetShortText";
 import Popover from "@mui/material/Popover";
-import { STATUS } from "containers/finance/invoices/Form/status.config";
+import { STATUS } from "src/modules/finance/invoices/Form/status.config";
 import DeletableChips from "./Filters/FilterChip";
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {

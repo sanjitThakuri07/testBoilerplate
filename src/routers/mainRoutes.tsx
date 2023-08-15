@@ -15,7 +15,7 @@ import TermsAndConditions from "src/modules/terms";
 // import BookingsRoutes from 'src/modules/Bookings/routes';
 // import QuotationsRoutes from 'src/modules/Quotation/routes';
 // import CalendarRoutes from 'src/modules/calendar/routes';
-// import ConfigurationRoutes from 'src/modules/config/routes';
+import ConfigurationRoutes from "src/modules/config/routes";
 // import CustomersRoutes from 'src/modules/customers/routes';
 // import FinanceRoutes from 'src/modules/finance/routes';
 // import InspectionRoutes from 'src/modules/inspections/routes';
@@ -25,7 +25,7 @@ import TermsAndConditions from "src/modules/terms";
 
 // import ActivityRoutes from 'src/modules/AssignActivities/routes';
 // import AddInspectionStatusConfig from 'src/modules/config/generalSettings/inspection/AddInspectionStatusConfig';
-// import OrganizationRoutes from 'src/modules/organization/routes';
+import OrganizationRoutes from "src/modules/organization/routes";
 
 // import EmailIdContent from 'src/modules/config/notifications/EmailIdContent';
 
@@ -199,6 +199,7 @@ export const privateRoutes: any = [
     component: <AddTenant />,
     newPage: true,
   },
+
   // {
   //   title: '401',
   //   path: MessageRoute._401,
@@ -260,8 +261,8 @@ export const privateRoutes: any = [
   // ...FinanceRoutes,
   // ...ActivityRoutes,
   // ...TemplateRoutes,
-  // ...ConfigurationRoutes,
-  // ...OrganizationRoutes,
+  ...ConfigurationRoutes,
+  ...OrganizationRoutes,
   // ...InspectionRoutes,
   // ...ScheduleRoutes,
 ];

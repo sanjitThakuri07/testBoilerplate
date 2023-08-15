@@ -7,7 +7,7 @@ import { useReportLayoutDataSets } from "src/modules/template/ReportLayout/store
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useReactToPrint } from "react-to-print";
-import { apiRoutes } from "routers/apiRoutes/index";
+import { apiRoutes } from "src/routers/apiRoutes/index";
 import { useCurrentLayout, useReportDataSets } from "../store/inspection";
 import CreateLayout from "./Components/CreateLayout/CreateLayout";
 import PDFPreview from "./PDFPreview/PDFPreview";

@@ -22,8 +22,8 @@ import CommonFilter, {
   FilteredValue,
   converToProperFormikFormat,
 } from "src/modules/config/Filters/CommonFilter";
-import MCRModal from "containers/template/components/ResponseTab/MultipleChoiceResponse/MCRModal";
-import GRSModal from "containers/template/components/ResponseTab/GlobalResponseSet/GRSModal";
+import MCRModal from "src/modules/template/components/ResponseTab/MultipleChoiceResponse/MCRModal";
+import GRSModal from "src/modules/template/components/ResponseTab/GlobalResponseSet/GRSModal";
 import BASDataTableUpdate from "src/modules/table/BASDataTable";
 import { EXTERNAL_ATTRIBUTES_INITIAL_VALUE } from "../filterOptionsList";
 import CustomPopUp from "src/components/CustomPopup/index";

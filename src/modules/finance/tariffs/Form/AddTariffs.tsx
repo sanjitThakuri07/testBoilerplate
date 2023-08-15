@@ -22,7 +22,7 @@ import ProfilePicture from "src/modules/setting/profile/ProfilePicture";
 import { useNavigate, useParams } from "react-router-dom";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import PhoneNumberInput from "src/modules/setting/profile/PhoneNumberInput";
-import SaveIcon from "../../../assets/icons/save_icon.svg";
+import SaveIcon from "src/assets/icons/save_icon.svg";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { contractorAddressProps } from "src/interfaces/configs";
 import { useSnackbar, SnackbarKey, SnackbarMessage, OptionsObject } from "notistack";
@@ -46,7 +46,7 @@ import {
 } from "src/modules/apiRequest/apiRequest";
 import { useLocation } from "react-router-dom";
 import { usePathUrlSettor } from "src/store/zustand/globalStates/config";
-import CustomerForm from "containers/customers/customer/Form/CustomerForm";
+import CustomerForm from "src/modules/customers/customer/Form/CustomerForm";
 import { allRoutes } from "src/routers/routingsUrl";
 
 interface Value {

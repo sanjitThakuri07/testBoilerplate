@@ -19,7 +19,7 @@ import { WeekDaysObj } from "src/validationSchemas/EventSchema";
 import { useSnackbar } from "notistack";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import ReactSelect from "src/components/ReactSelect/ReactSelect";
-import { useCalendarFilter } from "globalStates/calendarFilter";
+import { useCalendarFilter } from "src/store/zustand/globalStates/calendarFilter";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import { usePermissionStore } from "src/store/zustand/permission";
 import { permissionList } from "src/constants/permission";

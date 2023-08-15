@@ -1,9 +1,9 @@
-import React, { SetStateAction, useEffect, useState } from 'react';
-import { Box, Button, OutlinedInput, Stack } from '@mui/material';
-import NoDataFoundImg from '../../../assets/images/no_data_found.svg';
-import CheckIcon from '../../../assets/icons/tick_icon.svg';
-import RightArrowIcon from '../../../assets/icons/left_arrow.svg';
-import './UserAlertModule.scss';
+import React, { SetStateAction, useEffect, useState } from "react";
+import { Box, Button, OutlinedInput, Stack } from "@mui/material";
+import NoDataFoundImg from "src/assets/images/no_data_found.svg";
+import CheckIcon from "src/assets/icons/tick_icon.svg";
+import RightArrowIcon from "src/assets/icons/left_arrow.svg";
+import "./UserAlertModule.scss";
 
 interface SearchModuleI {
   datas: {
@@ -44,35 +44,35 @@ export default function UserAlertModal({
 }: SearchModuleI) {
   let newModules: Array<NewModuleInterface> = [];
   const alphabetsHammer = [
-    'A',
-    'B',
-    'C',
-    'D',
-    'E',
-    'F',
-    'G',
-    'H',
-    'I',
-    'J',
-    'K',
-    'L',
-    'M',
-    'N',
-    'O',
-    'P',
-    'Q',
-    'R',
-    'S',
-    'T',
-    'U',
-    'V',
-    'W',
-    'X',
-    'Y',
-    'Z',
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
   ];
   const [selectedId, setSelectedId] = useState<string | number | null>(null);
-  const [activeHammer, setActiveHammer] = React.useState<string>('');
+  const [activeHammer, setActiveHammer] = React.useState<string>("");
 
   // modify the response pushing the alphabet and filtering according to the aplhabet
   alphabetsHammer.forEach((da) => {
@@ -87,14 +87,14 @@ export default function UserAlertModal({
     setActiveHammer(alphabet);
     const moduleContainer = document.querySelector(`#dynamic-${alphabet}`);
     if (moduleContainer) {
-      moduleContainer.scrollIntoView({ behavior: 'smooth' });
+      moduleContainer.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   // clearing the active when search value is empty
   useEffect(() => {
     if (!search) {
-      setActiveHammer('');
+      setActiveHammer("");
     }
   }, [search]);
 
@@ -110,14 +110,14 @@ export default function UserAlertModal({
       {/* search box component */}
       <Stack direction="column">
         <form onSubmit={searchSubmitHandler}>
-          <Box sx={{ color: '#344054', fontWeight: 500, mt: 1.5 }}>Search for User Activities</Box>
+          <Box sx={{ color: "#344054", fontWeight: 500, mt: 1.5 }}>Search for User Activities</Box>
           <Stack direction="row" spacing={1} sx={{ mt: 0.3 }}>
             <OutlinedInput
               size="small"
               id="searchValue"
               type="search"
               fullWidth
-              sx={{ marginTop: '5px' }}
+              sx={{ marginTop: "5px" }}
               placeholder="Search here"
               className="form_input"
               value={search}
@@ -125,7 +125,7 @@ export default function UserAlertModal({
                 setSearch(event.target.value);
               }}
             />
-            <Button type="submit" variant="contained" sx={{ width: '110px' }}>
+            <Button type="submit" variant="contained" sx={{ width: "110px" }}>
               Search
             </Button>
           </Stack>
@@ -157,18 +157,21 @@ export default function UserAlertModal({
                                 className={`${
                                   selectedId === data?.id && `selected-user-module`
                                 } module-inner-container`}
-                                key={index}>
+                                key={index}
+                              >
                                 <Stack
                                   sx={{ px: 1 }}
                                   direction="row"
-                                  justifyContent="space-between">
+                                  justifyContent="space-between"
+                                >
                                   <Box>{data?.name}</Box>
                                   {selectedId === data?.id && (
                                     <Box
                                       sx={{
-                                        display: 'flex',
-                                        justifyContent: 'flex-end',
-                                      }}>
+                                        display: "flex",
+                                        justifyContent: "flex-end",
+                                      }}
+                                    >
                                       <img src={CheckIcon} alt="check" />
                                     </Box>
                                   )}
@@ -192,11 +195,12 @@ export default function UserAlertModal({
                         onClick={() => scrollToSection(alphabet?.alpha)}
                         className={`${activeHammer === alphabet?.alpha && `popup-active-hammer`}`}
                         sx={{
-                          fontSize: '11px',
-                          cursor: 'pointer',
-                          padding: '0px 5px',
-                          '&:hover': { color: '#1F2840', fontWeight: 700 },
-                        }}>
+                          fontSize: "11px",
+                          cursor: "pointer",
+                          padding: "0px 5px",
+                          "&:hover": { color: "#1F2840", fontWeight: 700 },
+                        }}
+                      >
                         {alphabet?.alpha}
                       </Box>
                     )
@@ -209,12 +213,13 @@ export default function UserAlertModal({
       </Box>
       {/* proceed to next component */}
       {datas?.length > 0 && (
-        <Box sx={{ width: '100%', display: 'flex', alignItems: 'end', justifyContent: 'end' }}>
+        <Box sx={{ width: "100%", display: "flex", alignItems: "end", justifyContent: "end" }}>
           <Button
-            onClick={() => setAlertContainerValue('sign-up-alert')}
+            onClick={() => setAlertContainerValue("sign-up-alert")}
             sx={{ mt: 3 }}
             variant="outlined"
-            disabled={isProceedButtonDisabled ? true : false}>
+            disabled={isProceedButtonDisabled ? true : false}
+          >
             <Stack direction="row" spacing={1}>
               <Box sx={{ mt: 0.2 }}>Proceed</Box>
               <Box>
@@ -230,7 +235,7 @@ export default function UserAlertModal({
           <Box>
             <img
               src={NoDataFoundImg}
-              style={{ height: '120px', width: '120px' }}
+              style={{ height: "120px", width: "120px" }}
               alt="no_data_found"
             />
           </Box>

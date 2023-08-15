@@ -19,7 +19,10 @@ import { Field, FieldArray, Form, Formik } from "formik";
 import DotGrid from "src/assets/icons/dotGrid2by2.svg";
 import AddIcon from "@mui/icons-material/Add";
 import InvoiceRateFields from "./InvoiceRateFields";
-import { useAdjustmentData, useBillingInvoceData } from "globalStates/invoice/invoice";
+import {
+  useAdjustmentData,
+  useBillingInvoceData,
+} from "src/store/zustand/globalStates/invoice/invoice";
 import EditIcon from "@mui/icons-material/Edit";
 import { Delete } from "@mui/icons-material";
 import InvoicePreview from "./InvoicePreview";

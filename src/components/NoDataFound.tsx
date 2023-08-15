@@ -1,5 +1,5 @@
 import { Box, Stack } from "@mui/system";
-import NoDataFoundImg from "../assets/images/no_data_found.svg";
+import NoDataFoundImg from "src/assets/images/no_data_found.svg";
 import { Button } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";

@@ -31,7 +31,7 @@ import Overview from "src/assets/navIcons/overview.svg";
 import Quotation from "src/assets/navIcons/quotations.svg";
 import Template from "src/assets/navIcons/templates.svg";
 import { permissionFilter } from "src/modules/config/generalSettings/OrganizationConfiguration";
-import { DecodedTokenProps } from "routers/private/privateRoute";
+import { DecodedTokenProps } from "src/routers/private/privateRoute";
 import PaidOutlinedIcon from "@mui/icons-material/PaidOutlined";
 import jwt_decode from "jwt-decode";
 import { Tooltip } from "@mui/material";

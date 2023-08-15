@@ -24,15 +24,15 @@ import MultiUploader from "src/components/MultiFileUploader/index";
 import BASTooltip from "src/components/BASTooltip/BASTooltip";
 import LogoutIcon from "src/assets/iconslogout_icon.svg";
 import { TemplateDataStructure } from "./TemplateInitialDataStructure";
-import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
 import { useTemplateStore } from "src/modules/template/store/templateStore";
 import { useNavigate, useParams } from "react-router-dom";
 import FullPageLoader from "src/components/FullPageLoader";
 import TemplateImageContainer from "../TemplateImageContainer/TemplateImageContainer";
-import ResponseInputLogicNew from "containers/template/components/InputComponents/ResponseInputLogicNew";
+import ResponseInputLogicNew from "src/modules/template/components/InputComponents/ResponseInputLogicNew";
 import DivSeperator from "../DivSeperator/index";
-import TabPage from "containers/template/layout/PageTab";
-import { PageDescription } from "containers/template/layout/PageTab";
+import TabPage from "src/modules/template/layout/PageTab";
+import { PageDescription } from "src/modules/template/layout/PageTab";
 
 const StarterTemplate = ({ formikBags }: any) => {
   const navigate = useNavigate();

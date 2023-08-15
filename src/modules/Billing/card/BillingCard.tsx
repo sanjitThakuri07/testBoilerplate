@@ -1,8 +1,8 @@
-import { Button, Card, Checkbox, FormControlLabel, IconButton, Typography } from '@mui/material';
-import React from 'react';
-import BillingIcon from '../../../assets/icons/billingIcon.svg';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import ClearIcon from '@mui/icons-material/Clear';
+import { Button, Card, Checkbox, FormControlLabel, IconButton, Typography } from "@mui/material";
+import React from "react";
+import BillingIcon from "src/assets/icons/billingIcon.svg";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import ClearIcon from "@mui/icons-material/Clear";
 
 interface BillingCardProps {
   id?: number;
@@ -62,15 +62,15 @@ const BillingCard = ({
   };
 
   const pricing =
-    pricing_type === 'monthly'
+    pricing_type === "monthly"
       ? monthly_price
-      : pricing_type === 'yearly'
+      : pricing_type === "yearly"
       ? yearly_price
-      : pricing_type === 'quarterly'
+      : pricing_type === "quarterly"
       ? quarterly_price
       : pricing_type === '"halfYearly"'
       ? semiyearly_price
-      : '';
+      : "";
 
   // Object.keys(pricing)..forEach((item) => {
   //   if (pricing[item] === 0) {
@@ -81,26 +81,28 @@ const BillingCard = ({
 
   return (
     <div id="BillingCard">
-      <div className={`BillingCard_container  ${is_active && 'BillingCard_container_active'}`}>
+      <div className={`BillingCard_container  ${is_active && "BillingCard_container_active"}`}>
         <div className="Billingdiv_card">
           <div
             className="Billingdiv_card_heading"
             style={{
-              position: 'relative',
-            }}>
-            {plan}{' '}
+              position: "relative",
+            }}
+          >
+            {plan}{" "}
             <IconButton
               onClick={onDelete}
               style={{
-                position: 'absolute',
-                top: '-15px',
-                right: '0',
-              }}>
+                position: "absolute",
+                top: "-15px",
+                right: "0",
+              }}
+            >
               <ClearIcon
                 style={{
-                  border: '1px solid #C1C6D4',
-                  borderRadius: '50%',
-                  color: '#C1C6D4',
+                  border: "1px solid #C1C6D4",
+                  borderRadius: "50%",
+                  color: "#C1C6D4",
                 }}
               />
             </IconButton>
@@ -116,14 +118,15 @@ const BillingCard = ({
 
             <div className="BillingCard_inner_card_container">
               <div className="BillingCard_inner_card_price">
-                {account_type === 'free' ? (
+                {account_type === "free" ? (
                   <>
                     <span
                       style={{
-                        fontSize: '30px',
+                        fontSize: "30px",
                         fontWeight: 600,
-                        marginRight: '5px',
-                      }}>
+                        marginRight: "5px",
+                      }}
+                    >
                       FREE
                     </span>
                   </>
@@ -131,21 +134,22 @@ const BillingCard = ({
                   <>
                     <span
                       style={{
-                        fontSize: '30px',
+                        fontSize: "30px",
                         fontWeight: 600,
-                        marginRight: '5px',
-                      }}>
+                        marginRight: "5px",
+                      }}
+                    >
                       ${pricing}
-                    </span>{' '}
-                    {pricing_type === 'monthly'
-                      ? 'per month'
-                      : pricing_type === 'yearly'
-                      ? 'per year'
-                      : pricing_type === 'quarterly'
-                      ? 'per quarter'
+                    </span>{" "}
+                    {pricing_type === "monthly"
+                      ? "per month"
+                      : pricing_type === "yearly"
+                      ? "per year"
+                      : pricing_type === "quarterly"
+                      ? "per quarter"
                       : pricing_type === '"halfYearly"'
-                      ? 'per half year'
-                      : ''}
+                      ? "per half year"
+                      : ""}
                   </>
                 )}
               </div>
@@ -154,7 +158,7 @@ const BillingCard = ({
                 {featureList?.map((item, index) => {
                   return (
                     <div className="BillingCard_inner_card_list" key={index}>
-                      {' '}
+                      {" "}
                       <CheckCircleOutlineIcon className="BillingCard_inner_card_text_icon" /> {item}
                     </div>
                   );
@@ -167,24 +171,26 @@ const BillingCard = ({
                       className="BillingCard_inner_card_list"
                       key={index}
                       style={{
-                        marginTop: '8px',
-                      }}>
-                      {' '}
+                        marginTop: "8px",
+                      }}
+                    >
+                      {" "}
                       {checkboxItems[item] ? (
                         <CheckCircleOutlineIcon className="billing_card_checkbox" />
                       ) : (
                         <ClearIcon
                           className="billing_card_checkbox"
                           style={{
-                            border: '1px solid #C1C6D4',
-                            borderRadius: '50%',
+                            border: "1px solid #C1C6D4",
+                            borderRadius: "50%",
                           }}
                         />
                       )}
                       <span
                         style={{
-                          textTransform: 'capitalize',
-                        }}>
+                          textTransform: "capitalize",
+                        }}
+                      >
                         {item}
                       </span>
                     </div>
@@ -208,9 +214,10 @@ const BillingCard = ({
                     ediTPlan();
                   }}
                   style={{
-                    marginLeft: '10px',
-                    background: '#C1C6D4',
-                  }}>
+                    marginLeft: "10px",
+                    background: "#C1C6D4",
+                  }}
+                >
                   Edit Plan
                 </Button>
               </div>

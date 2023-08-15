@@ -18,7 +18,7 @@ import SaveIcon from "src/assets/icons/save_icon.svg";
 
 import { useSnackbar } from "notistack";
 
-import { useCalendarFilter } from "globalStates/calendarFilter";
+import { useCalendarFilter } from "src/store/zustand/globalStates/calendarFilter";
 
 import moment from "moment";
 
@@ -28,7 +28,7 @@ import { usePermissionStore } from "src/store/zustand/permission";
 
 import { checkPermission } from "src/utils/permission";
 
-import useCountryStore "src/store/zustand/generalSettings/country";
+import useCountryStore from "src/store/zustand/generalSettings/country";
 
 const animatedComponents = makeAnimated();
 

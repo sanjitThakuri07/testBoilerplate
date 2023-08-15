@@ -2,7 +2,7 @@ import { userDataStore } from "src/store/zustand/globalStates/userData";
 import { Button, Typography } from "@mui/material";
 import { Box, Stack } from "@mui/system";
 import { useNavigate } from "react-router-dom";
-import Create from "../../assets/icons/create_icon.svg";
+import Create from "src/assets/icons/create_icon.svg";
 
 export default function DashboardHeader() {
   const { userType, userName } = userDataStore();

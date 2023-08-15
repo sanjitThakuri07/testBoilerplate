@@ -5,7 +5,7 @@ import ErrorComponent from "src/components/Error";
 import FullPageLoader from "src/components/FullPageLoader";
 import WaveLoader from "src/components/WaveLoader/WaveLoader";
 import CustomDialog from "src/components/dialog";
-import { errorValue } from "containers/template/validation/inputLogicCheck";
+import { errorValue } from "src/modules/template/validation/inputLogicCheck";
 import { Formik, FormikProps } from "formik";
 import useReconnectingSocket from "hooks/useReconnectingSocket";
 import useSocketManagement from "hooks/useSocketManagement";

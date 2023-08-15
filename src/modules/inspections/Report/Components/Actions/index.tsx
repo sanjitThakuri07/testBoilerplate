@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box, Collapse, Grid, Stack, Typography } from "@mui/material";
 import responseItems from "constants/template/responseItems";
 import { fetchIndividualApi } from "src/modules/apiRequest/apiRequest";
-import { validateInput } from "containers/template/validation/inputLogicCheck";
-import { findData } from "containers/template/validation/keyValidationFunction";
+import { validateInput } from "src/modules/template/validation/inputLogicCheck";
+import { findData } from "src/modules/template/validation/keyValidationFunction";
 import React, { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 

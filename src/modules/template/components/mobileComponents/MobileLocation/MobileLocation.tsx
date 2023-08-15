@@ -13,7 +13,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import GeoLocationMap from "src/components/GeoLocationMap/GeoLocationMap";
 import { Autocomplete, useJsApiLoader } from "@react-google-maps/api";
 import ButtonLoaderSpinner from "src/components/ButtonLoaderSpinner/ButtonLoaderSpinner";
-import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
 
 const MobileLocation = ({ dataItem, disabled }: any) => {
   const { updateTemplateDatasets, templateDatasets } = useTemplateFieldsStore();

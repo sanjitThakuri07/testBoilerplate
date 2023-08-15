@@ -1,12 +1,12 @@
-import { Box, Collapse, Stack, Typography } from '@mui/material';
-import responseItems from 'constants/template/responseItems';
-import { validateInput } from 'containers/template/validation/inputLogicCheck';
-import { findData } from 'containers/template/validation/keyValidationFunction';
+import { Box, Collapse, Stack, Typography } from "@mui/material";
+import responseItems from "src/constants/template/responseItems";
+import { validateInput } from "containers/template/validation/inputLogicCheck";
+import { findData } from "containers/template/validation/keyValidationFunction";
 
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
-import Vector from './Vector';
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
+import Vector from "./Vector";
 
 const returnValue = (value: any, typeOfResponse: any, flaggedValue: any) => {
   if (Array.isArray(value)) {
@@ -27,16 +27,16 @@ const returnValue = (value: any, typeOfResponse: any, flaggedValue: any) => {
   return <></>;
 };
 
-const RenderQuestion = ({ data, mode = 'web' }: any) => {
+const RenderQuestion = ({ data, mode = "web" }: any) => {
   if (Array.isArray(data?.value)) {
     return data?.value.map((v: any, index: any) => {
       if (data?.flaggedValue?.includes(v)) {
-        if (mode === 'pdf') {
+        if (mode === "pdf") {
           return (
             <Box key={index} className="individual_box_container">
               <Stack direction="row" justifyContent="space-between" alignItems="center">
-                <Box sx={{ fontSize: '15px' }}>{data?.label ?? 'N/A'}</Box>
-                <Box sx={{ opacity: '0.7', mt: 0.3 }}>
+                <Box sx={{ fontSize: "15px" }}>{data?.label ?? "N/A"}</Box>
+                <Box sx={{ opacity: "0.7", mt: 0.3 }}>
                   <div className="status_highlight">
                     <Vector />
                     <div className="status_highlight_text">{v}</div>
@@ -47,7 +47,7 @@ const RenderQuestion = ({ data, mode = 'web' }: any) => {
           );
         }
         return (
-          <Box width={'100%'} borderRadius={'4px'} pt={2}>
+          <Box width={"100%"} borderRadius={"4px"} pt={2}>
             <Box>
               <Typography component="p">{data?.label}</Typography>
             </Box>
@@ -68,20 +68,20 @@ const RenderQuestion = ({ data, mode = 'web' }: any) => {
 function InputFields({ responseItems, data, icon, typeOfResponse, mode }: any) {
   return (
     <>
-      {data?.response_choice === 'internal' && (
+      {data?.response_choice === "internal" && (
         <RenderQuestion mode={mode} data={data} icon={icon} typeOfResponse={typeOfResponse} />
       )}
 
-      {(data?.response_choice === 'multiple' || data?.response_choice === 'global') && (
+      {(data?.response_choice === "multiple" || data?.response_choice === "global") && (
         <RenderQuestion mode={mode} data={data} icon={icon} typeOfResponse={typeOfResponse} />
       )}
-      {data?.response_choice === 'default' &&
+      {data?.response_choice === "default" &&
         (() => {
           let type =
-            responseItems.find((option: any) => option.id === data.response_type)?.type || '';
+            responseItems.find((option: any) => option.id === data.response_type)?.type || "";
 
           switch (type) {
-            case 'text':
+            case "text":
               return (
                 <RenderQuestion
                   mode={mode}
@@ -90,7 +90,7 @@ function InputFields({ responseItems, data, icon, typeOfResponse, mode }: any) {
                   typeOfResponse={typeOfResponse}
                 />
               );
-            case 'inspection_date':
+            case "inspection_date":
               return (
                 <RenderQuestion
                   mode={mode}
@@ -99,7 +99,7 @@ function InputFields({ responseItems, data, icon, typeOfResponse, mode }: any) {
                   typeOfResponse={typeOfResponse}
                 />
               );
-            case 'date':
+            case "date":
               return (
                 <RenderQuestion
                   mode={mode}
@@ -108,7 +108,7 @@ function InputFields({ responseItems, data, icon, typeOfResponse, mode }: any) {
                   typeOfResponse={typeOfResponse}
                 />
               );
-            case 'range':
+            case "range":
               return (
                 <RenderQuestion
                   mode={mode}
@@ -117,7 +117,7 @@ function InputFields({ responseItems, data, icon, typeOfResponse, mode }: any) {
                   typeOfResponse={typeOfResponse}
                 />
               );
-            case 'number':
+            case "number":
               return (
                 <RenderQuestion
                   mode={mode}
@@ -126,11 +126,11 @@ function InputFields({ responseItems, data, icon, typeOfResponse, mode }: any) {
                   typeOfResponse={typeOfResponse}
                 />
               );
-            case 'speech_recognition':
+            case "speech_recognition":
               return <></>;
-            case 'location':
+            case "location":
               return <>location</>;
-            case 'temp':
+            case "temp":
               return (
                 <RenderQuestion
                   mode={mode}
@@ -139,9 +139,9 @@ function InputFields({ responseItems, data, icon, typeOfResponse, mode }: any) {
                   typeOfResponse={typeOfResponse}
                 />
               );
-            case 'anno':
+            case "anno":
               return <>annotation</>;
-            case 'checkbox':
+            case "checkbox":
               return (
                 <RenderQuestion
                   mode={mode}
@@ -150,7 +150,7 @@ function InputFields({ responseItems, data, icon, typeOfResponse, mode }: any) {
                   typeOfResponse={typeOfResponse}
                 />
               );
-            case 'instruction':
+            case "instruction":
               return (
                 <RenderQuestion
                   mode={mode}
@@ -159,7 +159,7 @@ function InputFields({ responseItems, data, icon, typeOfResponse, mode }: any) {
                   typeOfResponse={typeOfResponse}
                 />
               );
-            case 'signature':
+            case "signature":
               return (
                 <RenderQuestion
                   mode={mode}
@@ -203,7 +203,7 @@ function GenerateQuestion({ data, dataSetSeperator, mode }: any) {
         {findChildren?.map((it: any, index: number) => {
           const icon = responseItems?.find((item) => item.id === it?.response_type)?.Icon;
           const typeOfResponse = responseItems?.find((item) => item.id === it?.response_type)?.type;
-          if (it.component === 'question') {
+          if (it.component === "question") {
             const qnLogic = dataSetSeperator?.logicDataSet?.find(
               (lg: any) => lg?.id === it?.logicId,
             );
@@ -221,7 +221,7 @@ function GenerateQuestion({ data, dataSetSeperator, mode }: any) {
                 <FormNode mode={mode} dataSetSeperator={dataSetSeperator} data={it} key={it?.id} />
               </>
             );
-          } else if (it.component === 'section') {
+          } else if (it.component === "section") {
             return (
               <>
                 <React.Fragment key={index}>
@@ -264,12 +264,12 @@ const FormNode = ({ dataSetSeperator, data, mode }: any) => {
         ) {
           trigger = logic?.trigger.reduce((acc: any, curr: any) => {
             if (curr?.name) {
-              acc[`${curr.name?.toString()?.split(' ').join('_')}`] = curr.value;
+              acc[`${curr.name?.toString()?.split(" ").join("_")}`] = curr.value;
             }
             return acc;
           }, {});
           datas = logic.linkQuestions.map((data: any) =>
-            findData(dataSetSeperator.logicQuestion, data, 'id'),
+            findData(dataSetSeperator.logicQuestion, data, "id"),
           );
         }
         return datas;
@@ -293,7 +293,7 @@ const FormNode = ({ dataSetSeperator, data, mode }: any) => {
           );
           return (
             <React.Fragment key={data?.id}>
-              {data?.component === 'question' && (
+              {data?.component === "question" && (
                 <>
                   <RenderQuestion
                     mode={mode}
@@ -311,7 +311,7 @@ const FormNode = ({ dataSetSeperator, data, mode }: any) => {
                 </>
               )}
 
-              {data?.component === 'section' && (
+              {data?.component === "section" && (
                 <>
                   <h1> {data?.component}</h1>
                   <FormNode
@@ -338,9 +338,9 @@ const FormNode = ({ dataSetSeperator, data, mode }: any) => {
 
   return <></>;
 };
-const FlaggedItems = ({ pages, dataSetSeperator, mode = 'web' }: any) => {
+const FlaggedItems = ({ pages, dataSetSeperator, mode = "web" }: any) => {
   const [collapseActions, setCollapseActions] = useState<any>(true);
-  if (mode === 'pdf') {
+  if (mode === "pdf") {
     return (
       <Box mb={1}>
         <Box className="box-container-pdf">
@@ -363,16 +363,16 @@ const FlaggedItems = ({ pages, dataSetSeperator, mode = 'web' }: any) => {
   return (
     <>
       <Box className="overview_layout_container">
-        <Box display={'flex'} width={'100%'} justifyContent="space-between">
-          <Stack direction="row" spacing={2} justifyContent="center" alignItems={'center'}>
+        <Box display={"flex"} width={"100%"} justifyContent="space-between">
+          <Stack direction="row" spacing={2} justifyContent="center" alignItems={"center"}>
             <Box onClick={() => setCollapseActions(!collapseActions)} className="overview_button">
               <FontAwesomeIcon
                 icon={faAngleRight}
-                className={`${collapseActions && 'rotate_arrow_down'} rotate_arrow_straight`}
+                className={`${collapseActions && "rotate_arrow_down"} rotate_arrow_straight`}
               />
             </Box>
 
-            <Typography fontSize={18} fontWeight={500} sx={{ select: 'none' }}>
+            <Typography fontSize={18} fontWeight={500} sx={{ select: "none" }}>
               Flagged Items
             </Typography>
           </Stack>
@@ -406,12 +406,13 @@ const QuestionCopy = ({ dataSetSeperator, collapseActions, mode }: any) => {
               in={collapseActions}
               timeout="auto"
               unmountOnExit
-              sx={{ width: '100%' }}
-              key={data?.id}>
-              {' '}
-              {data.component === 'question' && (
+              sx={{ width: "100%" }}
+              key={data?.id}
+            >
+              {" "}
+              {data.component === "question" && (
                 <>
-                  {data?.response_choice === 'internal' && !!data?.flaggedValue?.length && (
+                  {data?.response_choice === "internal" && !!data?.flaggedValue?.length && (
                     <>
                       <RenderQuestion
                         mode={mode}
@@ -422,7 +423,7 @@ const QuestionCopy = ({ dataSetSeperator, collapseActions, mode }: any) => {
                     </>
                   )}
 
-                  {(data?.response_choice === 'multiple' || data?.response_choice === 'global') &&
+                  {(data?.response_choice === "multiple" || data?.response_choice === "global") &&
                     !!data?.flaggedValue?.length && (
                       <>
                         <RenderQuestion
@@ -441,7 +442,7 @@ const QuestionCopy = ({ dataSetSeperator, collapseActions, mode }: any) => {
                   />
                 </>
               )}
-              {data.component === 'section' && (
+              {data.component === "section" && (
                 <>
                   {/* <h1> {data?.component}</h1> */}
                   <GenerateQuestion mode={mode} data={data} dataSetSeperator={dataSetSeperator} />

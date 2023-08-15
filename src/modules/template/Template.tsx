@@ -2,9 +2,9 @@ import { Grid } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import { MobileIndex, MobilePreview, StarterTemplate } from "./components";
 // import { NavbarTab, RightSection } from './layout';
-import CustomBottomNavigation from "containers/template/container/layout/bottombar";
-import Sidebar from "containers/template/container/layout/sidebar";
-import TemplateTopbar from "containers/template/container/layout/topbar";
+import CustomBottomNavigation from "src/modules/template/container/layout/bottombar";
+import Sidebar from "src/modules/template/container/layout/sidebar";
+import TemplateTopbar from "src/modules/template/container/layout/topbar";
 import { useFormik } from "formik";
 import { TemplateCreationFields } from "interfaces/templates/templateFields";
 import { FormikFormHelpers } from "src/interfaces/utils";
@@ -13,7 +13,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { useLocation, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
 import BlockingModal from "src/components/BlockingModal";
 
 const RenderComponent = ({

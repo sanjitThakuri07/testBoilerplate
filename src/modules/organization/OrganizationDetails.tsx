@@ -19,7 +19,7 @@ import { IOrganizationSettingDetails } from "src/interfaces/organizationSetting"
 import { getAPI, postAPI } from "src/lib/axios";
 import { MenuOptions } from "src/interfaces/profile";
 import { useSnackbar } from "notistack";
-import { loggedUserDataStore } from "globalStates/loggedUserData";
+import { loggedUserDataStore } from "src/store/zustand/globalStates/loggedUserData";
 
 const initialValues: IOrganizationSettingDetails = {
   country: "",

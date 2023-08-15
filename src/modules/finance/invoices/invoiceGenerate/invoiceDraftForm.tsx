@@ -11,7 +11,7 @@ import {
   useInvoiceFile,
   useInvoiceTableDatas,
   useInvoiceTriggred,
-} from "globalStates/invoice/invoice";
+} from "src/store/zustand/globalStates/invoice/invoice";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSnackbar } from "notistack";
 import * as Yup from "yup";

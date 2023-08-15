@@ -29,7 +29,7 @@ import { useSnackbar } from "notistack";
 import { useNavigate, useParams } from "react-router-dom";
 import { deleteAPI, getAPI, postAPI, putAPI } from "src/lib/axios";
 import * as Yup from "yup";
-import SaveIcon from "../../../assets/icons/save_icon.svg";
+import SaveIcon from "src/assets/icons/save_icon.svg";
 import FullPageLoader from "src/components/FullPageLoader";
 // import './style.scss';
 

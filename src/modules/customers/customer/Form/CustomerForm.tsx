@@ -23,7 +23,7 @@ import ProfilePicture from "src/modules/setting/profile/ProfilePicture";
 import { useNavigate, useParams } from "react-router-dom";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import PhoneNumberInput from "src/modules/setting/profile/PhoneNumberInput";
-import SaveIcon from "../../../assets/icons/save_icon.svg";
+import SaveIcon from "src/assets/icons/save_icon.svg";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { customerProps } from "src/interfaces/configs";
 import { useSnackbar, SnackbarKey, SnackbarMessage, OptionsObject } from "notistack";
@@ -45,7 +45,7 @@ import { validateFieldTypeNames } from "src/components/MultiEmail/MultiEmailAdd"
 import { IOSSwitch } from "src/components/switch/IosSwitch";
 import { Stack } from "@mui/system";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
-import CustomDrawer from "containers/Bookings/components/Drawer/CustomDrawer";
+import CustomDrawer from "src/modules/Bookings/components/Drawer/CustomDrawer";
 
 interface MyObject {
   [key: string]: string;

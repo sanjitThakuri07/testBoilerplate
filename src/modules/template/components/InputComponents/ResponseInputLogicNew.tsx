@@ -1,4 +1,4 @@
-import { useTextAnswer } from "globalStates/templates/TextAnswer";
+import { useTextAnswer } from "src/store/zustand/globalStates/templates/TextAnswer";
 import {
   Button,
   Checkbox,
@@ -15,18 +15,18 @@ import {
 import React, { useEffect, useState, useRef } from "react";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import ModalLayout from "src/components/ModalLayout";
-import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
 import { Field, FieldArray, Form, Formik } from "formik";
 import { v4 as uuidv4 } from "uuid";
 import EvidenceBlankIcon from "src/assets/icons/Evidence__blank.svg";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useParams } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
-import { showLogicalValue } from "containers/template/validation/inputLogicCheck";
+import { showLogicalValue } from "src/modules/template/validation/inputLogicCheck";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { fetchApI, fetchIndividualApi } from "src/modules/apiRequest/apiRequest";
-import useApiOptionsStore from "containers/template/store/apiOptionsTemplateStore";
-import NotificationControl from "containers/template/notification/index";
+import useApiOptionsStore from "src/modules/template/store/apiOptionsTemplateStore";
+import NotificationControl from "src/modules/template/notification/index";
 import LinkIcon from "@mui/icons-material/Link";
 
 type ResponseInputLogicProps = {

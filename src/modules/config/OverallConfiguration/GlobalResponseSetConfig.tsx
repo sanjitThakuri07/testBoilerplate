@@ -1,6 +1,6 @@
 import { Button, Stack } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
-import { globalResponseSetUrl } from "routers/routingsUrl";
+import { globalResponseSetUrl } from "src/routers/routingsUrl";
 import { usePathUrlSettor } from "src/store/zustand/globalStates/config";
 import { permissionFilter } from "../generalSettings/OrganizationConfiguration";
 import { usePermissionStore } from "src/store/zustand/permission";

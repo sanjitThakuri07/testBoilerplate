@@ -20,7 +20,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import AddIcon from "@mui/icons-material/Add";
 import ModalLayout from "src/components/ModalLayout";
-import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
 import { Field, FieldArray, Form, Formik } from "formik";
 import { v4 as uuidv4 } from "uuid";
 import EvidenceBlankIcon from "src/assets/icons/Evidence__blank.svg";

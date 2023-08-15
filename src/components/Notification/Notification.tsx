@@ -34,7 +34,7 @@ const Styles = styled("div")<{ customStyle }>`
   }
 
   /* .Toastify__toast--success::before {
-    content: url("../assets/images/svg/successToast.svg"); // Your svg Path
+    content: url("src/assets/images/svg/successToast.svg"); // Your svg Path
     position: relative;
     z-index: 100000;
     left: 12px;

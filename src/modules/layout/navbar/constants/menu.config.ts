@@ -1,7 +1,7 @@
-// import { tabContainerBookings } from "containers/Bookings/Layouts/BookingTableLayouts";
+// import { tabContainerBookings } from  "src/modules/Bookings/Layouts/BookingTableLayouts";
 import { permissionList } from "src/constants/permission";
 import { PrivateRoute } from "src/constants/variables";
-// import { tabContainerQuotation } from "containers/Quotation/Layouts/QuotationTableLayouts";
+// import { tabContainerQuotation } from  "src/modules/Quotation/Layouts/QuotationTableLayouts";
 import { tabContainerFinance } from "src/modules/finance/FinanceConfig";
 import { tabContainerConfiguration } from "src/modules/config/generalSettings/OrganizationConfiguration";
 import { rolesList } from "src/constants/roles";

@@ -8,7 +8,7 @@ import { useReportLayoutDataSets } from "./store/ReportStoreDataSets";
 import { getAPI } from "src/lib/axios";
 import { useParams } from "react-router-dom";
 import PDFPreview from "./PDFPreview";
-// import { ReactComponent as LayoutIcon } from "../../../assets/icons/layout_icon.svg";
+// import { ReactComponent as LayoutIcon } from "src/assets/icons/layout_icon.svg";
 import DashboardRoundedIcon from "@mui/icons-material/DashboardRounded";
 
 // import "./ReportLayout.scss";

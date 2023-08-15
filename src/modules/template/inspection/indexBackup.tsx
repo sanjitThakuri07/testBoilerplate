@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 
 import { useTemplateStore } from "src/modules/template/store/templateStore";
-import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import FullPageLoader from "src/components/FullPageLoader";
 import { fetchApI, fetchExternalApI } from "src/modules/apiRequest/apiRequest";
@@ -21,8 +21,8 @@ import MobileTemperature from "../components/mobileComponents/MobileTemperature/
 import MobileInstruction from "../components/mobileComponents/MobileInstruction";
 import MobileSignature from "../components/mobileComponents/MobileSignature";
 import SelectInternalResponse from "../components/mobileComponents/SelectInternalResponse";
-import { validateInput } from "containers/template/validation/inputLogicCheck";
-import { findData } from "containers/template/validation/keyValidationFunction";
+import { validateInput } from "src/modules/template/validation/inputLogicCheck";
+import { findData } from "src/modules/template/validation/keyValidationFunction";
 import MobileAnnotation from "../components/mobileComponents/MobileAnnotation/mobileAnnotation";
 import MobileCheckbox from "../components/mobileComponents/MobileCheckbox/mobileCheckbox";
 import { KeyboardArrowUp, KeyboardArrowDown, DeleteOutline } from "@mui/icons-material";
@@ -32,9 +32,9 @@ import { reduceDataSet } from "src/modules/utils/reducedDataSet";
 import { deepCloneArray } from "src/modules/utils/deepCloneArray";
 import { DynamicSchemaGenerator } from "../validation";
 import MobileMedia from "../components/mobileComponents/MobileMedia/MobileMedia";
-import useApiOptionsStore from "containers/template/store/apiOptionsTemplateStore";
+import useApiOptionsStore from "src/modules/template/store/apiOptionsTemplateStore";
 import SelectExternalResponse from "../components/mobileComponents/SelectExternalResponse";
-import { KeyOptionsName } from "containers/template/components/InputComponents/ResponseInputLogicNew";
+import { KeyOptionsName } from "src/modules/template/components/InputComponents/ResponseInputLogicNew";
 import { useInspectionStore } from "../store/inspectionStore";
 import { useSnackbar } from "notistack";
 import QuestionToolBar from "./questionToolBar";

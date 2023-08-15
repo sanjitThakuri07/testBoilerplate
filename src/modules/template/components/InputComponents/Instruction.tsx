@@ -2,12 +2,12 @@ import { Divider } from "@mui/material";
 import React, { useEffect } from "react";
 import InstructionIcon from "src/assets/template/icons/instruction.png";
 import ModalLayout from "src/components/ModalLayout";
-import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
 import BASTooltip from "src/components/BASTooltip/BASTooltip";
 import InfoIcon from "@mui/icons-material/Info";
 import UploadImage from "../mobileComponents/MobileMedia/UploadImage";
 import { postAPI } from "src/lib/axios";
-import { LabelWrapper, BodyWrapper } from "containers/template/components/Wrapper";
+import { LabelWrapper, BodyWrapper } from "src/modules/template/components/Wrapper";
 
 type InstructionProps = {
   responseTypeId?: any;

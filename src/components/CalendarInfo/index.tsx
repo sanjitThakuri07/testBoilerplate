@@ -16,8 +16,8 @@ import { Alert, Tooltip } from "@mui/material";
 import EngineeringOutlinedIcon from "@mui/icons-material/EngineeringOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import ContentPasteSearchOutlinedIcon from "@mui/icons-material/ContentPasteSearchOutlined";
-import { useInspectionStore } from "containers/template/store/inspectionStore";
-import CalendarInspection from "containers/calendar/Inspection/CalendarInspection";
+import { useInspectionStore } from "src/modules/template/store/inspectionStore";
+import CalendarInspection from "src/modules/calendar/Inspection/CalendarInspection";
 
 interface BasicCardProps {
   id: number;

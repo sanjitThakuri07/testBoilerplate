@@ -21,27 +21,27 @@ import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModa
 import MultiUploader from "src/components/MultiFileUploader/index";
 import LogoutIcon from "src/assets/icons/logout_icon.svg";
 import { TemplateDataStructure } from "./TemplateInitialDataStructure";
-import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
 import { useTemplateStore } from "src/modules/template/store/templateStore";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 // import TemplateHeading from '../TemplateHeading/TemplateHeading';
 import FullPageLoader from "src/components/FullPageLoader";
 import TemplateImageContainer from "../TemplateImageContainer/TemplateImageContainer";
-import ResponseInputLogicNew from "containers/template/components/InputComponents/ResponseInputLogicNew";
+import ResponseInputLogicNew from "src/modules/template/components/InputComponents/ResponseInputLogicNew";
 import DivSeperator from "../DivSeperator/index";
-import TabPage from "containers/template/layout/PageTab";
+import TabPage from "src/modules/template/layout/PageTab";
 
 import { FlattenObject } from "src/modules/utils";
 import withScrolling from "react-dnd-scrolling";
 import { userDataStore } from "src/store/zustand/globalStates/userData";
-import { searchParamObject } from "containers/utils/index";
+import { searchParamObject } from "src/modules/utils/index";
 import { fetchApI } from "src/modules/apiRequest/apiRequest";
-import useApiOptionsStore from "containers/template/store/apiOptionsTemplateStore";
+import useApiOptionsStore from "src/modules/template/store/apiOptionsTemplateStore";
 import { useSnackbar } from "notistack";
 import useUndoRedo from "hooks/useUndoRedo";
 import FnrModal from "./FnRModal";
-import CustomBottomNavigation from "containers/template/container/layout/bottombar";
-import { MobileIndex, MobilePreview } from "containers/template/components/index";
+import CustomBottomNavigation from "src/modules/template/container/layout/bottombar";
+import { MobileIndex, MobilePreview } from "src/modules/template/components/index";
 
 const ScrollingComponent = withScrolling("div");
 

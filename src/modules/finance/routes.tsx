@@ -1,9 +1,9 @@
 import { PrivateRoute } from "src/constants/variables";
 
-import FinanceSettings from "containers/finance/Finance";
-import FinanceForm from "containers/finance/tariffs/index";
-import InvoiceForm from "containers/finance/invoices/indexstack";
-import InvoicesForm from "containers/finance/invoices/index";
+import FinanceSettings from "src/modules/finance/Finance";
+import FinanceForm from "src/modules/finance/tariffs/index";
+import InvoiceForm from "src/modules/finance/invoices/indexstack";
+import InvoicesForm from "src/modules/finance/invoices/index";
 
 import { IndexHOC } from "src/hoc/indexHOC";
 import InvoiceGenerate from "./invoices/invoiceGenerate/invoiceGenerate";

@@ -1,7 +1,7 @@
 import { permissionList } from "src/constants/permission";
 import { PrivateRoute } from "src/constants/variables";
-import Organization from "containers/organization";
-import NoDataOrganizations from "containers/organization/NoData";
+import Organization from "src/modules/organization";
+import NoDataOrganizations from "src/modules/organization/NoData";
 
 import { IndexHOC } from "src/hoc/indexHOC";
 

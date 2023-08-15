@@ -1613,60 +1613,60 @@
   dependencies:
     tslib "^2.0.0"
 
-"@draft-js-plugins/alignment@5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@draft-js-plugins/alignment/-/alignment-5.0.1.tgz#2c3e3cd5c5e1950764ea757aa93aabcef133367b"
-  integrity sha512-3faeVmXCUUncWxHcQeSjKhvCPXBG6rw+HML0mwLNrl7cQl7zeohbMeJQnjaz5H2jlPvIOwFh2M+8ysTVb283ug==
+"@draft-js-plugins/alignment@^5.0.4":
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/@draft-js-plugins/alignment/-/alignment-5.0.4.tgz#70bb0fe352166b137b38712fadad71d0da69b396"
+  integrity sha512-DMYynS4DF5P1/K/puS5HQAs77txjQvJnXyAO2Hmdxue09AaF7jgsmParL0qAvWz/1AiA+p9Nw8eVaSJC0QPk1Q==
   dependencies:
-    "@draft-js-plugins/buttons" "^4.0.0"
-    "@draft-js-plugins/utils" "^4.0.0"
+    "@draft-js-plugins/buttons" "^4.3.3"
+    "@draft-js-plugins/utils" "^4.2.1"
 
-"@draft-js-plugins/buttons@^4.0.0":
+"@draft-js-plugins/buttons@^4.3.3":
   version "4.3.3"
   resolved "https://registry.yarnpkg.com/@draft-js-plugins/buttons/-/buttons-4.3.3.tgz#1884faa80915c297f9523f3f50f333ceb4441120"
   integrity sha512-XGQBiRXYLGAO6uBrajpg1Tl42FD7o12oT9bM+ikciPMXdHOyJ6y8cJhY4YZI4AYhY37MNf6bdh9/p81TtIpcHA==
   dependencies:
     clsx "^1.2.1"
 
-"@draft-js-plugins/editor@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@draft-js-plugins/editor/-/editor-4.1.0.tgz#1861fb257ba51ecbd031b8a3d84ee0809de1504e"
-  integrity sha512-i95uGF1GOFwP99qRCjtocGAYanULtkX9/XPeXKwjKx65vnOt/0dvBBdSvzSgrJ9pncHHLUqDfFQKXy/09fTmvg==
+"@draft-js-plugins/editor@^4.1.4":
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/@draft-js-plugins/editor/-/editor-4.1.4.tgz#456e01b032b8ef44f0c77ea777aa3c44172de892"
+  integrity sha512-NlE1AIsPPfmdn+JIwwmcAm18FgwJ9/A55+2VXf3US3PmITJVL+y9VORCwLbGh2sb0RXvgFOIbqs8pPAOe8F8WQ==
   dependencies:
     immutable "~3.7.4"
-    prop-types "^15.5.8"
+    prop-types "^15.8.1"
 
-"@draft-js-plugins/focus@4.1.2":
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/@draft-js-plugins/focus/-/focus-4.1.2.tgz#4ea65cd54988c5605f657b08d04f3479dffa7ee8"
-  integrity sha512-1jiQiJEeYZbaAkHPEw+IDl5ye19NGASfc4dz8Tedrb6zYJbr0sQpSp3IACdJ424TciMhecyPsAKIflTE7yScOQ==
+"@draft-js-plugins/focus@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@draft-js-plugins/focus/-/focus-4.1.5.tgz#fcc3cdd220408ec0b6f019452a358f6ca9359fe5"
+  integrity sha512-wHDi8dM5SL9w98pqc4MhzzbCmaK1zDsknfdu+6sfGyVAwAUTBtD2OMbAYltWfOMKGgIrM5hhKaSgSQnJ3Jf0Fg==
   dependencies:
-    clsx "^1.0.4"
+    clsx "^1.2.1"
     immutable "~3.7.4"
 
-"@draft-js-plugins/image@4.1.1":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@draft-js-plugins/image/-/image-4.1.1.tgz#6f2078364317c29ff0dd13d4a9d5dd57a9447ce4"
-  integrity sha512-pNVuYpwduUZDkDIByo6Yasvb8GIMNjxP66X12G4XTjD/nf+YyxtOu+JmhAjpK5qPLjNyvkzf+D2zMZywEs/JLQ==
+"@draft-js-plugins/image@^4.1.4":
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/@draft-js-plugins/image/-/image-4.1.4.tgz#26b55d573252ef64e883491ff274507e0448cb8c"
+  integrity sha512-gLEYjhG2n9v5Y+e9sH9OD0/XVbHOaBwSBo3loXScmwSOTFP+9GBwp6HxCXvnBJj15SOQqGVvEkf6W3Jlzu/8ng==
   dependencies:
-    clsx "^1.0.4"
+    clsx "^1.2.1"
 
-"@draft-js-plugins/resizeable@5.0.2":
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/@draft-js-plugins/resizeable/-/resizeable-5.0.2.tgz#69ce6f403f9bbc024eb2ef985ba27d3b7a410524"
-  integrity sha512-16+NdyKj+znt7xvjKNJ4sKfX7HCkNWRpTeprzltH/dg3hgUL/lpApjbF/ehZheFsOM7eJqbhX1vRRTRwuek3eg==
+"@draft-js-plugins/resizeable@^5.0.4":
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/@draft-js-plugins/resizeable/-/resizeable-5.0.4.tgz#dccef1f897088d80f41e79215d0c206730346402"
+  integrity sha512-XcVoKc+kehvFZViu5akCrAFuZRXUU6hmmF/zE0tYw1/yZMNgsdtDm54WivYzDArW9OgGLSgKprsl32pLyCmj0Q==
 
-"@draft-js-plugins/utils@^4.0.0":
+"@draft-js-plugins/utils@^4.2.1":
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/@draft-js-plugins/utils/-/utils-4.2.1.tgz#b3318762b6ba5924581e9432e8990a30e0edb85a"
   integrity sha512-FtGtBM+zSPgwaaAujULi0eCixlOBsqRezhOcZvBi3y0A/LkvNtKhykEOzd9/96qnGVT54iMiOJb+hw62yk/CCw==
 
-"@draft-js-plugins/video@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@draft-js-plugins/video/-/video-4.1.0.tgz#1a2f4360bacc69349ba1f54383213acd9a58a86e"
-  integrity sha512-252UklZoBgnmHDWsLF32CcTJaihcOAVh5dlAElkACmVFNgVt03yAmDercjoEXneBpTKKGQASIIXx3BNbE0nBIQ==
+"@draft-js-plugins/video@^4.1.3":
+  version "4.1.3"
+  resolved "https://registry.yarnpkg.com/@draft-js-plugins/video/-/video-4.1.3.tgz#b3581373d37a9ea10e3ce0678aad02b856925975"
+  integrity sha512-WCltbYXzVPE555ukeOhpTYt4/j1jCAJTgk5n8fa8gh6KPCNeJ8cqrIGbRS/TCWRJfXvqWOAaK5pZ57bszybYBw==
   dependencies:
-    prop-types "^15.5.8"
+    prop-types "^15.8.1"
 
 "@emotion/babel-plugin@^11.11.0":
   version "11.11.0"
@@ -7786,7 +7786,7 @@ dotenv@^16.0.0, dotenv@^16.3.1:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.3.1.tgz#369034de7d7e5b120972693352a3bf112172cc3e"
   integrity sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==
 
-draft-js-export-html@1.4.1:
+draft-js-export-html@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/draft-js-export-html/-/draft-js-export-html-1.4.1.tgz#7cdad970c6f7f2cdd19ce4c1f5073fdf0f313b4d"
   integrity sha512-G4VGBSalPowktIE4wp3rFbhjs+Ln9IZ2FhXeHjsZDSw0a2+h+BjKu5Enq+mcsyVb51RW740GBK8Xbf7Iic51tw==
@@ -7801,7 +7801,7 @@ draft-js-import-element@^1.4.0:
     draft-js-utils "^1.4.0"
     synthetic-dom "^1.4.0"
 
-draft-js-import-html@1.4.1:
+draft-js-import-html@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/draft-js-import-html/-/draft-js-import-html-1.4.1.tgz#c222a3a40ab27dee5874fcf78526b64734fe6ea4"
   integrity sha512-KOZmtgxZriCDgg5Smr3Y09TjubvXe7rHPy/2fuLSsL+aSzwUDwH/aHDA/k47U+WfpmL4qgyg4oZhqx9TYJV0tg==
@@ -7813,7 +7813,7 @@ draft-js-utils@^1.4.0:
   resolved "https://registry.yarnpkg.com/draft-js-utils/-/draft-js-utils-1.4.1.tgz#a59c792ad621f7050292031a237d524708a6d509"
   integrity sha512-xE81Y+z/muC5D5z9qWmKfxEW1XyXfsBzSbSBk2JRsoD0yzMGGHQm/0MtuqHl/EUDkaBJJLjJ2EACycoDMY/OOg==
 
-draft-js-video-plugin@2.0.2:
+draft-js-video-plugin@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/draft-js-video-plugin/-/draft-js-video-plugin-2.0.2.tgz#59cd581d4df5edc62e83e7195c2d37a0f31df2b9"
   integrity sha512-mp6OCyVahsRNTjz5saZvDEqJIycyYk+6uRYq7Dv2aAzAYjY8rOVBv8x7DBEFUefWe9Lh0PgGg7tVgchD2ZbT3Q==

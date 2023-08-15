@@ -8,23 +8,23 @@ import responseItems from "constants/template/responseItems";
 import { Formik } from "formik";
 
 import { Button } from "@mui/material";
-import SelectMultipleResponse from "containers/template/components/mobileComponents/SelectMultipleResponse";
-import MobileTextAnswer from "containers/template/components/mobileComponents/MobileTextAnswer/MobileTextAnswer";
-import MobileInspectionDate from "containers/template/components/mobileComponents/MobileInspectionDate/MobileInspectionDate";
-import MobileDateTime from "containers/template/components/mobileComponents/MobileDateTime/MobileDateTime";
-import MobileSlider from "containers/template/components/mobileComponents/MobileSlider/MobileSlider";
-import MobileNumber from "containers/template/components/mobileComponents/MobileNumber";
-import MobileSpeechRecognition from "containers/template/components/mobileComponents/MobileSpeechRecognition/MobileSpeechRecognition";
-import MobileLocation from "containers/template/components/mobileComponents/MobileLocation/MobileLocation";
-import MobileTemperature from "containers/template/components/mobileComponents/MobileTemperature/mobileTemperature";
-import MobileInstruction from "containers/template/components/mobileComponents/MobileInstruction";
-import MobileSignature from "containers/template/components/mobileComponents/MobileSignature";
-import SelectInternalResponse from "containers/template/components/mobileComponents/SelectInternalResponse";
-import { useInspectionStore } from "containers/template/store/inspectionStore";
-import { validateInput } from "containers/template/validation/inputLogicCheck";
-import { findData } from "containers/template/validation/keyValidationFunction";
-import MobileAnnotation from "containers/template/components/mobileComponents/MobileAnnotation/mobileAnnotation";
-import MobileCheckbox from "containers/template/components/mobileComponents/MobileCheckbox/mobileCheckbox";
+import SelectMultipleResponse from "src/modules/template/components/mobileComponents/SelectMultipleResponse";
+import MobileTextAnswer from "src/modules/template/components/mobileComponents/MobileTextAnswer/MobileTextAnswer";
+import MobileInspectionDate from "src/modules/template/components/mobileComponents/MobileInspectionDate/MobileInspectionDate";
+import MobileDateTime from "src/modules/template/components/mobileComponents/MobileDateTime/MobileDateTime";
+import MobileSlider from "src/modules/template/components/mobileComponents/MobileSlider/MobileSlider";
+import MobileNumber from "src/modules/template/components/mobileComponents/MobileNumber";
+import MobileSpeechRecognition from "src/modules/template/components/mobileComponents/MobileSpeechRecognition/MobileSpeechRecognition";
+import MobileLocation from "src/modules/template/components/mobileComponents/MobileLocation/MobileLocation";
+import MobileTemperature from "src/modules/template/components/mobileComponents/MobileTemperature/mobileTemperature";
+import MobileInstruction from "src/modules/template/components/mobileComponents/MobileInstruction";
+import MobileSignature from "src/modules/template/components/mobileComponents/MobileSignature";
+import SelectInternalResponse from "src/modules/template/components/mobileComponents/SelectInternalResponse";
+import { useInspectionStore } from "src/modules/template/store/inspectionStore";
+import { validateInput } from "src/modules/template/validation/inputLogicCheck";
+import { findData } from "src/modules/template/validation/keyValidationFunction";
+import MobileAnnotation from "src/modules/template/components/mobileComponents/MobileAnnotation/mobileAnnotation";
+import MobileCheckbox from "src/modules/template/components/mobileComponents/MobileCheckbox/mobileCheckbox";
 
 function InputFields({
   responseChoice,

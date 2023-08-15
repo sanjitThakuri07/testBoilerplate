@@ -3,7 +3,7 @@ import { PrivateRoute } from "src/constants/variables";
 import { IndexHOC } from "src/hoc/indexHOC";
 import { permissionList } from "src/constants/permission";
 import Schedule from "./Schedule";
-import ScheduleInspection from "containers/inspections/ScheduleInspection";
+import ScheduleInspection from "src/modules/inspections/ScheduleInspection";
 
 export const routes: any = [
   {

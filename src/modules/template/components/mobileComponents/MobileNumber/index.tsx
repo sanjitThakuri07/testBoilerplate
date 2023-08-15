@@ -1,6 +1,6 @@
 import { TextField } from "@mui/material";
 import ErrorComponent from "src/components/Error";
-import { errorValue } from "containers/template/validation/inputLogicCheck";
+import { errorValue } from "src/modules/template/validation/inputLogicCheck";
 import ExtraUserFields from "../ReusableMobileComponent/ExtraUserFields";
 
 const MobileNumber = ({

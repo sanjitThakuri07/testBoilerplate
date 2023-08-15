@@ -28,8 +28,8 @@ import { fetchApI } from "src/modules/apiRequest/apiRequest";
 import { LOCATION_DEFAULT_DATA, NAVIGATE_ROUTES } from "../constantsForm";
 import { postApiData, putApiData } from "src/modules/apiRequest/apiRequest";
 import FullPageLoader from "src/components/FullPageLoader";
-import useTerriotryStore "src/store/zustand/generalSettings/territory";
-import useLocationStore "src/store/zustand/generalSettings/location";
+import useTerriotryStore from "src/store/zustand/generalSettings/territory";
+import useLocationStore from "src/store/zustand/generalSettings/location";
 
 const LocationForm: FC<{
   location: LocationProps;

@@ -1,8 +1,8 @@
 import { Box, Checkbox, Stack } from "@mui/material";
-import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
 import ErrorComponent from "src/components/Error";
-import { errorValue } from "containers/template/validation/inputLogicCheck";
-import ExtraUserFields from "containers/template/components/mobileComponents/ReusableMobileComponent/ExtraUserFields";
+import { errorValue } from "src/modules/template/validation/inputLogicCheck";
+import ExtraUserFields from "src/modules/template/components/mobileComponents/ReusableMobileComponent/ExtraUserFields";
 
 export default function MobileCheckbox({
   dataItem,

@@ -5,7 +5,7 @@ import MultiUploader from "src/components/MultiFileUploader/index";
 import { postAPI } from "src/lib/axios";
 import FileDataModal from "src/components/FileDataModal";
 import DeleteIcon from "@mui/icons-material/Delete";
-import AddAssignActivity from "containers/AssignActivities/AddAssignActivity";
+import AddAssignActivity from "src/modules/AssignActivities/AddAssignActivity";
 import { Dialog, DialogContent, DialogTitle } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { deleteHandler } from "./extraUserApiRequest";

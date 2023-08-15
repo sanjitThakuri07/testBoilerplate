@@ -1,7 +1,7 @@
 import OrganizationConfiguration from "src/modules/config/generalSettings/OrganizationConfiguration";
 import { Box } from "@mui/system";
 import UsersSettingLayout from "../UserSettingLayout";
-import UserSecurityy from "containers/setting/security/UserSecurity";
+import UserSecurityy from "src/modules/setting/security/UserSecurity";
 
 export default function UserSecurity() {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { Stack } from "@mui/system";
 import { Box } from "@mui/material";
-import EmailIcon from "../assets/icons/email_icon.svg";
+import EmailIcon from "src/assets/icons/email_icon.svg";
 
 const AuthFooter: React.FC = () => {
   return (
