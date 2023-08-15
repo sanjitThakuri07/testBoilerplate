@@ -27,7 +27,7 @@ import GRSModal from "containers/template/components/ResponseTab/GlobalResponseS
 import BASDataTableUpdate from "src/modules/table/BASDataTable";
 import { EXTERNAL_ATTRIBUTES_INITIAL_VALUE } from "../filterOptionsList";
 import CustomPopUp from "src/components/CustomPopup/index";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 import { lockFields } from "src/utils/url";
 
 // =============== GlobalResponseSet and services common component ==============

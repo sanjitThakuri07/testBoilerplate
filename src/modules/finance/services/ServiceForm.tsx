@@ -19,7 +19,7 @@ import {
   ConfigRegionsSchema,
   ConfigRegionsSchemaOptional,
   ServiceSchema,
-} from "validationSchemas/config";
+} from "src/validationSchemas/config";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
 import { useContractorServicesStore } from "src/store/zustand/globalStates/config";
@@ -85,7 +85,7 @@ const ServiceForm: FC<{
           param.serviceId === undefined ? "created" : "updated"
         }  according to the way you customized.`}
         status="success"
-        confirmationIcon="/assets/icons/icon-success.svg"
+        confirmationIcon="src/assets/icons/icon-success.svg"
         isSuccess
         IsSingleBtn
         btnText="Go to services"

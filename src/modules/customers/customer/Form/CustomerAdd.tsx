@@ -20,7 +20,7 @@ import { Form, useNavigate, useParams } from "react-router-dom";
 import { postAPI } from "src/lib/axios";
 import { customerProps } from "src/interfaces/configs";
 import { useSnackbar } from "notistack";
-import { AddCustomerValidation } from "validationSchemas/ContractorValidation";
+import { AddCustomerValidation } from "src/validationSchemas/ContractorValidation";
 import FullPageLoader from "src/components/FullPageLoader";
 import "./form.style.scss";
 import { useLocation } from "react-router-dom";
@@ -582,7 +582,7 @@ const CustomerAdd: React.FC<{
                                           });
                                           setStartAnimation(startAnimation);
                                         }}
-                                        startIcon={<img alt="" src="/assets/icons/plus.svg" />}
+                                        startIcon={<img alt="" src="src/assets/icons/plus.svg" />}
                                         className="link-icon"
                                         style={{ marginBottom: "10px" }}
                                       >

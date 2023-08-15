@@ -1,16 +1,10 @@
-import { faInfoCircle, faWarning } from '@fortawesome/pro-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  IconButton
-} from '@mui/material';
+import { faInfoCircle, faWarning } from "@fortawesome/pro-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button, Dialog, DialogActions, DialogContent, IconButton } from "@mui/material";
 
-import { CommonTooltip } from 'components/Tooltips/CommonTooltip';
+import { CommonTooltip } from "src/components/Tooltips/CommonTooltip";
 
-import styles from './index.module.scss';
+import styles from "./index.module.scss";
 
 type Props = {
   open: boolean;
@@ -52,10 +46,10 @@ const PopUpModal = ({
   messages,
   isSecondarySubmitDisabled,
   className,
-  maxWidthProps
+  maxWidthProps,
 }: Props) => {
-  const negative = ['warning', 'danger'];
-  const positive = ['success', 'info'];
+  const negative = ["warning", "danger"];
+  const positive = ["success", "info"];
 
   return (
     <>
@@ -64,22 +58,17 @@ const PopUpModal = ({
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
-        className={`alert-dialog ${styles.alertDialog}`}>
+        className={`alert-dialog ${styles.alertDialog}`}
+      >
         <DialogContent
-          style={{ maxWidth: maxWidthProps ?? '' }}
-          className={` ${styles.alertContent}  ${className} `}>
+          style={{ maxWidth: maxWidthProps ?? "" }}
+          className={` ${styles.alertContent}  ${className} `}
+        >
           {icon && (
             <div className={styles.iconBox}>
-              <IconButton
-                className={`${icon.type && styles[icon.type]} ${
-                  styles.iconItem
-                }`}>
-                {negative.includes(icon.type) && (
-                  <FontAwesomeIcon icon={faWarning} size="1x" />
-                )}
-                {positive.includes(icon.type) && (
-                  <FontAwesomeIcon icon={faInfoCircle} size="1x" />
-                )}
+              <IconButton className={`${icon.type && styles[icon.type]} ${styles.iconItem}`}>
+                {negative.includes(icon.type) && <FontAwesomeIcon icon={faWarning} size="1x" />}
+                {positive.includes(icon.type) && <FontAwesomeIcon icon={faInfoCircle} size="1x" />}
               </IconButton>
             </div>
           )}
@@ -90,7 +79,8 @@ const PopUpModal = ({
                 inputField
                   ? `light-text ${styles.text} ${styles.textBottom}`
                   : `light-text ${styles.text} `
-              }>
+              }
+            >
               {messages.text}
             </p>
           )}
@@ -100,7 +90,8 @@ const PopUpModal = ({
                 inputField
                   ? `light-text ${styles.text} ${styles.textBottom} ${styles.custTextMargin}`
                   : `light-text ${styles.text} ${styles.custTextMargin}`
-              }>
+              }
+            >
               {messages.subText}
             </p>
           )}
@@ -113,38 +104,38 @@ const PopUpModal = ({
           <>
             {handleClose && (
               <CommonTooltip
-                title={messages.cancelToolTip ?? 'Return to survey.'}
-                placement="top-end">
+                title={messages.cancelToolTip ?? "Return to survey."}
+                placement="top-end"
+              >
                 <Button onClick={handleClose} className="secondary-button">
                   {messages.deny}
                 </Button>
               </CommonTooltip>
             )}
             {handleSecondarySubmit && (
-              <CommonTooltip
-                title={messages?.secondayToolTip ?? ''}
-                placement="top-end">
+              <CommonTooltip title={messages?.secondayToolTip ?? ""} placement="top-end">
                 <Button
                   onClick={handleSecondarySubmit}
                   className="secondary-button"
-                  disabled={isSecondarySubmitDisabled ?? false}>
+                  disabled={isSecondarySubmitDisabled ?? false}
+                >
                   {messages.secondarySubmit}
                 </Button>
               </CommonTooltip>
             )}
             {handleSubmit && messages.accept && (
               <CommonTooltip
-                title={messages.submitToolTip ?? 'Submit the survey.'}
-                placement="top-end">
+                title={messages.submitToolTip ?? "Submit the survey."}
+                placement="top-end"
+              >
                 <Button
                   className={
                     icon &&
-                    (positive.includes(icon.type)
-                      ? 'primary-button'
-                      : 'primary-button alert-Btn')
+                    (positive.includes(icon.type) ? "primary-button" : "primary-button alert-Btn")
                   }
                   onClick={handleSubmit}
-                  disabled={isSubmitDisabled ?? false}>
+                  disabled={isSubmitDisabled ?? false}
+                >
                   {messages.accept}
                 </Button>
               </CommonTooltip>

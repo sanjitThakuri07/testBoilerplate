@@ -32,7 +32,7 @@ import { postAPI } from "src/lib/axios";
 import { ElevatorSharp } from "@mui/icons-material";
 import FullPageLoader from "src/components/FullPageLoader";
 import { v4 as uuidv4 } from "uuid";
-import { fileExtensions } from "utils/fileExtensionChecker";
+import { fileExtensions } from "src/utils/fileExtensionChecker";
 import { insertFile } from "./keyFunctions";
 import { insert } from "formik";
 

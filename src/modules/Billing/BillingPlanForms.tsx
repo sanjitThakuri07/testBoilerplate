@@ -13,25 +13,25 @@ import {
   Radio,
   Card,
   Chip,
-} from '@mui/material';
+} from "@mui/material";
 
-import { Field, FormikProps } from 'formik';
-import React, { useCallback, ChangeEvent, FC } from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { AddBillingPlanProps } from 'interfaces/billingPlan';
-import DynamicSelectField from 'containers/setting/profile/DynamicSelectField';
+import { Field, FormikProps } from "formik";
+import React, { useCallback, ChangeEvent, FC } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { AddBillingPlanProps } from "interfaces/billingPlan";
+import DynamicSelectField from "src/modules/setting/profile/DynamicSelectField";
 
-import CorporateFareIcon from '@mui/icons-material/CorporateFare';
-import BadgeIcon from '@mui/icons-material/Badge';
-import { DndProvider, useDrag, useDrop } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-import TextEditor from 'components/MyTextEditor/MyEditor';
-import type { Identifier, XYCoord } from 'dnd-core';
-import update from 'immutability-helper';
-import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
-import { v4 as uuidv4 } from 'uuid';
-import { useParams } from 'react-router-dom';
+import CorporateFareIcon from "@mui/icons-material/CorporateFare";
+import BadgeIcon from "@mui/icons-material/Badge";
+import { DndProvider, useDrag, useDrop } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import TextEditor from "src/components/MyTextEditor/MyEditor";
+import type { Identifier, XYCoord } from "dnd-core";
+import update from "immutability-helper";
+import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
+import { v4 as uuidv4 } from "uuid";
+import { useParams } from "react-router-dom";
 interface IProps {
   formikBag: FormikProps<AddBillingPlanProps>;
   isViewOnly: boolean;
@@ -69,13 +69,14 @@ export const BillingPlanStepOne: FC<IProps> = ({
     <Box
       className="setting-form-group"
       sx={{
-        margin: '0px 20px 0px 25px',
-      }}>
+        margin: "0px 20px 0px 25px",
+      }}
+    >
       <Grid container spacing={2} className="formGroupItem">
         <Grid item xs={3}>
           <InputLabel htmlFor="timeZone">
             <div className="label-heading">
-              Plan Name <sup>*</sup>{' '}
+              Plan Name <sup>*</sup>{" "}
             </div>
           </InputLabel>
         </Grid>
@@ -135,19 +136,19 @@ export const BillingPlanStepTwo: FC<IProps> = ({
   };
 
   const paymentTermOptions = [
-    { label: 'Monthly', value: 'monthly' },
-    { label: 'Quarterly', value: 'quarterly' },
-    { label: 'Half Yearly', value: 'halfYearly' },
-    { label: 'Yearly', value: 'yearly' },
+    { label: "Monthly", value: "monthly" },
+    { label: "Quarterly", value: "quarterly" },
+    { label: "Half Yearly", value: "halfYearly" },
+    { label: "Yearly", value: "yearly" },
   ];
 
   const accountType = [
-    { label: 'Free', value: 'free' },
-    { label: 'Paid', value: 'paid' },
+    { label: "Free", value: "free" },
+    { label: "Paid", value: "paid" },
   ];
 
   React.useEffect(() => {
-    if (values.account_type === 'free') {
+    if (values.account_type === "free") {
       setDisablePaid(true);
     } else {
       setDisablePaid(false);
@@ -158,8 +159,9 @@ export const BillingPlanStepTwo: FC<IProps> = ({
     <Box
       className="setting-form-group"
       sx={{
-        margin: '0px 20px 0px 25px',
-      }}>
+        margin: "0px 20px 0px 25px",
+      }}
+    >
       <Grid container spacing={4} className="formGroupItem">
         <Grid item xs={6}>
           <Grid item xs={4}>
@@ -209,7 +211,7 @@ export const BillingPlanStepTwo: FC<IProps> = ({
 
         <Grid item xs={12}>
           <Alert severity="info">
-            {' '}
+            {" "}
             <strong>Note :</strong> Changing prices related to sign ups will only affect new members
             sign ups, existing subscriptions will not be charged
           </Alert>
@@ -364,7 +366,7 @@ export const BillingPlanStepThree: FC<IProps> = ({
   const { errors, values, touched, setFieldTouched, handleChange, handleBlur } = formikBag;
 
   React.useEffect(() => {
-    let newData = { id: 0, content: values.title || '', checked: false, pre_selected: false };
+    let newData = { id: 0, content: values.title || "", checked: false, pre_selected: false };
 
     const filteredData = items.filter((item: any) => item.id === 0);
     if (filteredData.length < 1 && billingId === undefined) {
@@ -472,16 +474,18 @@ export const BillingPlanStepThree: FC<IProps> = ({
     <Box
       className="setting-form-group"
       sx={{
-        margin: '0px 20px 0px 25px',
-      }}>
+        margin: "0px 20px 0px 25px",
+      }}
+    >
       <Grid
         item
         xs={12}
         sx={{
           mb: 2,
-        }}>
+        }}
+      >
         <Alert severity="info">
-          {' '}
+          {" "}
           Select membership plans that these member can upgrade/downgrade their accounts to.
         </Alert>
       </Grid>
@@ -531,7 +535,7 @@ const SortableItem: React.FC<SortableItemProps> = ({
 }) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const [{ handlerId }, drop] = useDrop<DragItem, void, { handlerId: Identifier | null }>({
-    accept: 'item',
+    accept: "item",
     collect(monitor) {
       return {
         handlerId: monitor.getHandlerId(),
@@ -587,7 +591,7 @@ const SortableItem: React.FC<SortableItemProps> = ({
   });
 
   const [{ isDragging }, drag] = useDrag({
-    type: 'item',
+    type: "item",
     item: () => {
       return { id, index };
     },
@@ -607,19 +611,21 @@ const SortableItem: React.FC<SortableItemProps> = ({
       style={{
         opacity,
       }}
-      data-handler-id={handlerId}>
+      data-handler-id={handlerId}
+    >
       <Card
         variant="outlined"
         style={{
-          marginTop: '10px',
-          padding: '10px',
-          display: 'flex',
-          alignItems: 'center',
-          backgroundColor: item.id === 0 ? '#13131429' : '#fff',
-        }}>
+          marginTop: "10px",
+          padding: "10px",
+          display: "flex",
+          alignItems: "center",
+          backgroundColor: item.id === 0 ? "#13131429" : "#fff",
+        }}
+      >
         <DragIndicatorIcon
           style={{
-            marginRight: '10px',
+            marginRight: "10px",
           }}
         />
         {/* <FormControlLabel
@@ -692,8 +698,9 @@ export const BillingPlanStepFour: FC<IProps> = ({
     <Box
       className="setting-form-group"
       sx={{
-        margin: '0px 20px 0px 25px',
-      }}>
+        margin: "0px 20px 0px 25px",
+      }}
+    >
       <Grid container spacing={4} className="formGroupItem">
         <Grid item xs={6}>
           <Grid item xs={12}>
@@ -709,13 +716,13 @@ export const BillingPlanStepFour: FC<IProps> = ({
                 name="no_of_organizations"
                 value={values.no_of_organizations}
                 onChange={handleInputChange}
-                onBlur={() => handleSelectTouch('no_of_organizations')}
+                onBlur={() => handleSelectTouch("no_of_organizations")}
                 disabled={isViewOnly}
                 error={touched.no_of_organizations && Boolean(errors.no_of_organizations)}
                 endAdornment={
                   <InputAdornment position="start">
-                    {' '}
-                    <CorporateFareIcon />{' '}
+                    {" "}
+                    <CorporateFareIcon />{" "}
                   </InputAdornment>
                 }
               />
@@ -737,13 +744,13 @@ export const BillingPlanStepFour: FC<IProps> = ({
                 name="no_of_users"
                 value={values.no_of_users}
                 onChange={handleInputChange}
-                onBlur={() => handleSelectTouch('no_of_users')}
+                onBlur={() => handleSelectTouch("no_of_users")}
                 disabled={isViewOnly}
                 error={touched.no_of_users && Boolean(errors.no_of_users)}
                 endAdornment={
                   <InputAdornment position="start">
-                    {' '}
-                    <BadgeIcon />{' '}
+                    {" "}
+                    <BadgeIcon />{" "}
                   </InputAdornment>
                 }
               />

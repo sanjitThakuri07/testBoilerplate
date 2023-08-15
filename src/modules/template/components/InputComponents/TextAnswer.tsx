@@ -2,7 +2,7 @@ import { useTextAnswer } from "src/store/zustand/globalStates/templates/TextAnsw
 import { Menu, MenuItem } from "@mui/material";
 import React, { MouseEvent } from "react";
 
-import TextAnswerIcon from "assets/template/icons/Text_answer.png";
+import TextAnswerIcon from "src/assets/template/icons/Text_answer.png";
 import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
 import { BodyWrapper } from "containers/template/components/Wrapper";
 import { ArrowDropDown, KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";

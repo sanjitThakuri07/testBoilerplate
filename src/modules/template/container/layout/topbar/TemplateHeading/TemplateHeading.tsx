@@ -19,7 +19,7 @@ import MultiUploader from "src/components/MultiFileUploader/index";
 import BASTooltip from "src/components/BASTooltip/BASTooltip";
 import { loggedUserDataStore } from "globalStates/loggedUserData";
 import { useParams } from "react-router-dom";
-import BASLogo from "assets/icons/logo.png";
+import BASLogo from "src/assets/icons/logo.png";
 
 interface TemplateHeadingProps {
   formikBag: any;
@@ -66,7 +66,7 @@ const TemplateHeading = ({ formikBag, isViewOnly, isTab = false }: TemplateHeadi
               }}>
               <img
                 id="upload_csv_icon"
-                // src="/assets/icons/upload.svg"
+                // src="src/assets/icons/upload.svg"
                 style={{ overflow: 'hidden', height: '100%', width: '100%' }}
                 src={
                   templateHeading.headerImage

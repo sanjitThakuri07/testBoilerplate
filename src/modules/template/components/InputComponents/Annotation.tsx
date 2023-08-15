@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import AnnotationIcon from 'assets/template/icons/annotation.png';
-import { textFieldStyle } from '../ChooseResponseType/ChooseResponseType';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { Stack } from '@mui/material';
-import AddImgIcon from 'assets/template/icons/add_image.svg';
-import MultiUploader from 'components/MultiFileUploader/index';
-import TemplateImageContainer from '../TemplateImageContainer/TemplateImageContainer';
-import { useTemplateFieldsStore } from 'containers/template/store/templateFieldsStore';
+import React, { useEffect, useState } from "react";
+import AnnotationIcon from "assets/template/icons/annotation.png";
+import { textFieldStyle } from "../ChooseResponseType/ChooseResponseType";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { Stack } from "@mui/material";
+import AddImgIcon from "assets/template/icons/add_image.svg";
+import MultiUploader from "src/components/MultiFileUploader/index";
+import TemplateImageContainer from "../TemplateImageContainer/TemplateImageContainer";
+import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
 
 export default function Annotation({ dataItem }: any) {
   const [open, setOpen] = React.useState(false);
   const [OpenImageUPloadModal, setOpenImageUploadModal] = useState(false);
   const [clearData, setClearData] = React.useState<boolean>(false);
   const { updateTemplateDatasets } = useTemplateFieldsStore();
-  const [imageLabel, setImageLabel] = useState('');
+  const [imageLabel, setImageLabel] = useState("");
 
   const onClick = () => {
     setOpen(!open);
@@ -47,18 +47,19 @@ export default function Annotation({ dataItem }: any) {
         clearData={clearData}
         setClearData={setClearData}
         accept={{
-          'image/jpeg': ['.jpeg', '.jpg'],
-          'image/png': ['.png'],
-          'application/pdf': ['.pdf'],
+          "image/jpeg": [".jpeg", ".jpg"],
+          "image/png": [".png"],
+          "application/pdf": [".pdf"],
         }}
         maxFileSize={2}
       />
-      <Stack direction="row" spacing={2} alignItems="center" sx={{ width: '100%' }}>
-        <div style={{ width: '100%' }}>
+      <Stack direction="row" spacing={2} alignItems="center" sx={{ width: "100%" }}>
+        <div style={{ width: "100%" }}>
           <div
             className={`fake_custom_select_field_wrapper `}
             onClick={onClick}
-            style={textFieldStyle}>
+            style={textFieldStyle}
+          >
             <div className="fake_custom_select_field_input_type">
               <div className="select_icon_styling">
                 <img src={AnnotationIcon} alt="Temperature" />
@@ -74,21 +75,23 @@ export default function Annotation({ dataItem }: any) {
         <div
           onClick={() => setOpenImageUploadModal(true)}
           style={{
-            width: '30%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '10px',
-            background: '#283352',
-            borderRadius: '8px',
-            color: '#fff',
-            cursor: 'pointer',
-          }}>
+            width: "30%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "10px",
+            background: "#283352",
+            borderRadius: "8px",
+            color: "#fff",
+            cursor: "pointer",
+          }}
+        >
           <img src={AddImgIcon} alt="add" />
           <div
-            style={{ marginLeft: '10px' }}
-            onClick={dataItem?.annotationImg && (() => setOpenImageUploadModal(true))}>
-            {dataItem?.annotationImg ? 'Replace Image' : 'Add Image'}
+            style={{ marginLeft: "10px" }}
+            onClick={dataItem?.annotationImg && (() => setOpenImageUploadModal(true))}
+          >
+            {dataItem?.annotationImg ? "Replace Image" : "Add Image"}
           </div>
         </div>
       </Stack>

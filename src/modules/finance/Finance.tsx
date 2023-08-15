@@ -29,9 +29,9 @@ import CommonFilter, {
   converToProperFormikFormat,
   FilteredValue,
 } from "src/modules/config/Filters/CommonFilter";
-import { parseQueryParams } from "utils/queryParams";
+import { parseQueryParams } from "src/utils/queryParams";
 import { TARIFF_INITIAL_VALUE } from "src/modules/config/filterOptionsList";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 import CustomPopUp from "src/components/CustomPopup/index";
 import SubTabs from "./tariffs/SubTabs";
 
@@ -225,7 +225,7 @@ export default function Finance() {
                   onClick={() => {
                     navigate("/finance/tariffs");
                   }}
-                  startIcon={<img src="/assets/icons/back.svg" alt="back button" />}
+                  startIcon={<img src="src/assets/icons/back.svg" alt="back button" />}
                   sx={{
                     textTransform: "capitalize",
                   }}

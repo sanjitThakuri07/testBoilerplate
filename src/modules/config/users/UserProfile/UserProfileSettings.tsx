@@ -27,11 +27,11 @@ import {
   setNewPasswordSchema,
   CustomerUserProfileSchema,
 } from "src/components/validationSchema";
-import PhoneNumberInput from "containers/setting/profile/PhoneNumberInput";
+import PhoneNumberInput from "src/modules/setting/profile/PhoneNumberInput";
 // import SendIcon from 'src/assets/icons/sendIcon.svg';
 import { ReactComponent as SendIcon } from "src/assets/icons/sendIcon.svg";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
-import ProfilePicture from "containers/setting/profile/ProfilePicture";
+import ProfilePicture from "src/modules/setting/profile/ProfilePicture";
 import {
   fetchApI,
   fetchInitialValues,
@@ -334,7 +334,7 @@ const UserProfileSettings = ({ isCustomersUser }: UserProfileSettingsProps) => {
           confirmationHeading={`Profile Updated Successfully`}
           confirmationDesc={`Profile Updated Successfully`}
           status="success"
-          confirmationIcon="/assets/icons/icon-success.svg"
+          confirmationIcon="src/assets/icons/icon-success.svg"
           isSuccess
           IsSingleBtn
           btnText="Go to Users"
@@ -351,7 +351,7 @@ const UserProfileSettings = ({ isCustomersUser }: UserProfileSettingsProps) => {
           confirmationHeading={`Password Updated Successfully`}
           confirmationDesc={`Password Updated Successfully`}
           status="success"
-          confirmationIcon="/assets/icons/icon-success.svg"
+          confirmationIcon="src/assets/icons/icon-success.svg"
           isSuccess
           IsSingleBtn
           btnText="Go to Users"
@@ -983,8 +983,10 @@ const UserProfileSettings = ({ isCustomersUser }: UserProfileSettingsProps) => {
                             <Stack direction="row" alignItems="center" spacing={0.4}>
                               <Checkbox
                                 color="primary"
-                                checkedIcon={<img src="/assets/icons/icon-check.svg" alt="check" />}
-                                icon={<img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+                                checkedIcon={
+                                  <img src="src/assets/icons/icon-check.svg" alt="check" />
+                                }
+                                icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
                                 checked={emailPassword}
                                 onChange={() => setEmailPassword(!emailPassword)}
                               />
@@ -993,8 +995,8 @@ const UserProfileSettings = ({ isCustomersUser }: UserProfileSettingsProps) => {
                             {/* <Stack direction="row" alignItems="center" spacing={0.4}>
                           <Checkbox
                             color="primary"
-                            checkedIcon={<img src="/assets/icons/icon-check.svg" alt="check" />}
-                            icon={<img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+                            checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
+                            icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
                             checked={values?.not_email_password}
                             onChange={() =>
                               setUserPassword((prev) => {

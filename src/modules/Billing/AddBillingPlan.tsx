@@ -2,11 +2,11 @@ import { Alert, Button, Snackbar } from "@mui/material";
 import { Divider } from "@mui/material";
 import { Form, Formik, useFormik } from "formik";
 import React from "react";
-import { BillingValidation } from "validationSchemas/BillingSchema";
+import { BillingValidation } from "src/validationSchemas/BillingSchema";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
 import { AddBillingPlanProps, BillingInitialValues } from "src/interfaces/billingPlan";
-import MultiStepProgressBar from "containers/customers/customer/FormProgress";
+import MultiStepProgressBar from "src/modules/customers/customer/FormProgress";
 
 import {
   BillingPlanStepFour,

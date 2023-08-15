@@ -150,7 +150,7 @@ const BottomNavigation = ({
                 .join(", ")
             }`}
             status="warning"
-            confirmationIcon="/assets/icons/icon-feature.svg"
+            confirmationIcon="src/assets/icons/icon-feature.svg"
             loader={loading}
           />
         )}
@@ -277,7 +277,7 @@ const BottomNavigation = ({
               ?.map((item: any) => item?.title)
               ?.join(", ")} to ${userStatus?.name}`}
             status="warning"
-            confirmationIcon="/assets/icons/icon-feature.svg"
+            confirmationIcon="src/assets/icons/icon-feature.svg"
             loader={loading}
           />
         )}
@@ -473,7 +473,7 @@ const BottomNavigation = ({
           method === "re-store" ? "restore" : "archive"
         }  these ${selectedData?.length > 1 ? "activities" : "activity"}.`}
         status="warning"
-        confirmationIcon="/assets/icons/icon-feature.svg"
+        confirmationIcon="src/assets/icons/icon-feature.svg"
         loader={loading}
       />
       <AppBar

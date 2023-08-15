@@ -1,14 +1,14 @@
-import React, { useEffect, useCallback } from 'react';
-import axios from 'axios';
+import React, { useEffect, useCallback } from "react";
+import axios from "axios";
 
-import { UploadStatus, SelectedImage } from './index';
+import { UploadStatus, SelectedImage } from "./index";
 // import { Image } from 'interfaces/fileResource'
-import { Grid, IconButton, LinearProgress } from '@mui/material';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import CancelIcon from '@mui/icons-material/Cancel';
-import ErrorIcon from '@mui/icons-material/Error';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import { fileExtensions } from 'utils/fileExtensionChecker';
+import { Grid, IconButton, LinearProgress } from "@mui/material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CancelIcon from "@mui/icons-material/Cancel";
+import ErrorIcon from "@mui/icons-material/Error";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import { fileExtensions } from "src/utils/fileExtensionChecker";
 
 interface Props {
   image: SelectedImage;
@@ -38,11 +38,11 @@ const faker = async (): Promise<{
 };
 
 const convertFileSizes = (bytes: number, decimals = 2) => {
-  if (!+bytes) return '0 Bytes';
+  if (!+bytes) return "0 Bytes";
 
   const k = 1024;
   const dm = decimals < 0 ? 0 : decimals;
-  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+  const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
 
   const i = Math.floor(Math.log(bytes) / Math.log(k));
 
@@ -62,7 +62,7 @@ const UploadingImage: React.FC<Props> = ({
     if (progress >= 99) return;
     const timer = setInterval(() => {
       setProgress((oldProgress) => {
-        if (uploadStatus === 'pending' || uploadStatus === 'uploading') {
+        if (uploadStatus === "pending" || uploadStatus === "uploading") {
           const diff = Math.random() * 10;
           return Math.min(oldProgress + diff, 100);
         }
@@ -79,11 +79,11 @@ const UploadingImage: React.FC<Props> = ({
   const { file, uploadStatus }: any = image;
 
   let { fileOpen, isFile, fileInModal } = fileExtensions(file);
-  console.log({ fileOpen, file, uploadStatus }, 'file open extensito');
+  console.log({ fileOpen, file, uploadStatus }, "file open extensito");
 
   const upload = useCallback(async () => {
-    if (uploadStatus !== 'pending' || disabled) return;
-    changeStatus(index, 'uploading');
+    if (uploadStatus !== "pending" || disabled) return;
+    changeStatus(index, "uploading");
     const token = source.token;
 
     // const { data, error, message } = await postAPI(
@@ -94,17 +94,17 @@ const UploadingImage: React.FC<Props> = ({
     const { data, error, message } = await faker();
 
     if (error) {
-      changeStatus(index, 'error', message);
+      changeStatus(index, "error", message);
     }
 
     if (data) {
-      changeStatus(index, 'success');
+      changeStatus(index, "success");
       // onUploadSuccess(data)
 
       onUploadSuccess(image.file);
     }
     if (token.reason) {
-      changeStatus(index, 'cancel');
+      changeStatus(index, "cancel");
       regenerateCancelToken();
       onCancel();
     }
@@ -116,16 +116,16 @@ const UploadingImage: React.FC<Props> = ({
   }, [upload]);
 
   const cancelUpload = (): void => {
-    source.cancel('Request cancelled by user');
+    source.cancel("Request cancelled by user");
   };
   let fileType = file?.file?.type;
 
   const progressVariant =
-    image.uploadStatus === 'error'
-      ? 'danger'
-      : image.uploadStatus === 'success'
-      ? 'success'
-      : 'info';
+    image.uploadStatus === "error"
+      ? "danger"
+      : image.uploadStatus === "success"
+      ? "success"
+      : "info";
   return (
     <>
       <div className="upload">
@@ -144,8 +144,8 @@ const UploadingImage: React.FC<Props> = ({
         <Grid container spacing={0}>
           <Grid item xs={2}>
             <img
-              // src="/assets/icons/uploaded.svg"
-              src={fileOpen ? fileOpen : '/assets/icons/uploaded.svg'}
+              // src="src/assets/icons/uploaded.svg"
+              src={fileOpen ? fileOpen : "src/assets/icons/uploaded.svg"}
               // src={
               //   fileType === 'text/csv'
               //     ? '/assets/icons/uploaded.svg'
@@ -159,7 +159,7 @@ const UploadingImage: React.FC<Props> = ({
           </Grid>
           <Grid item xs={10} className="progress-holder">
             <div className="pull-right">
-              {image.uploadStatus === 'uploading' && (
+              {image.uploadStatus === "uploading" && (
                 <>
                   <IconButton onClick={() => cancelUpload()}>
                     <DeleteOutlineIcon />
@@ -170,20 +170,20 @@ const UploadingImage: React.FC<Props> = ({
                   </IconButton>
                 </>
               )}
-              {image.uploadStatus === 'success' && (
+              {image.uploadStatus === "success" && (
                 <>
                   <IconButton onClick={() => onCancel()}>
                     <DeleteOutlineIcon />
                   </IconButton>
 
                   <IconButton>
-                    <CheckCircleIcon />{' '}
+                    <CheckCircleIcon />{" "}
                   </IconButton>
                 </>
               )}
-              {image.uploadStatus === 'error' && (
+              {image.uploadStatus === "error" && (
                 <IconButton>
-                  <ErrorIcon />{' '}
+                  <ErrorIcon />{" "}
                 </IconButton>
               )}
             </div>

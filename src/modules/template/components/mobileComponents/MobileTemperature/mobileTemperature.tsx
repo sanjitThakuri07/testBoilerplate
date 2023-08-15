@@ -1,7 +1,7 @@
-import { Box, FormGroup, OutlinedInput, Stack } from '@mui/material';
-import ExtraUserFields from '../ReusableMobileComponent/ExtraUserFields';
-import ErrorComponent from 'components/Error';
-import { errorValue } from 'containers/template/validation/inputLogicCheck';
+import { Box, FormGroup, OutlinedInput, Stack } from "@mui/material";
+import ExtraUserFields from "../ReusableMobileComponent/ExtraUserFields";
+import ErrorComponent from "src/components/Error";
+import { errorValue } from "containers/template/validation/inputLogicCheck";
 
 export default function MobileTemperature({
   item,
@@ -32,7 +32,7 @@ export default function MobileTemperature({
               value={value}
               endAdornment={
                 <Stack spacing={0.3} direction="row" className="indorment">
-                  {tempFormat?.startsWith('C') && <span>°</span>}
+                  {tempFormat?.startsWith("C") && <span>°</span>}
                   <span>{tempFormat?.charAt(0)}</span>
                 </Stack>
               }

@@ -10,7 +10,7 @@ import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { getAPI } from "src/lib/axios";
 import { usePermissionStore } from "src/store/zustand/permission";
-import { parseQueryParams } from "utils/queryParams";
+import { parseQueryParams } from "src/utils/queryParams";
 import "../finance/finance.scss";
 import { fetchData } from "../finance/functionality";
 import BASDataTable from "src/modules/table/BASDataTable";
@@ -19,7 +19,7 @@ import CommonFilter, {
   FilteredValue,
 } from "src/modules/config/Filters/CommonFilter";
 import { INSPECTION_INITIAL_VALUE } from "src/modules/config/filterOptionsList";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
 
 interface NavigateColumnProps {
@@ -226,7 +226,7 @@ export default function Inspections() {
           type: "dot",
           dotModeOptions: [
             {
-              Icon: <img src="/assets/icons/manage_access.svg" alt="report" />,
+              Icon: <img src="src/assets/icons/manage_access.svg" alt="report" />,
               label: "Generate Report",
               handleButtonClick: ({ id }: any) => {
                 navigate(`report/${id}`);

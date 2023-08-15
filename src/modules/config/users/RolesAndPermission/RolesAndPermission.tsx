@@ -118,7 +118,7 @@ export default function RolesAndPermission() {
 
   const breadcrumbs = [
     <Link key="0" href="/">
-      <img src="/assets/icons/home.svg" alt="home" />
+      <img src="src/assets/icons/home.svg" alt="home" />
     </Link>,
     <Link underline="hover" key="1" color="inherit">
       <Href to={"/config/general-settings/region"}>General Settings</Href>
@@ -226,7 +226,7 @@ export default function RolesAndPermission() {
         <BackButton />
         <div className="breadcrumbs-holder">
           <Breadcrumbs
-            separator={<img src="/assets/icons/chevron-right.svg" alt="right" />}
+            separator={<img src="src/assets/icons/chevron-right.svg" alt="right" />}
             aria-label="breadcrumb"
           >
             {breadcrumbs}
@@ -246,7 +246,7 @@ export default function RolesAndPermission() {
             <div className="right">
               <Button
                 variant="contained"
-                startIcon={<img src="/assets/icons/create_icon.svg" alt="icon-upload" />}
+                startIcon={<img src="src/assets/icons/create_icon.svg" alt="icon-upload" />}
                 onClick={() => setOpenAddModal(true)}
               >
                 Add Another Role

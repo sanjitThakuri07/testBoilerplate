@@ -32,7 +32,7 @@ import {
   EventValidation,
   RepeatOptions,
   WeekDays,
-} from "validationSchemas/EventSchema";
+} from "src/validationSchemas/EventSchema";
 import CreatableSelect from "react-select/creatable";
 import moment from "moment";
 import FullPageLoader from "src/components/FullPageLoader";

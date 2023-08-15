@@ -58,7 +58,7 @@ export default function ({ updateDataState, item }: any) {
           <Stack className="TextAnswer_wrapper_header">
             <Stack direction="row" sx={{ width: "100%", alignItems: "center" }} spacing={1.5}>
               <div className="draggable_icon">
-                <img src="/assets/icons/dots.svg" alt="Drag" />
+                <img src="src/assets/icons/dots.svg" alt="Drag" />
               </div>
               {!isQuestionFocused ? (
                 <InputLabel htmlFor="Question" onClick={() => setIsQuestionFocused(true)}>

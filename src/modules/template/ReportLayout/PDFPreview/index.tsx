@@ -44,11 +44,9 @@ const PDFPreview = ({ layoutParams, layoutObj }: any) => {
           spacing={1}
         >
           <Box>
-            <img src="/assets/icons/icon-feature.svg" alt="warning" />
+            <img src="src/assets/icons/icon-feature.svg" alt="warning" />
           </Box>
-          <Box>
-            Please select your layout from left panel to load your layout datas
-          </Box>
+          <Box>Please select your layout from left panel to load your layout datas</Box>
         </Stack>
       ) : (
         <Box className="activity_container" py={1}>
@@ -61,44 +59,29 @@ const PDFPreview = ({ layoutParams, layoutObj }: any) => {
           {/* <PdfPageBreak has_page_break={has_page_break} /> */}
 
           {/* dont display when table of contents is off */}
-          {has_table_of_contents && (
-            <PdfPageBreak has_page_break={has_page_break} />
-          )}
+          {has_table_of_contents && <PdfPageBreak has_page_break={has_page_break} />}
           <PdfTableOfContents has_table_of_contents={has_table_of_contents} />
 
           {/* dont show when disclaimer is off */}
           {has_disclaimer && <PdfPageBreak has_page_break={has_page_break} />}
-          <PdfDisclaimer
-            disclaimer_text={disclaimer_text}
-            has_disclaimer={has_disclaimer}
-          />
+          <PdfDisclaimer disclaimer_text={disclaimer_text} has_disclaimer={has_disclaimer} />
 
           {/* dont show when action summary and flagged summary is off */}
           {(has_action_summary || has_flagged_summary) && (
             <PdfPageBreak has_page_break={has_page_break} />
           )}
-          <PdfAssignedActivity
-            has_action_summary={has_action_summary}
-            has_action={has_action}
-          />
-          <PdfFlaggedItems
-            has_flagged_summary={has_flagged_summary}
-            has_flagged={has_flagged}
-          />
+          <PdfAssignedActivity has_action_summary={has_action_summary} has_action={has_action} />
+          <PdfFlaggedItems has_flagged_summary={has_flagged_summary} has_flagged={has_flagged} />
 
           {/* dont show when unanswered questions and instruction is off */}
           {(has_unanswered_questions || has_instruction) && (
             <PdfPageBreak has_page_break={has_page_break} />
           )}
-          <PdfUnansweredQuestions
-            has_unanswered_questions={has_unanswered_questions}
-          />
+          <PdfUnansweredQuestions has_unanswered_questions={has_unanswered_questions} />
           <PdfInstructions has_instruction={has_instruction} />
 
           {/* dont show when media is off */}
-          {has_media_summary && (
-            <PdfPageBreak has_page_break={has_page_break} />
-          )}
+          {has_media_summary && <PdfPageBreak has_page_break={has_page_break} />}
           <PdfMediaSetting
             has_media_summary={has_media_summary}
             media_thumbnail={media_thumbnail}

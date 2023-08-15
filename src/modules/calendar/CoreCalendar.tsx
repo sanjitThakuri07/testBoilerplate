@@ -15,7 +15,7 @@ import FullPageLoader from "src/components/FullPageLoader";
 
 import MoreEvents from "./MoreEvents";
 import AddEvent from "./event/AddEvent";
-import { WeekDaysObj } from "validationSchemas/EventSchema";
+import { WeekDaysObj } from "src/validationSchemas/EventSchema";
 import { useSnackbar } from "notistack";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import ReactSelect from "src/components/ReactSelect/ReactSelect";
@@ -512,7 +512,7 @@ const CoreCalendar = () => {
             deleteFilterId !== 0 ? "filter" : "event"
           } permanently.`}
           status="warning"
-          confirmationIcon="/assets/icons/icon-feature.svg"
+          confirmationIcon="src/assets/icons/icon-feature.svg"
           // loader={deleteLoading}
         />
 

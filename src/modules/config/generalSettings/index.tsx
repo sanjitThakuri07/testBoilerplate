@@ -6,7 +6,7 @@ import BASDataTable from "./BASDataTable";
 import InspectionSubTabs from "./InspectionSubTabs";
 import { useConfigStore } from "src/store/zustand/globalStates/config";
 import { useSnackbar } from "notistack";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 
 interface TabPanelProps {
   children?: React.ReactNode;

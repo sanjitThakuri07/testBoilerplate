@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 /* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
 import { Button as MuiButton } from "@mui/material";
-import { CommonTooltip } from "components/tooltips";
+import { CommonTooltip } from "src/components/tooltips";
 import React from "react";
 
 interface Props {

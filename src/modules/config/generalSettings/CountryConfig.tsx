@@ -14,7 +14,7 @@ import ConfigurationUsers from "../users";
 import SystemParamaters from "../users/systemParamaters";
 import FinanceConfig from "../finance";
 import debouce from "lodash.debounce";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 
 interface TabPanelProps {
   children?: React.ReactNode;

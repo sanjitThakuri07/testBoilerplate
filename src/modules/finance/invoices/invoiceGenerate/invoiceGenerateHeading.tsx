@@ -37,7 +37,7 @@ const InvoiceGenerateHeading = () => {
 
   const breadcrumbs = [
     <Link key="0" to="/">
-      <img src="/assets/icons/home.svg" alt="home" height={16} />
+      <img src="src/assets/icons/home.svg" alt="home" height={16} />
     </Link>,
 
     <Typography key="3" color="text.primary">
@@ -66,7 +66,7 @@ const InvoiceGenerateHeading = () => {
             p: 2,
             display: "table",
           }}
-          separator={<img src="/assets/icons/chevron-right.svg" alt="right" />}
+          separator={<img src="src/assets/icons/chevron-right.svg" alt="right" />}
           aria-label="breadcrumb"
         >
           {breadcrumbs}

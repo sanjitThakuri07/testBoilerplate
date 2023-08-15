@@ -5,14 +5,14 @@ import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import CropIcon from "@mui/icons-material/Crop";
 import { previousDay } from "date-fns";
 import UploadImage from "src/assets/icons/Icon.svg";
-import FileDataModal from "components/FileDataModal";
-import ImageCropper from "components/ImageCropper/index";
-import MaterialModal from "components/MaterailModal";
+import FileDataModal from "src/components/FileDataModal";
+import ImageCropper from "src/components/ImageCropper/index";
+import MaterialModal from "src/components/MaterailModal";
 import PictureAsPdfOutlinedIcon from "@mui/icons-material/PictureAsPdfOutlined";
-import { fileExtensions } from "utils/fileExtensionChecker";
-import BASTooltip from "components/BASTooltip/BASTooltip";
-import { CommonTooltip } from "components/tooltips";
-import { fileTypes } from "interfaces/utils";
+import { fileExtensions } from "src/utils/fileExtensionChecker";
+import BASTooltip from "src/components/BASTooltip/BASTooltip";
+import { CommonTooltip } from "src/components/tooltips";
+import { fileTypes } from "src/interfaces/utils";
 
 type file = {
   documents: any[];
@@ -83,7 +83,7 @@ export const IndividualFile = ({
                 <PictureAsPdfOutlinedIcon />
               ) : ( */}
               <img
-                src={fileOpen ? fileOpen : "/assets/icons/uploaded.svg"}
+                src={fileOpen ? fileOpen : "src/assets/icons/uploaded.svg"}
                 width={40}
                 height={40}
                 alt="upload here"

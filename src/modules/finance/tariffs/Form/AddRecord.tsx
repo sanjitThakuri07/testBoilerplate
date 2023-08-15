@@ -20,7 +20,7 @@ import {
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import { Formik, FormikProps, Field, ErrorMessage, FieldArray, getIn } from "formik";
 import * as Yup from "yup";
-import ProfilePicture from "containers/setting/profile/ProfilePicture";
+import ProfilePicture from "src/modules/setting/profile/ProfilePicture";
 import { useNavigate, useParams } from "react-router-dom";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar, SnackbarKey, SnackbarMessage, OptionsObject } from "notistack";
@@ -28,10 +28,10 @@ import MultiEmailAdd, {
   inputFieldType,
   validateFieldTypeNames,
 } from "src/components/MultiEmail/MultiEmailAdd";
-import { RecordValidationSchema } from "validationSchemas/ContractorValidation";
+import { RecordValidationSchema } from "src/validationSchemas/ContractorValidation";
 import ResetTextField from "./ResetTextField";
 import FullPageLoader from "src/components/FullPageLoader";
-import DynamicSelectField from "containers/setting/profile/DynamicSelectField";
+import DynamicSelectField from "src/modules/setting/profile/DynamicSelectField";
 import "./form.style.scss";
 import ModalLayout from "src/components/ModalLayout";
 import ServiceForm from "../../services/ServiceForm";
@@ -383,14 +383,14 @@ const AddTariffs: React.FC<{
                   setMessage("Please click on the reload button to fetch the currently added data");
                 }}
               >
-                <img alt="" src="/assets/icons/plus.svg" />
+                <img alt="" src="src/assets/icons/plus.svg" />
               </Link>
               {/* <div
                 style={{ cursor: 'pointer' }}
                 onClick={() => {
                   navigate('/config/finance/tariff-rate-types');
                 }}>
-                <img alt="" src="/assets/icons/plus.svg" />
+                <img alt="" src="src/assets/icons/plus.svg" />
               </div> */}
             </div>
 
@@ -692,7 +692,7 @@ const AddTariffs: React.FC<{
                                             );
                                           }}
                                         >
-                                          <img alt="" src="/assets/icons/plus.svg" />
+                                          <img alt="" src="src/assets/icons/plus.svg" />
                                         </Link>
                                       </div>
 
@@ -777,7 +777,7 @@ const AddTariffs: React.FC<{
                                             );
                                           }}
                                         >
-                                          <img alt="" src="/assets/icons/plus.svg" />
+                                          <img alt="" src="src/assets/icons/plus.svg" />
                                         </Link>
                                       </div>
 

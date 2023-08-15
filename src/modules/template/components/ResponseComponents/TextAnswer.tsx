@@ -1,7 +1,7 @@
 import { useTextAnswer } from "globalStates/templates/TextAnswer";
 import React, { FC } from "react";
 import "./ChooseResponseType.scss";
-import TextAnswerIcon from "assets/template/icons/Text_answer.png";
+import TextAnswerIcon from "src/assets/template/icons/Text_answer.png";
 import { ReactComponent as RightIcon } from "src/assets/icons/right_arrow.svg";
 
 interface ResponseTypeProps {

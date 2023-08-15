@@ -324,7 +324,7 @@ const OrgForms: React.FC = () => {
           confirmationHeading={`Sign up link sent successfully`}
           confirmationDesc={`An email that consists of sign up link has been sent to ${userEmailId}`}
           status="success"
-          confirmationIcon="/assets/icons/icon-success.svg"
+          confirmationIcon="src/assets/icons/icon-success.svg"
           isSuccess
           IsSingleBtn
           btnText="Go to Home Page"

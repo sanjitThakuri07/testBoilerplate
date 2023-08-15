@@ -18,9 +18,9 @@ import { FC, useEffect, useState } from "react";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
 import { useConfigStore } from "src/store/zustand/globalStates/config";
-import DynamicSelectField from "containers/setting/profile/DynamicSelectField";
+import DynamicSelectField from "src/modules/setting/profile/DynamicSelectField";
 import { MenuOptions } from "src/interfaces/profile";
-import { ConfigTerritoriesSchema, ConfigTerritoriesSchemaOptional } from "validationSchemas/config";
+import { ConfigTerritoriesSchema, ConfigTerritoriesSchemaOptional } from "src/validationSchemas/config";
 import ModalLayout from "src/components/ModalLayout";
 import CountryForm from "../country/CountryForm";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
@@ -157,7 +157,7 @@ const TerritoryForm: FC<{
           param.territoryId === undefined ? "created" : "updated"
         }  according to the way you customized.`}
         status="success"
-        confirmationIcon="/assets/icons/icon-success.svg"
+        confirmationIcon="src/assets/icons/icon-success.svg"
         isSuccess
         IsSingleBtn
         btnText="Go to Territory"

@@ -19,7 +19,7 @@ import { INSPECTION_TYPES_INITIAL_VALUE } from "../filterOptionsList";
 import { fetchTableData } from "src/modules/apiRequest/apiRequest";
 import FullPageLoader from "src/components/FullPageLoader";
 import CustomPopUp from "src/components/CustomPopup";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 import { lockFields } from "src/utils/url";
 
 export default function InspectionTypes() {

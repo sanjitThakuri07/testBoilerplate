@@ -1,7 +1,7 @@
-import { Button, Card, Grid, Typography } from '@mui/material';
-import { RegionProps } from 'interfaces/configs';
-import { useLocation } from 'react-router-dom';
-import { FC } from 'react';
+import { Button, Card, Grid, Typography } from "@mui/material";
+import { RegionProps } from "interfaces/configs";
+import { useLocation } from "react-router-dom";
+import { FC } from "react";
 
 const RegionCard: FC<
   RegionProps & {
@@ -21,11 +21,11 @@ const RegionCard: FC<
   fieldKey,
 }) => {
   // const isActive = Number(status) === 1;
-  const isActive = status === 'Active' ? true : false;
+  const isActive = status === "Active" ? true : false;
   const location = useLocation();
   let check =
-    location.pathname.includes('inspection-status') &&
-    ['Completed', 'In Progress', 'Open']?.includes(name);
+    location.pathname.includes("inspection-status") &&
+    ["Completed", "In Progress", "Open"]?.includes(name);
 
   return (
     <div className="region-card">
@@ -35,9 +35,9 @@ const RegionCard: FC<
             <Typography variant="h5" component="h5">
               {name}
               <img
-                src={`/assets/icons/${isActive ? 'active' : 'disable'}-polygon.svg`}
+                src={`/assets/icons/${isActive ? "active" : "disable"}-polygon.svg`}
                 alt="online"
-                title={isActive ? 'active' : 'disable'}
+                title={isActive ? "active" : "disable"}
               />
             </Typography>
             {/* <Typography variant="body2" component="p">
@@ -47,7 +47,7 @@ const RegionCard: FC<
           <Grid item xs={3}>
             <div className="actions-btns-holder">
               <Button
-                startIcon={<img src="/assets/icons/icon-edit.svg" alt="edit" />}
+                startIcon={<img src="src/assets/icons/icon-edit.svg" alt="edit" />}
                 onClick={() => {
                   // console.log('clicked', { id });
                   editRegion(id);
@@ -59,7 +59,7 @@ const RegionCard: FC<
                 <></>
               ) : (
                 <Button
-                  startIcon={<img src="/assets/icons/icon-trash.svg" alt="delete" />}
+                  startIcon={<img src="src/assets/icons/icon-trash.svg" alt="delete" />}
                   onClick={() => handleDeleteRegion(id, fieldKey)}
                 />
               )}

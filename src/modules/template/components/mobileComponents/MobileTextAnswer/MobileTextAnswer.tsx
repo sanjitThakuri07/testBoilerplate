@@ -1,8 +1,8 @@
-import { TextareaAutosize, TextField } from '@mui/material';
-import ErrorComponent from 'components/Error';
-import { errorValue } from 'containers/template/validation/inputLogicCheck';
-import ExtraUserFields from 'containers/template/components/mobileComponents/ReusableMobileComponent/ExtraUserFields';
-import SpeechPage from '../MobileSpeechRecognition/MobileSpeechRecognition';
+import { TextareaAutosize, TextField } from "@mui/material";
+import ErrorComponent from "src/components/Error";
+import { errorValue } from "containers/template/validation/inputLogicCheck";
+import ExtraUserFields from "containers/template/components/mobileComponents/ReusableMobileComponent/ExtraUserFields";
+import SpeechPage from "../MobileSpeechRecognition/MobileSpeechRecognition";
 
 const MobileTextAnswer = ({
   value,
@@ -18,18 +18,18 @@ const MobileTextAnswer = ({
     <>
       <div id="MobileTextAnswer">
         <div className="mobile_component_box_wrapper_heading">{item.label}</div>
-        <div style={{ position: 'relative' }}>
-          {item.variables?.format === 'text' ? (
+        <div style={{ position: "relative" }}>
+          {item.variables?.format === "text" ? (
             <TextField
               fullWidth
               id="fullWidth"
               value={value}
               onChange={onChange}
               disabled={disabled}
-              className={`${disabled ? 'disabled' : 'custom__input-style'}`}
+              className={`${disabled ? "disabled" : "custom__input-style"}`}
               {...attr}
             />
-          ) : item.variables?.format === 'text_area' ? (
+          ) : item.variables?.format === "text_area" ? (
             <TextareaAutosize
               id="fullWidth"
               aria-label="empty textarea"
@@ -38,20 +38,20 @@ const MobileTextAnswer = ({
               value={value}
               onChange={onChange}
               style={{
-                width: '100%',
-                padding: '0.45rem 2px',
-                borderRadius: '8px',
-                border: '1px solid #D0D5DD',
-                outline: 'none',
-                fontFamily: 'Inter, sans-serif',
+                width: "100%",
+                padding: "0.45rem 2px",
+                borderRadius: "8px",
+                border: "1px solid #D0D5DD",
+                outline: "none",
+                fontFamily: "Inter, sans-serif",
               }}
               disabled={disabled}
-              className={`${disabled ? 'disabled' : ''}`}
+              className={`${disabled ? "disabled" : ""}`}
               {...attr}
             />
           ) : null}
           <div className="speech__box">
-            {item.response_choice !== 'external' && !disabled && (
+            {item.response_choice !== "external" && !disabled && (
               <SpeechPage
                 onConfirm={(data: any) => {
                   setTyping?.((prev: any) => (prev.length ? prev + data : data));

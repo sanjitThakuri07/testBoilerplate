@@ -19,7 +19,7 @@ import React, { FC, useEffect, useState } from "react";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
 import { useFinanceBillingAgreementStore } from "src/store/zustand/globalStates/config";
-import { BillingAgreementSchema } from "validationSchemas/config";
+import { BillingAgreementSchema } from "src/validationSchemas/config";
 import { useParams, useNavigate } from "react-router-dom";
 import FullPageLoader from "src/components/FullPageLoader";
 
@@ -87,7 +87,7 @@ const BillingAggrementForm = ({ disabled }: any) => {
         confirmationHeading="Billing Agreement Name created successfully!"
         confirmationDesc="The Billing Agreement Name table content has been successfully updated according to the way you customized."
         status="success"
-        confirmationIcon="/assets/icons/icon-success.svg"
+        confirmationIcon="src/assets/icons/icon-success.svg"
         isSuccess
         IsSingleBtn
         btnText="Go to Billing Agreement Name"

@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 import { getAPI } from "src/lib/axios";
 import UserProfileLayout from "./UserProfileLayout";
 import { fetchTableData } from "src/modules/apiRequest/apiRequest";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 
 export default function UserProfileTemplateAccessed() {
   const location = useLocation();

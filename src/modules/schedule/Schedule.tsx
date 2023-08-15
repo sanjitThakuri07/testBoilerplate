@@ -11,7 +11,7 @@ import { fetchTableData } from "src/modules/apiRequest/apiRequest";
 import { useSnackbar } from "notistack";
 import { ConfigTableUrlUtils } from "src/modules/config/generalSettings/OrganizationConfiguration";
 import { permissionList } from "src/constants/permission";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 
 const Schedule = () => {
   const [loading, setLoading] = React.useState<boolean>(false);
@@ -62,7 +62,7 @@ const Schedule = () => {
 
   const breadcrumbs = [
     <Link key="0" href="/">
-      <img src="/assets/icons/home.svg" alt="home" />
+      <img src="src/assets/icons/home.svg" alt="home" />
     </Link>,
     <Link underline="hover" key="2" color="inherit">
       <Href
@@ -90,7 +90,7 @@ const Schedule = () => {
           <BackButton />
           <div className="breadcrumbs-holder">
             <Breadcrumbs
-              separator={<img src="/assets/icons/chevron-right.svg" alt="right" />}
+              separator={<img src="src/assets/icons/chevron-right.svg" alt="right" />}
               aria-label="breadcrumb"
             >
               {breadcrumbs}

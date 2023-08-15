@@ -463,10 +463,10 @@ const RenderQuestion = ({ data, icon, typeOfResponse, mode }: any) => {
                 color="primary"
                 disabled
                 checked={Boolean(data?.value)}
-                checkedIcon={<img src="/assets/icons/icon-check.svg" alt="check" />}
-                icon={<img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+                checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
+                icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
                 indeterminateIcon={
-                  <img src="/assets/icons/icon-check-remove.svg" alt="indeterminate" />
+                  <img src="src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
                 }
               />
               <Box>{data?.label}</Box>
@@ -494,10 +494,10 @@ const RenderQuestion = ({ data, icon, typeOfResponse, mode }: any) => {
                 color="primary"
                 disabled
                 checked={Boolean(data?.value)}
-                checkedIcon={<img src="/assets/icons/icon-check.svg" alt="check" />}
-                icon={<img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+                checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
+                icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
                 indeterminateIcon={
-                  <img src="/assets/icons/icon-check-remove.svg" alt="indeterminate" />
+                  <img src="src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
                 }
               />
               <Box>{data?.label}</Box>

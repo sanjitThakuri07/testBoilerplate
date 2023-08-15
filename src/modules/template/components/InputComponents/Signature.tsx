@@ -2,8 +2,8 @@ import { useTextAnswer } from "src/store/zustand/globalStates/templates/TextAnsw
 import { Button, Divider, Grid } from "@mui/material";
 import React, { FC } from "react";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import SignatureIcon from "assets/template/icons/signature.png";
-import ModalLayout from "components/ModalLayout";
+import SignatureIcon from "src/assets/template/icons/signature.png";
+import ModalLayout from "src/components/ModalLayout";
 import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
 import ComponentWrapper, {
   LabelWrapper,

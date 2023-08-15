@@ -21,7 +21,7 @@ import CommonFilter, {
   FilteredValue,
 } from "src/modules/config/Filters/CommonFilter";
 import { CUSTOMER_INITIAL_VALUE } from "src/modules/config/filterOptionsList";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 
 interface NavigateColumnProps {
   navigateColumnName: string;

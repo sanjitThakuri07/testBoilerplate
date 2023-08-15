@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { UserSecurityPayload } from "src/interfaces/userSecurity";
 import { useFormik } from "formik";
-import UserSecuritySchema from "validationSchemas/UserSecurity";
+import UserSecuritySchema from "src/validationSchemas/UserSecurity";
 import { ChangeEvent, useState } from "react";
 import SettingFooter from "src/components/footer/SettingFooter";
 import { FormikFormHelpers } from "src/interfaces/utils";

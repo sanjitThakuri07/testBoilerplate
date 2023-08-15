@@ -3,8 +3,8 @@ import { Collapse, List, ListItemButton, ListItemText } from "@mui/material";
 import React from "react";
 import "./MobilePreview.scss";
 import ScreenPreview from "src/assets/images/mobilePreview.svg";
-import IpadPreview from "assets/template/icons/Ipad.png";
-import IpadPro from "assets/template/icons/ipadpro.png";
+import IpadPreview from "src/assets/template/icons/Ipad.png";
+import IpadPro from "src/assets/template/icons/ipadpro.png";
 
 import SmallScreenTabOpt from "./SmallScreenPreviewComp/MobileTabOption";
 import { screenOptions } from "./SmallScreenPreviewComp/MobileTabOption";

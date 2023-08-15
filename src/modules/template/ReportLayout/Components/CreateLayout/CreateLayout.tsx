@@ -142,7 +142,7 @@ export default function CreateLayout({
         confirmationHeading={`Are you sure you want to delete ${layoutInfos?.name} layout ?`}
         confirmationDesc={`You can create more layout whenever you want.`}
         status="warning"
-        confirmationIcon="/assets/icons/icon-feature.svg"
+        confirmationIcon="src/assets/icons/icon-feature.svg"
         loader={deleteButtonLoader}
       />
 
@@ -164,7 +164,7 @@ export default function CreateLayout({
             variant="contained"
             size="small"
             fullWidth
-            startIcon={<img src="/assets/icons/plus-white.svg" alt="plus" />}
+            startIcon={<img src="src/assets/icons/plus-white.svg" alt="plus" />}
           >
             Create Design
           </Button>
@@ -305,7 +305,7 @@ export default function CreateLayout({
                           }}
                         >
                           <img
-                            src="/assets/icons/icon-edit.svg"
+                            src="src/assets/icons/icon-edit.svg"
                             alt="edit"
                             style={{
                               height: "18px",
@@ -331,7 +331,7 @@ export default function CreateLayout({
                           }}
                         >
                           <img
-                            src="/assets/icons/icon-trash.svg"
+                            src="src/assets/icons/icon-trash.svg"
                             alt="delete"
                             style={{
                               height: "18px",

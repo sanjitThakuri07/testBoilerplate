@@ -11,7 +11,7 @@ import {
 import { MenuOptions, Profile } from "src/interfaces/profile";
 import { FormikProps } from "formik";
 import { ChangeEvent, FC } from "react";
-import { getAPI } from "../../../src/lib/axios/axiosClient";
+import { getAPI } from "src/lib/axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import DynamicSelectField from "./DynamicSelectField";
@@ -235,7 +235,7 @@ const PersonalDetails: FC<IProps> = ({ formikBag, isViewOnly, handleUploadImage,
               disabled
               endAdornment={
                 <InputAdornment position="end">
-                  <img src="/assets/icons/lock.svg" width={24} height={24} alt="" />
+                  <img src="src/assets/icons/lock.svg" width={24} height={24} alt="" />
                 </InputAdornment>
               }
             />

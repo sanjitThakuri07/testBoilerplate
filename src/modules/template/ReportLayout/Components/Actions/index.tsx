@@ -334,10 +334,10 @@ export default function Actions({ layoutObj }: any) {
                   <Stack direction="row" spacing={1} alignItems="center">
                     <Checkbox
                       color="primary"
-                      checkedIcon={<img src="/assets/icons/icon-check.svg" alt="check" />}
-                      icon={<img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+                      checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
+                      icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
                       indeterminateIcon={
-                        <img src="/assets/icons/icon-check-remove.svg" alt="indeterminate" />
+                        <img src="src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
                       }
                       name={`has_checked`}
                       checked={has_checked}
@@ -353,10 +353,10 @@ export default function Actions({ layoutObj }: any) {
                   <Stack direction="row" spacing={1} alignItems="center">
                     <Checkbox
                       color="primary"
-                      checkedIcon={<img src="/assets/icons/icon-check.svg" alt="check" />}
-                      icon={<img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+                      checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
+                      icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
                       indeterminateIcon={
-                        <img src="/assets/icons/icon-check-remove.svg" alt="indeterminate" />
+                        <img src="src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
                       }
                       name="has_unchecked"
                       checked={has_unchecked}
@@ -498,10 +498,10 @@ export default function Actions({ layoutObj }: any) {
                 <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
                   <Checkbox
                     color="primary"
-                    checkedIcon={<img src="/assets/icons/icon-check.svg" alt="check" />}
-                    icon={<img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+                    checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
+                    icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
                     indeterminateIcon={
-                      <img src="/assets/icons/icon-check-remove.svg" alt="indeterminate" />
+                      <img src="src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
                     }
                     name="has_table_of_contents"
                     checked={has_table_of_contents}
@@ -517,10 +517,10 @@ export default function Actions({ layoutObj }: any) {
                 <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
                   <Checkbox
                     color="primary"
-                    checkedIcon={<img src="/assets/icons/icon-check.svg" alt="check" />}
-                    icon={<img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+                    checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
+                    icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
                     indeterminateIcon={
-                      <img src="/assets/icons/icon-check-remove.svg" alt="indeterminate" />
+                      <img src="src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
                     }
                     name="has_page_break"
                     checked={has_page_break}
@@ -537,10 +537,10 @@ export default function Actions({ layoutObj }: any) {
                 <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
                   <Checkbox
                     color="primary"
-                    checkedIcon={<img src="/assets/icons/icon-check.svg" alt="check" />}
-                    icon={<img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+                    checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
+                    icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
                     indeterminateIcon={
-                      <img src="/assets/icons/icon-check-remove.svg" alt="indeterminate" />
+                      <img src="src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
                     }
                     name="has_footer"
                     checked={has_footer}

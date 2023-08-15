@@ -1,12 +1,12 @@
 import E404 from "src/modules/errors/E404";
 
 import { Outlet, useRoutes } from "react-router-dom";
-import Dashboard from "src/modules/dashboard/index";
+import Dashboard from "src/modules/dashboard__test/index";
 // import routes
 // import controllerRoutes from "src/modules/configuration/controllers/routes";
 
 // import { Login } from "src/modules/auth";
-import Index from "src/modules/dashboard/index";
+import Index from "src/modules/dashboard__test/index";
 import ProjectRouter from "src/routers/index";
 
 import app from "src/constants/app";

@@ -1,4 +1,4 @@
-import { Box, Stack } from '@mui/material';
+import { Box, Stack } from "@mui/material";
 
 const NoDataOrganizations = () => {
   // const [isLoading, setIsLoading] = useState(false);
@@ -31,7 +31,7 @@ const NoDataOrganizations = () => {
             variant="outlined"
             sx={{ padding: '10px 20px' }}
             fullWidth
-            startIcon={<img src="/assets/icons/filter-lines.svg" alt="filter" />}>
+            startIcon={<img src="src/assets/icons/filter-lines.svg" alt="filter" />}>
             Jan. 1st - Jan. 31st 2023
           </Button>
         </Box>

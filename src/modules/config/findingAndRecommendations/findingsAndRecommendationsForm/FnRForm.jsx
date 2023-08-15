@@ -33,7 +33,7 @@ import {
   IndividualFindingsAndMultipleRecommendationValidationSchema,
   IndividualRecommendationValidationSchema,
   findingsAndRecommendationsValidationSchemaSubCategory,
-} from "validationSchemas/ContractorValidation";
+} from "src/validationSchemas/ContractorValidation";
 import FullPageLoader from "src/components/FullPageLoader";
 import { usePathUrlSettor } from "src/store/zustand/globalStates/config";
 import { map } from "lodash";

@@ -11,7 +11,7 @@ import { getAPI } from "src/lib/axios";
 import UserProfileLayout from "./UserProfileLayout";
 import { fetchTableData } from "src/modules/apiRequest/apiRequest";
 import FullPageLoader from "src/components/FullPageLoader";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 
 export default function UserProfileNotifications() {
   const location = useLocation();

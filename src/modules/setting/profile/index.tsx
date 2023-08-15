@@ -4,14 +4,14 @@ import PersonalDetails from "./PersonalDetails";
 import ProfileFormat from "./ProfileFormat";
 import { Profile as ProfilePayload, TenantProfile } from "src/interfaces/profile";
 import { useFormik } from "formik";
-import ProfileSchema from "validationSchemas/Profile";
+import ProfileSchema from "src/validationSchemas/Profile";
 import { useEffect } from "react";
 import { useState } from "react";
 import SettingFooter from "src/components/footer/SettingFooter";
 import { FormikFormHelpers } from "src/interfaces/utils";
 import { getAPI, putAPI } from "src/lib/axios";
 import Billing from "./Billing";
-import TenantProfileSchema from "validationSchemas/TenantProfile";
+import TenantProfileSchema from "src/validationSchemas/TenantProfile";
 import { userDataStore } from "src/store/zustand/globalStates/userData";
 
 const initialValues: ProfilePayload = {

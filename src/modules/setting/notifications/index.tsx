@@ -14,7 +14,7 @@ import { Notifications as NotificationsPayload } from "src/interfaces/notificati
 import { ChangeEvent, useState } from "react";
 import { useSnackbar } from "notistack";
 import { useFormik } from "formik";
-import NotificationSchema from "validationSchemas/Notifications";
+import NotificationSchema from "src/validationSchemas/Notifications";
 import { FormikFormHelpers } from "src/interfaces/utils";
 import SettingFooter from "src/components/footer/SettingFooter";
 import { getAPI, postAPI } from "src/lib/axios";

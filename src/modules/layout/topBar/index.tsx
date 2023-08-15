@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { Button, Grid, Skeleton } from "@mui/material";
-// import Button from 'components/buttons'
+// import Button from 'src/components/buttons'
 import React from "react";
 import { useNavigate } from "react-router-dom";
 // import { useLayoutStore } from 'src/zustand/globalStates/layout'

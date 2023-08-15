@@ -22,13 +22,13 @@ import QRCode from "react-qr-code";
 import ModalLayout from "src/components/ModalLayout";
 import { Button, Stack } from "@mui/material";
 import QRIcon from "src/assets/icons/qrIcon.svg";
-import { parseQueryParams } from "utils/queryParams";
+import { parseQueryParams } from "src/utils/queryParams";
 import CommonFilter, {
   converToProperFormikFormat,
   FilteredValue,
 } from "src/modules/config/Filters/CommonFilter";
 import { FORM_INITIAL_VALUE } from "src/modules/config/filterOptionsList";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 
 interface NavigateColumnProps {
   navigateColumnName: string;
@@ -272,7 +272,7 @@ export default function TemplateIndex() {
           type: "dot",
           dotModeOptions: [
             {
-              Icon: <img src="/assets/icons/manage_access.svg" alt="report" />,
+              Icon: <img src="src/assets/icons/manage_access.svg" alt="report" />,
               label: "Create Layout",
               handleButtonClick: ({ id }: any) => {
                 navigate(`layout/${id}`);
@@ -280,7 +280,7 @@ export default function TemplateIndex() {
               permission: [permissionList.Form.add],
             },
             {
-              Icon: <img src="/assets/icons/manage_access.svg" alt="report" />,
+              Icon: <img src="src/assets/icons/manage_access.svg" alt="report" />,
               label: "Manage Access",
               handleButtonClick: ({ id }: any) => {
                 navigate(`access-control/${id}`);
@@ -296,7 +296,7 @@ export default function TemplateIndex() {
               permission: [permissionList.Form.edit],
             },
             {
-              Icon: <img src="/assets/icons/manage_access.svg" alt="report" />,
+              Icon: <img src="src/assets/icons/manage_access.svg" alt="report" />,
               label: "Assign Inspection",
               handleButtonClick: (row: any) => {
                 // navigate(`layout/${id}`);

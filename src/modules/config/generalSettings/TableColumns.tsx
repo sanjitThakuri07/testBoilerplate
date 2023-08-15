@@ -7,9 +7,9 @@ import {
   Grid,
   IconButton,
   Typography,
-} from '@mui/material';
-import React, { FC, useEffect, useState } from 'react';
-import CloseIcon from '@mui/icons-material/Close';
+} from "@mui/material";
+import React, { FC, useEffect, useState } from "react";
+import CloseIcon from "@mui/icons-material/Close";
 
 import {
   DndContext,
@@ -18,11 +18,11 @@ import {
   TouchSensor,
   useSensor,
   useSensors,
-} from '@dnd-kit/core';
+} from "@dnd-kit/core";
 
-import { arrayMove, SortableContext } from '@dnd-kit/sortable';
-import { HeadCell } from './BASDataTable';
-import SortableItem from 'containers/setting/auditLogs/SortableItem';
+import { arrayMove, SortableContext } from "@dnd-kit/sortable";
+import { HeadCell } from "./BASDataTable";
+import SortableItem from "src/modules/setting/auditLogs/SortableItem";
 
 export interface DialogTitleProps {
   id: string;
@@ -30,7 +30,7 @@ export interface DialogTitleProps {
   onClose: () => void;
 }
 
-const leadcellsLocal = localStorage.getItem('headCells');
+const leadcellsLocal = localStorage.getItem("headCells");
 const LocalHeadcells = leadcellsLocal ? JSON.parse(leadcellsLocal) : leadcellsLocal;
 
 function BootstrapDialogTitle(props: DialogTitleProps) {
@@ -44,11 +44,12 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
           aria-label="close"
           onClick={onClose}
           sx={{
-            position: 'absolute',
+            position: "absolute",
             right: 8,
             top: 8,
             color: (theme) => theme.palette.grey[500],
-          }}>
+          }}
+        >
           <CloseIcon />
         </IconButton>
       ) : null}
@@ -103,7 +104,7 @@ const TableColumns: FC<{
       }),
     );
 
-    localStorage.setItem('headCells', JSON.stringify(items));
+    localStorage.setItem("headCells", JSON.stringify(items));
   };
 
   const handleReset = () => {
@@ -137,12 +138,13 @@ const TableColumns: FC<{
       onClose={handleClose}
       aria-labelledby="customized-dialog-title"
       className="dialog-box config-head-cells"
-      open={modelOpen}>
+      open={modelOpen}
+    >
       <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
         <Grid container spacing={2}>
           <Grid item>
             <div className="icon-holder">
-              <img src="/assets/icons/featured.svg" alt="" />
+              <img src="src/assets/icons/featured.svg" alt="" />
             </div>
           </Grid>
         </Grid>
@@ -158,7 +160,8 @@ const TableColumns: FC<{
           onDragStart={handleDragStart}
           onDragEnd={handleDragEnd}
           onDragCancel={handleDragCancel}
-          sensors={sensors}>
+          sensors={sensors}
+        >
           <SortableContext items={items}>
             {items.map((x) => (
               <SortableItem

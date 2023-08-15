@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Avatar,
   Box,
@@ -10,8 +10,8 @@ import {
   ListItemText,
   MenuItem,
   Select,
-} from '@mui/material';
-import CancelIcon from '@mui/icons-material/Cancel';
+} from "@mui/material";
+import CancelIcon from "@mui/icons-material/Cancel";
 // import { OutlinedInput } from '@material-ui/core';
 // import SearchIcon from '@mui/icons-material/Search';
 
@@ -25,10 +25,10 @@ export default function NewCustomMultiSelect({
   placeholder,
   disabled = false,
   className,
-  isMultiSelect=true,
-  fieldName
+  isMultiSelect = true,
+  fieldName,
 }: any) {
-  const [searchValue, setSearchValue] = React.useState<any>('');
+  const [searchValue, setSearchValue] = React.useState<any>("");
 
   const renderSelectedValues = () => {
     return selected?.map((select: any, index: any) => {
@@ -65,7 +65,7 @@ export default function NewCustomMultiSelect({
 
   const handleChange = (event: any) => {
     const value = event.target.value;
-    if (value[value.length - 1] === 'all') {
+    if (value[value.length - 1] === "all") {
       setSelected(
         selected?.length === menuOptions?.length
           ? []
@@ -85,13 +85,13 @@ export default function NewCustomMultiSelect({
 
   return (
     <>
-      <FormControl sx={{ width: '100%' }}>
+      <FormControl sx={{ width: "100%" }}>
         {placeholder && <InputLabel>{placeholder}</InputLabel>}
 
         <Select
           labelId="mutiple-select-label"
           multiple={isMultiSelect ? true : false}
-          style={{ width: '100%' }}
+          style={{ width: "100%" }}
           value={selected}
           disabled={disabled}
           className={className}
@@ -100,16 +100,17 @@ export default function NewCustomMultiSelect({
           MenuProps={{
             PaperProps: { style: { maxHeight: 200 } },
           }}
-          name={fieldName ?? ''}
-          sx={{ overflow: 'hidden' }}>
+          name={fieldName ?? ""}
+          sx={{ overflow: "hidden" }}
+        >
           <MenuItem value="all">
             <ListItemIcon>
               <Checkbox
                 color="primary"
-                checkedIcon={<img src="/assets/icons/icon-check.svg" alt="check" />}
-                icon={<img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+                checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
+                icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
                 indeterminateIcon={
-                  <img src="/assets/icons/icon-check-remove.svg" alt="indeterminate" />
+                  <img src="src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
                 }
                 checked={isAllSelected}
                 indeterminate={selected?.length > 0 && selected?.length < menuOptions?.length}
@@ -126,10 +127,10 @@ export default function NewCustomMultiSelect({
                 <ListItemIcon>
                   <Checkbox
                     color="primary"
-                    checkedIcon={<img src="/assets/icons/icon-check.svg" alt="check" />}
-                    icon={<img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+                    checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
+                    icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
                     indeterminateIcon={
-                      <img src="/assets/icons/icon-check-remove.svg" alt="indeterminate" />
+                      <img src="src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
                     }
                     checked={selected.indexOf(option?.[valueKey]) > -1}
                   />

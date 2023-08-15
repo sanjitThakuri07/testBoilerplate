@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { messageHandlers } from 'utils/socket';
+import { useEffect } from "react";
+import { messageHandlers } from "src/utils/socket";
 
 let reconnectTimerId: any = null;
 let pingTimerId: any = null;

@@ -30,7 +30,7 @@ import TermsAndConditions from "src/modules/terms";
 // import EmailIdContent from 'src/modules/config/notifications/EmailIdContent';
 
 import IndexHOC from "src/hoc/indexHOC";
-// import AddBillingPlan from 'src/modules/Billing/AddBillingPlan';
+import AddBillingPlan from "src/modules/Billing/AddBillingPlan";
 import BillingPlans from "src/modules/Billing/BillingPlans";
 // import AddRegionsConfig from 'src/modules/config/generalSettings/region/AddRegionsConfig';
 // import PublicPDFPreview from 'src/modules/inspections/Report/PDFPreview/PublicPDFPreview';
@@ -40,7 +40,7 @@ import BillingPlans from "src/modules/Billing/BillingPlans";
 import PublicInvoicePage from "src/modules/pages/publicPages/invoicePage/invoicePage";
 // import { permissionList } from 'src/constants/permission';
 import { rolesList } from "src/constants/roles";
-// import PaymentPage from 'src/modules/Payment/PaymentPage';
+import PaymentPage from "src/modules/Payment/PaymentPage";
 
 export const authRoutes = [
   {
@@ -157,48 +157,48 @@ export const privateRoutes: any = [
     }),
     newPage: false,
   },
-  // {
-  //   title: 'Add Billing Plan',
-  //   path: PrivateRoute.ADD_BILLING,
-  //   component: <AddBillingPlan />,
-  //   newPage: false,
-  // },
-  // {
-  //   title: 'Edit Billing Plan',
-  //   path: PrivateRoute.EDIT_BILLING,
-  //   component: <AddBillingPlan />,
-  //   newPage: false,
-  // },
-  // {
-  //   title: 'View Billing Plan',
-  //   path: PrivateRoute.VIEW_BILLING,
-  //   component: <AddBillingPlan />,
-  //   newPage: false,
-  // },
-  // {
-  //   title: 'Payment Methods',
-  //   path: PrivateRoute.PAYMENT_METHOD,
-  //   component: <PaymentPage />,
-  //   newPage: false,
-  // },
-  // {
-  //   title: 'Setting',
-  //   path: PrivateRoute.SETTING,
-  //   component: <Setting />,
-  //   newPage: true,
-  // },
-  // {
-  //   title: 'Add Tenant',
-  //   path: PrivateRoute.ADD_TENANT,
-  //   component: <AddTenant />,
-  //   newPage: true,
-  // },
-  // {
-  //   title: 'View Tenant',
-  //   path: PrivateRoute.VIEW_TENANT,
-  //   component: <AddTenant />,
-  //   newPage: true,
-  // },
+  {
+    title: "Add Billing Plan",
+    path: PrivateRoute.ADD_BILLING,
+    component: <AddBillingPlan />,
+    newPage: false,
+  },
+  {
+    title: "Edit Billing Plan",
+    path: PrivateRoute.EDIT_BILLING,
+    component: <AddBillingPlan />,
+    newPage: false,
+  },
+  {
+    title: "View Billing Plan",
+    path: PrivateRoute.VIEW_BILLING,
+    component: <AddBillingPlan />,
+    newPage: false,
+  },
+  {
+    title: "Payment Methods",
+    path: PrivateRoute.PAYMENT_METHOD,
+    component: <PaymentPage />,
+    newPage: false,
+  },
+  {
+    title: "Setting",
+    path: PrivateRoute.SETTING,
+    component: <Setting />,
+    newPage: true,
+  },
+  {
+    title: "Add Tenant",
+    path: PrivateRoute.ADD_TENANT,
+    component: <AddTenant />,
+    newPage: true,
+  },
+  {
+    title: "View Tenant",
+    path: PrivateRoute.VIEW_TENANT,
+    component: <AddTenant />,
+    newPage: true,
+  },
   // {
   //   title: '401',
   //   path: MessageRoute._401,

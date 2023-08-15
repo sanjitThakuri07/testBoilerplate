@@ -96,7 +96,7 @@ const AddUserDepartment = () => {
 
   const breadcrumbs = [
     <Link key="0" href="/">
-      <img src="/assets/icons/home.svg" alt="home" />
+      <img src="src/assets/icons/home.svg" alt="home" />
     </Link>,
     <Link underline="hover" href="/config/general-settings/region">
       General Settings
@@ -182,7 +182,7 @@ const AddUserDepartment = () => {
         confirmationHeading={`Do you want to delete region ${currentDepartment?.name}?`}
         confirmationDesc={"This region will be deleted."}
         status="warning"
-        confirmationIcon="/assets/icons/icon-feature.svg"
+        confirmationIcon="src/assets/icons/icon-feature.svg"
       />
       <UploadCsv
         sampleLink="/"
@@ -204,7 +204,7 @@ const AddUserDepartment = () => {
               padding: "5px 13px",
               borderRadius: "5px",
             }}
-            separator={<img src="/assets/icons/chevron-right.svg" alt="right" />}
+            separator={<img src="src/assets/icons/chevron-right.svg" alt="right" />}
             aria-label="breadcrumb"
           >
             {breadcrumbs}
@@ -225,7 +225,7 @@ const AddUserDepartment = () => {
             <div className="right">
               <Button
                 variant="outlined"
-                startIcon={<img src="/assets/icons/icon-upload.svg" alt="icon-upload" />}
+                startIcon={<img src="src/assets/icons/icon-upload.svg" alt="icon-upload" />}
                 onClick={() => setOpenCsvModal(true)}
               >
                 Upload CSV

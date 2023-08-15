@@ -1,9 +1,9 @@
-import CustomTextField from 'components/inputs/TextField';
+import CustomTextField from "src/components/inputs/TextField";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Icon, IconButton } from '@mui/material';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Icon, IconButton } from "@mui/material";
 
-import styles from './IconInput.module.scss';
+import styles from "./IconInput.module.scss";
 
 interface Props {
   icon: any;
@@ -19,17 +19,13 @@ function IconInput({
   start,
 
   ...rest
-}: Props &
-  React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  >) {
+}: Props & React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>) {
   return (
     <div className={styles.container}>
       <CustomTextField
         onChange={() => {}}
         {...rest}
-        value={''}
+        value={""}
         style={{ ...(start ? { paddingLeft: 40 } : { paddingRight: 40 }) }}
       />
       {onIconClick ? (
@@ -39,22 +35,20 @@ function IconInput({
           size="small"
           sx={{
             ...(start ? { left: 10 } : { right: 10 }),
-            alignItems: 'center',
-            display: 'flex',
-            justifyContent: 'center'
-          }}>
+            alignItems: "center",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
           <Icon
             fontSize="small"
             sx={{
-              alignItems: 'center',
-              display: 'flex',
-              justifyContent: 'center'
-            }}>
-            <FontAwesomeIcon
-              color={iconColor ?? 'var(--grey-700)'}
-              icon={icon}
-              size="xs"
-            />
+              alignItems: "center",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <FontAwesomeIcon color={iconColor ?? "var(--grey-700)"} icon={icon} size="xs" />
           </Icon>
         </IconButton>
       ) : (
@@ -63,7 +57,7 @@ function IconInput({
           color="var(--grey-700)"
           icon={icon}
           style={{
-            ...(start ? { left: 10 } : { right: 10 })
+            ...(start ? { left: 10 } : { right: 10 }),
           }}
         />
       )}

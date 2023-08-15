@@ -17,10 +17,10 @@ import {
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import { Formik, FormikProps, Field, ErrorMessage, FieldArray, getIn } from "formik";
 import * as Yup from "yup";
-import ProfilePicture from "containers/setting/profile/ProfilePicture";
+import ProfilePicture from "src/modules/setting/profile/ProfilePicture";
 import { useNavigate, useParams } from "react-router-dom";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
-import PhoneNumberInput from "containers/setting/profile/PhoneNumberInput";
+import PhoneNumberInput from "src/modules/setting/profile/PhoneNumberInput";
 import SaveIcon from "../../../assets/icons/save_icon.svg";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { contractorAddressProps } from "src/interfaces/configs";
@@ -33,10 +33,10 @@ import {
   AddressValidationSchemaCustomer,
   allContractorAddressValidationSchema,
   CustomerAddressValidationSchema,
-} from "validationSchemas/ContractorValidation";
+} from "src/validationSchemas/ContractorValidation";
 import ResetTextField from "./ResetTextField";
 import FullPageLoader from "src/components/FullPageLoader";
-import DynamicSelectField from "containers/setting/profile/DynamicSelectField";
+import DynamicSelectField from "src/modules/setting/profile/DynamicSelectField";
 import "./form.style.scss";
 import ModalLayout from "src/components/ModalLayout";
 import ServiceForm from "../../services/ServiceForm";

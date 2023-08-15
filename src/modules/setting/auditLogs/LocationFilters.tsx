@@ -15,9 +15,9 @@ import {
   Theme,
   Typography,
   useTheme,
-} from '@mui/material';
-import React, { FC } from 'react';
-import CloseIcon from '@mui/icons-material/Close';
+} from "@mui/material";
+import React, { FC } from "react";
+import CloseIcon from "@mui/icons-material/Close";
 
 export interface DialogTitleProps {
   id: string;
@@ -36,11 +36,12 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
           aria-label="close"
           onClick={onClose}
           sx={{
-            position: 'absolute',
+            position: "absolute",
             right: 8,
             top: 8,
             color: (theme) => theme.palette.grey[500],
-          }}>
+          }}
+        >
           <CloseIcon />
         </IconButton>
       ) : null}
@@ -58,25 +59,25 @@ function getStyles(name: string, personName: string[], theme: Theme) {
 }
 
 const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
+  "Oliver Hansen",
+  "Van Henry",
+  "April Tucker",
+  "Ralph Hubbard",
+  "Omar Alexander",
+  "Carlos Abbott",
+  "Miriam Wagner",
+  "Bradley Wilkerson",
+  "Virginia Andrews",
+  "Kelly Snyder",
 ];
 
 const LocationFilters: FC<{
   modelOpen?: boolean;
-  onHide: (key: 'datepicker' | 'location' | 'customizedTable') => void;
+  onHide: (key: "datepicker" | "location" | "customizedTable") => void;
 }> = ({ modelOpen = false, onHide }) => {
   const theme = useTheme();
   const handleClose = () => {
-    onHide('location');
+    onHide("location");
   };
 
   const [personName, setPersonName] = React.useState<string[]>([]);
@@ -91,7 +92,7 @@ const LocationFilters: FC<{
     } = event;
     setPersonName(
       // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
+      typeof value === "string" ? value.split(",") : value,
     );
   };
 
@@ -100,12 +101,13 @@ const LocationFilters: FC<{
       onClose={handleClose}
       aria-labelledby="customized-dialog-title"
       className="dialog-box"
-      open={modelOpen}>
+      open={modelOpen}
+    >
       <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
         <Grid container spacing={2}>
           <Grid item>
             <div className="icon-holder">
-              <img src="/assets/icons/filter.svg" alt="" />
+              <img src="src/assets/icons/filter.svg" alt="" />
             </div>
           </Grid>
           <Grid item>
@@ -125,7 +127,8 @@ const LocationFilters: FC<{
           className="formGroupItem"
           sx={{
             pr: 0,
-          }}>
+          }}
+        >
           <Grid item xs={4}>
             <InputLabel htmlFor="country">
               <div className="label-heading">Select Country</div>
@@ -140,7 +143,8 @@ const LocationFilters: FC<{
               onChange={handleChange}
               //   input={<OutlinedInput label="Name" />}
               //   MenuProps={MenuProps}
-              className="select-country-pills">
+              className="select-country-pills"
+            >
               {names.map((name) => (
                 <MenuItem key={name} value={name} style={getStyles(name, personName, theme)}>
                   {name}

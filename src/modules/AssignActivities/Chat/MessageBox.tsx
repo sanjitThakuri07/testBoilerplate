@@ -5,7 +5,7 @@ import FacebookCircularProgress from "src/components/CircularLoader";
 import { useInspectionStore } from "containers/template/store/inspectionStore";
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { fileExtensions } from "utils/fileExtensionChecker";
+import { fileExtensions } from "src/utils/fileExtensionChecker";
 
 const MessageItems = ({ creator, isSelf = false, message }: any) => {
   const dateTimeString = message?.created_at;

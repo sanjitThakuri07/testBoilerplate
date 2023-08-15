@@ -5,7 +5,7 @@
 // import TableContainer from '@mui/material/TableContainer';
 // import TableHead from '@mui/material/TableHead';
 // import TableRow from '@mui/material/TableRow';
-// import { checkValue } from 'components/CustomPopup';
+// import { checkValue } from 'src/components/CustomPopup';
 
 // const SampleTable = ({ format }: any) => {
 //   const { headers, items = [] } = format;
@@ -80,13 +80,13 @@
 
 // export default SampleTable;
 
-import Paper from '@mui/material/Paper';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
+import Paper from "@mui/material/Paper";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
 
 const SampleTable = ({ format }: any) => {
   const { headers, items = [] } = format;
@@ -102,9 +102,10 @@ const SampleTable = ({ format }: any) => {
                   Object?.entries(items[0] || {})?.map((item: any) => (
                     <TableCell
                       style={{
-                        backgroundColor: '#d6d6d6',
+                        backgroundColor: "#d6d6d6",
                       }}
-                      key={item[0]}>
+                      key={item[0]}
+                    >
                       {item[0]}
                     </TableCell>
                   ))}
@@ -120,16 +121,16 @@ const SampleTable = ({ format }: any) => {
                       .map((key: any) => (
                         <>
                           <TableCell key={key}>
-                            {typeof item[key] === 'string' || typeof item[key] === 'number'
+                            {typeof item[key] === "string" || typeof item[key] === "number"
                               ? item[key]
-                              : typeof item[key] === 'object' && item[key]?.length > 0
+                              : typeof item[key] === "object" && item[key]?.length > 0
                               ? Object.keys(item[key])?.map((it: any) =>
-                                  typeof item[key][it] === 'string' ||
-                                  typeof item[key][it] === 'number'
-                                    ? item[key][it] + ' '
-                                    : ' ',
+                                  typeof item[key][it] === "string" ||
+                                  typeof item[key][it] === "number"
+                                    ? item[key][it] + " "
+                                    : " ",
                                 )
-                              : 'N/A'}
+                              : "N/A"}
                           </TableCell>
                         </>
                       ))}
@@ -139,7 +140,7 @@ const SampleTable = ({ format }: any) => {
           </Table>
         </TableContainer>
       ) : (
-        ''
+        ""
       )}
     </>
   );

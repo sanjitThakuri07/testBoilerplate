@@ -1,7 +1,7 @@
-import { Box, Button, Grid, Modal, Stack } from '@mui/material';
-import { FC, useState } from 'react';
-import { RangeKeyDict } from 'react-date-range';
-import DateRangePickerComponent from 'components/dateRangePicker';
+import { Box, Button, Grid, Modal, Stack } from "@mui/material";
+import { FC, useState } from "react";
+import { RangeKeyDict } from "react-date-range";
+import DateRangePickerComponent from "src/components/dateRangePicker";
 
 import {
   addDays,
@@ -12,19 +12,19 @@ import {
   addMonths,
   startOfWeek,
   endOfWeek,
-} from 'date-fns';
-import moment from 'moment';
+} from "date-fns";
+import moment from "moment";
 
 const DatePicker: FC<{
   modelOpen?: boolean;
-  onHide: (key: 'datepicker' | 'location' | 'customizedTable') => void;
+  onHide: (key: "datepicker" | "location" | "customizedTable") => void;
   setModelOpen?: any;
   onDataTableChange?: any;
   state?: any;
   setState?: any;
 }> = ({ modelOpen = false, onHide, setModelOpen, onDataTableChange, state, setState }) => {
   const handleClose = () => {
-    onHide('datepicker');
+    onHide("datepicker");
     setModelOpen(!modelOpen);
   };
 
@@ -45,16 +45,16 @@ const DatePicker: FC<{
 
   const staticRanges = [
     {
-      label: 'Today',
+      label: "Today",
       range: () => ({
         startDate: defineds.startOfToday,
         endDate: defineds.endOfToday,
       }),
-      key: 'selection',
+      key: "selection",
       isSelected: () => true,
     },
     {
-      label: 'Yesterday',
+      label: "Yesterday",
       range: () => ({
         startDate: defineds.startOfYesterday,
         endDate: defineds.endOfYesterday,
@@ -62,7 +62,7 @@ const DatePicker: FC<{
       isSelected: () => false,
     },
     {
-      label: 'This week',
+      label: "This week",
       range: () => ({
         startDate: defineds.startOfWeek,
         endDate: defineds.endOfWeek,
@@ -70,7 +70,7 @@ const DatePicker: FC<{
       isSelected: () => false,
     },
     {
-      label: 'Last week',
+      label: "Last week",
       range: () => ({
         startDate: defineds.startOfLastWeek,
         endDate: defineds.endOfLastWeek,
@@ -78,7 +78,7 @@ const DatePicker: FC<{
       isSelected: () => false,
     },
     {
-      label: 'This month',
+      label: "This month",
       range: () => ({
         startDate: defineds.startOfMonth,
         endDate: defineds.endOfMonth,
@@ -86,7 +86,7 @@ const DatePicker: FC<{
       isSelected: () => false,
     },
     {
-      label: 'Last month',
+      label: "Last month",
       range: () => ({
         startDate: defineds.startOfLastMonth,
         endDate: defineds.endOfLastMonth,
@@ -94,7 +94,7 @@ const DatePicker: FC<{
       isSelected: () => false,
     },
     {
-      label: 'This year',
+      label: "This year",
       range: () => ({
         startDate: new Date(),
         endDate: new Date(),
@@ -102,7 +102,7 @@ const DatePicker: FC<{
       isSelected: () => false,
     },
     {
-      label: 'Last year',
+      label: "Last year",
       range: () => ({
         startDate: new Date(),
         endDate: new Date(),
@@ -110,7 +110,7 @@ const DatePicker: FC<{
       isSelected: () => false,
     },
     {
-      label: 'All time',
+      label: "All time",
       range: () => ({
         startDate: new Date(),
         endDate: new Date(),
@@ -139,10 +139,10 @@ const DatePicker: FC<{
         <Grid container className="button-holder" justifyContent="space-between">
           <Grid item>
             <Button variant="outlined">
-              {moment(state[0]?.startDate)?.format('MMMM Do YYYY')}
+              {moment(state[0]?.startDate)?.format("MMMM Do YYYY")}
             </Button>
             &nbsp;-&nbsp;
-            <Button variant="outlined">{moment(state[0]?.endDate)?.format('MMMM Do YYYY')}</Button>
+            <Button variant="outlined">{moment(state[0]?.endDate)?.format("MMMM Do YYYY")}</Button>
           </Grid>
           <Stack direction="row" spacing={2}>
             <Button variant="outlined" onClick={() => setModelOpen(!modelOpen)}>
@@ -154,11 +154,12 @@ const DatePicker: FC<{
                 setModelOpen(!modelOpen);
                 onDataTableChange({
                   object: {
-                    from_date: moment(state[0]?.startDate).format('YYYY-MM-DD'),
-                    to_date: moment(state[0]?.endDate).format('YYYY-MM-DD'),
+                    from_date: moment(state[0]?.startDate).format("YYYY-MM-DD"),
+                    to_date: moment(state[0]?.endDate).format("YYYY-MM-DD"),
                   },
                 });
-              }}>
+              }}
+            >
               Apply
             </Button>
           </Stack>

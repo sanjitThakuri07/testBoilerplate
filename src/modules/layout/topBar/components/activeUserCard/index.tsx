@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { Grid } from "@mui/material";
-// import Button from 'components/buttons'
+// import Button from 'src/components/buttons'
 import React from "react";
 
 import ClickAwayListener from "@mui/material/ClickAwayListener";

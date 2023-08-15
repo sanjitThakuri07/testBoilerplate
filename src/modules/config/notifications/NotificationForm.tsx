@@ -268,7 +268,7 @@ const TriggerComponent = ({
                       //   navigate('/config/notifications/email-id-content');
                       setEmailOpen(true);
                     }}
-                    startIcon={!disabled ? <img alt="" src="/assets/icons/plus.svg" /> : <></>}
+                    startIcon={!disabled ? <img alt="" src="src/assets/icons/plus.svg" /> : <></>}
                     className="link-icon"
                   >
                     {`${
@@ -317,7 +317,7 @@ const TriggerComponent = ({
                   trigger_type: "",
                 });
               }}
-              startIcon={<img alt="" src="/assets/icons/plus.svg" />}
+              startIcon={<img alt="" src="src/assets/icons/plus.svg" />}
               className="link-icon"
             >
               Add Trigger

@@ -48,7 +48,7 @@ interface Accessor {
   [key: string]: any;
 }
 
-// IconComponent={() => <img src="/assets/icons/cheveron-down.svg" />}>
+// IconComponent={() => <img src="src/assets/icons/cheveron-down.svg" />}>
 
 export function validateField(validateFieldType: string, value: string) {
   const regexFloat = /^[0-9]*\.?[0-9]*$/i;
@@ -256,7 +256,7 @@ const MultiEmailInput: FC<IProps> = ({
                   startIcon={
                     <img
                       alt=""
-                      src="/assets/icons/plus.svg"
+                      src="src/assets/icons/plus.svg"
                       style={{
                         opacity: isViewOnly ? 0.5 : 1,
                       }}
@@ -347,7 +347,7 @@ const MultiEmailInput: FC<IProps> = ({
                 startIcon={
                   <img
                     alt=""
-                    src="/assets/icons/plus.svg"
+                    src="src/assets/icons/plus.svg"
                     style={{
                       opacity: isViewOnly ? 0.5 : 1,
                     }}

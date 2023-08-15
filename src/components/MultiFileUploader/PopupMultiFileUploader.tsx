@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   Button,
   Dialog,
@@ -10,23 +10,23 @@ import {
   InputLabel,
   OutlinedInput,
   Alert,
-} from '@mui/material';
-import { useDropzone } from 'react-dropzone';
-import './multiFileUploader.scss';
-import { IndividualFile } from './index';
-import { makeStyles } from '@mui/styles';
-import CloseIcon from '@mui/icons-material/Close';
-import Compressor from 'compressorjs';
-import { PDFDocument } from 'pdf-lib';
+} from "@mui/material";
+import { useDropzone } from "react-dropzone";
+import "./multiFileUploader.scss";
+import { IndividualFile } from "./index";
+import { makeStyles } from "@mui/styles";
+import CloseIcon from "@mui/icons-material/Close";
+import Compressor from "compressorjs";
+import { PDFDocument } from "pdf-lib";
 
 const useStyles = makeStyles({
   error: {
     marginBottom: 20,
   },
   close: {
-    fill: '#667085',
-    right: '5px',
-    top: '6px',
+    fill: "#667085",
+    right: "5px",
+    top: "6px",
   },
 });
 
@@ -60,11 +60,11 @@ interface UploadModalProps {
 
 const formatFileSize = (bytes: number) => {
   if (bytes < 1024) {
-    return bytes + ' bytes';
+    return bytes + " bytes";
   } else if (bytes < 1024 * 1024) {
-    return (bytes / 1024).toFixed(2) + ' KB';
+    return (bytes / 1024).toFixed(2) + " KB";
   } else {
-    return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+    return (bytes / (1024 * 1024)).toFixed(2) + " MB";
   }
 };
 
@@ -73,26 +73,27 @@ export const RenderArea = ({ dragText = false, accept = {}, maxFileSize, onClick
     className="drag-drop"
     onClick={() => {
       onClick?.();
-    }}>
+    }}
+  >
     <div className="drop-input">
       <Box className="text-center" id="hell">
         <img
           id="upload_csv_icon"
-          src="/assets/icons/upload.svg"
+          src="src/assets/icons/upload.svg"
           width={40}
           height={40}
           alt="upload here"
         />
         <Typography variant="body1" component="p">
-          <strong className="info-title">Click to upload </strong> {dragText && 'or drag and drop'}{' '}
+          <strong className="info-title">Click to upload </strong> {dragText && "or drag and drop"}{" "}
           <br />
           <small className="info">
             {/* {type === 'csv' ? 'CSV (max. 2 MB)' : 'SVG, PNG or JPG. (max. 400x400px)'} */}
             {Object.values(accept)
-              .join('')
-              .replace(',', '')
-              .replace('.', '')
-              .replaceAll('.', ', ')}{' '}
+              .join("")
+              .replace(",", "")
+              .replace(".", "")
+              .replaceAll(".", ", ")}{" "}
             (max. {maxFileSize} MB)
           </small>
         </Typography>
@@ -111,10 +112,10 @@ const UploadModal: React.FC<UploadModalProps> = ({
   requireDescription = true,
   multiple = true,
   disabled,
-  title = '',
+  title = "",
 }) => {
   const [files, setFiles] = useState<FileUpload[]>([]);
-  const [fileError, setFileError] = useState('');
+  const [fileError, setFileError] = useState("");
   const classes = useStyles();
 
   useEffect(() => {
@@ -128,7 +129,7 @@ const UploadModal: React.FC<UploadModalProps> = ({
     acceptedFiles.forEach(async (file) => {
       const MAXFILESIZE = Number(maxFileSize) || 2 * 1024 * 1024;
       var compressedFile: any = [];
-      if (file?.type === 'application/pdf') {
+      if (file?.type === "application/pdf") {
         compressedFile = await new Promise<File>((resolve) => {
           // Load the PDF file
           const reader = new FileReader();
@@ -146,8 +147,8 @@ const UploadModal: React.FC<UploadModalProps> = ({
 
             // Generate the compressed PDF file
             const compressedPdfBytes = await pdfDoc.save();
-            const compressedFile = new File([compressedPdfBytes], 'compressed.pdf', {
-              type: 'application/pdf',
+            const compressedFile = new File([compressedPdfBytes], "compressed.pdf", {
+              type: "application/pdf",
             });
 
             resolve(compressedFile);
@@ -185,7 +186,7 @@ const UploadModal: React.FC<UploadModalProps> = ({
           });
         });
       }
-      setFileError('');
+      setFileError("");
       const reader = new FileReader();
       // if (maxFileSize == 'Infinite') {
       // } else {
@@ -201,7 +202,7 @@ const UploadModal: React.FC<UploadModalProps> = ({
           file,
           compressedFile: new File(
             [compressedFile],
-            `${Math.random()}+${new Date().getHours()}.${compressedFile.type.split('/')?.[1]}`,
+            `${Math.random()}+${new Date().getHours()}.${compressedFile.type.split("/")?.[1]}`,
             {
               type: compressedFile.type,
             },
@@ -223,7 +224,7 @@ const UploadModal: React.FC<UploadModalProps> = ({
           copyFile[0].documents = [uploadFile, ...copyFile[0].documents];
           setFiles(copyFile);
         } else {
-          let newFile = [{ documents: [uploadFile], title: '' }];
+          let newFile = [{ documents: [uploadFile], title: "" }];
           setFiles(newFile);
         }
       };
@@ -264,7 +265,7 @@ const UploadModal: React.FC<UploadModalProps> = ({
   };
 
   const handleDescriptionChange = (event: React.ChangeEvent<HTMLInputElement>, index?: number) => {
-    const updatedFiles = files?.length >= 1 ? [...files] : [{ title: '', documents: [] }];
+    const updatedFiles = files?.length >= 1 ? [...files] : [{ title: "", documents: [] }];
 
     updatedFiles.forEach((file) => {
       file.title = event.target.value;
@@ -291,7 +292,7 @@ const UploadModal: React.FC<UploadModalProps> = ({
   const { getRootProps, getInputProps } = useDropzone(dropzoneOptions);
 
   const handleCloseError = () => {
-    setFileError('');
+    setFileError("");
   };
 
   return (
@@ -300,11 +301,12 @@ const UploadModal: React.FC<UploadModalProps> = ({
       onClose={() => {
         onClose({ reset: false, closePopup: true });
       }}
-      sx={{ overflow: 'hidden' }}>
+      sx={{ overflow: "hidden" }}
+    >
       <DialogTitle>
-        {title ? title : 'Upload and attach files'}
+        {title ? title : "Upload and attach files"}
         <Typography variant="body1" component="p">
-          {title ? title : ' Upload and attach files to this project'}
+          {title ? title : " Upload and attach files to this project"}
         </Typography>
       </DialogTitle>
 
@@ -314,26 +316,28 @@ const UploadModal: React.FC<UploadModalProps> = ({
           onClose({ reset: false, closePopup: true });
         }}
         sx={{
-          position: 'absolute',
-          fontSize: '2rem',
-        }}>
+          position: "absolute",
+          fontSize: "2rem",
+        }}
+      >
         <CloseIcon />
       </IconButton>
 
-      <div style={{ padding: '0px 24px' }}>
+      <div style={{ padding: "0px 24px" }}>
         <Grid
           spacing={1}
           sx={{
-            marginLeft: '0',
-            marginRight: '0',
-            paddingBottom: '10px',
-            lineHeight: '4.6',
-          }}>
+            marginLeft: "0",
+            marginRight: "0",
+            paddingBottom: "10px",
+            lineHeight: "4.6",
+          }}
+        >
           {!!requireDescription && (
-            <div style={{ width: '100%' }}>
+            <div style={{ width: "100%" }}>
               <InputLabel htmlFor="website">
                 <div className="label-heading">
-                  Description <sub>*</sub>{' '}
+                  Description <sub>*</sub>{" "}
                 </div>
               </InputLabel>
               <OutlinedInput
@@ -359,7 +363,7 @@ const UploadModal: React.FC<UploadModalProps> = ({
             file?.documents?.length >= 1 ? (
               file?.documents?.map((doc, index) => (
                 <Grid item key={index}>
-                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <div style={{ display: "flex", alignItems: "center" }}>
                     <IndividualFile
                       key={index}
                       file={doc}
@@ -374,8 +378,9 @@ const UploadModal: React.FC<UploadModalProps> = ({
                           base64: data?.base64,
                           preview: data?.preview,
                         });
-                        setFiles?.([{ documents: docs, title: files?.[0].title || '' }]);
-                      }}></IndividualFile>
+                        setFiles?.([{ documents: docs, title: files?.[0].title || "" }]);
+                      }}
+                    ></IndividualFile>
                   </div>
                 </Grid>
               ))
@@ -417,8 +422,9 @@ const UploadModal: React.FC<UploadModalProps> = ({
             // }
           }}
           variant="outlined"
-          sx={{ boxShadow: '0px 1px 2px rgba(16,24,40,0.05)' }}>
-          {multiple ? 'Remove All' : 'Cancel'}
+          sx={{ boxShadow: "0px 1px 2px rgba(16,24,40,0.05)" }}
+        >
+          {multiple ? "Remove All" : "Cancel"}
         </Button>
         <Button
           onClick={handleUpload}
@@ -427,7 +433,8 @@ const UploadModal: React.FC<UploadModalProps> = ({
               ? !!(files.length && files[0]?.documents?.length)
               : !!(files.length && files[0]?.title && files[0]?.documents?.length))
           }
-          variant="contained">
+          variant="contained"
+        >
           Upload
         </Button>
       </div>

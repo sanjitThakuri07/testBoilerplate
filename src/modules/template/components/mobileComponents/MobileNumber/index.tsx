@@ -1,7 +1,7 @@
-import { TextField } from '@mui/material';
-import ErrorComponent from 'components/Error';
-import { errorValue } from 'containers/template/validation/inputLogicCheck';
-import ExtraUserFields from '../ReusableMobileComponent/ExtraUserFields';
+import { TextField } from "@mui/material";
+import ErrorComponent from "src/components/Error";
+import { errorValue } from "containers/template/validation/inputLogicCheck";
+import ExtraUserFields from "../ReusableMobileComponent/ExtraUserFields";
 
 const MobileNumber = ({
   value,
@@ -22,7 +22,7 @@ const MobileNumber = ({
         value={value}
         onChange={onChange}
         onWheel={(e: any) => e.target.blur()}
-        type={'number'}
+        type={"number"}
         {...attr}
       />
       <>

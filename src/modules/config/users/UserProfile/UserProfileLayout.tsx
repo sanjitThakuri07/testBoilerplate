@@ -3,7 +3,7 @@ import { Box, Button, Divider, Stack, Tab, Tabs, Typography } from "@mui/materia
 import React, { useEffect } from "react";
 import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import { permissionList } from "src/constants/permission";
-import EditView from "components/ViewEdit";
+import EditView from "src/components/ViewEdit";
 import { id } from "date-fns/locale";
 
 interface LinkTabProps {
@@ -82,7 +82,7 @@ export default function UserProfileLayout({ children }: any) {
     <Box sx={{ padding: "10px 24px" }}>
       <Button
         onClick={() => navigate(-1)}
-        startIcon={<img src="/assets/icons/back.svg" alt="back button" />}
+        startIcon={<img src="src/assets/icons/back.svg" alt="back button" />}
         sx={{
           textTransform: "capitalize",
         }}

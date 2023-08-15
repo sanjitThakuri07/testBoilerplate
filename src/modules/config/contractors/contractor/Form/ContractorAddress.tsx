@@ -18,7 +18,7 @@ import { Formik, FormikProps, Field, ErrorMessage, FieldArray, getIn } from "for
 import { useNavigate, useParams } from "react-router-dom";
 import { contractorAddressProps } from "src/interfaces/configs";
 import { useSnackbar, SnackbarKey, SnackbarMessage, OptionsObject } from "notistack";
-import { allContractorAddressValidationSchema } from "validationSchemas/ContractorValidation";
+import { allContractorAddressValidationSchema } from "src/validationSchemas/ContractorValidation";
 import FullPageLoader from "src/components/FullPageLoader";
 import {
   putApiData,

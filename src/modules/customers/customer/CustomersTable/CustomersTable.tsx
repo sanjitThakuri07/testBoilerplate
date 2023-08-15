@@ -22,7 +22,7 @@ import CommonFilter, {
   FilteredValue,
 } from "src/modules/config/Filters/CommonFilter";
 import { CUSTOMER_USER_INITIAL_VALUE } from "src/modules/config/filterOptionsList";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 import BackButton from "src/components/buttons/back";
 
 interface NavigateColumnProps {
@@ -214,7 +214,7 @@ const CustomersTable = () => {
             type: "dot",
             // dotModeOptions: [
             //   {
-            //     Icon: <img src="/assets/icons/manage_access.svg" alt="access" />,
+            //     Icon: <img src="src/assets/icons/manage_access.svg" alt="access" />,
             //     label: 'Active',
             //     handleButtonClick: console.log('Manage Access'),
             //   },

@@ -130,7 +130,7 @@ const AccessControl = ({}: any) => {
 
   const breadcrumbs = [
     <Link key="0" href="/">
-      <img src="/assets/icons/home.svg" alt="home" />
+      <img src="src/assets/icons/home.svg" alt="home" />
     </Link>,
     <Link underline="hover" key="2" color="inherit">
       <Href
@@ -204,7 +204,7 @@ const AccessControl = ({}: any) => {
         }}
         confirmationHeading={`Do you sure want to delete`}
         status="warning"
-        confirmationIcon="/assets/icons/icon-feature.svg"
+        confirmationIcon="src/assets/icons/icon-feature.svg"
       />
 
       {isLoadingAccess && <FullPageLoader />}
@@ -213,7 +213,7 @@ const AccessControl = ({}: any) => {
           <BackButton />
           <div className="breadcrumbs-holder">
             <Breadcrumbs
-              separator={<img src="/assets/icons/chevron-right.svg" alt="right" />}
+              separator={<img src="src/assets/icons/chevron-right.svg" alt="right" />}
               aria-label="breadcrumb"
             >
               {breadcrumbs}
@@ -328,7 +328,7 @@ const AccessControl = ({}: any) => {
                               handleModalShow("edit");
                             }}
                           >
-                            <img src="/assets/icons/icon-edit.svg" alt="edit" />
+                            <img src="src/assets/icons/icon-edit.svg" alt="edit" />
                           </div>
                           <div
                             onClick={() => {
@@ -336,7 +336,7 @@ const AccessControl = ({}: any) => {
                               handleModalShow("delete");
                             }}
                           >
-                            <img src="/assets/icons/icon-trash.svg" alt="delete" />
+                            <img src="src/assets/icons/icon-trash.svg" alt="delete" />
                           </div>
                         </div>
                       )}

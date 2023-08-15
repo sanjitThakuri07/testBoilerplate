@@ -113,7 +113,7 @@ const AddBooking = () => {
 
   const breadcrumbs = [
     <Link key="0" href="/">
-      <img src="/assets/icons/home.svg" alt="home" />
+      <img src="src/assets/icons/home.svg" alt="home" />
     </Link>,
     <Link underline="hover" key="1" color="inherit">
       <Href to={`/config/${configName.parent_path}`} style={{ textTransform: "capitalize" }}>
@@ -245,7 +245,7 @@ const AddBooking = () => {
         confirmationHeading={`Do you want to delete ${trackLabel}?`}
         confirmationDesc={`This ${configName.pathname.replaceAll("-", " ")} will be deleted.`}
         status="warning"
-        confirmationIcon="/assets/icons/icon-feature.svg"
+        confirmationIcon="src/assets/icons/icon-feature.svg"
         loader={deleteLoading}
       />
       {!readOnly && (
@@ -261,7 +261,7 @@ const AddBooking = () => {
         <BackButton />
         <div className="breadcrumbs-holder">
           <Breadcrumbs
-            separator={<img src="/assets/icons/chevron-right.svg" alt="right" />}
+            separator={<img src="src/assets/icons/chevron-right.svg" alt="right" />}
             aria-label="breadcrumb"
           >
             {breadcrumbs}
@@ -282,7 +282,7 @@ const AddBooking = () => {
             <div className="right">
               <Button
                 variant="outlined"
-                startIcon={<img src="/assets/icons/icon-upload.svg" alt="icon-upload" />}
+                startIcon={<img src="src/assets/icons/icon-upload.svg" alt="icon-upload" />}
                 onClick={() => setOpenCsvModal(true)}
               >
                 Upload CSV

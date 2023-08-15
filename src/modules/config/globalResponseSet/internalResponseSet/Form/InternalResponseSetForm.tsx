@@ -10,7 +10,7 @@
 //   Typography,
 // } from '@mui/material';
 // import Box from '@mui/material/Box';
-// import FullPageLoader from 'components/FullPageLoader';
+// import FullPageLoader from 'src/components/;
 // import { Formik, FormikProps } from 'formik';
 // import { BASConfigTableProps, ResponseSetPropsS, TableValue } from 'interfaces/configs';
 // import { useSnackbar } from 'notistack';
@@ -66,10 +66,10 @@
 //             color="primary"
 //             id={index}
 //             checked={selectedRow.includes(data?.module)}
-//             checkedIcon={<img src="/assets/icons/icon-check.svg" alt="check" />}
-//             icon={<img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+//             checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
+//             icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
 //             indeterminateIcon={
-//               <img src="/assets/icons/icon-check-remove.svg" alt="indeterminate" />
+//               <img src="src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
 //             }
 //             onChange={(event) => {
 //               setFieldValue(`tableValues.${index}.checked`, event.target.checked);
@@ -542,12 +542,12 @@
 //                                   color="primary"
 //                                   checked={selectedRow?.length === moduleValues?.length}
 //                                   checkedIcon={
-//                                     <img src="/assets/icons/icon-check.svg" alt="check" />
+//                                     <img src="src/assets/icons/icon-check.svg" alt="check" />
 //                                   }
-//                                   icon={<img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+//                                   icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
 //                                   indeterminateIcon={
 //                                     <img
-//                                       src="/assets/icons/icon-check-remove.svg"
+//                                       src="src/assets/icons/icon-check-remove.svg"
 //                                       alt="indeterminate"
 //                                     />
 //                                   }
@@ -667,7 +667,7 @@ import { Formik, FormikProps, Field } from "formik";
 import { useNavigate, useParams } from "react-router-dom";
 import { BASConfigTableProps, ResponseSetPropsS, TableValue } from "src/interfaces/configs";
 import { useSnackbar, SnackbarKey, SnackbarMessage, OptionsObject } from "notistack";
-import { InternalResponseSetValidationSchema } from "validationSchemas/InternalResponseSet";
+import { InternalResponseSetValidationSchema } from "src/validationSchemas/InternalResponseSet";
 import FullPageLoader from "src/components/FullPageLoader";
 // import "./form.style.scss";
 import { postApiData, fetchApI, fetchInitialValues } from "./apiRequest";
@@ -724,10 +724,10 @@ const TableCellCustom = ({
             color="primary"
             id={index}
             checked={selectedRow.includes(data?.module)}
-            checkedIcon={<img src="/assets/icons/icon-check.svg" alt="check" />}
-            icon={<img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+            checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
+            icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
             indeterminateIcon={
-              <img src="/assets/icons/icon-check-remove.svg" alt="indeterminate" />
+              <img src="src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
             }
             onChange={(event) => {
               setFieldValue(`tableValues.${index}.checked`, event.target.checked);
@@ -1362,14 +1362,14 @@ const InternalResponseSetForm: React.FC<{
                                     color="primary"
                                     checked={selectedRow?.length === moduleValues?.length}
                                     checkedIcon={
-                                      <img src="/assets/icons/icon-check.svg" alt="check" />
+                                      <img src="src/assets/icons/icon-check.svg" alt="check" />
                                     }
                                     icon={
-                                      <img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />
+                                      <img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />
                                     }
                                     indeterminateIcon={
                                       <img
-                                        src="/assets/icons/icon-check-remove.svg"
+                                        src="src/assets/icons/icon-check-remove.svg"
                                         alt="indeterminate"
                                       />
                                     }

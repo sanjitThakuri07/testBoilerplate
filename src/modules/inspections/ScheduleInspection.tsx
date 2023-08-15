@@ -16,14 +16,14 @@ import {
 import { Field, Formik, FormikProps } from "formik";
 import React, { ChangeEvent, useState } from "react";
 import { Link as Href, useNavigate, useParams } from "react-router-dom";
-import DynamicSelectField from "containers/setting/profile/DynamicSelectField";
+import DynamicSelectField from "src/modules/setting/profile/DynamicSelectField";
 import * as yup from "yup";
 import CustomSelectWithProfile from "src/components/CustomSelectWithProfile/CustomSelectWithProfile";
 import NewCustomMultiSelect from "src/components/NewCustomMultiSelect/NewCustomMultiSelect";
 import { IOSSwitch } from "src/components/switch/IosSwitch";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import Select from "react-select";
-import { monthYearChoose, RepeatStatus, WeekDays } from "validationSchemas/EventSchema";
+import { monthYearChoose, RepeatStatus, WeekDays } from "src/validationSchemas/EventSchema";
 import makeAnimated from "react-select/animated";
 import moment from "moment";
 import { useSnackbar } from "notistack";
@@ -137,7 +137,7 @@ const ScheduleInspection = () => {
 
   const breadcrumbs = [
     <Link key="0" href="/">
-      <img src="/assets/icons/home.svg" alt="home" />
+      <img src="src/assets/icons/home.svg" alt="home" />
     </Link>,
     <Link underline="hover" key="2" color="inherit">
       <Href
@@ -205,7 +205,7 @@ const ScheduleInspection = () => {
             }}
           >
             <Breadcrumbs
-              separator={<img src="/assets/icons/chevron-right.svg" alt="right" />}
+              separator={<img src="src/assets/icons/chevron-right.svg" alt="right" />}
               aria-label="breadcrumb"
             >
               {breadcrumbs}

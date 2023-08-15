@@ -1,5 +1,5 @@
 import React from "react";
-import { converText } from "containers/table/BASDataTable";
+import { converText } from "src/modules/table/BASDataTable";
 import { Tooltip } from "@material-ui/core";
 
 export const RadioOptions: any = {

@@ -1,7 +1,7 @@
 // import CloseIcon from '@mui/icons/Close';
-import Checkbox from '@mui/material/Checkbox';
-import CloseIcon from '@mui/icons-material/Close';
-import { v4 as uuidv4 } from 'uuid';
+import Checkbox from "@mui/material/Checkbox";
+import CloseIcon from "@mui/icons-material/Close";
+import { v4 as uuidv4 } from "uuid";
 import {
   Alert,
   Button,
@@ -14,15 +14,15 @@ import {
   IconButton,
   InputLabel,
   Snackbar,
-} from '@mui/material';
-import { converText } from 'containers/table/BASDataTable';
-import { useEffect, useState } from 'react';
-import { RadioOptions } from 'utils/FindingsUtils';
-import { useTemplateFieldsStore } from 'containers/template/store/templateFieldsStore';
-import TextAnswer from '../TextAnswer/TextAnswer';
-import GetTextInput from '../TextAnswer/GetTextInput';
-import useApiOptionsStore from 'containers/template/store/apiOptionsTemplateStore';
-import { useLocation } from 'react-router-dom';
+} from "@mui/material";
+import { converText } from "src/modules/table/BASDataTable";
+import { useEffect, useState } from "react";
+import { RadioOptions } from "src/utils/FindingsUtils";
+import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import TextAnswer from "../TextAnswer/TextAnswer";
+import GetTextInput from "../TextAnswer/GetTextInput";
+import useApiOptionsStore from "containers/template/store/apiOptionsTemplateStore";
+import { useLocation } from "react-router-dom";
 
 interface CustomPopUpProps extends ButtonProps {
   // Define any additional props for your component here
@@ -50,7 +50,7 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
     subCategory: {
       state: false,
       responseData: {},
-      responseType: 'internal',
+      responseType: "internal",
       id: uuidv4(),
       lock: true,
       selectField: true,
@@ -58,7 +58,7 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
     subCategoryFindings: {
       state: false,
       responseData: {},
-      responseType: 'internal',
+      responseType: "internal",
       id: uuidv4(),
       lock: true,
       selectField: true,
@@ -66,7 +66,7 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
     subCategoryRecommendations: {
       state: false,
       responseData: {},
-      responseType: 'internal',
+      responseType: "internal",
       id: uuidv4(),
       lock: true,
       selectField: true,
@@ -74,7 +74,7 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
     mainCategoryFindings: {
       state: false,
       responseData: {},
-      responseType: 'internal',
+      responseType: "internal",
       id: uuidv4(),
       lock: true,
       selectField: true,
@@ -82,7 +82,7 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
     mainCategoryFindingsRecommendations: {
       state: false,
       responseData: {},
-      responseType: 'internal',
+      responseType: "internal",
       id: uuidv4(),
       lock: true,
       selectField: true,
@@ -90,10 +90,10 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
   });
   const { fnrFields, updateTemplateDatasetsBeta }: any = useTemplateFieldsStore();
   const questionLinks = useState([]);
-  const [error, setError] = useState({ state: false, message: '' });
+  const [error, setError] = useState({ state: false, message: "" });
 
   const handleClose = () => {
-    setError({ state: false, message: '' });
+    setError({ state: false, message: "" });
   };
 
   useEffect(() => {
@@ -105,12 +105,13 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
   return (
     <>
       <Snackbar
-        sx={{ top: '100px !important' }}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        sx={{ top: "100px !important" }}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
         open={error?.state}
         autoHideDuration={5000}
-        onClose={handleClose}>
-        <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+        onClose={handleClose}
+      >
+        <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
           {/* {error} */}
           {error?.message}
         </Alert>
@@ -120,11 +121,12 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
           onClick={(e) => {
             e.stopPropagation();
           }}
-          className="fnr__template-modal">
-          <h1>Link fields according to the {parentItem?.label || ''} (Category)</h1>
+          className="fnr__template-modal"
+        >
+          <h1>Link fields according to the {parentItem?.label || ""} (Category)</h1>
           <div className="fnr__form-container">
             <section>
-              <InputLabel htmlFor="subCategory" sx={{ display: 'flex', alignItems: 'center' }}>
+              <InputLabel htmlFor="subCategory" sx={{ display: "flex", alignItems: "center" }}>
                 <Checkbox
                   size="small"
                   checked={formValues?.subCategory?.state}
@@ -134,24 +136,24 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
                     let responseDataApi =
                       templateInternalResponseData?.find(
                         (internalResponseData: any) =>
-                          internalResponseData?.module_id === 'FindingRecommendationSubCategory',
+                          internalResponseData?.module_id === "FindingRecommendationSubCategory",
                       ) || {};
 
                     if (!responseDataApi?.module_id) {
                       setError((prev: any) => ({
                         message:
-                          'You have no sub category internal attributes, Please create sub category internal attribute to enable this feature',
+                          "You have no sub category internal attributes, Please create sub category internal attribute to enable this feature",
                         state: true,
                       }));
                       return;
                     }
 
-                    setError({ state: false, message: '' });
+                    setError({ state: false, message: "" });
 
                     if (e.target.checked) {
                       responseData = {
                         ...responseDataApi,
-                        module_id: 'FindingRecommendationSubCategory',
+                        module_id: "FindingRecommendationSubCategory",
                       };
                       filterFields = [
                         ...(formValues?.[parentItem?.id]?.filterFields || []),
@@ -167,7 +169,7 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
                       ...prev,
                       [parentItem?.id]: {
                         state: false,
-                        label: 'parent',
+                        label: "parent",
                         id: parentItem?.id,
                         filterFields: filterFields,
                       },
@@ -193,12 +195,13 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
                 />
                 <div className="label-heading  align__label">Create Sub Category</div>
               </InputLabel>
-              <div className={`nest__level-1 ${formValues?.subCategory?.state ? 'active' : ''}`}>
+              <div className={`nest__level-1 ${formValues?.subCategory?.state ? "active" : ""}`}>
                 {formValues?.subCategory?.state && (
                   <InputLabel
                     htmlFor="subCategory"
-                    sx={{ display: 'flex', alignItems: 'center' }}
-                    className="label__style">
+                    sx={{ display: "flex", alignItems: "center" }}
+                    className="label__style"
+                  >
                     <Checkbox
                       size="small"
                       checked={formValues?.subCategoryFindings?.state}
@@ -208,24 +211,24 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
                         let responseDataApi =
                           templateInternalResponseData?.find(
                             (internalResponseData: any) =>
-                              internalResponseData?.module_id === 'Findings',
+                              internalResponseData?.module_id === "Findings",
                           ) || {};
 
                         if (!responseDataApi?.module_id) {
                           setError((prev: any) => ({
                             message:
-                              'You have no findings (sub category) internal attributes, Please create findings (sub category) internal attribute to enable this feature',
+                              "You have no findings (sub category) internal attributes, Please create findings (sub category) internal attribute to enable this feature",
                             state: true,
                           }));
                           return;
                         }
 
-                        setError({ state: false, message: '' });
+                        setError({ state: false, message: "" });
 
                         if (e.target.checked) {
                           responseData = {
                             ...responseDataApi,
-                            module_id: 'FindingsSubCategoryFindings',
+                            module_id: "FindingsSubCategoryFindings",
                           };
                           filterFields = [
                             ...(formValues?.subCategory?.filterFields || []),
@@ -268,13 +271,15 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
               </div>
               <div
                 className={`nest__level-2 ${
-                  formValues?.subCategoryFindings?.state ? 'active' : ''
-                }`}>
+                  formValues?.subCategoryFindings?.state ? "active" : ""
+                }`}
+              >
                 {formValues?.subCategoryFindings?.state && (
                   <InputLabel
                     className="label__style"
                     htmlFor="subCategory"
-                    sx={{ display: 'flex', alignItems: 'center' }}>
+                    sx={{ display: "flex", alignItems: "center" }}
+                  >
                     <Checkbox
                       size="small"
                       checked={formValues?.subCategoryRecommendations?.state}
@@ -285,24 +290,24 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
                         let responseDataApi =
                           templateInternalResponseData?.find(
                             (internalResponseData: any) =>
-                              internalResponseData?.module_id === 'FindingRecommendations',
+                              internalResponseData?.module_id === "FindingRecommendations",
                           ) || {};
 
                         if (!responseDataApi?.module_id) {
                           setError((prev: any) => ({
                             message:
-                              'You have no recommendation (sub category) internal attributes, Please create recommendations (sub category) internal attribute to enable this feature',
+                              "You have no recommendation (sub category) internal attributes, Please create recommendations (sub category) internal attribute to enable this feature",
                             state: true,
                           }));
                           return;
                         }
 
-                        setError({ state: false, message: '' });
+                        setError({ state: false, message: "" });
 
                         if (e.target.checked) {
                           responseData = {
                             ...responseDataApi,
-                            module_id: 'FindingsSubCategoryFindingsRecommendations',
+                            module_id: "FindingsSubCategoryFindingsRecommendations",
                           };
                           filterFields = [
                             ...(formValues?.subCategoryFindings?.filterFields || []),
@@ -346,7 +351,8 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
               <InputLabel
                 className="label__style"
                 htmlFor="subCategory"
-                sx={{ display: 'flex', alignItems: 'center' }}>
+                sx={{ display: "flex", alignItems: "center" }}
+              >
                 <Checkbox
                   size="small"
                   checked={formValues?.mainCategoryFindings?.state}
@@ -356,25 +362,25 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
                     let responseDataApi =
                       templateInternalResponseData?.find(
                         (internalResponseData: any) =>
-                          internalResponseData?.module_id === 'Findings',
+                          internalResponseData?.module_id === "Findings",
                       ) || {};
 
                     if (!responseDataApi?.module_id) {
                       setError((prev: any) => ({
                         message:
-                          'You have no findings (category) internal attributes, Please create findings (main category) internal attribute to enable this feature',
+                          "You have no findings (category) internal attributes, Please create findings (main category) internal attribute to enable this feature",
                         state: true,
                       }));
                       return;
                     }
 
-                    setError({ state: false, message: '' });
+                    setError({ state: false, message: "" });
 
                     if (e.target.checked) {
                       responseData = {
                         ...responseDataApi,
-                        module_id: 'FindingsMainCategoryFindings',
-                        field: 'description',
+                        module_id: "FindingsMainCategoryFindings",
+                        field: "description",
                       };
                       filterFields = [
                         ...(formValues?.[parentItem?.id]?.filterFields || []),
@@ -390,7 +396,7 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
                       ...prev,
                       [parentItem?.id]: {
                         state: false,
-                        label: 'parent',
+                        label: "parent",
                         id: parentItem?.id,
                         filterFields,
                       },
@@ -416,13 +422,15 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
               </InputLabel>
               <div
                 className={`nest__level-1 ${
-                  formValues?.mainCategoryFindings?.state ? 'active' : ''
-                }`}>
+                  formValues?.mainCategoryFindings?.state ? "active" : ""
+                }`}
+              >
                 {formValues?.mainCategoryFindings?.state && (
                   <InputLabel
                     className="label__style"
                     htmlFor="subCategory"
-                    sx={{ display: 'flex', alignItems: 'center' }}>
+                    sx={{ display: "flex", alignItems: "center" }}
+                  >
                     <Checkbox
                       size="small"
                       checked={formValues?.mainCategoryFindingsRecommendations?.state}
@@ -432,24 +440,24 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
                         let responseDataApi =
                           templateInternalResponseData?.find(
                             (internalResponseData: any) =>
-                              internalResponseData?.module_id === 'FindingRecommendations',
+                              internalResponseData?.module_id === "FindingRecommendations",
                           ) || {};
 
                         if (!responseDataApi?.module_id) {
                           setError((prev: any) => ({
                             message:
-                              'You have no recommendations (category) internal attributes, Please create recommendations (category) internal attribute to enable this feature',
+                              "You have no recommendations (category) internal attributes, Please create recommendations (category) internal attribute to enable this feature",
                             state: true,
                           }));
                           return;
                         }
 
-                        setError({ state: false, message: '' });
+                        setError({ state: false, message: "" });
                         if (e.target.checked) {
                           responseData = {
                             ...responseDataApi,
-                            module_id: 'FindingsMainCategoryFindingsRecommendations',
-                            field: 'description',
+                            module_id: "FindingsMainCategoryFindingsRecommendations",
+                            field: "description",
                           };
                           filterFields = [
                             ...(formValues?.mainCategoryFindings?.id?.filterFields || []),
@@ -500,8 +508,9 @@ const FnrModal = ({ parentItem, fnrAction }: any) => {
                 addFnRFields({ values: formValues, item: parentItem });
                 // fnrAction?.setShowFnrField(false);
               }}
-              variant="outlined">
-              {parentItem?.['filterFields'] ? 'Update Questions' : 'Create Question'}
+              variant="outlined"
+            >
+              {parentItem?.["filterFields"] ? "Update Questions" : "Create Question"}
             </Button>
           </div>
         </div>

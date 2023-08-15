@@ -1,8 +1,8 @@
-import BasicCard from 'components/CalendarInfo';
-import { Avatar, Popover } from '@mui/material';
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import moment from 'moment';
+import BasicCard from "src/components/CalendarInfo";
+import { Avatar, Popover } from "@mui/material";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import moment from "moment";
 
 interface PopoverButtonProps {
   viewEventWithModal: (id: number) => void;
@@ -23,7 +23,7 @@ const PopoverButton = (events: any, eventName: string) => {
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? 'custom-calendar_popover' : undefined;
+  const id = open ? "custom-calendar_popover" : undefined;
 
   const startTime = new Date(events.events.event.start_date);
   const endTime = new Date(events.events.event.end_date);
@@ -41,13 +41,13 @@ const PopoverButton = (events: any, eventName: string) => {
   let event_sht = events.events.event;
   let event_type = event_sht.type;
 
-  let event_annotate = '';
-  let event_color = '';
+  let event_annotate = "";
+  let event_color = "";
 
   switch (event_type) {
-    case 'Event':
-      event_annotate = 'E';
-      event_color = 'orange';
+    case "Event":
+      event_annotate = "E";
+      event_color = "orange";
       break;
 
     // case 'Inspection':
@@ -55,27 +55,27 @@ const PopoverButton = (events: any, eventName: string) => {
     //   event_color = 'blue';
     //   break;
 
-    case 'Activity':
-      event_annotate = 'A';
-      event_color = 'green';
+    case "Activity":
+      event_annotate = "A";
+      event_color = "green";
       break;
 
-    case 'Template':
-      event_annotate = 'I';
-      event_color = 'purple';
+    case "Template":
+      event_annotate = "I";
+      event_color = "purple";
       break;
 
-    case 'Bookings':
-      event_annotate = 'B';
-      event_color = '#ea7a3d';
+    case "Bookings":
+      event_annotate = "B";
+      event_color = "#ea7a3d";
       break;
 
     default:
-      event_annotate = 'R';
-      event_color = 'red';
+      event_annotate = "R";
+      event_color = "red";
   }
 
-  console.info(event.inspector, 'jhjednje');
+  console.info(event.inspector, "jhjednje");
 
   return (
     <div id="PopoverButton">
@@ -83,22 +83,24 @@ const PopoverButton = (events: any, eventName: string) => {
         aria-describedby={id}
         onClick={handleClick}
         style={{
-          display: 'flex',
-          alignItems: 'center',
-        }}>
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
         <Avatar
           sx={{
             bgcolor: event_color,
 
             width: 20,
             height: 20,
-            fontSize: '12px',
-            marginRight: '7px',
-            marginTop: '0.8px',
-          }}>
+            fontSize: "12px",
+            marginRight: "7px",
+            marginTop: "0.8px",
+          }}
+        >
           {event_annotate}
-        </Avatar>{' '}
-        {event_sht.type === 'Bookings' ? event_sht.booking_id : event_sht.title || event_sht.name}
+        </Avatar>{" "}
+        {event_sht.type === "Bookings" ? event_sht.booking_id : event_sht.title || event_sht.name}
       </div>
       <Popover
         id={id}
@@ -108,9 +110,10 @@ const PopoverButton = (events: any, eventName: string) => {
         disableRestoreFocus
         onClose={handleClose}
         anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
-        }}>
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+      >
         <BasicCard
           id={events.events.event.id}
           title={events.events.event.title}

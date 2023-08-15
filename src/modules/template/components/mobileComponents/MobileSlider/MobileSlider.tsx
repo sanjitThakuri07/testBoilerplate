@@ -1,9 +1,9 @@
-import React from 'react';
-import { Slider } from '@mui/material';
+import React from "react";
+import { Slider } from "@mui/material";
 
-import ErrorComponent from 'components/Error';
-import { errorValue } from 'containers/template/validation/inputLogicCheck';
-import ExtraUserFields from 'containers/template/components/mobileComponents/ReusableMobileComponent/ExtraUserFields';
+import ErrorComponent from "src/components/Error";
+import { errorValue } from "containers/template/validation/inputLogicCheck";
+import ExtraUserFields from "containers/template/components/mobileComponents/ReusableMobileComponent/ExtraUserFields";
 
 export const RangeSlider = () => {
   const [value, setValue] = React.useState<number[]>([20, 37]);
@@ -19,9 +19,9 @@ export const RangeSlider = () => {
   return (
     <div id="RangeSlider">
       <Slider
-        getAriaLabel={() => 'Range slider'}
+        getAriaLabel={() => "Range slider"}
         value={value}
-        style={{ width: '93%' }}
+        style={{ width: "93%" }}
         onChange={handleChange}
         valueLabelDisplay="auto"
         getAriaValueText={valuetext}
@@ -50,13 +50,13 @@ const MobileSlider = ({
         <Slider
           aria-label="Slider"
           // defaultValue={1}
-          style={{ width: '100%' }}
+          style={{ width: "100%" }}
           getAriaValueText={valuetext}
           valueLabelDisplay="auto"
           step={Number(item?.variables?.step)}
           min={Number(item?.variables?.min_value)}
           max={Number(item?.variables?.max_value)}
-          value={value ? value : ''}
+          value={value ? value : ""}
           defaultValue={1}
           onChange={onChange}
           {...attr}
@@ -64,10 +64,11 @@ const MobileSlider = ({
       }
       <div
         style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}>
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
         <div>{item?.variables?.min_value}</div>
         <div>{item?.variables?.slider_value}</div>
         <div>{item?.variables?.max_value}</div>

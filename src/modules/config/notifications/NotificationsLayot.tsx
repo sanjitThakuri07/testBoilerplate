@@ -28,7 +28,7 @@ import { NOTIFICATION_FILTER_INITIAL_VALUE } from "src/modules/config/filterOpti
 import { fetchApI } from "src/modules/apiRequest/apiRequest";
 import { getDataInPopUp } from "./notificationAPI";
 import CustomPopUp from "src/components/CustomPopup/index";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 
 export default function NotificationsLayot() {
   const location = useLocation();

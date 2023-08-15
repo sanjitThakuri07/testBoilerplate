@@ -21,7 +21,7 @@ import { USER_ROLE_AND_PERMISSION_FILTER_INITIAL_VALUE } from "../filterOptionsL
 import { fetchTableData } from "src/modules/apiRequest/apiRequest";
 import FullPageLoader from "src/components/FullPageLoader";
 import CustomPopUp from "src/components/CustomPopup";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 import { lockFields } from "src/utils/url";
 
 // =============== USER DEPARTMENT AND USERS COMMON COMPONENT ==============

@@ -15,13 +15,13 @@ import {
 import { Formik, FormikProps } from "formik";
 import { commonTypeProps } from "src/interfaces/configs";
 import React, { FC, useEffect, useState } from "react";
-import { ServiceSchema } from "validationSchemas/config";
+import { ServiceSchema } from "src/validationSchemas/config";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
 import { activityTypeStore } from "src/store/zustand/globalStates/config";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchApI, fetchIndividualApi } from "src/modules/apiRequest/apiRequest";
-import DynamicSelectField from "containers/setting/profile/DynamicSelectField";
+import DynamicSelectField from "src/modules/setting/profile/DynamicSelectField";
 import ModalLayout from "src/components/ModalLayout";
 import DepartmentForm from "src/modules/config/users/userDepartment/DepartmentForm";
 import FullPageLoader from "src/components/FullPageLoader";
@@ -115,7 +115,7 @@ const ActivityTypesForm: FC<{
           param?.activityStatusId === undefined ? "created" : "updated"
         }  according to the way you customized.`}
         status="success"
-        confirmationIcon="/assets/icons/icon-success.svg"
+        confirmationIcon="src/assets/icons/icon-success.svg"
         isSuccess
         IsSingleBtn
         btnText="Go to activity type"

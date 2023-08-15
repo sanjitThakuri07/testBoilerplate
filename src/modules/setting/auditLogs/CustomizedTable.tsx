@@ -7,9 +7,9 @@ import {
   Grid,
   IconButton,
   Typography,
-} from '@mui/material';
-import React, { FC, useState } from 'react';
-import CloseIcon from '@mui/icons-material/Close';
+} from "@mui/material";
+import React, { FC, useState } from "react";
+import CloseIcon from "@mui/icons-material/Close";
 
 import {
   DndContext,
@@ -18,10 +18,10 @@ import {
   TouchSensor,
   useSensor,
   useSensors,
-} from '@dnd-kit/core';
+} from "@dnd-kit/core";
 
-import { arrayMove, SortableContext } from '@dnd-kit/sortable';
-import SortableItem from './SortableItem';
+import { arrayMove, SortableContext } from "@dnd-kit/sortable";
+import SortableItem from "./SortableItem";
 
 export interface DialogTitleProps {
   id: string;
@@ -40,11 +40,12 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
           aria-label="close"
           onClick={onClose}
           sx={{
-            position: 'absolute',
+            position: "absolute",
             right: 8,
             top: 8,
             color: (theme) => theme.palette.grey[500],
-          }}>
+          }}
+        >
           <CloseIcon />
         </IconButton>
       ) : null}
@@ -54,7 +55,7 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
 
 const CustomizedTable: FC<{
   modelOpen?: boolean;
-  onHide: (key: 'datepicker' | 'location' | 'customizedTable') => void;
+  onHide: (key: "datepicker" | "location" | "customizedTable") => void;
 }> = ({ modelOpen = true, onHide }) => {
   const mouseSensor = useSensor(MouseSensor);
   const touchSensor = useSensor(TouchSensor);
@@ -64,53 +65,53 @@ const CustomizedTable: FC<{
   const [items, setItems] = useState<{ id: number; label: string; checked: boolean }[]>([
     {
       id: 1,
-      label: 'Name',
+      label: "Name",
       checked: true,
     },
     {
       id: 2,
-      label: 'Location',
+      label: "Location",
       checked: true,
     },
     {
       id: 3,
-      label: 'Time Stamp',
+      label: "Time Stamp",
       checked: true,
     },
     {
       id: 4,
-      label: 'Event Description',
+      label: "Event Description",
       checked: false,
     },
     {
       id: 5,
-      label: 'Example',
+      label: "Example",
       checked: false,
     },
     {
       id: 6,
-      label: 'Example',
+      label: "Example",
       checked: true,
     },
     {
       id: 7,
-      label: 'Example',
+      label: "Example",
       checked: false,
     },
     {
       id: 8,
-      label: 'Example',
+      label: "Example",
       checked: false,
     },
     {
       id: 9,
-      label: 'Example',
+      label: "Example",
       checked: false,
     },
   ]);
 
   const handleClose = () => {
-    onHide('customizedTable');
+    onHide("customizedTable");
   };
 
   const handleDragStart = (props: any) => {};
@@ -147,12 +148,13 @@ const CustomizedTable: FC<{
       onClose={handleClose}
       aria-labelledby="customized-dialog-title"
       className="dialog-box"
-      open={modelOpen}>
+      open={modelOpen}
+    >
       <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
         <Grid container spacing={2}>
           <Grid item>
             <div className="icon-holder">
-              <img src="/assets/icons/featured.svg" alt="" />
+              <img src="src/assets/icons/featured.svg" alt="" />
             </div>
           </Grid>
         </Grid>
@@ -168,12 +170,13 @@ const CustomizedTable: FC<{
           onDragStart={handleDragStart}
           onDragEnd={handleDragEnd}
           onDragCancel={handleDragCancel}
-          sensors={sensors}>
+          sensors={sensors}
+        >
           <SortableContext items={items}>
             {items.map((x) => (
               <SortableItem key={x.id} id={x.id} handleSwitchChange={handleSwitchChange} item={x} />
               // <Stack direction="row" spacing={1} alignItems="center">
-              //   <img src="/assets/icons/dots.svg" />
+              //   <img src="src/assets/icons/dots.svg" />
               //   <IOSSwitch
               //     defaultChecked={x.checked}
               //     onChange={ev => handleSwitchChange(ev, x.id)}

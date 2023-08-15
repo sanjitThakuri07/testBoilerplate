@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { usePermissionStore } from "src/store/zustand/permission";
 import { permissionList } from "src/constants/permission";
 import { fetchTableData } from "src/modules/apiRequest/apiRequest";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 
 interface NavigateColumnProps {
   navigateColumnName: string;

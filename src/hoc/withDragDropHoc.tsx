@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useDrag, useDrop } from 'react-dnd';
-import { moduleIdsFnR } from 'utils/url';
+import React, { useState } from "react";
+import { useDrag, useDrop } from "react-dnd";
+import { moduleIdsFnR } from "src/utils/url";
 
 interface WithDragProps {
   WrappedComponent: any;
@@ -38,8 +38,9 @@ export const withDragHOC = ({ WrappedComponent, dragType, item, canDrag }: WithD
         ref={drag}
         style={{
           opacity: isDragging ? 0.5 : 1,
-          cursor: canDragStatus ? (isDragging ? 'grabbing' : 'grab') : 'not-allowed',
-        }}>
+          cursor: canDragStatus ? (isDragging ? "grabbing" : "grab") : "not-allowed",
+        }}
+      >
         <WrappedComponent {...props} {...rest} />
       </div>
     );
@@ -60,7 +61,7 @@ export const withDropHOC = ({ WrappedComponent, accept, onDrop }: WithDropProps)
     });
 
     return (
-      <div ref={drop} style={{ backgroundColor: isOver ? 'yellow' : 'white' }}>
+      <div ref={drop} style={{ backgroundColor: isOver ? "yellow" : "white" }}>
         <WrappedComponent {...props} />
       </div>
     );
@@ -91,7 +92,7 @@ export const withDragAndDropHOC = ({
     });
 
     return (
-      <div ref={drop} style={{ backgroundColor: isOver ? 'yellow' : 'white' }}>
+      <div ref={drop} style={{ backgroundColor: isOver ? "yellow" : "white" }}>
         <WrappedComponent {...props} hoverItem={hoverItem} setHoverItem={setHoverItem} />
       </div>
     );
@@ -108,7 +109,7 @@ export const withDragAndDropHOC = ({
     }));
 
     return (
-      <div ref={drag} style={{ opacity: isDragging ? 0.5 : 1, cursor: 'move' }}>
+      <div ref={drag} style={{ opacity: isDragging ? 0.5 : 1, cursor: "move" }}>
         <DropComponent {...props} />
       </div>
     );

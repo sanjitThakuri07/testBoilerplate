@@ -1,7 +1,7 @@
-import { Box, Typography } from '@mui/material';
-import React, { useState, useCallback, useEffect } from 'react';
-import { useDropzone, FileRejection } from 'react-dropzone';
-import './uploader.scss';
+import { Box, Typography } from "@mui/material";
+import React, { useState, useCallback, useEffect } from "react";
+import { useDropzone, FileRejection } from "react-dropzone";
+import "./uploader.scss";
 
 interface Accept {
   [key: string]: string[];
@@ -16,7 +16,7 @@ type Props = {
   maxSize?: number; // in MB (1MB = 1048576 bytes)
   error?: string;
   required?: boolean;
-  type: 'csv' | 'image';
+  type: "csv" | "image";
   alternativeHeadiing?: boolean;
 };
 
@@ -27,13 +27,13 @@ const Dropzone: React.FC<Props> = ({
   disabled = false,
   multiple = false,
   maxSize = 10,
-  error = '',
+  error = "",
   required = false,
-  type = 'image',
+  type = "image",
   alternativeHeadiing = false,
 }) => {
   const [rejected, setRejected] = useState(false);
-  const [passedError, setPassedError] = useState<string>(error || '');
+  const [passedError, setPassedError] = useState<string>(error || "");
   const [rejectMessages, setRejectMessages] = useState<string[]>([]);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const Dropzone: React.FC<Props> = ({
   const validateFileSize = (acceptedFiles: File[]): Promise<string[]> => {
     const messages: string[] = [];
 
-    if (type === 'csv') return new Promise((r) => r(messages));
+    if (type === "csv") return new Promise((r) => r(messages));
 
     return new Promise((res, rej) => {
       acceptedFiles.forEach((file) => {
@@ -58,7 +58,7 @@ const Dropzone: React.FC<Props> = ({
             const { width, height } = image;
 
             if (height > 500 || width > 500) {
-              messages.push('Incorrect image dimension');
+              messages.push("Incorrect image dimension");
               res(messages);
               return;
             }
@@ -75,17 +75,17 @@ const Dropzone: React.FC<Props> = ({
       setRejectMessages([]);
       if (rejectedFiles && rejectedFiles.length > 0) {
         setRejected(true);
-        setPassedError('');
+        setPassedError("");
         rejectedFiles.forEach((rejectedFile) => {
           setRejectMessages((prevErrors) => [
             ...prevErrors,
             ...rejectedFile.errors.map((error: any) => {
-              if (error.code === 'file-too-large') {
+              if (error.code === "file-too-large") {
                 return `File Size Larger ${maxSize}MB`;
               }
 
-              if (error.code === 'file-invalid-type') {
-                return `Only ${Object.values(accept).join('').replaceAll(".", " ")} allowed`;
+              if (error.code === "file-invalid-type") {
+                return `Only ${Object.values(accept).join("").replaceAll(".", " ")} allowed`;
               }
 
               return error.message;
@@ -96,7 +96,7 @@ const Dropzone: React.FC<Props> = ({
 
       const checkImageSize = await validateFileSize(acceptedFiles);
 
-      if (checkImageSize.length > 0 && type !== 'csv') {
+      if (checkImageSize.length > 0 && type !== "csv") {
         setRejectMessages([...rejectMessages, ...checkImageSize]);
         setRejected(true);
       } else {
@@ -122,14 +122,14 @@ const Dropzone: React.FC<Props> = ({
 
   const renderRejection = () => (
     // <ErrorMsg message={renderError()} icon="wtc-warning" />
-    <p style={{color: "red"}}>{renderError()}</p>
+    <p style={{ color: "red" }}>{renderError()}</p>
   );
 
   const renderArea = (
     <Box className="text-center" id="hell">
       <img
         id="upload_csv_icon"
-        src="/assets/icons/upload.svg"
+        src="src/assets/icons/upload.svg"
         width={40}
         height={40}
         alt="upload here"
@@ -142,7 +142,7 @@ const Dropzone: React.FC<Props> = ({
         <Typography variant="body1" component="p">
           <strong className="info-title">Click to upload</strong> or drag and drop <br />
           <small className="info">
-            {type === 'csv' ? 'CSV (max. 2 MB)' : 'SVG, PNG or JPG. (max. 400x400px)'}
+            {type === "csv" ? "CSV (max. 2 MB)" : "SVG, PNG or JPG. (max. 400x400px)"}
           </small>
         </Typography>
       )}
@@ -158,9 +158,10 @@ const Dropzone: React.FC<Props> = ({
         {(rejected || error) && renderRejection()}
       </div>
       <div
-        className={`drop-input ${disabled ? 'dimmed' : ''} ${isDragActive ? 'drag-active' : ''}
+        className={`drop-input ${disabled ? "dimmed" : ""} ${isDragActive ? "drag-active" : ""}
         `}
-        {...getRootProps()}>
+        {...getRootProps()}
+      >
         <input {...getInputProps()} multiple={multiple} disabled={disabled} />
         {renderArea}
       </div>

@@ -26,7 +26,7 @@ import CommonFilter, {
   converToProperFormikFormat,
 } from "src/modules/config/Filters/CommonFilter";
 import CustomPopUp from "src/components/CustomPopup/index";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 
 // =============== Contractor and services common component ==============
 export default function Contractor() {

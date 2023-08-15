@@ -10,7 +10,7 @@ import {
 import { FormikProps } from "formik";
 import { MenuOptions, Phone, Profile } from "src/interfaces/profile";
 import { FC, useEffect, useState } from "react";
-import UploadImage from "assets/icons/Icon.svg";
+import UploadImage from "src/assets/icons/Icon.svg";
 import "./phoneNumberInput.scss";
 import { loggedUserDataStore } from "src/store/zustand/globalStates/loggedUserData";
 
@@ -24,7 +24,7 @@ interface IProps {
   defaultCode?: Number;
 }
 
-// IconComponent={() => <img src="/assets/icons/cheveron-down.svg" />}>
+// IconComponent={() => <img src="src/assets/icons/cheveron-down.svg" />}>
 
 const PhoneNumberInput: FC<IProps> = ({
   formikBag,
@@ -167,7 +167,7 @@ const PhoneNumberInput: FC<IProps> = ({
               startIcon={
                 <img
                   alt=""
-                  src="/assets/icons/plus.svg"
+                  src="src/assets/icons/plus.svg"
                   style={{
                     opacity: isViewOnly ? 0.5 : 1,
                   }}

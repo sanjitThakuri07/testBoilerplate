@@ -27,7 +27,7 @@ import AuthFooter from "../../../components/AuthFooter";
 import { Form } from "formik";
 import { Formik, Field, FormikProps } from "formik";
 import { SignInSchema } from "src/components/validationSchema";
-import { getAPI, postAPI } from "src/lib/axios/src/lib/axios/axiosClient";
+import { getAPI, postAPI } from "src/lib/axios/src/lib/axios";
 import { userDataStore } from "src/store/zustand/globalStates/userData";
 import jwtDecode from "jwt-decode";
 import { loggedUserDataStore } from "src/store/zustand/globalStates/loggedUserData";

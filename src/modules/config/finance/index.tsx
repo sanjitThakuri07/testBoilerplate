@@ -19,7 +19,7 @@ import { FINANCE_FILTER_INITIAL_VALUE } from "../filterOptionsList";
 import FullPageLoader from "src/components/FullPageLoader";
 import { fetchTableData } from "src/modules/apiRequest/apiRequest";
 import CustomPopUp from "src/components/CustomPopup/index";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 
 export default function FinanceConfiguration() {
   const location = useLocation();

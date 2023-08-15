@@ -14,9 +14,9 @@ import React, { FC, MouseEvent, useState } from "react";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import AddIcon from "@mui/icons-material/Add";
-import ModalLayout from "components/ModalLayout";
+import ModalLayout from "src/components/ModalLayout";
 import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
-import InspectionDateIcon from "assets/template/icons/inspectionDate.png";
+import InspectionDateIcon from "src/assets/template/icons/inspectionDate.png";
 import { CheckBox } from "@mui/icons-material";
 import ComponentWrapper, {
   LabelWrapper,

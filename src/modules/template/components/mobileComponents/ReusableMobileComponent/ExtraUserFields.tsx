@@ -11,7 +11,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { deleteHandler } from "./extraUserApiRequest";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import AddIcon from "@mui/icons-material/Add";
-import { fileExtensions } from "utils/fileExtensionChecker";
+import { fileExtensions } from "src/utils/fileExtensionChecker";
 import FullPageLoader from "src/components/FullPageLoader";
 
 interface ExtraUserFieldsProps {
@@ -203,7 +203,7 @@ const ExtraUserFields = ({
         confirmationHeading={`Do you want to delete ${individualAction?.title}?`}
         confirmationDesc={`This ${individualAction?.title} activity will be deleted.`}
         status="warning"
-        confirmationIcon="/assets/icons/icon-feature.svg"
+        confirmationIcon="src/assets/icons/icon-feature.svg"
         loader={isDelete}
       />
       <div id="ExtraUserFields">
@@ -315,7 +315,7 @@ const ExtraUserFields = ({
                           setIndividualAction(it);
                         }}
                       >
-                        <img src="/assets/icons/icon-edit.svg" alt="" />
+                        <img src="src/assets/icons/icon-edit.svg" alt="" />
                       </button>
                       <button
                         onClick={(e: any) => {
@@ -324,7 +324,7 @@ const ExtraUserFields = ({
                         }}
                         type="button"
                       >
-                        <img src="/assets/icons/icon-trash.svg" alt="" />
+                        <img src="src/assets/icons/icon-trash.svg" alt="" />
                       </button>
                     </div>
                   </div>

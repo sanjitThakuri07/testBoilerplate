@@ -107,7 +107,7 @@ export default function TemplateTopBar({
       <ConfirmationModal
         openModal={isBackModal}
         setOpenModal={setIsBackModal}
-        confirmationIcon={"/assets/icons/icon-feature.svg"}
+        confirmationIcon={"src/assets/icons/icon-feature.svg"}
         handelConfirmation={() => navigate(-1)}
         confirmationHeading={`Are you sure you want to go back?`}
         confirmationDesc={`Your entire ${paramsDatas} data will be erased completely!`}

@@ -1,7 +1,7 @@
-import { IOSSwitch } from 'components/switch/IosSwitch';
-import { useSortable } from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
-import { Grid, Stack, Typography } from '@mui/material';
+import { IOSSwitch } from "src/components/switch/IosSwitch";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+import { Grid, Stack, Typography } from "@mui/material";
 
 function SortableItem(props: any) {
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
@@ -18,7 +18,11 @@ function SortableItem(props: any) {
     <div ref={props?.disabled ? null : setNodeRef} style={style} {...attributes}>
       <Grid container spacing={1}>
         <Grid item>
-          <img src="/assets/icons/dots.svg" alt="" {...(props?.disabled ? {} : { ...listeners })} />
+          <img
+            src="src/assets/icons/dots.svg"
+            alt=""
+            {...(props?.disabled ? {} : { ...listeners })}
+          />
         </Grid>
         <Grid item>
           <IOSSwitch

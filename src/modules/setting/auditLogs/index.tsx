@@ -22,7 +22,7 @@ import BASDataTable from "src/modules/table/BASDataTable";
 import { usePermissionStore } from "src/store/zustand/permission";
 import { fetchApI, fetchTableData } from "src/modules/apiRequest/apiRequest";
 import { useSnackbar } from "notistack";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 import { BOOKING_FILTER_INITIAL_VALUE } from "src/modules/config/filterOptionsList";
 import { permissionList } from "src/constants/permission";
 import CommonFilter, {

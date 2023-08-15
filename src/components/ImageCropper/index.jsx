@@ -1,8 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from "react";
 
-import ReactCrop from 'react-image-crop';
-import 'react-image-crop/dist/ReactCrop.css';
-import MaterialModal from 'components/MaterailModal';
+import ReactCrop from "react-image-crop";
+import "react-image-crop/dist/ReactCrop.css";
+import MaterialModal from "src/components/MaterailModal";
 
 function base64ToBuffer(base64) {
   const binaryString = atob(base64);
@@ -28,12 +28,12 @@ function CropDemo({ file, updateFile }) {
 
   const getCroppedImg = async () => {
     try {
-      const canvas = document.createElement('canvas');
+      const canvas = document.createElement("canvas");
       const scaleX = image.naturalWidth / image.width;
       const scaleY = image.naturalHeight / image.height;
       canvas.width = crop.width;
       canvas.height = crop.height;
-      const ctx = canvas.getContext('2d');
+      const ctx = canvas.getContext("2d");
       ctx.drawImage(
         image,
         crop.x * scaleX,
@@ -46,11 +46,11 @@ function CropDemo({ file, updateFile }) {
         crop.height,
       );
 
-      const base64Image = canvas.toDataURL('image/jpeg', 1);
+      const base64Image = canvas.toDataURL("image/jpeg", 1);
       setResult(base64Image);
       updateFile?.({ base64: base64Image, preview: base64Image, update: true });
     } catch (e) {
-      console.log('crop the image=> error');
+      console.log("crop the image=> error");
     }
 
     setShowCropImage(true);
@@ -69,7 +69,8 @@ function CropDemo({ file, updateFile }) {
           <ReactCrop
             crop={crop}
             onChange={setCrop}
-            style={{ display: showCropImage ? 'none' : 'block' }}>
+            style={{ display: showCropImage ? "none" : "block" }}
+          >
             <img
               src={srcImg}
               alt=""
@@ -79,7 +80,7 @@ function CropDemo({ file, updateFile }) {
             />
           </ReactCrop>
           <div
-          style={{textDecoration:'underline',margin:'0.5rem 0',cursor:'pointer'}}
+            style={{ textDecoration: "underline", margin: "0.5rem 0", cursor: "pointer" }}
             className="cropButton"
             onClick={() => {
               let cropImage = showCropImage;
@@ -87,8 +88,9 @@ function CropDemo({ file, updateFile }) {
               if (!cropImage) {
                 getCroppedImg();
               }
-            }}>
-            {showCropImage ? 'Re-crop Image' : 'Get Cropped Image'}
+            }}
+          >
+            {showCropImage ? "Re-crop Image" : "Get Cropped Image"}
           </div>
         </div>
       )}

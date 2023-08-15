@@ -4,8 +4,8 @@ import React, { FC, MouseEvent } from "react";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import AddIcon from "@mui/icons-material/Add";
-import ModalLayout from "components/ModalLayout";
-import DocumentNumberIcon from "assets/template/icons/documentNumber.png";
+import ModalLayout from "src/components/ModalLayout";
+import DocumentNumberIcon from "src/assets/template/icons/documentNumber.png";
 import ComponentWrapper, {
   LabelWrapper,
   BodyWrapper,

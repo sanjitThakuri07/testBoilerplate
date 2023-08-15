@@ -21,13 +21,13 @@ import { ExternalConnectionProps } from "src/interfaces/configs";
 import { useSnackbar } from "notistack";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ExternalResponseSetValidationSchema } from "validationSchemas/ExternalResponseSet";
+import { ExternalResponseSetValidationSchema } from "src/validationSchemas/ExternalResponseSet";
 import { authenticate_data, fetchApI, postApiData, putApiData } from "./apiRequest";
 import "./form.style.scss";
 
 import { TextField } from "@mui/material";
 import TableRow from "@mui/material/TableRow";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 import { deleteAPiData } from "src/modules/apiRequest/apiRequest";
 
 const TableCellCustom = ({
@@ -67,10 +67,10 @@ const TableCellCustom = ({
             color="primary"
             id={index}
             checked={selectedRow.includes(data)}
-            checkedIcon={<img src="/assets/icons/icon-check.svg" alt="check" />}
-            icon={<img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+            checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
+            icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
             indeterminateIcon={
-              <img src="/assets/icons/icon-check-remove.svg" alt="indeterminate" />
+              <img src="src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
             }
             onChange={(event) => {
               setFieldValue(`tableValues.${index}.checked`, event.target.checked);
@@ -655,12 +655,14 @@ const ExternalResponseSetForm: React.FC<{
                                   color="primary"
                                   checked={selectedRow?.length === moduleValues?.length}
                                   checkedIcon={
-                                    <img src="/assets/icons/icon-check.svg" alt="check" />
+                                    <img src="src/assets/icons/icon-check.svg" alt="check" />
                                   }
-                                  icon={<img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+                                  icon={
+                                    <img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />
+                                  }
                                   indeterminateIcon={
                                     <img
-                                      src="/assets/icons/icon-check-remove.svg"
+                                      src="src/assets/icons/icon-check-remove.svg"
                                       alt="indeterminate"
                                     />
                                   }
@@ -736,14 +738,14 @@ const ExternalResponseSetForm: React.FC<{
                                     color="primary"
                                     checked={selectedRow?.length === moduleValues?.length}
                                     checkedIcon={
-                                      <img src="/assets/icons/icon-check.svg" alt="check" />
+                                      <img src="src/assets/icons/icon-check.svg" alt="check" />
                                     }
                                     icon={
-                                      <img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />
+                                      <img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />
                                     }
                                     indeterminateIcon={
                                       <img
-                                        src="/assets/icons/icon-check-remove.svg"
+                                        src="src/assets/icons/icon-check-remove.svg"
                                         alt="indeterminate"
                                       />
                                     }

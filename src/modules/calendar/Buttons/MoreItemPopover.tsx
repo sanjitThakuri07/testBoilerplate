@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import Popover from '@mui/material/Popover';
-import Button from '@mui/material/Button';
-import BasicCard from 'components/CalendarInfo';
+import Popover from "@mui/material/Popover";
+import Button from "@mui/material/Button";
+import BasicCard from "src/components/CalendarInfo";
 
 interface MoreItemPopoverProps {
   event: any;
@@ -20,7 +20,7 @@ const MoreItemPopover = ({ event }: MoreItemPopoverProps) => {
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
+  const id = open ? "simple-popover" : undefined;
 
   return (
     <div>
@@ -30,9 +30,10 @@ const MoreItemPopover = ({ event }: MoreItemPopoverProps) => {
         anchorEl={anchorEl}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
-        }}>
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+      >
         {/* <span aria-describedby={id} onClick={handleClick}> */}
         {/* <BasicCard
           // onClickCard={handleClick}

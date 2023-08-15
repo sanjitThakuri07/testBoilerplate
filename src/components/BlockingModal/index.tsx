@@ -1,4 +1,4 @@
-import BasicModal from "components/MaterailModal";
+import BasicModal from "src/components/MaterailModal";
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 

@@ -1,7 +1,7 @@
 import { Avatar, Button, Divider, IconButton, Popover } from "@mui/material";
 import React from "react";
 import LoginIcon from "@mui/icons-material/Login";
-import BasicCard from "components/CalendarInfo";
+import BasicCard from "src/components/CalendarInfo";
 import AddEvent from "./event/AddEvent";
 import moment from "moment";
 import { permissionList } from "src/constants/permission";

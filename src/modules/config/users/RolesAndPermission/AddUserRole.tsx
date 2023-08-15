@@ -75,7 +75,7 @@ const AddUserRole = ({ generalCardContainer, setOpenAddModal, setIsSuccess }: an
           param.inspectionNameId === undefined ? "created" : "updated"
         }  according to the way you customized.`}
         status="success"
-        confirmationIcon="/assets/icons/icon-success.svg"
+        confirmationIcon="src/assets/icons/icon-success.svg"
         isSuccess
         IsSingleBtn
         btnText="Go to inspection types"

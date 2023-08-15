@@ -1,4 +1,4 @@
-import ProfilePicture from "containers/setting/profile/ProfilePicture";
+import ProfilePicture from "src/modules/setting/profile/ProfilePicture";
 import {
   Box,
   FormGroup,
@@ -9,12 +9,12 @@ import {
   Typography,
 } from "@mui/material";
 import { ChangeEvent, useEffect, useState } from "react";
-import DynamicSelectField from "containers/setting/profile/DynamicSelectField";
-import PhoneNumberInput from "containers/setting/profile/PhoneNumberInput";
+import DynamicSelectField from "src/modules/setting/profile/DynamicSelectField";
+import PhoneNumberInput from "src/modules/setting/profile/PhoneNumberInput";
 import SettingFooter from "src/components/footer/SettingFooter";
 import { FormikFormHelpers } from "src/interfaces/utils";
 import { useFormik } from "formik";
-import { OrganizationSettingDetailsSchema } from "validationSchemas/OrganizationSetting";
+import { OrganizationSettingDetailsSchema } from "src/validationSchemas/OrganizationSetting";
 import { IOrganizationSettingDetails } from "src/interfaces/organizationSetting";
 import { getAPI, postAPI } from "src/lib/axios";
 import { MenuOptions } from "src/interfaces/profile";

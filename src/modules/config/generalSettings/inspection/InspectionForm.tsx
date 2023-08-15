@@ -15,7 +15,7 @@ import {
 import { Formik, FormikProps } from "formik";
 import { RegionProps } from "src/interfaces/configs";
 import React, { FC, useState } from "react";
-import { ConfigRegionsSchema } from "validationSchemas/config";
+import { ConfigRegionsSchema } from "src/validationSchemas/config";
 import { postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
 import { useConfigStore } from "src/store/zustand/globalStates/config";
@@ -37,7 +37,7 @@ const InspectionForm: FC<{ region: RegionProps }> = ({ region }) => {
         confirmationHeading="Region created successfully!"
         confirmationDesc="The region table content has been successfully updated according to the way you customized."
         status="success"
-        confirmationIcon="/assets/icons/icon-success.svg"
+        confirmationIcon="src/assets/icons/icon-success.svg"
         isSuccess
         IsSingleBtn
         btnText="View"

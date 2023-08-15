@@ -19,10 +19,10 @@ import {
 } from "@mui/material";
 import { Formik, FormikProps, Field, FieldArray } from "formik";
 import * as Yup from "yup";
-import ProfilePicture from "containers/setting/profile/ProfilePicture";
+import ProfilePicture from "src/modules/setting/profile/ProfilePicture";
 import { useNavigate, useParams } from "react-router-dom";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
-import PhoneNumberInput from "containers/setting/profile/PhoneNumberInput";
+import PhoneNumberInput from "src/modules/setting/profile/PhoneNumberInput";
 import SaveIcon from "../../../assets/icons/save_icon.svg";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { customerProps } from "src/interfaces/configs";
@@ -31,10 +31,10 @@ import Radio from "src/components/Radio";
 import MultiEmailAdd, { inputFieldType } from "src/components/MultiEmail/MultiEmailAdd";
 import FileUploader from "src/components/upload";
 import MultiUploader from "src/components/MultiFileUploader/index";
-import { allCustomerValidation } from "validationSchemas/ContractorValidation";
+import { allCustomerValidation } from "src/validationSchemas/ContractorValidation";
 import ResetTextField from "./ResetTextField";
 import FullPageLoader from "src/components/FullPageLoader";
-import DynamicSelectField from "containers/setting/profile/DynamicSelectField";
+import DynamicSelectField from "src/modules/setting/profile/DynamicSelectField";
 import "./form.style.scss";
 import ModalLayout from "src/components/ModalLayout";
 import ServiceForm from "../../services/ServiceForm";
@@ -1181,7 +1181,7 @@ const CustomerForm: React.FC<{
                                         password: '',
                                       });
                                     }}
-                                    startIcon={<img alt="" src="/assets/icons/plus.svg" />}
+                                    startIcon={<img alt="" src="src/assets/icons/plus.svg" />}
                                     className="link-icon">
                                     Add Another Customer
                                   </Button>

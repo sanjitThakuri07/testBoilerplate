@@ -9,8 +9,8 @@ import {
   DialogTitle,
   IconButton,
 } from "@mui/material";
-import { converText } from "containers/table/BASDataTable";
-import { RadioOptions } from "utils/FindingsUtils";
+import { converText } from "src/modules/table/BASDataTable";
+import { RadioOptions } from "src/utils/FindingsUtils";
 
 interface CustomPopUpProps extends ButtonProps {
   // Define any additional props for your component here

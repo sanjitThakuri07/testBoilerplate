@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from "react";
 import {
   EditorState,
   Modifier,
@@ -7,15 +7,15 @@ import {
   convertFromRaw,
   convertFromHTML,
   ContentState,
-} from 'draft-js';
-import { Editor } from 'react-draft-wysiwyg';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import draftToHtml from 'draftjs-to-html';
-import styles from './select.module.css';
-import { v4 as uuidv4 } from 'uuid';
-import MultiSelect from 'components/CustomMultiSelect/index';
-import Button from '@mui/material/Button';
-import RefreshIcon from '@mui/icons-material/Refresh';
+} from "draft-js";
+import { Editor } from "react-draft-wysiwyg";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import draftToHtml from "draftjs-to-html";
+import styles from "./select.module.css";
+import { v4 as uuidv4 } from "uuid";
+import MultiSelect from "src/components/CustomMultiSelect/index";
+import Button from "@mui/material/Button";
+import RefreshIcon from "@mui/icons-material/Refresh";
 
 // import { convertFromHTML } from 'draft-js-import-html';
 
@@ -47,9 +47,10 @@ const CustomBackendTextButton = ({ index, deleteOption, text }: any) => {
         e.stopPropagation();
         //  deleteOption(index);
       }}
-      className={styles['option-badge']}>
+      className={styles["option-badge"]}
+    >
       {text}
-      <span className={styles['remove-btn']}>&times;</span>
+      <span className={styles["remove-btn"]}>&times;</span>
     </button>
   );
 };
@@ -82,7 +83,7 @@ function CreateCustomDecorator(
     const onClick = (e: any) => {
       e.preventDefault();
       if (!e.target) return;
-      const button = e.target.closest('button');
+      const button = e.target.closest("button");
       let value = button?.textContent;
       let { start, text } = children?.[0]?.props;
       removeText(value);
@@ -95,14 +96,15 @@ function CreateCustomDecorator(
 
     return (
       <button
-        style={{ color: 'red', display: 'inline-flex' }}
+        style={{ color: "red", display: "inline-flex" }}
         disabled={disabled}
         // contentEditable={false}
         onClick={onClick}
-        className={`custom__button-editor ${styles['option-badge']} ${styles['custom__button-editor']}`}
-        data-placement={placementCount}>
+        className={`custom__button-editor ${styles["option-badge"]} ${styles["custom__button-editor"]}`}
+        data-placement={placementCount}
+      >
         {text}
-        {!disabled && <span className={styles['remove-btn']}>&times;</span>}
+        {!disabled && <span className={styles["remove-btn"]}>&times;</span>}
       </button>
     );
   };
@@ -144,7 +146,7 @@ function MyEditor({
   const editorRef = useRef(null);
   const [deleteText, setDeleteText] = useState({
     placement: null,
-    value: '',
+    value: "",
     startIndex: null,
   });
 
@@ -152,56 +154,56 @@ function MyEditor({
   const toolbar = {
     blockType: {
       inDropdown: false,
-      options: ['H1', 'H2', 'H3', 'H4', 'Normal', 'Blockquote'],
+      options: ["H1", "H2", "H3", "H4", "Normal", "Blockquote"],
       className: undefined,
       component: undefined,
       dropdownClassName: undefined,
     },
-    options: ['blockType', 'inline', 'list', 'textAlign', 'link', 'embedded'],
+    options: ["blockType", "inline", "list", "textAlign", "link", "embedded"],
 
     inline: {
       inDropdown: false,
       className: undefined,
       component: undefined,
       dropdownClassName: undefined,
-      options: ['bold', 'italic', 'underline'],
+      options: ["bold", "italic", "underline"],
     },
     link: {
-      options: ['link', 'unlink'],
+      options: ["link", "unlink"],
       showOpenOptionOnHover: false,
     },
     list: {
-      options: ['ordered', 'unordered'],
+      options: ["ordered", "unordered"],
     },
   };
 
   //   localization
   const localization = {
-    locale: 'en-us',
+    locale: "en-us",
     translations: {
-      'generic.add': 'Add',
-      'generic.cancel': 'Cancel',
+      "generic.add": "Add",
+      "generic.cancel": "Cancel",
 
-      'components.controls.blocktype.normal': 'Normal',
-      'components.controls.blocktype.h2': 'Heading 1',
-      'components.controls.blocktype.h3': 'Heading 2',
-      'components.controls.blocktype.h4': 'Heading 3',
-      'components.controls.blocktype.blockquote': 'Blockquote',
+      "components.controls.blocktype.normal": "Normal",
+      "components.controls.blocktype.h2": "Heading 1",
+      "components.controls.blocktype.h3": "Heading 2",
+      "components.controls.blocktype.h4": "Heading 3",
+      "components.controls.blocktype.blockquote": "Blockquote",
 
-      'components.controls.embedded.embedded': 'Embedded',
-      'components.controls.embedded.embeddedlink': 'Embedded Link',
-      'components.controls.embedded.enterlink': 'Enter link',
+      "components.controls.embedded.embedded": "Embedded",
+      "components.controls.embedded.embeddedlink": "Embedded Link",
+      "components.controls.embedded.enterlink": "Enter link",
 
-      'components.controls.link.linkTitle': 'Link Title',
-      'components.controls.link.linkTarget': 'Link Target',
-      'components.controls.link.linkTargetOption': 'Open link in new window',
-      'components.controls.link.link': 'Link',
-      'components.controls.link.unlink': 'Unlink',
+      "components.controls.link.linkTitle": "Link Title",
+      "components.controls.link.linkTarget": "Link Target",
+      "components.controls.link.linkTargetOption": "Open link in new window",
+      "components.controls.link.link": "Link",
+      "components.controls.link.unlink": "Unlink",
 
-      'components.controls.image.image': 'Image',
-      'components.controls.image.fileUpload': 'File Upload',
-      'components.controls.image.byURL': 'URL',
-      'components.controls.image.dropFileText': 'Drop the file or click to upload',
+      "components.controls.image.image": "Image",
+      "components.controls.image.fileUpload": "File Upload",
+      "components.controls.image.byURL": "URL",
+      "components.controls.image.dropFileText": "Drop the file or click to upload",
     },
   };
 
@@ -232,10 +234,10 @@ function MyEditor({
         anchorOffset: start,
         focusOffset: end,
       });
-      const newContentState = Modifier.replaceText(contentState, selectionState, '');
-      const newEditorState = EditorState.push(editorState, newContentState, 'delete-character');
+      const newContentState = Modifier.replaceText(contentState, selectionState, "");
+      const newEditorState = EditorState.push(editorState, newContentState, "delete-character");
       setEditorState(newEditorState);
-      setDeleteText({ placement: null, value: '', startIndex: null });
+      setDeleteText({ placement: null, value: "", startIndex: null });
       setContentState?.(draftToHtml(convertToRaw(newEditorState.getCurrentContent())));
       return;
     }
@@ -260,12 +262,12 @@ function MyEditor({
       const contentState = editorState.getCurrentContent();
       const selectionState = editorState.getSelection();
       const newContentState = Modifier.insertText(contentState, selectionState, `{{${text}}} `);
-      const newEditorState = EditorState.push(editorState, newContentState, 'insert-characters');
+      const newEditorState = EditorState.push(editorState, newContentState, "insert-characters");
       setEditorState(newEditorState);
     }
 
     return (
-      <div className={styles['custom__select-container']}>
+      <div className={styles["custom__select-container"]}>
         <MultiSelect
           options={backendFields}
           onChange={(data?: any) => {
@@ -273,7 +275,7 @@ function MyEditor({
               setSelectTag(data);
               addData(data?.value);
             } else {
-              setSelectTag('');
+              setSelectTag("");
             }
           }}
           value={selectTag}
@@ -286,7 +288,7 @@ function MyEditor({
   useEffect(() => {
     if (values?.content?.length || values?.id) {
       if (values?.content) {
-        let compare = '<p></p>\n';
+        let compare = "<p></p>\n";
         const blocksFromHTML = convertFromHTML(
           compare == values?.content ? `<p>Type here...</p>` : values?.content,
         );
@@ -294,7 +296,7 @@ function MyEditor({
           blocksFromHTML.contentBlocks,
           blocksFromHTML.entityMap,
         );
-        const newEditorState = EditorState.push(editorState, state, 'insert-characters');
+        const newEditorState = EditorState.push(editorState, state, "insert-characters");
         setEditorState(newEditorState);
       }
     }
@@ -305,11 +307,12 @@ function MyEditor({
       <>
         <h2
           style={{
-            color: '#283352',
-            fontWeight: '800',
-            fontSize: '15px',
-            letterSpacing: '1px',
-          }}>
+            color: "#283352",
+            fontWeight: "800",
+            fontSize: "15px",
+            letterSpacing: "1px",
+          }}
+        >
           {simpleTextEditor ? null : `To open backend field option type {`}
         </h2>
 
@@ -330,23 +333,24 @@ function MyEditor({
             onClick={() => {
               fetchAPIFunction?.();
             }}
-            style={{ marginBottom: '10px', float: 'right', position: 'relative', bottom: '-60px' }}>
+            style={{ marginBottom: "10px", float: "right", position: "relative", bottom: "-60px" }}
+          >
             Dynamic Fields
           </Button>
         )}
 
         <Editor
-          style={{ height: '100px' }}
+          style={{ height: "100px" }}
           editorState={editorState}
           onEditorStateChange={handleEditorChange}
-          toolbarClassName={`editor-toolbar ${styles['custom__toolbar']}`}
+          toolbarClassName={`editor-toolbar ${styles["custom__toolbar"]}`}
           wrapperClassName="editor-wrapper"
-          editorClassName={`editorcontainer ${disabled ? 'disabled' : ''} ${
+          editorClassName={`editorcontainer ${disabled ? "disabled" : ""} ${
             simpleTextEditor
-              ? 'simple_editor_component'
+              ? "simple_editor_component"
               : templateHeight
-              ? 'my-custom-editor__container'
-              : 'editor'
+              ? "my-custom-editor__container"
+              : "editor"
           }`}
           placeholder="Type here..."
           toolbar={simpleTextEditor ? toolbar : <></>}
@@ -354,8 +358,8 @@ function MyEditor({
           readOnly={disabled}
           toolbarCustomButtons={simpleTextEditor ? [] : [<ChooseBackendField />]}
           mention={{
-            separator: ' ',
-            trigger: '{',
+            separator: " ",
+            trigger: "{",
             suggestions: backendFields?.map((field: any) => ({
               ...field,
               text: `${field?.label}`,

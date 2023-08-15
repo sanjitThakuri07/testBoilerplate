@@ -25,7 +25,7 @@ import CommonFilter, {
 import CustomPopUp from "src/components/CustomPopup/index";
 import { queryMaker } from "src/utils/keyFunction";
 import useAppStore from "src/store/zustand/app";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 
 export default function GeneralSetting() {
   const location = useLocation();

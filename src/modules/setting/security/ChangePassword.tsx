@@ -13,10 +13,10 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { IPasswordCriteria, validatePassword } from "utils/validatePassword";
+import { IPasswordCriteria, validatePassword } from "src/utils/validatePassword";
 import { ChangeEvent } from "react";
 import { useFormik } from "formik";
-import PasswordSchema from "validationSchemas/Password";
+import PasswordSchema from "src/validationSchemas/Password";
 import SettingFooter from "src/components/footer/SettingFooter";
 import { FormikFormHelpers } from "src/interfaces/utils";
 import { postAPI } from "src/lib/axios";

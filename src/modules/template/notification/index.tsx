@@ -118,7 +118,7 @@ const NotificationControl = ({ notifyModal, setNotifyModal, setNotifyData, ...at
         }}
         confirmationHeading={`Do you sure want to delete`}
         status="warning"
-        confirmationIcon="/assets/icons/icon-feature.svg"
+        confirmationIcon="src/assets/icons/icon-feature.svg"
       />
     </>
   );

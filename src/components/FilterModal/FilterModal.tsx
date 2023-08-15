@@ -89,7 +89,7 @@ const FilterModal = ({
                     <Stack direction="row" alignItems="center" gap={"15px"}>
                       <Button
                         variant="outlined"
-                        startIcon={<img src="/assets/icons/filter.svg" alt="edit" />}
+                        startIcon={<img src="src/assets/icons/filter.svg" alt="edit" />}
                       />
                       <Stack>
                         <Typography
@@ -117,7 +117,7 @@ const FilterModal = ({
                       </Stack>
                     </Stack>
                     <IconButton component="label" onClick={() => setOpenModal(false)}>
-                      <img src="/assets/icons/cancel_icon.svg" alt="cancel" />
+                      <img src="src/assets/icons/cancel_icon.svg" alt="cancel" />
                     </IconButton>
                   </Stack>
                 </DialogTitle>

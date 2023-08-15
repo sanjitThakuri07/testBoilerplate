@@ -15,7 +15,7 @@ import { SystemParamaterPayload } from "src/interfaces/systemParamaters";
 import { useFormik } from "formik";
 import { getAPI, postAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
-import { SystemParamatersSchema } from "validationSchemas/SystemParamaters";
+import { SystemParamatersSchema } from "src/validationSchemas/SystemParamaters";
 import { FormikFormHelpers } from "src/interfaces/utils";
 import SettingFooter from "src/components/footer/SettingFooter";
 import * as yup from "yup";

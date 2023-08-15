@@ -1,6 +1,6 @@
-import { errorValue } from 'containers/template/validation/inputLogicCheck';
-import ErrorComponent from 'components/Error';
-import ExtraUserFields from '../ReusableMobileComponent/ExtraUserFields';
+import { errorValue } from "containers/template/validation/inputLogicCheck";
+import ErrorComponent from "src/components/Error";
+import ExtraUserFields from "../ReusableMobileComponent/ExtraUserFields";
 
 const MobileMedia = ({ item, value, onChange, handleFormikFields, errors, disabled }: any) => {
   return (

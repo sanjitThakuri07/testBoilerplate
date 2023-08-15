@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, ForwardedRef } from 'react';
+import React, { forwardRef, useState, ForwardedRef } from "react";
 
 // import CloseIcon from '@mui/icons/Close';
 import {
@@ -11,15 +11,15 @@ import {
   DialogTitle,
   IconButton,
   Typography,
-} from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
-import FullPageLoader from 'components/FullPageLoader';
-import { ClassNames } from '@emotion/react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { tableIndicatorProps } from './BASDataTable';
-import { IndividualFile } from 'components/MultiFileUploader/index';
-import { Link } from 'react-router-dom';
-import { CustomChipComponent } from 'components/CustomBadgeCreator/index';
+} from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+import FullPageLoader from "src/components/FullPageLoader/index";
+import { ClassNames } from "@emotion/react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { tableIndicatorProps } from "./BASDataTable";
+import { IndividualFile } from "src/components/MultiFileUploader/index";
+import { Link } from "react-router-dom";
+import { CustomChipComponent } from "src/components/CustomBadgeCreator/index";
 
 interface CustomPopUpProps extends ButtonProps {
   // Define any additional props for your component here
@@ -57,16 +57,17 @@ export const IndividualListDisplay = ({
   return (
     <li
       className={`${
-        nestedDomain?.toLowerCase() === 'findings' ? 'hover__effect-underline ' : ''
+        nestedDomain?.toLowerCase() === "findings" ? "hover__effect-underline " : ""
       }description__tab `}
       onClick={(e) => {
         e.stopPropagation();
-        if (domain?.toString().toLowerCase() === 'findings') {
+        if (domain?.toString().toLowerCase() === "findings") {
           handleClose?.();
           navigate?.(`/config/findings-recommendations?findings=${id}`);
         }
-      }}>
-      {children !== undefined ? children : ''}
+      }}
+    >
+      {children !== undefined ? children : ""}
     </li>
   );
 };
@@ -85,7 +86,7 @@ const CustomPopUp = (props: CustomPopUpProps) => {
 
   function getRedirectionLink() {
     const link = props?.ID
-      ? props?.title?.split(' ').reverse()[0]?.toString()?.toLowerCase() !== 'attachments'
+      ? props?.title?.split(" ").reverse()[0]?.toString()?.toLowerCase() !== "attachments"
         ? props?.tableIndicator?.subSectionUrl && props?.tableIndicator?.subSectionUrl(props?.ID)
         : props?.tableIndicator?.editFrontEndUrlGetter?.(props?.ID)
       : location?.pathname;
@@ -101,32 +102,33 @@ const CustomPopUp = (props: CustomPopUpProps) => {
       <div
         onClick={(e) => {
           e.stopPropagation();
-        }}>
+        }}
+      >
         {!!props?.data?.length ? (
           <Typography
             variant="subtitle1"
-            sx={{ fontSize: 'small', cursor: 'pointer' }}
+            sx={{ fontSize: "small", cursor: "pointer" }}
             component="div"
             onClick={handleOpen}
             //   sx={{ display: 'none' }}
             //   ref={ref}
           >
-            {props?.title?.toString()?.toLowerCase().includes('attachments') ? (
+            {props?.title?.toString()?.toLowerCase().includes("attachments") ? (
               <Button variant="outlined">View Attachments</Button>
-            ) : props?.tableIndicator?.popUpField?.componentType !== 'custom__chip' ? (
-              'View More'
+            ) : props?.tableIndicator?.popUpField?.componentType !== "custom__chip" ? (
+              "View More"
             ) : (
-              'View More'
+              "View More"
             )}
           </Typography>
         ) : (
-          <Link to={getRedirectionLink()} style={{ textDecoration: 'none' }}>
+          <Link to={getRedirectionLink()} style={{ textDecoration: "none" }}>
             {!!props?.tableIndicator?.showAddButton ? (
               <Button variant="outlined">
-                Add{' '}
+                Add{" "}
                 {props?.title
-                  ? props?.title?.split(' ').reverse()[0]?.toString()
-                  : 'Findings & Recommendations'}
+                  ? props?.title?.split(" ").reverse()[0]?.toString()
+                  : "Findings & Recommendations"}
               </Button>
             ) : (
               <>----</>
@@ -135,8 +137,8 @@ const CustomPopUp = (props: CustomPopUpProps) => {
         )}
         <Dialog open={open} onClose={handleClose} fullWidth={true} className="popup__list-styling">
           <DialogTitle className="popup__heading">
-            {props?.title || ''} here.
-            <span>View all {props?.title?.split(' ').reverse()[0]}</span>
+            {props?.title || ""} here.
+            <span>View all {props?.title?.split(" ").reverse()[0]}</span>
             <IconButton onClick={handleClose} className="close__icon">
               <CloseIcon />
             </IconButton>
@@ -144,11 +146,12 @@ const CustomPopUp = (props: CustomPopUpProps) => {
           <DialogContent className="popup__content">
             <ol
               className={`${
-                props?.title?.toString()?.toLowerCase().includes('attachments')
-                  ? 'remove__list-count'
-                  : ''
-              }`}>
-              {props?.tableIndicator?.popUpField?.componentType === 'custom__chip' && (
+                props?.title?.toString()?.toLowerCase().includes("attachments")
+                  ? "remove__list-count"
+                  : ""
+              }`}
+            >
+              {props?.tableIndicator?.popUpField?.componentType === "custom__chip" && (
                 <div className="chip__container-table">
                   {
                     // CustomChipComponent
@@ -157,7 +160,7 @@ const CustomPopUp = (props: CustomPopUpProps) => {
                         if (item instanceof Object) {
                           return (
                             <CustomChipComponent
-                              value={item?.[props?.tableIndicator?.popUpField?.fieldName || '']}
+                              value={item?.[props?.tableIndicator?.popUpField?.fieldName || ""]}
                               {...item}
                             />
                           );
@@ -166,11 +169,11 @@ const CustomPopUp = (props: CustomPopUpProps) => {
                   }
                 </div>
               )}
-              {props?.tableIndicator?.popUpField?.componentType !== 'custom__chip' &&
+              {props?.tableIndicator?.popUpField?.componentType !== "custom__chip" &&
                 props?.data?.length &&
                 props?.data?.map((item: any) => {
                   if (item instanceof Object) {
-                    const keyName = props?.tableIndicator?.popUpField?.fieldName || 'description';
+                    const keyName = props?.tableIndicator?.popUpField?.fieldName || "description";
                     return (
                       <IndividualListDisplay
                         key={item?.id}
@@ -178,12 +181,13 @@ const CustomPopUp = (props: CustomPopUpProps) => {
                         id={item?.id}
                         navigate={navigate}
                         individualData={item}
-                        domain={props?.title?.split(' ').reverse()[0]}>
+                        domain={props?.title?.split(" ").reverse()[0]}
+                      >
                         <p>{item?.[`${keyName}`]}</p>
                       </IndividualListDisplay>
                     );
                   } else {
-                    if (props?.title?.toLowerCase()?.includes('attachment')) {
+                    if (props?.title?.toLowerCase()?.includes("attachment")) {
                       return (
                         <IndividualListDisplay
                           key={item}
@@ -191,7 +195,8 @@ const CustomPopUp = (props: CustomPopUpProps) => {
                           id={item}
                           navigate={navigate}
                           individualData={item}
-                          domain={props?.title?.split(' ').reverse()[0]}>
+                          domain={props?.title?.split(" ").reverse()[0]}
+                        >
                           <IndividualFile file={item} openInNewWindow={props?.openInNewWindow} />
                         </IndividualListDisplay>
                       );

@@ -20,7 +20,7 @@ import React, { FC, useEffect, useState } from "react";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
 import { useFinanceBillingAgreementStore } from "src/store/zustand/globalStates/config";
-import { BillingAgreementSchema } from "validationSchemas/config";
+import { BillingAgreementSchema } from "src/validationSchemas/config";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchIndividualApi, postApiData, putApiData } from "src/modules/apiRequest/apiRequest";
 import {
@@ -104,7 +104,7 @@ const TariffRateType = ({ disabled, updateCard }: any) => {
         confirmationHeading="Tarifff Rate Type created successfully!"
         confirmationDesc="The tarifff Rate Type table content has been successfully updated according to the way you customized."
         status="success"
-        confirmationIcon="/assets/icons/icon-success.svg"
+        confirmationIcon="src/assets/icons/icon-success.svg"
         isSuccess
         IsSingleBtn
         btnText="Go to Tarifff Rate Type"

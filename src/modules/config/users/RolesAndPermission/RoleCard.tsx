@@ -30,7 +30,7 @@ const RoleCard: FC<
         confirmationHeading={`Do you want to delete role ${name}?`}
         confirmationDesc={`This ${name} role will be deleted`}
         status="warning"
-        confirmationIcon="/assets/icons/icon-feature.svg"
+        confirmationIcon="src/assets/icons/icon-feature.svg"
         loader={deleteLoading}
       />
 
@@ -49,7 +49,7 @@ const RoleCard: FC<
           <Grid item xs={3}>
             <div className="actions-btns-holder">
               <Button
-                startIcon={<img src="/assets/icons/icon-edit.svg" alt="edit" />}
+                startIcon={<img src="src/assets/icons/icon-edit.svg" alt="edit" />}
                 onClick={() => {
                   editRole(id);
                   navigate(id);
@@ -57,7 +57,7 @@ const RoleCard: FC<
               />
               {!lockFields.includes(name) && (
                 <Button
-                  startIcon={<img src="/assets/icons/icon-trash.svg" alt="delete" />}
+                  startIcon={<img src="src/assets/icons/icon-trash.svg" alt="delete" />}
                   onClick={() => {
                     setOpenModal(true);
                   }}

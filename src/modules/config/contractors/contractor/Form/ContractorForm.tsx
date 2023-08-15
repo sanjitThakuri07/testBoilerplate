@@ -15,18 +15,18 @@ import {
   Typography,
 } from "@mui/material";
 import { Formik, FormikProps, Field } from "formik";
-import ProfilePicture from "containers/setting/profile/ProfilePicture";
+import ProfilePicture from "src/modules/setting/profile/ProfilePicture";
 import { useNavigate, useParams } from "react-router-dom";
-import PhoneNumberInput from "containers/setting/profile/PhoneNumberInput";
+import PhoneNumberInput from "src/modules/setting/profile/PhoneNumberInput";
 import { contractorProps } from "src/interfaces/configs";
 import { useSnackbar, SnackbarKey, SnackbarMessage, OptionsObject } from "notistack";
 import Radio from "src/components/Radio";
 import MultiEmailAdd from "src/components/MultiEmail/MultiEmailAdd";
 import MultiUploader from "src/components/MultiFileUploader/index";
-import { allContractorValidationSchema } from "validationSchemas/ContractorValidation";
+import { allContractorValidationSchema } from "src/validationSchemas/ContractorValidation";
 import ResetTextField from "./ResetTextField";
 import FullPageLoader from "src/components/FullPageLoader";
-import DynamicSelectField from "containers/setting/profile/DynamicSelectField";
+import DynamicSelectField from "src/modules/setting/profile/DynamicSelectField";
 import ModalLayout from "src/components/ModalLayout";
 import ServiceForm from "../../services/ServiceForm";
 import { serviceProps } from "src/interfaces/configs";

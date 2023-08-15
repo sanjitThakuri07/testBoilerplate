@@ -4,7 +4,7 @@ import React, { FC, MouseEvent } from "react";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import AddIcon from "@mui/icons-material/Add";
-import NumberIcon from "assets/template/icons/number.png";
+import NumberIcon from "src/assets/template/icons/number.png";
 import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
 import ComponentWrapper, { LabelWrapper } from "containers/template/components/Wrapper";
 

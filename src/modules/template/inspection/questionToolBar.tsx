@@ -6,7 +6,7 @@ import useApiOptionsStore from "containers/template/store/apiOptionsTemplateStor
 import { findData } from "containers/template/validation/keyValidationFunction";
 import { validateInput } from "../validation/inputLogicCheck";
 import { Button } from "@mui/material";
-import MultiSelect from "components/CustomMultiSelect/version2";
+import MultiSelect from "src/components/CustomMultiSelect/version2";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { ErrorOutline } from "@mui/icons-material";
 

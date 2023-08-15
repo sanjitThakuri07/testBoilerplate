@@ -1,6 +1,6 @@
-import ErrorComponent from 'components/Error';
-import { errorValue } from 'containers/template/validation/inputLogicCheck';
-import ExtraUserFields from '../ReusableMobileComponent/ExtraUserFields';
+import ErrorComponent from "src/components/Error";
+import { errorValue } from "containers/template/validation/inputLogicCheck";
+import ExtraUserFields from "../ReusableMobileComponent/ExtraUserFields";
 
 const MobileDateTime = ({
   item,
@@ -13,18 +13,18 @@ const MobileDateTime = ({
 }: any) => {
   const type =
     item.variables?.time && item.variables?.date
-      ? 'datetime-local'
+      ? "datetime-local"
       : item.variables?.date
-      ? 'date'
+      ? "date"
       : item.variables?.time
-      ? 'time'
-      : 'date';
+      ? "time"
+      : "date";
   return (
     <div id="MobileDateTime">
       <div className="mobile_component_box_wrapper_heading">{item.label}</div>
       <input
         type={type}
-        style={{ width: '100%', padding: '0.5rem 0', fontFamily: 'Inter, sans-serif' }}
+        style={{ width: "100%", padding: "0.5rem 0", fontFamily: "Inter, sans-serif" }}
         value={value}
         onChange={onChange}
         {...attr}

@@ -1,7 +1,7 @@
-import { TextField } from '@mui/material';
-import Autocomplete from '@mui/material/Autocomplete';
+import { TextField } from "@mui/material";
+import Autocomplete from "@mui/material/Autocomplete";
 
-import styles from './index.module.scss';
+import styles from "./index.module.scss";
 
 interface Props {
   className?: string;
@@ -22,17 +22,7 @@ interface handleProps {
 }
 
 const SearchMultiSelect = (props: Props) => {
-  const {
-    className,
-    name,
-    placeholder,
-    labelName,
-    optional,
-    value,
-    tooltip,
-    data,
-    error
-  } = props;
+  const { className, name, placeholder, labelName, optional, value, tooltip, data, error } = props;
 
   const handleChange = (e: handleProps) => {
     props.handleChange(e);
@@ -46,7 +36,7 @@ const SearchMultiSelect = (props: Props) => {
             <span className={styles.labelText}>{labelName}</span>
             {tooltip && (
               <span className={styles.tooltip_ic} title={tooltip}>
-                <img src="assets/images/icons/tooltip.svg" alt="" />{' '}
+                <img src="src/assets/images/icons/tooltip.svg" alt="" />{" "}
               </span>
             )}
             {optional && <span className={styles.light}>Optional</span>}
@@ -60,16 +50,10 @@ const SearchMultiSelect = (props: Props) => {
             options={data}
             disableCloseOnSelect
             getOptionLabel={(option: any) => option.label}
-            renderOption={(
-              props,
-              option,
-             
-            ) => <li {...props}>{option.label}</li>}
-            onChange={(event: any, newValue: any) =>
-              handleChange({ event, value: newValue })
-            }
+            renderOption={(props, option) => <li {...props}>{option.label}</li>}
+            onChange={(event: any, newValue: any) => handleChange({ event, value: newValue })}
             // style={{ width: 500 }}
-            renderInput={params => (
+            renderInput={(params) => (
               <TextField
                 {...params}
                 label=""

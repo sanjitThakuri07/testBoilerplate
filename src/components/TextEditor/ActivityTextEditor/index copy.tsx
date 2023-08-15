@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from "react";
 import {
   EditorState,
   Modifier,
@@ -9,12 +9,12 @@ import {
   ContentState,
   RichUtils,
   AtomicBlockUtils,
-} from 'draft-js';
-import { Editor } from 'react-draft-wysiwyg';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import draftToHtml from 'draftjs-to-html';
-import { v4 as uuidv4 } from 'uuid';
-import MultiSelect from 'components/CustomMultiSelect/index';
+} from "draft-js";
+import { Editor } from "react-draft-wysiwyg";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import draftToHtml from "draftjs-to-html";
+import { v4 as uuidv4 } from "uuid";
+import MultiSelect from "src/components/CustomMultiSelect/index";
 // import { convertFromHTML } from 'draft-js-import-html';
 
 interface TextEditorInterface {
@@ -76,11 +76,11 @@ const imageBlockDecorator = {
     }, callback);
   },
   component: (props: any) => {
-    console.log(props, 'jsjsj');
+    console.log(props, "jsjsj");
     // const { blockKey, contentState, block } = props;
     // const entity = contentState?.getEntity(block.getEntityAt(0));
     // const { src } = entity?.getData();
-    console.log('hhh');
+    console.log("hhh");
 
     // const handleDelete = () => {
     //   const newContentState = contentState.mergeEntityData(block.getEntityAt(0), { src: null });
@@ -113,7 +113,7 @@ function CreateCustomDecorator(removeText: any, setDeleteText: any, backendOptio
     const onClick = (e: any) => {
       e.preventDefault();
       if (!e.target) return;
-      const button = e.target.closest('button');
+      const button = e.target.closest("button");
       let value = button?.textContent;
       let { start, text } = children?.[0]?.props;
       removeText(value);
@@ -127,16 +127,17 @@ function CreateCustomDecorator(removeText: any, setDeleteText: any, backendOptio
     return (
       <>
         <button
-          style={{ color: 'red', display: 'inline-flex' }}
+          style={{ color: "red", display: "inline-flex" }}
           // contentEditable={false}
           onClick={onClick}
           // className={`custom__button-editor ${styles['option-badge']} ${styles['custom__button-editor']}`}
-          data-placement={placementCount}>
+          data-placement={placementCount}
+        >
           {/* {text} */}
           <img
             src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-12-r1.jpg"
             alt=""
-            style={{ width: '150px' }}
+            style={{ width: "150px" }}
           />
           {/* <span className={styles['remove-btn']}>&times;</span> */}
         </button>
@@ -178,24 +179,24 @@ function MyEditor({
   const editorRef = useRef(null);
   const [deleteText, setDeleteText] = useState({
     placement: null,
-    value: '',
+    value: "",
     startIndex: null,
   });
 
   //   toolbar customization
   const toolbar = {
     options: [
-      'blockType',
-      'inline',
-      'list',
+      "blockType",
+      "inline",
+      "list",
       // "textAlign",
-      'link',
+      "link",
       // "embedded",
-      'image',
+      "image",
     ],
     blockType: {
       inDropdown: true,
-      options: ['H2', 'H3', 'H4', 'Normal', 'Blockquote'],
+      options: ["H2", "H3", "H4", "Normal", "Blockquote"],
       className: undefined,
       component: undefined,
       dropdownClassName: undefined,
@@ -205,14 +206,14 @@ function MyEditor({
       className: undefined,
       component: undefined,
       dropdownClassName: undefined,
-      options: ['bold', 'italic', 'underline'],
+      options: ["bold", "italic", "underline"],
     },
     link: {
-      options: ['link', 'unlink'],
+      options: ["link", "unlink"],
       showOpenOptionOnHover: false,
     },
     list: {
-      options: ['ordered', 'unordered'],
+      options: ["ordered", "unordered"],
     },
     image: {
       className: undefined,
@@ -223,42 +224,42 @@ function MyEditor({
       alignmentEnabled: true,
       uploadCallback: undefined,
       previewImage: false,
-      inputAccept: 'image/gif,image/jpeg,image/jpg,image/png',
+      inputAccept: "image/gif,image/jpeg,image/jpg,image/png",
       alt: { present: true, mandatory: true },
       defaultSize: {
-        height: 'auto',
-        width: 'auto',
+        height: "auto",
+        width: "auto",
       },
     },
   };
 
   //   localization
   const localization = {
-    locale: 'en-us',
+    locale: "en-us",
     translations: {
-      'generic.add': 'Add',
-      'generic.cancel': 'Cancel',
+      "generic.add": "Add",
+      "generic.cancel": "Cancel",
 
-      'components.controls.blocktype.normal': 'Normal',
-      'components.controls.blocktype.h2': 'Heading 1',
-      'components.controls.blocktype.h3': 'Heading 2',
-      'components.controls.blocktype.h4': 'Heading 3',
-      'components.controls.blocktype.blockquote': 'Blockquote',
+      "components.controls.blocktype.normal": "Normal",
+      "components.controls.blocktype.h2": "Heading 1",
+      "components.controls.blocktype.h3": "Heading 2",
+      "components.controls.blocktype.h4": "Heading 3",
+      "components.controls.blocktype.blockquote": "Blockquote",
 
-      'components.controls.embedded.embedded': 'Embedded',
-      'components.controls.embedded.embeddedlink': 'Embedded Link',
-      'components.controls.embedded.enterlink': 'Enter link',
+      "components.controls.embedded.embedded": "Embedded",
+      "components.controls.embedded.embeddedlink": "Embedded Link",
+      "components.controls.embedded.enterlink": "Enter link",
 
-      'components.controls.link.linkTitle': 'Link Title',
-      'components.controls.link.linkTarget': 'Link Target',
-      'components.controls.link.linkTargetOption': 'Open link in new window',
-      'components.controls.link.link': 'Link',
-      'components.controls.link.unlink': 'Unlink',
+      "components.controls.link.linkTitle": "Link Title",
+      "components.controls.link.linkTarget": "Link Target",
+      "components.controls.link.linkTargetOption": "Open link in new window",
+      "components.controls.link.link": "Link",
+      "components.controls.link.unlink": "Unlink",
 
-      'components.controls.image.image': 'Image',
-      'components.controls.image.fileUpload': 'File Upload',
-      'components.controls.image.byURL': 'URL',
-      'components.controls.image.dropFileText': 'Drop the file or click to upload',
+      "components.controls.image.image": "Image",
+      "components.controls.image.fileUpload": "File Upload",
+      "components.controls.image.byURL": "URL",
+      "components.controls.image.dropFileText": "Drop the file or click to upload",
     },
   };
 
@@ -344,7 +345,7 @@ function MyEditor({
     const newContentState = Modifier.splitBlock(contentState, selectionState);
 
     // Create a new EditorState object with the new content
-    const newEditorState = EditorState.push(editorState, newContentState, 'split-block');
+    const newEditorState = EditorState.push(editorState, newContentState, "split-block");
 
     // Set the cursor at the beginning of the new block if the cursor was at the end
     let newSelectionState = newEditorState.getSelection();
@@ -364,15 +365,15 @@ function MyEditor({
 
   const insertImage = (url: any) => {
     const contentState = editorState.getCurrentContent();
-    const contentStateWithEntity = contentState.createEntity('IMAGE', 'IMMUTABLE', { src: url });
+    const contentStateWithEntity = contentState.createEntity("IMAGE", "IMMUTABLE", { src: url });
     const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
     const newEditorState = EditorState.set(editorState, { currentContent: contentStateWithEntity });
     const newEditorStateWithImage = AtomicBlockUtils.insertAtomicBlock(
       newEditorState,
       entityKey,
-      ' ',
+      " ",
     );
-    return AtomicBlockUtils.insertAtomicBlock(newEditorState, entityKey, ' ');
+    return AtomicBlockUtils.insertAtomicBlock(newEditorState, entityKey, " ");
   };
 
   const handlePastedFiles = (files: any) => {
@@ -387,13 +388,13 @@ function MyEditor({
     // })
     // .catch((err) => {
     // });
-    setEditorState(insertImage('https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-12-r1.jpg')); //created below
+    setEditorState(insertImage("https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-12-r1.jpg")); //created below
   };
 
   useEffect(() => {
     if (values?.document) {
       // handleImage(values?.document[0]?.file);
-      setEditorState(insertImage('https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-12-r1.jpg'));
+      setEditorState(insertImage("https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-12-r1.jpg"));
     }
   }, [values?.document]);
 
@@ -412,14 +413,14 @@ function MyEditor({
         anchorOffset: start,
         focusOffset: end,
       });
-      const newContentState = Modifier.replaceText(contentState, selectionState, '');
-      const newEditorState = EditorState.push(editorState, newContentState, 'delete-character');
+      const newContentState = Modifier.replaceText(contentState, selectionState, "");
+      const newEditorState = EditorState.push(editorState, newContentState, "delete-character");
       // const contentStates = newEditorState.getCurrentContent();
       // const contentStateTexts = contentStates.getPlainText();
 
       // setNewEditor(newEditorState);
       setEditorState(newEditorState);
-      setDeleteText({ placement: null, value: '', startIndex: null });
+      setDeleteText({ placement: null, value: "", startIndex: null });
       setContentState?.(draftToHtml(convertToRaw(newEditorState.getCurrentContent())));
       return;
     }
@@ -455,14 +456,15 @@ function MyEditor({
       <div
         onClick={(e: any) => {
           console.log(e);
-        }}>
+        }}
+      >
         <Editor
           editorState={editorState}
           onEditorStateChange={handleEditorChange}
           toolbarClassName={`editor-toolbar`}
           wrapperClassName="editor-wrapper"
           editorClassName={`editorcontainer  ${
-            templateHeight ? 'my-custom-editor__container' : 'editor'
+            templateHeight ? "my-custom-editor__container" : "editor"
           }`}
           placeholder="Type here..."
           customDecorators={compositeDecorator}

@@ -2,7 +2,7 @@ import create from "zustand";
 import { devtools } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 import { deleteAPI, getAPI, postAPI, putAPI } from "src/lib/axios";
-import { parseQueryParams } from "utils/queryParams";
+import { parseQueryParams } from "src/utils/queryParams";
 import { current } from "immer";
 
 export const useTemplateAccessStore = create<any>(

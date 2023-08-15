@@ -4,7 +4,7 @@ import AddModal from "src/components/AddModal/AddModal";
 import CustomPopUp from "src/components/CustomPopup/index";
 import FullPageLoader from "src/components/FullPageLoader";
 import { ActivityAnalyticCard } from "src/components/InfoCard";
-import { usePayloadHook } from "constants/customHook/payloadOptions";
+import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 import { permissionList } from "src/constants/permission";
 import { fetchApI } from "src/modules/apiRequest/apiRequest";
 import CommonFilter, {
@@ -19,7 +19,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { getAPI } from "src/lib/axios";
 import { usePermissionStore } from "src/store/zustand/permission";
-import { parseQueryParams } from "utils/queryParams";
+import { parseQueryParams } from "src/utils/queryParams";
 import AddAssignActivity from "./AddAssignActivity";
 import AssignActivityTabs from "./AssignActivityTabs";
 import BottomNavigation from "./BottomNavigation";

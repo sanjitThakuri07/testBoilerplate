@@ -10,10 +10,10 @@ import { ChangeEvent, useEffect, useState } from "react";
 import SettingFooter from "src/components/footer/SettingFooter";
 import { FormikFormHelpers } from "src/interfaces/utils";
 import { useFormik } from "formik";
-import { OrganizationSettingAddressSchema } from "validationSchemas/OrganizationSetting";
+import { OrganizationSettingAddressSchema } from "src/validationSchemas/OrganizationSetting";
 import { IOrganizationSettingAddress } from "src/interfaces/organizationSetting";
 import { MenuOptions } from "src/interfaces/profile";
-import DynamicSelectField from "containers/setting/profile/DynamicSelectField";
+import DynamicSelectField from "src/modules/setting/profile/DynamicSelectField";
 import { getAPI, postAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
 

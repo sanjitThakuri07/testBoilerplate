@@ -46,7 +46,7 @@ import PopUpCustom from "./PopUp";
 // import './table.scss';
 import { IndividualListDisplay } from "./PopUp";
 import KebabIcon from "src/assets/icons/Kebab.png";
-import { RadioOptions } from "utils/FindingsUtils";
+import { RadioOptions } from "src/utils/FindingsUtils";
 import { GetShorterText } from "src/components/GetShortText";
 import { ConfigTableUrlUtils } from "@src/modules/config/generalSettings";
 import FilterModal from "src/components/FilterModal/FilterModal";
@@ -161,10 +161,10 @@ function EnhancedTableHead(props: EnhancedTableProps) {
               color="primary"
               indeterminate={numSelected > 0 && numSelected < rowCount}
               checked={rowCount > 0 && numSelected === rowCount}
-              checkedIcon={<img src="/assets/icons/icon-check.svg" alt="check" />}
-              icon={<img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+              checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
+              icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
               indeterminateIcon={
-                <img src="/assets/icons/icon-check-remove.svg" alt="indeterminate" />
+                <img src="src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
               }
               onChange={onSelectAllClick}
               inputProps={{
@@ -191,7 +191,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
                     IconComponent={() => {
                       // this is where we have to check if the incomming column will have sort
                       return !exclude?.includes(headCell?.id) ? (
-                        <img src="/assets/icons/arrow-up.svg" alt="sort" />
+                        <img src="src/assets/icons/arrow-up.svg" alt="sort" />
                       ) : (
                         <></>
                       );
@@ -302,7 +302,7 @@ function AddButton({
           onClick={onAdd}
           disabled={onAddButtonDisabled ? true : false}
           variant="contained"
-          startIcon={<img src="/assets/icons/plus-white.svg" alt="plus" />}
+          startIcon={<img src="src/assets/icons/plus-white.svg" alt="plus" />}
         >
           Add{" "}
           {letterHandler({
@@ -317,7 +317,7 @@ function AddButton({
         >
           <Button
             variant="contained"
-            startIcon={<img src="/assets/icons/plus-white.svg" alt="plus" />}
+            startIcon={<img src="src/assets/icons/plus-white.svg" alt="plus" />}
           >
             Add{" "}
             {letterHandler({
@@ -466,7 +466,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     <Button
                       variant="outlined"
                       onClick={handleDownload}
-                      startIcon={<img src="/assets/icons/download.svg" alt="download" />}
+                      startIcon={<img src="src/assets/icons/download.svg" alt="download" />}
                     >
                       Download CSV
                     </Button>
@@ -487,7 +487,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                         setOpenAddModal(true);
                       }}
                       variant="contained"
-                      startIcon={<img src="/assets/icons/plus-white.svg" alt="plus" />}
+                      startIcon={<img src="src/assets/icons/plus-white.svg" alt="plus" />}
                     >
                       {buttonLabel
                         ? buttonLabel
@@ -502,7 +502,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                       variant="contained"
                       startIcon={
                         tableHeaderContainer?.startIcon && (
-                          <img src="/assets/icons/plus-white.svg" alt="plus" />
+                          <img src="src/assets/icons/plus-white.svg" alt="plus" />
                         )
                       }
                       onClick={() =>
@@ -550,7 +550,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                   <form className="search-form">
                     <OutlinedInput
                       placeholder={`Search for ${configName}`}
-                      startAdornment={<img src="/assets/icons/search.svg" alt="search" />}
+                      startAdornment={<img src="src/assets/icons/search.svg" alt="search" />}
                       // value={search}
                       fullWidth
                       sx={{
@@ -564,7 +564,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                   </form>
                   {/* <SearchInput
                 placeholder={`Search for ${configName}`}
-                startAdornment={<img src="/assets/icons/search.svg" alt="search" />}
+                startAdornment={<img src="src/assets/icons/search.svg" alt="search" />}
                 fullWidth
                 sx={{
                   minWidth: 400,
@@ -578,7 +578,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     <Button
                       variant="outlined"
                       onClick={handleFilterTable}
-                      startIcon={<img src="/assets/icons/filter.svg" alt="edit" />}
+                      startIcon={<img src="src/assets/icons/filter.svg" alt="edit" />}
                     >
                       Filters
                     </Button>
@@ -623,7 +623,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                   <Button
                     variant="outlined"
                     onClick={handleEditTable}
-                    startIcon={<img src="/assets/icons/edit.svg" alt="edit" />}
+                    startIcon={<img src="src/assets/icons/edit.svg" alt="edit" />}
                   >
                     Customize Table
                   </Button>
@@ -1394,7 +1394,7 @@ const TableDotActions = ({
                       },
                     }}
                   >
-                    <img src="/assets/icons/icon-edit.svg" alt="edit" />
+                    <img src="src/assets/icons/icon-edit.svg" alt="edit" />
 
                     <span>Edit</span>
                   </Stack>
@@ -1432,7 +1432,7 @@ const TableDotActions = ({
                       },
                     }}
                   >
-                    <img src="/assets/icons/icon-edit.svg" alt="edit" />
+                    <img src="src/assets/icons/icon-edit.svg" alt="edit" />
 
                     <span>Edit</span>
                   </Stack>
@@ -1470,7 +1470,7 @@ const TableDotActions = ({
                     },
                   }}
                 >
-                  <img src="/assets/icons/icon-trash.svg" alt="delete" />
+                  <img src="src/assets/icons/icon-trash.svg" alt="delete" />
                   <span>Delete</span>
                 </Stack>
               ) : checkPermission({
@@ -1503,7 +1503,7 @@ const TableDotActions = ({
                     },
                   }}
                 >
-                  <img src="/assets/icons/icon-trash.svg" alt="delete" />
+                  <img src="src/assets/icons/icon-trash.svg" alt="delete" />
                   <span>Delete</span>
                 </Stack>
               ) : null}
@@ -1771,7 +1771,7 @@ const TableDotActions = ({
                   onEdit && onEdit?.(row?.id);
                 }}
               >
-                <Button startIcon={<img src="/assets/icons/icon-edit.svg" alt="edit" />} />
+                <Button startIcon={<img src="src/assets/icons/icon-edit.svg" alt="edit" />} />
               </Link>
             ) : null}
 
@@ -1797,7 +1797,7 @@ const TableDotActions = ({
                         ] || row?.name;
                       handleIndividualDelete(row.id, name);
                     }}
-                    startIcon={<img src="/assets/icons/icon-trash.svg" alt="delete" />}
+                    startIcon={<img src="src/assets/icons/icon-trash.svg" alt="delete" />}
                   />
                 ) : null}
               </>
@@ -2259,7 +2259,7 @@ const BASDataTable: React.FC<{
             method === "delete" ? "deleted" : "restored"
           }.`}
           status="warning"
-          confirmationIcon="/assets/icons/icon-feature.svg"
+          confirmationIcon="src/assets/icons/icon-feature.svg"
           loader={deleteLoading}
         />
         <ConfirmationModal
@@ -2285,7 +2285,7 @@ const BASDataTable: React.FC<{
           confirmationHeading={`Are you sure to perform this action`}
           confirmationDesc={`It will make the copy of ${copyID?.name || ""}`}
           status="warning"
-          confirmationIcon="/assets/icons/icon-feature.svg"
+          confirmationIcon="src/assets/icons/icon-feature.svg"
           loader={deleteLoading}
         />
         <ConfirmationModal
@@ -2340,7 +2340,7 @@ const BASDataTable: React.FC<{
             method === "delete" ? "deleted" : "restored"
           }.`}
           status="warning"
-          confirmationIcon="/assets/icons/icon-feature.svg"
+          confirmationIcon="src/assets/icons/icon-feature.svg"
         />
         <FilterModal
           openModal={filterModal}
@@ -2479,10 +2479,10 @@ const BASDataTable: React.FC<{
                                   <Checkbox
                                     color="primary"
                                     checkedIcon={
-                                      <img src="/assets/icons/icon-check.svg" alt="check" />
+                                      <img src="src/assets/icons/icon-check.svg" alt="check" />
                                     }
                                     icon={
-                                      <img src="/assets/icons/icon-uncheck.svg" alt="uncheck" />
+                                      <img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />
                                     }
                                     checked={isItemSelected}
                                     inputProps={{

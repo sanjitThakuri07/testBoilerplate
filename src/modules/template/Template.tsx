@@ -1,20 +1,20 @@
-import { Grid } from '@mui/material';
-import React, { useEffect, useRef, useState } from 'react';
-import { MobileIndex, MobilePreview, StarterTemplate } from './components';
+import { Grid } from "@mui/material";
+import React, { useEffect, useRef, useState } from "react";
+import { MobileIndex, MobilePreview, StarterTemplate } from "./components";
 // import { NavbarTab, RightSection } from './layout';
-import CustomBottomNavigation from 'containers/template/container/layout/bottombar';
-import Sidebar from 'containers/template/container/layout/sidebar';
-import TemplateTopbar from 'containers/template/container/layout/topbar';
-import { useFormik } from 'formik';
-import { TemplateCreationFields } from 'interfaces/templates/templateFields';
-import { FormikFormHelpers } from 'interfaces/utils';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-import { useLocation, useNavigate } from 'react-router-dom';
-import * as Yup from 'yup';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { useTemplateFieldsStore } from 'containers/template/store/templateFieldsStore';
-import BlockingModal from 'components/BlockingModal';
+import CustomBottomNavigation from "containers/template/container/layout/bottombar";
+import Sidebar from "containers/template/container/layout/sidebar";
+import TemplateTopbar from "containers/template/container/layout/topbar";
+import { useFormik } from "formik";
+import { TemplateCreationFields } from "interfaces/templates/templateFields";
+import { FormikFormHelpers } from "src/interfaces/utils";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { useLocation, useNavigate } from "react-router-dom";
+import * as Yup from "yup";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { useTemplateFieldsStore } from "containers/template/store/templateFieldsStore";
+import BlockingModal from "src/components/BlockingModal";
 
 const RenderComponent = ({
   formikBags,
@@ -30,7 +30,7 @@ const RenderComponent = ({
       <>
         <TemplateTopbar formikBag={formikBags} />
 
-        <main className={`template__body-container ${collapseSideBar ? 'collapse' : ''}`}>
+        <main className={`template__body-container ${collapseSideBar ? "collapse" : ""}`}>
           <aside className="template__sidebar">
             <Sidebar setCollapseSidebar={setCollapseSidebar} />
             <button
@@ -38,23 +38,26 @@ const RenderComponent = ({
               className="collapse__btn"
               onClick={(e: any) => {
                 setCollapseSidebar((prev: any) => !prev);
-              }}>
+              }}
+            >
               <ArrowForwardIosIcon />
             </button>
           </aside>
 
           <section>
             <form
-              className={`profile-form  ${isViewOnly ? 'edit-mode' : ''}`}
+              className={`profile-form  ${isViewOnly ? "edit-mode" : ""}`}
               onSubmit={(e: any) => {
                 e.preventDefault();
                 handleSubmit();
-              }}>
+              }}
+            >
               <StarterTemplate
                 formikBags={formikBags}
                 ref={templateHeadingRef}
-                setInitialTemplate={setInitialTemplate}>
-                {' '}
+                setInitialTemplate={setInitialTemplate}
+              >
+                {" "}
               </StarterTemplate>
             </form>
           </section>
@@ -77,13 +80,13 @@ const RenderComponent = ({
 
 const Template = () => {
   const [initialTemplate, setInitialTemplate] = React.useState<TemplateCreationFields>({
-    name: '',
-    desc: 'Form description (optional)',
+    name: "",
+    desc: "Form description (optional)",
     id: 1,
-    question: 'This is my question',
+    question: "This is my question",
   });
   const [isViewOnly, setIsViewOnly] = React.useState(false);
-  const [activePage, setActivePage] = React.useState('Form');
+  const [activePage, setActivePage] = React.useState("Form");
   const templateHeadingRef = useRef<any>(null);
 
   const handleFormSubmit = async (values: any) => {};
@@ -95,7 +98,7 @@ const Template = () => {
     initialValues: initialTemplate,
     onSubmit: handleFormSubmit,
     validationSchema: Yup.object().shape({
-      name: Yup.string().required('Template name is a required field'),
+      name: Yup.string().required("Template name is a required field"),
     }),
     enableReinitialize: true,
   });
@@ -183,10 +186,11 @@ const Template = () => {
         <div id="template">
           <button
             ref={templateHeadingRef}
-            style={{ display: 'none' }}
+            style={{ display: "none" }}
             onClick={() => {
               handleSubmit();
-            }}></button>
+            }}
+          ></button>
           <RenderComponent
             formikBags={formikBags}
             isViewOnly={isViewOnly}

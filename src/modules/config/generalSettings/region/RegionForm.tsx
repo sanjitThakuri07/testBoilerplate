@@ -15,7 +15,7 @@ import {
 import { Formik, FormikProps } from "formik";
 import { RegionProps } from "src/interfaces/configs";
 import React, { FC, useEffect, useState } from "react";
-import { ConfigRegionsSchema, ConfigRegionsSchemaOptional } from "validationSchemas/config";
+import { ConfigRegionsSchema, ConfigRegionsSchemaOptional } from "src/validationSchemas/config";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
 import { useConfigStore } from "src/store/zustand/globalStates/config";
@@ -116,7 +116,7 @@ const RegionForm: FC<{
             param.regionId === undefined ? "created" : "updated"
           }  according to the way you customized.`}
           status="success"
-          confirmationIcon="/assets/icons/icon-success.svg"
+          confirmationIcon="src/assets/icons/icon-success.svg"
           isSuccess
           IsSingleBtn
           btnText="Go to regions"
