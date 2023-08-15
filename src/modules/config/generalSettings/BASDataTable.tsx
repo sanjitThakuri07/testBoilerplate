@@ -123,10 +123,10 @@ function EnhancedTableHead(props: EnhancedTableProps) {
             color="primary"
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
-            checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
-            icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+            checkedIcon={<img src="/src/assets/icons/icon-check.svg" alt="check" />}
+            icon={<img src="/src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
             indeterminateIcon={
-              <img src="src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
+              <img src="/src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
             }
             onChange={onSelectAllClick}
             inputProps={{
@@ -147,7 +147,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
                     active={orderBy === headCell.id}
                     direction={orderBy === headCell.id ? order : "asc"}
                     onClick={createSortHandler(headCell.id)}
-                    IconComponent={() => <img src="src/assets/icons/arrow-up.svg" alt="sort" />}
+                    IconComponent={() => <img src="/src/assets/icons/arrow-up.svg" alt="sort" />}
                   >
                     {headCell.label}
                     {orderBy === headCell.id ? (
@@ -277,7 +277,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     <Button
                       variant="outlined"
                       onClick={handleDownload}
-                      startIcon={<img src="src/assets/icons/download.svg" alt="download" />}
+                      startIcon={<img src="/src/assets/icons/download.svg" alt="download" />}
                     >
                       Download CSV
                     </Button>
@@ -294,7 +294,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                   <Button
                     onClick={() => setOpenModalBox(true)}
                     variant="contained"
-                    startIcon={<img src="src/assets/icons/plus-white.svg" alt="plus" />}
+                    startIcon={<img src="/src/assets/icons/plus-white.svg" alt="plus" />}
                   >
                     Add {configName}
                   </Button>
@@ -303,7 +303,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     <Button
                       onClick={() => setOpenAddModal(true)}
                       variant="contained"
-                      startIcon={<img src="src/assets/icons/plus-white.svg" alt="plus" />}
+                      startIcon={<img src="/src/assets/icons/plus-white.svg" alt="plus" />}
                     >
                       Add {configName}
                     </Button>
@@ -312,7 +312,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                   <Link to={`${location?.pathname}/add`}>
                     <Button
                       variant="contained"
-                      startIcon={<img src="src/assets/icons/plus-white.svg" alt="plus" />}
+                      startIcon={<img src="/src/assets/icons/plus-white.svg" alt="plus" />}
                     >
                       Add{" "}
                       {location.pathname === "/config/notifications"
@@ -334,7 +334,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
               <form className="search-form">
                 <OutlinedInput
                   placeholder={`Search for ${configName?.replaceAll("-", " ")}`}
-                  startAdornment={<img src="src/assets/icons/search.svg" alt="search" />}
+                  startAdornment={<img src="/src/assets/icons/search.svg" alt="search" />}
                   value={searchValue}
                   fullWidth
                   sx={{
@@ -345,7 +345,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
               </form>
               {/* <SearchInput
                 placeholder={`Search for ${configName}`}
-                startAdornment={<img src="src/assets/icons/search.svg" alt="search" />}
+                startAdornment={<img src="/src/assets/icons/search.svg" alt="search" />}
                 fullWidth
                 sx={{
                   minWidth: 400,
@@ -358,7 +358,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
               <Button
                 variant="outlined"
                 onClick={handleEditTable}
-                startIcon={<img src="src/assets/icons/edit.svg" alt="edit" />}
+                startIcon={<img src="/src/assets/icons/edit.svg" alt="edit" />}
               >
                 Customize Table
               </Button>
@@ -767,9 +767,9 @@ const BASDataTable: React.FC<{
                             <Checkbox
                               color="primary"
                               checkedIcon={
-                                <img src="src/assets/icons/icon-check.svg" alt="check" />
+                                <img src="/src/assets/icons/icon-check.svg" alt="check" />
                               }
-                              icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+                              icon={<img src="/src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
                               checked={isItemSelected}
                               inputProps={{
                                 "aria-labelledby": labelId,
@@ -816,7 +816,7 @@ const BASDataTable: React.FC<{
                                 <Button
                                   onClick={() => handleDeleteRegion(row.id)}
                                   startIcon={
-                                    <img src="src/assets/icons/icon-trash.svg" alt="delete" />
+                                    <img src="/src/assets/icons/icon-trash.svg" alt="delete" />
                                   }
                                 />
                               ) : null}
@@ -831,7 +831,7 @@ const BASDataTable: React.FC<{
                                     <Link to={`profile/${row.id}/settings`}>
                                       <Button
                                         startIcon={
-                                          <img src="src/assets/icons/icon-edit.svg" alt="edit" />
+                                          <img src="/src/assets/icons/icon-edit.svg" alt="edit" />
                                         }
                                       />
                                     </Link>
@@ -844,7 +844,7 @@ const BASDataTable: React.FC<{
                                     >
                                       <Button
                                         startIcon={
-                                          <img src="src/assets/icons/icon-edit.svg" alt="edit" />
+                                          <img src="/src/assets/icons/icon-edit.svg" alt="edit" />
                                         }
                                       />
                                     </Link>

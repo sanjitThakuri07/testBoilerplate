@@ -150,7 +150,7 @@ const TableColumns: FC<{
         <Grid container spacing={2}>
           <Grid item>
             <div className="icon-holder">
-              <img src="src/assets/icons/featured.svg" alt="" />
+              <img src="/src/assets/icons/featured.svg" alt="" />
             </div>
           </Grid>
         </Grid>

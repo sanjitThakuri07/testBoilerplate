@@ -47,7 +47,7 @@ const TwoFactorAuthentication = () => {
     <Box className="two-fa-holder">
       <div className="holder">
         <div className="ico-holder">
-          <img src="src/assets/icons/shield.svg" alt="sheild" />
+          <img src="/src/assets/icons/shield.svg" alt="sheild" />
         </div>
         <Typography component="h2" variant="h5">
           Dual Layer Security System <Chip label="TFA" />
@@ -77,7 +77,7 @@ const TwoFactorAuthentication = () => {
       <div className="link-holder">
         <Link to={PublicRoute.TWO_FACTOR_TERMS} className="link-button">
           Learn more{" "}
-          <img src="src/assets/icons/arrow-up-right.svg" alt="sheild" className="right" />
+          <img src="/src/assets/icons/arrow-up-right.svg" alt="sheild" className="right" />
         </Link>
       </div>
     </Box>

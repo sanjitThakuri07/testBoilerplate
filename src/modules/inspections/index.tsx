@@ -226,7 +226,7 @@ export default function Inspections() {
           type: "dot",
           dotModeOptions: [
             {
-              Icon: <img src="src/assets/icons/manage_access.svg" alt="report" />,
+              Icon: <img src="/src/assets/icons/manage_access.svg" alt="report" />,
               label: "Generate Report",
               handleButtonClick: ({ id }: any) => {
                 navigate(`report/${id}`);

@@ -984,9 +984,11 @@ const UserProfileSettings = ({ isCustomersUser }: UserProfileSettingsProps) => {
                               <Checkbox
                                 color="primary"
                                 checkedIcon={
-                                  <img src="src/assets/icons/icon-check.svg" alt="check" />
+                                  <img src="/src/assets/icons/icon-check.svg" alt="check" />
                                 }
-                                icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+                                icon={
+                                  <img src="/src/assets/icons/icon-uncheck.svg" alt="uncheck" />
+                                }
                                 checked={emailPassword}
                                 onChange={() => setEmailPassword(!emailPassword)}
                               />
@@ -995,8 +997,8 @@ const UserProfileSettings = ({ isCustomersUser }: UserProfileSettingsProps) => {
                             {/* <Stack direction="row" alignItems="center" spacing={0.4}>
                           <Checkbox
                             color="primary"
-                            checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
-                            icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+                            checkedIcon={<img src="/src/assets/icons/icon-check.svg" alt="check" />}
+                            icon={<img src="/src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
                             checked={values?.not_email_password}
                             onChange={() =>
                               setUserPassword((prev) => {

@@ -46,7 +46,7 @@ const Index = () => {
 
   const breadcrumbs = [
     <Link key="0" href="/">
-      <img src="src/assets/icons/home.svg" alt="home" />
+      <img src="/src/assets/icons/home.svg" alt="home" />
     </Link>,
     <Link underline="hover" key="1" color="inherit">
       <Href
@@ -102,7 +102,7 @@ const Index = () => {
         <BackButton />
         <div className="breadcrumbs-holder">
           <Breadcrumbs
-            separator={<img src="src/assets/icons/chevron-right.svg" alt="right" />}
+            separator={<img src="/src/assets/icons/chevron-right.svg" alt="right" />}
             aria-label="breadcrumb"
           >
             {breadcrumbs}

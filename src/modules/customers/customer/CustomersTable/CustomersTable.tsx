@@ -214,7 +214,7 @@ const CustomersTable = () => {
             type: "dot",
             // dotModeOptions: [
             //   {
-            //     Icon: <img src="src/assets/icons/manage_access.svg" alt="access" />,
+            //     Icon: <img src="/src/assets/icons/manage_access.svg" alt="access" />,
             //     label: 'Active',
             //     handleButtonClick: console.log('Manage Access'),
             //   },

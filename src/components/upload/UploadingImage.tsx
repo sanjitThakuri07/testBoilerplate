@@ -144,7 +144,7 @@ const UploadingImage: React.FC<Props> = ({
         <Grid container spacing={0}>
           <Grid item xs={2}>
             <img
-              // src="src/assets/icons/uploaded.svg"
+              // src="/src/assets/icons/uploaded.svg"
               src={fileOpen ? fileOpen : "src/assets/icons/uploaded.svg"}
               // src={
               //   fileType === 'text/csv'

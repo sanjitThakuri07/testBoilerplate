@@ -82,7 +82,7 @@ export default function UserProfileLayout({ children }: any) {
     <Box sx={{ padding: "10px 24px" }}>
       <Button
         onClick={() => navigate(-1)}
-        startIcon={<img src="src/assets/icons/back.svg" alt="back button" />}
+        startIcon={<img src="/src/assets/icons/back.svg" alt="back button" />}
         sx={{
           textTransform: "capitalize",
         }}

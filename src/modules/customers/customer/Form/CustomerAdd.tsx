@@ -582,7 +582,7 @@ const CustomerAdd: React.FC<{
                                           });
                                           setStartAnimation(startAnimation);
                                         }}
-                                        startIcon={<img alt="" src="src/assets/icons/plus.svg" />}
+                                        startIcon={<img alt="" src="/src/assets/icons/plus.svg" />}
                                         className="link-icon"
                                         style={{ marginBottom: "10px" }}
                                       >

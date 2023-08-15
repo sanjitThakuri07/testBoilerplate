@@ -19,7 +19,7 @@ function SortableItem(props: any) {
       <Grid container spacing={1}>
         <Grid item>
           <img
-            src="src/assets/icons/dots.svg"
+            src="/src/assets/icons/dots.svg"
             alt=""
             {...(props?.disabled ? {} : { ...listeners })}
           />

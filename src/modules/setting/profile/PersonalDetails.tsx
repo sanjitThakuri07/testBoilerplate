@@ -235,7 +235,7 @@ const PersonalDetails: FC<IProps> = ({ formikBag, isViewOnly, handleUploadImage,
               disabled
               endAdornment={
                 <InputAdornment position="end">
-                  <img src="src/assets/icons/lock.svg" width={24} height={24} alt="" />
+                  <img src="/src/assets/icons/lock.svg" width={24} height={24} alt="" />
                 </InputAdornment>
               }
             />

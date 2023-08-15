@@ -315,7 +315,7 @@ const ExtraUserFields = ({
                           setIndividualAction(it);
                         }}
                       >
-                        <img src="src/assets/icons/icon-edit.svg" alt="" />
+                        <img src="/src/assets/icons/icon-edit.svg" alt="" />
                       </button>
                       <button
                         onClick={(e: any) => {
@@ -324,7 +324,7 @@ const ExtraUserFields = ({
                         }}
                         type="button"
                       >
-                        <img src="src/assets/icons/icon-trash.svg" alt="" />
+                        <img src="/src/assets/icons/icon-trash.svg" alt="" />
                       </button>
                     </div>
                   </div>

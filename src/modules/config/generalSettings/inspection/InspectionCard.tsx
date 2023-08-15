@@ -29,11 +29,11 @@ const InspectionCard: FC<
           <Grid item xs={3}>
             <div className="actions-btns-holder">
               <Button
-                startIcon={<img src="src/assets/icons/icon-edit.svg" alt="edit" />}
+                startIcon={<img src="/src/assets/icons/icon-edit.svg" alt="edit" />}
                 onClick={() => editRegion(id)}
               />
               <Button
-                startIcon={<img src="src/assets/icons/icon-trash.svg" alt="delete" />}
+                startIcon={<img src="/src/assets/icons/icon-trash.svg" alt="delete" />}
                 onClick={() => handleDeleteRegion(id)}
               />
             </div>

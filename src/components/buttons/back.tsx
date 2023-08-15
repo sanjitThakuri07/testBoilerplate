@@ -34,7 +34,7 @@ const BackButton = ({ onBackAction, backRoute }: any) => {
       {hidden ? null : (
         <Button
           onClick={handleBack}
-          startIcon={<img src="src/assets/icons/back.svg" alt="back button" />}
+          startIcon={<img src="/src/assets/icons/back.svg" alt="back button" />}
           sx={{
             textTransform: "capitalize",
           }}

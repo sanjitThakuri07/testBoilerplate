@@ -67,10 +67,10 @@ const TableCellCustom = ({
             color="primary"
             id={index}
             checked={selectedRow.includes(data)}
-            checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
-            icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+            checkedIcon={<img src="/src/assets/icons/icon-check.svg" alt="check" />}
+            icon={<img src="/src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
             indeterminateIcon={
-              <img src="src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
+              <img src="/src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
             }
             onChange={(event) => {
               setFieldValue(`tableValues.${index}.checked`, event.target.checked);
@@ -655,14 +655,14 @@ const ExternalResponseSetForm: React.FC<{
                                   color="primary"
                                   checked={selectedRow?.length === moduleValues?.length}
                                   checkedIcon={
-                                    <img src="src/assets/icons/icon-check.svg" alt="check" />
+                                    <img src="/src/assets/icons/icon-check.svg" alt="check" />
                                   }
                                   icon={
-                                    <img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />
+                                    <img src="/src/assets/icons/icon-uncheck.svg" alt="uncheck" />
                                   }
                                   indeterminateIcon={
                                     <img
-                                      src="src/assets/icons/icon-check-remove.svg"
+                                      src="/src/assets/icons/icon-check-remove.svg"
                                       alt="indeterminate"
                                     />
                                   }
@@ -738,14 +738,14 @@ const ExternalResponseSetForm: React.FC<{
                                     color="primary"
                                     checked={selectedRow?.length === moduleValues?.length}
                                     checkedIcon={
-                                      <img src="src/assets/icons/icon-check.svg" alt="check" />
+                                      <img src="/src/assets/icons/icon-check.svg" alt="check" />
                                     }
                                     icon={
-                                      <img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />
+                                      <img src="/src/assets/icons/icon-uncheck.svg" alt="uncheck" />
                                     }
                                     indeterminateIcon={
                                       <img
-                                        src="src/assets/icons/icon-check-remove.svg"
+                                        src="/src/assets/icons/icon-check-remove.svg"
                                         alt="indeterminate"
                                       />
                                     }

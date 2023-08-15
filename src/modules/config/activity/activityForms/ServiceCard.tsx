@@ -33,7 +33,7 @@ const ServiceCard: FC<
           <Grid item xs={3}>
             <div className="actions-btns-holder">
               <Button
-                startIcon={<img src="src/assets/icons/icon-edit.svg" alt="edit" />}
+                startIcon={<img src="/src/assets/icons/icon-edit.svg" alt="edit" />}
                 onClick={() => {
                   editService(id);
                   navigate(id);
@@ -43,7 +43,7 @@ const ServiceCard: FC<
                 <></>
               ) : (
                 <Button
-                  startIcon={<img src="src/assets/icons/icon-trash.svg" alt="delete" />}
+                  startIcon={<img src="/src/assets/icons/icon-trash.svg" alt="delete" />}
                   onClick={() => handleDeleteService(id)}
                 />
               )}

@@ -327,7 +327,7 @@ const TextAnswer = ({
                   }`}
                   ref={ref}
                 >
-                  <img src="src/assets/icons/dots.svg" alt="Drag" />
+                  <img src="/src/assets/icons/dots.svg" alt="Drag" />
                 </div>
                 {dataItem?.required && (
                   <span style={{ paddingRight: "8px", fontSize: "16px" }}>*</span>

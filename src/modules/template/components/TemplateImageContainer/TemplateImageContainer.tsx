@@ -23,7 +23,7 @@ export default function TemplateImageContainer({
         <div className="TextAnswer_wrapper">
           <div className="template-image-flex-items">
             <div className="draggable_icon">
-              <img src="src/assets/icons/dots.svg" alt="Drag" />
+              <img src="/src/assets/icons/dots.svg" alt="Drag" />
             </div>
 
             <div className="image-container-template">

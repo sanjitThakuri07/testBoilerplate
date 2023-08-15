@@ -293,7 +293,7 @@ const MCRForm = ({ scoringData, responseSetId, setOpenModal, updateState, disabl
           <div id="custom_drag_text_field">
             <div className="draggable_icon">
               <IconButton>
-                <img src="src/assets/icons/dots.svg" alt="Drag" height={20} width={20} />
+                <img src="/src/assets/icons/dots.svg" alt="Drag" height={20} width={20} />
               </IconButton>
             </div>
             <div className="field_and_label">

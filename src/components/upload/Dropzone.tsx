@@ -129,7 +129,7 @@ const Dropzone: React.FC<Props> = ({
     <Box className="text-center" id="hell">
       <img
         id="upload_csv_icon"
-        src="src/assets/icons/upload.svg"
+        src="/src/assets/icons/upload.svg"
         width={40}
         height={40}
         alt="upload here"

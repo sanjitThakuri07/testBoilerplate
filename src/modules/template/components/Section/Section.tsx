@@ -417,7 +417,7 @@ const Section = ({
                   ref={ref}
                   className={`draggable_icon ${activeDrag() ? "active" : "de-active"}`}
                 >
-                  <img src="src/assets/icons/dots.svg" alt="Drag" />
+                  <img src="/src/assets/icons/dots.svg" alt="Drag" />
                 </div>
                 <ListItemButton onClick={handleClick}>
                   <div className="section_heading">

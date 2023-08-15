@@ -111,10 +111,10 @@ function EnhancedTableHead(props: EnhancedTableProps) {
             color="primary"
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
-            checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
-            icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+            checkedIcon={<img src="/src/assets/icons/icon-check.svg" alt="check" />}
+            icon={<img src="/src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
             indeterminateIcon={
-              <img src="src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
+              <img src="/src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
             }
             onChange={onSelectAllClick}
             inputProps={{
@@ -135,7 +135,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
                     active={orderBy === headCell.id}
                     direction={orderBy === headCell.id ? order : "asc"}
                     onClick={createSortHandler(headCell.id)}
-                    IconComponent={() => <img src="src/assets/icons/arrow-up.svg" alt="sort" />}
+                    IconComponent={() => <img src="/src/assets/icons/arrow-up.svg" alt="sort" />}
                   >
                     {headCell.label}
                     {orderBy === headCell.id ? (
@@ -209,7 +209,7 @@ function AddButton({ tableIndicator, letterHandler, configName, location }: any)
     >
       <Button
         variant="contained"
-        startIcon={<img src="src/assets/icons/plus-white.svg" alt="plus" />}
+        startIcon={<img src="/src/assets/icons/plus-white.svg" alt="plus" />}
       >
         Add{" "}
         {letterHandler({
@@ -304,7 +304,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                   <Button
                     variant="outlined"
                     onClick={handleDownload}
-                    startIcon={<img src="src/assets/icons/download.svg" alt="download" />}
+                    startIcon={<img src="/src/assets/icons/download.svg" alt="download" />}
                   >
                     Download CSV
                   </Button>
@@ -332,7 +332,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                 <form className="search-form">
                   <OutlinedInput
                     placeholder={`Search for ${searchName}`}
-                    startAdornment={<img src="src/assets/icons/search.svg" alt="search" />}
+                    startAdornment={<img src="/src/assets/icons/search.svg" alt="search" />}
                     fullWidth
                     sx={{
                       minWidth: 400,
@@ -342,7 +342,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                 </form>
                 {/* <SearchInput
                 placeholder={`Search for ${configName}`}
-                startAdornment={<img src="src/assets/icons/search.svg" alt="search" />}
+                startAdornment={<img src="/src/assets/icons/search.svg" alt="search" />}
                 fullWidth
                 sx={{
                   minWidth: 400,
@@ -355,7 +355,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                 <Button
                   variant="outlined"
                   onClick={handleEditTable}
-                  startIcon={<img src="src/assets/icons/edit.svg" alt="edit" />}
+                  startIcon={<img src="/src/assets/icons/edit.svg" alt="edit" />}
                 >
                   Customize Table
                 </Button>
@@ -808,10 +808,10 @@ const BASDataTableButton: React.FC<{
                     position: "relative",
                     display: "flex",
                   }}
-                  startIcon={<img src="src/assets/icons/view.svg" alt="View" />}
+                  startIcon={<img src="/src/assets/icons/view.svg" alt="View" />}
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
-                  endIcon={isHovering ? <img src="src/assets/icons/check.svg" /> : <>{"     "}</>}
+                  endIcon={isHovering ? <img src="/src/assets/icons/check.svg" /> : <>{"     "}</>}
                 >
                   View
                 </Button>
@@ -825,11 +825,11 @@ const BASDataTableButton: React.FC<{
                     position: "relative",
                     display: "flex",
                   }}
-                  startIcon={<img src="src/assets/icons/bar-chart.svg" alt="Generate" />}
+                  startIcon={<img src="/src/assets/icons/bar-chart.svg" alt="Generate" />}
                   onMouseEnter={handleMouseEnterGenerate}
                   onMouseLeave={handleMouseLeaveGenerate}
                   endIcon={
-                    isHoveringGenerate ? <img src="src/assets/icons/check.svg" /> : <>{"     "}</>
+                    isHoveringGenerate ? <img src="/src/assets/icons/check.svg" /> : <>{"     "}</>
                   }
                 >
                   Generate Invoice
@@ -965,8 +965,8 @@ const BASDataTableButton: React.FC<{
                         <TableCell padding="checkbox">
                           <Checkbox
                             color="primary"
-                            checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
-                            icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+                            checkedIcon={<img src="/src/assets/icons/icon-check.svg" alt="check" />}
+                            icon={<img src="/src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
                             checked={isItemSelected}
                             inputProps={{
                               "aria-labelledby": labelId,
@@ -1063,7 +1063,7 @@ const BASDataTableButton: React.FC<{
                               //   handleIndividualDelete(row.id, name)
                               // }}
                               startIcon={
-                                <img src="src/assets/icons/dots-vertical2.svg" alt="More" />
+                                <img src="/src/assets/icons/dots-vertical2.svg" alt="More" />
                               }
                             />
                           </div>

@@ -1181,7 +1181,7 @@ const CustomerForm: React.FC<{
                                         password: '',
                                       });
                                     }}
-                                    startIcon={<img alt="" src="src/assets/icons/plus.svg" />}
+                                    startIcon={<img alt="" src="/src/assets/icons/plus.svg" />}
                                     className="link-icon">
                                     Add Another Customer
                                   </Button>

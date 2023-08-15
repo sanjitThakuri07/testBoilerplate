@@ -153,7 +153,7 @@ const GRSForm = ({
             {!disabled && (
               <div className="draggable_icon">
                 <IconButton>
-                  <img src="src/assets/icons/dots.svg" alt="Drag" height={20} width={20} />
+                  <img src="/src/assets/icons/dots.svg" alt="Drag" height={20} width={20} />
                 </IconButton>
               </div>
             )}

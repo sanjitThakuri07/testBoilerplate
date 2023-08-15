@@ -361,7 +361,7 @@ export default function InvoiceForm() {
                 onClick={() => {
                   navigate("/finance/tariffs");
                 }}
-                startIcon={<img src="src/assets/icons/back.svg" alt="back button" />}
+                startIcon={<img src="/src/assets/icons/back.svg" alt="back button" />}
                 sx={{
                   textTransform: "capitalize",
                 }}
@@ -463,7 +463,7 @@ export default function InvoiceForm() {
             return pathname === "to-be-invoiced"
               ? [
                   {
-                    Icon: <img src="src/assets/icons/manage_access.svg" alt="report" />,
+                    Icon: <img src="/src/assets/icons/manage_access.svg" alt="report" />,
                     label: "Generate Invoice",
                     handleButtonClick: ({ id }: any) => {
                       generateInvoiceHandler([
@@ -478,7 +478,7 @@ export default function InvoiceForm() {
               : val?.status === "Paid" || val?.status === "Sent"
               ? [
                   {
-                    Icon: <img src="src/assets/icons/manage_access.svg" alt="report" />,
+                    Icon: <img src="/src/assets/icons/manage_access.svg" alt="report" />,
                     label: "View Invoice",
                     handleButtonClick: ({ invoice_file }: any) => {
                       // generateInvoiceHandlerOpen([
@@ -496,14 +496,14 @@ export default function InvoiceForm() {
               : val?.is_draft
               ? [
                   // {
-                  //   Icon: <img src="src/assets/icons/manage_access.svg" alt="report" />,
+                  //   Icon: <img src="/src/assets/icons/manage_access.svg" alt="report" />,
                   //   label: 'Generate Report',
                   //   handleButtonClick: ({ id }: any) => {
                   //     navigate(`report/${id}`);
                   //   },
                   // },
                   {
-                    Icon: <img src="src/assets/icons/manage_access.svg" alt="report" />,
+                    Icon: <img src="/src/assets/icons/manage_access.svg" alt="report" />,
                     label: "Open Invoice",
                     handleButtonClick: ({
                       id,
@@ -578,7 +578,7 @@ export default function InvoiceForm() {
               : val?.status === "Hold"
               ? [
                   {
-                    Icon: <img src="src/assets/icons/manage_access.svg" alt="report" />,
+                    Icon: <img src="/src/assets/icons/manage_access.svg" alt="report" />,
                     label: "View Invoice",
                     handleButtonClick: ({ id }: any) => {
                       generateInvoiceHandlerOpen([

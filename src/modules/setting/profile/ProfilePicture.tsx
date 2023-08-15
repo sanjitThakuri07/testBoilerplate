@@ -89,7 +89,7 @@ const ProfilePicture: FC<IProps> = ({
               aria-haspopup="true"
               aria-expanded={dropOpen ? 'true' : undefined}
               onClick={handleDropClick}
-              endIcon={<img src="src/assets/icons/dots-vertical.svg" width={18} height={20} alt="" />}>
+              endIcon={<img src="/src/assets/icons/dots-vertical.svg" width={18} height={20} alt="" />}>
               Edit
             </Button> */}
             <Menu
@@ -147,14 +147,16 @@ const ProfilePicture: FC<IProps> = ({
                       }}
                     />
                   ) : (
-                    <img src="src/assets/icons/image.svg" width={24} height={24} alt="" />
+                    <img src="/src/assets/icons/image.svg" width={24} height={24} alt="" />
                   )}
                 </Avatar>
               </Grid>
               <Grid item>
                 <Button
                   disabled={isViewOnly}
-                  startIcon={<img src="src/assets/icons/share.svg" width={20} height={20} alt="" />}
+                  startIcon={
+                    <img src="/src/assets/icons/share.svg" width={20} height={20} alt="" />
+                  }
                   onClick={handleImageUploaderVisibility}
                 >
                   Update Photo
@@ -164,7 +166,7 @@ const ProfilePicture: FC<IProps> = ({
                 <Button
                   disabled={loading}
                   onClick={handleImagePreview}
-                  startIcon={<img src="src/assets/icons/eye.svg" width={20} height={20} alt="" />}
+                  startIcon={<img src="/src/assets/icons/eye.svg" width={20} height={20} alt="" />}
                 >
                   View Photo
                 </Button>

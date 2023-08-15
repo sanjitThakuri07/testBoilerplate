@@ -137,7 +137,7 @@ const ScheduleInspection = () => {
 
   const breadcrumbs = [
     <Link key="0" href="/">
-      <img src="src/assets/icons/home.svg" alt="home" />
+      <img src="/src/assets/icons/home.svg" alt="home" />
     </Link>,
     <Link underline="hover" key="2" color="inherit">
       <Href
@@ -205,7 +205,7 @@ const ScheduleInspection = () => {
             }}
           >
             <Breadcrumbs
-              separator={<img src="src/assets/icons/chevron-right.svg" alt="right" />}
+              separator={<img src="/src/assets/icons/chevron-right.svg" alt="right" />}
               aria-label="breadcrumb"
             >
               {breadcrumbs}

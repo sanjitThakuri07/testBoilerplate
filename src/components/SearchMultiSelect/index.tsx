@@ -36,7 +36,7 @@ const SearchMultiSelect = (props: Props) => {
             <span className={styles.labelText}>{labelName}</span>
             {tooltip && (
               <span className={styles.tooltip_ic} title={tooltip}>
-                <img src="src/assets/images/icons/tooltip.svg" alt="" />{" "}
+                <img src="/src/assets/images/icons/tooltip.svg" alt="" />{" "}
               </span>
             )}
             {optional && <span className={styles.light}>Optional</span>}

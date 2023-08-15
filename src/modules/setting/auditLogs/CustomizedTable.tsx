@@ -154,7 +154,7 @@ const CustomizedTable: FC<{
         <Grid container spacing={2}>
           <Grid item>
             <div className="icon-holder">
-              <img src="src/assets/icons/featured.svg" alt="" />
+              <img src="/src/assets/icons/featured.svg" alt="" />
             </div>
           </Grid>
         </Grid>
@@ -176,7 +176,7 @@ const CustomizedTable: FC<{
             {items.map((x) => (
               <SortableItem key={x.id} id={x.id} handleSwitchChange={handleSwitchChange} item={x} />
               // <Stack direction="row" spacing={1} alignItems="center">
-              //   <img src="src/assets/icons/dots.svg" />
+              //   <img src="/src/assets/icons/dots.svg" />
               //   <IOSSwitch
               //     defaultChecked={x.checked}
               //     onChange={ev => handleSwitchChange(ev, x.id)}

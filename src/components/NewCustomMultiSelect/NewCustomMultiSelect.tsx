@@ -107,10 +107,10 @@ export default function NewCustomMultiSelect({
             <ListItemIcon>
               <Checkbox
                 color="primary"
-                checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
-                icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+                checkedIcon={<img src="/src/assets/icons/icon-check.svg" alt="check" />}
+                icon={<img src="/src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
                 indeterminateIcon={
-                  <img src="src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
+                  <img src="/src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
                 }
                 checked={isAllSelected}
                 indeterminate={selected?.length > 0 && selected?.length < menuOptions?.length}
@@ -127,10 +127,10 @@ export default function NewCustomMultiSelect({
                 <ListItemIcon>
                   <Checkbox
                     color="primary"
-                    checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
-                    icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+                    checkedIcon={<img src="/src/assets/icons/icon-check.svg" alt="check" />}
+                    icon={<img src="/src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
                     indeterminateIcon={
-                      <img src="src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
+                      <img src="/src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
                     }
                     checked={selected.indexOf(option?.[valueKey]) > -1}
                   />

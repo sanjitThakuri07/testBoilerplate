@@ -7,6 +7,8 @@ import defaultTheme, {
   themeStorageKey,
 } from "src/theme";
 
+import blueTheme from "src/theme/mui/themes/blueTheme";
+
 type ReactThemeContextType = {
   theme?: Theme;
   // setTheme?: Dispatch<SetStateAction<Theme>>;
@@ -18,7 +20,7 @@ type ReactThemeContextType = {
 export const ReactThemeContext = createContext<ReactThemeContextType>({});
 
 function ReactThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState(defaultTheme);
+  const [theme, setTheme] = useState(blueTheme);
 
   const switchTheme = (mode: ThemeModesType) => {
     const theme = getTheme(mode);

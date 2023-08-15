@@ -253,7 +253,7 @@ const InvoiceBillingForm = () => {
                                     <div className="draggable_icon">
                                       <IconButton>
                                         <img
-                                          src="src/assets/icons/dots.svg"
+                                          src="/src/assets/icons/dots.svg"
                                           alt="Drag"
                                           height={20}
                                           width={20}

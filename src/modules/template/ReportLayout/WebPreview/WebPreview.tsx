@@ -34,7 +34,7 @@ const WebPreview = ({ layoutObj, layoutParams, layoutObjLoader }: any) => {
             spacing={1}
           >
             <Box>
-              <img src="src/assets/icons/icon-feature.svg" alt="warning" />
+              <img src="/src/assets/icons/icon-feature.svg" alt="warning" />
             </Box>
             <Box>Please select your layout from left panel to load your layout datas</Box>
           </Stack>

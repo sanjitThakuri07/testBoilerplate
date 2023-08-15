@@ -31,7 +31,7 @@ export default function CreateLayout({ layouts = [] }: any) {
             variant="contained"
             size="large"
             fullWidth
-            startIcon={<img src="src/assets/icons/plus-white.svg" alt="plus" />}
+            startIcon={<img src="/src/assets/icons/plus-white.svg" alt="plus" />}
           >
             Create Layout
           </Button>

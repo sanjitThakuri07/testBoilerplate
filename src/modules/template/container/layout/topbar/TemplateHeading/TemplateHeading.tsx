@@ -66,7 +66,7 @@ const TemplateHeading = ({ formikBag, isViewOnly, isTab = false }: TemplateHeadi
               }}>
               <img
                 id="upload_csv_icon"
-                // src="src/assets/icons/upload.svg"
+                // src="/src/assets/icons/upload.svg"
                 style={{ overflow: 'hidden', height: '100%', width: '100%' }}
                 src={
                   templateHeading.headerImage

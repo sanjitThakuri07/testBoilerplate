@@ -383,14 +383,14 @@ const AddTariffs: React.FC<{
                   setMessage("Please click on the reload button to fetch the currently added data");
                 }}
               >
-                <img alt="" src="src/assets/icons/plus.svg" />
+                <img alt="" src="/src/assets/icons/plus.svg" />
               </Link>
               {/* <div
                 style={{ cursor: 'pointer' }}
                 onClick={() => {
                   navigate('/config/finance/tariff-rate-types');
                 }}>
-                <img alt="" src="src/assets/icons/plus.svg" />
+                <img alt="" src="/src/assets/icons/plus.svg" />
               </div> */}
             </div>
 
@@ -692,7 +692,7 @@ const AddTariffs: React.FC<{
                                             );
                                           }}
                                         >
-                                          <img alt="" src="src/assets/icons/plus.svg" />
+                                          <img alt="" src="/src/assets/icons/plus.svg" />
                                         </Link>
                                       </div>
 
@@ -777,7 +777,7 @@ const AddTariffs: React.FC<{
                                             );
                                           }}
                                         >
-                                          <img alt="" src="src/assets/icons/plus.svg" />
+                                          <img alt="" src="/src/assets/icons/plus.svg" />
                                         </Link>
                                       </div>
 

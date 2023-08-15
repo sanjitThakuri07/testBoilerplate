@@ -225,7 +225,7 @@ export default function Finance() {
                   onClick={() => {
                     navigate("/finance/tariffs");
                   }}
-                  startIcon={<img src="src/assets/icons/back.svg" alt="back button" />}
+                  startIcon={<img src="/src/assets/icons/back.svg" alt="back button" />}
                   sx={{
                     textTransform: "capitalize",
                   }}

@@ -3,10 +3,12 @@ import { isClient } from "src/utils";
 import brand from "./mui/themes/brand";
 import dark from "./mui/themes/dark";
 import defaultTheme from "./mui/themes/default";
+import blueTheme from "./mui/themes/blueTheme";
+
 import light from "./mui/themes/light";
 
 export type ThemeType = Theme;
-export type ThemeModesType = "default" | "dark" | "light" | "brand";
+export type ThemeModesType = "default" | "dark" | "light" | "brand" | "blue";
 
 export const getTheme = (mode: ThemeModesType): ThemeType => {
   switch (mode) {
@@ -18,6 +20,9 @@ export const getTheme = (mode: ThemeModesType): ThemeType => {
 
     case "brand":
       return brand;
+
+    case "blue":
+      return blueTheme;
 
     default:
       return defaultTheme;

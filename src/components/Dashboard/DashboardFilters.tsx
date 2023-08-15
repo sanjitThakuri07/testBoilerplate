@@ -188,7 +188,7 @@ export default function DashboardFilters() {
               fontSize: "15px",
             }}
             variant="outlined"
-            startIcon={<img src="src/assets/icons/globe.svg" alt="location" />}
+            startIcon={<img src="/src/assets/icons/globe.svg" alt="location" />}
           >
             Location Filters
           </Button>

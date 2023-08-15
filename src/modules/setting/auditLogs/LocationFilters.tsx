@@ -107,7 +107,7 @@ const LocationFilters: FC<{
         <Grid container spacing={2}>
           <Grid item>
             <div className="icon-holder">
-              <img src="src/assets/icons/filter.svg" alt="" />
+              <img src="/src/assets/icons/filter.svg" alt="" />
             </div>
           </Grid>
           <Grid item>

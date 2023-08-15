@@ -272,7 +272,7 @@ export default function TemplateIndex() {
           type: "dot",
           dotModeOptions: [
             {
-              Icon: <img src="src/assets/icons/manage_access.svg" alt="report" />,
+              Icon: <img src="/src/assets/icons/manage_access.svg" alt="report" />,
               label: "Create Layout",
               handleButtonClick: ({ id }: any) => {
                 navigate(`layout/${id}`);
@@ -280,7 +280,7 @@ export default function TemplateIndex() {
               permission: [permissionList.Form.add],
             },
             {
-              Icon: <img src="src/assets/icons/manage_access.svg" alt="report" />,
+              Icon: <img src="/src/assets/icons/manage_access.svg" alt="report" />,
               label: "Manage Access",
               handleButtonClick: ({ id }: any) => {
                 navigate(`access-control/${id}`);
@@ -296,7 +296,7 @@ export default function TemplateIndex() {
               permission: [permissionList.Form.edit],
             },
             {
-              Icon: <img src="src/assets/icons/manage_access.svg" alt="report" />,
+              Icon: <img src="/src/assets/icons/manage_access.svg" alt="report" />,
               label: "Assign Inspection",
               handleButtonClick: (row: any) => {
                 // navigate(`layout/${id}`);

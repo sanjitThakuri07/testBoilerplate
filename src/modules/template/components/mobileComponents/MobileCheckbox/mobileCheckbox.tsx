@@ -19,10 +19,10 @@ export default function MobileCheckbox({
         <Checkbox
           color="primary"
           checked={Boolean(value)}
-          checkedIcon={<img src="src/assets/icons/icon-check.svg" alt="check" />}
-          icon={<img src="src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
+          checkedIcon={<img src="/src/assets/icons/icon-check.svg" alt="check" />}
+          icon={<img src="/src/assets/icons/icon-uncheck.svg" alt="uncheck" />}
           indeterminateIcon={
-            <img src="src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
+            <img src="/src/assets/icons/icon-check-remove.svg" alt="indeterminate" />
           }
           // onChange={(e) => {
           //   updateTemplateDatasets(dataItem, 'value', e.target.checked);

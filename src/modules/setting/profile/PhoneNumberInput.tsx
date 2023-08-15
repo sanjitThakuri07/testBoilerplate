@@ -24,7 +24,7 @@ interface IProps {
   defaultCode?: Number;
 }
 
-// IconComponent={() => <img src="src/assets/icons/cheveron-down.svg" />}>
+// IconComponent={() => <img src="/src/assets/icons/cheveron-down.svg" />}>
 
 const PhoneNumberInput: FC<IProps> = ({
   formikBag,
@@ -167,7 +167,7 @@ const PhoneNumberInput: FC<IProps> = ({
               startIcon={
                 <img
                   alt=""
-                  src="src/assets/icons/plus.svg"
+                  src="/src/assets/icons/plus.svg"
                   style={{
                     opacity: isViewOnly ? 0.5 : 1,
                   }}
