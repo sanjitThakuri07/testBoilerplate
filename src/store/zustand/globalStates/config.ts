@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 import {
   BASConfigCountryTableProps,
   BASConfigFinanceBillingAgreementTableProps,
@@ -18,7 +18,7 @@ import {
   activityStatusTableProps,
   UserRolesProps,
   userRolesTypeTableProps,
-} from 'interfaces/configs';
+} from "src/interfaces/configs";
 
 interface ConfigStore {
   regions: BASConfigTableProps;
@@ -452,10 +452,10 @@ export const useContractorServicesStore = create<configContractorStore>((set) =>
 // setting dynamic path
 export const usePathUrlSettor = create<globalPathSetter>((set) => ({
   routes: {
-    backendUrl: '',
-    frontEndUrl: '',
+    backendUrl: "",
+    frontEndUrl: "",
   },
-  setCustomRoutes: (routePayload: { backendUrl?: any; fronEndUrl?: '' }) => {
+  setCustomRoutes: (routePayload: { backendUrl?: any; fronEndUrl?: "" }) => {
     set({ routes: routePayload });
   },
 }));

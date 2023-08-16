@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { Breadcrumbs, Button, CircularProgress, Link, Stack, Typography } from "@mui/material";
 import BackButton from "src/components/buttons/back";
-import { serviceProps } from "src/interfaces/configs";
+import { serviceProps } from "src/src/interfaces/configs";
 import ServiceForm from "./ServiceForm";
 import "../services/regions.scss";
 import UploadCsv from "src/modules/config/generalSettings/upload/UploadCsv";
@@ -18,7 +18,7 @@ import MultiStepProgressBar from "./FormProgress";
 import AddRecord from "./Form/AddRecord";
 import PageTwo from "./Form/AddTariffs";
 import { fetchIndividualApi } from "src/modules/apiRequest/apiRequest";
-import { contractorProps } from "src/interfaces/configs";
+import { contractorProps } from "src/src/interfaces/configs";
 import { allRoutes } from "src/routers/routingsUrl";
 
 interface ProgressStep {

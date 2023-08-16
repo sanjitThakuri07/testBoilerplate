@@ -9,7 +9,7 @@ import OrganizationConfiguration, {
   ConfigTableUrlUtils,
 } from "../generalSettings/OrganizationConfiguration";
 import BASDataTable from "../generalSettings/BASDataTable";
-import { BASConfigTableProps } from "src/interfaces/configs";
+import { BASConfigTableProps } from "src/src/interfaces/configs";
 import UsersSettingLayout from "./UserSettingLayout";
 import { usePermissionStore } from "src/store/zustand/permission";
 import { permissionList } from "src/constants/permission";

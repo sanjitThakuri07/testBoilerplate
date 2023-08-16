@@ -22,7 +22,7 @@ import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModa
 import NoDataFound from "src/components/NoDataFound";
 import { useAlertPopup } from "src/store/zustand/globalStates/alertPopup";
 import { useConfigStore } from "src/store/zustand/globalStates/config";
-import { BASConfigTableProps, RegionProps } from "src/interfaces/configs";
+import { BASConfigTableProps, RegionProps } from "src/src/interfaces/configs";
 import moment from "moment";
 import { useSnackbar } from "notistack";
 import * as React from "react";

@@ -35,7 +35,7 @@ import DynamicSelectField from "src/modules/setting/profile/DynamicSelectField";
 import "./form.style.scss";
 import ModalLayout from "src/components/ModalLayout";
 import ServiceForm from "../../services/ServiceForm";
-import { serviceProps } from "src/interfaces/configs";
+import { serviceProps } from "src/src/interfaces/configs";
 import {
   putApiData,
   postApiData,

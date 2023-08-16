@@ -15,7 +15,7 @@ import {
   TextField,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { RegionProps } from "src/interfaces/configs";
+import { RegionProps } from "src/src/interfaces/configs";
 import { useEffect, useState } from "react";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";

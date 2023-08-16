@@ -13,7 +13,7 @@ import {
   TextField,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { CountryProps, RegionProps } from "src/interfaces/configs";
+import { CountryProps, RegionProps } from "src/src/interfaces/configs";
 import { FC, useEffect, useState } from "react";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";

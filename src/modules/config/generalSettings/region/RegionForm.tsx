@@ -13,7 +13,7 @@ import {
   TextField,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { RegionProps } from "src/interfaces/configs";
+import { RegionProps } from "src/src/interfaces/configs";
 import React, { FC, useEffect, useState } from "react";
 import { ConfigRegionsSchema, ConfigRegionsSchemaOptional } from "src/validationSchemas/config";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";

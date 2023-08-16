@@ -6,7 +6,7 @@ import EditView from "src/components/ViewEdit";
 import BackButton from "src/components/buttons/back";
 import { permissionList as PERMISSIONLIST } from "src/constants/permission";
 import { userRolesStore } from "src/store/zustand/globalStates/config";
-import { UserRolesProps } from "src/interfaces/configs";
+import { UserRolesProps } from "src/src/interfaces/configs";
 import { useSnackbar } from "notistack";
 import React, { useEffect, useState } from "react";
 import { Link as Href, useLocation, useNavigate, useParams } from "react-router-dom";

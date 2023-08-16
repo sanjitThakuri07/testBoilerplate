@@ -6,7 +6,7 @@ import { permissionList } from "src/constants/permission";
 import { fetchIndividualApi } from "src/modules/apiRequest/apiRequest";
 import BASDataTable from "src/modules/table/BASDataTable";
 import { useContractorServicesStore } from "src/store/zustand/globalStates/config";
-import { BASConfigTableProps } from "src/interfaces/configs";
+import { BASConfigTableProps } from "src/src/interfaces/configs";
 import { useSnackbar } from "notistack";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getAPI } from "src/lib/axios";

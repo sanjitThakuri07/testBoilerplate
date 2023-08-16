@@ -2,14 +2,12 @@ import { Box } from "@mui/system";
 import FullPageLoader from "src/components/FullPageLoader";
 import { permissionList } from "src/constants/permission";
 import { fetchApI } from "src/modules/apiRequest/apiRequest";
-import GeneralSettingTableFilter from "src/modules/config/generalSettings/Filters/generalSettingTableFilter";
 import BASDataTableUpdate from "src/modules/table/BASDataTable";
-import { BASConfigTableProps } from "src/interfaces/configs";
+import { BASConfigTableProps } from "src/src/interfaces/configs";
 import { useSnackbar } from "notistack";
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router";
 import { usePermissionStore } from "src/store/zustand/permission";
-import DeletableChips from "./Filters/FilterChip";
 import GeneralSettingLayout from "./GeneralSettingLayout";
 import OrganizationConfiguration, { ConfigTableUrlUtils } from "./OrganizationConfiguration";
 import {
@@ -23,14 +21,13 @@ import CommonFilter, {
   converToProperFormikFormat,
 } from "src/modules/config/Filters/CommonFilter";
 import CustomPopUp from "src/components/CustomPopup/index";
-import { queryMaker } from "src/utils/keyFunction";
 import useAppStore from "src/store/zustand/app";
 import { usePayloadHook } from "src/constants/customHook/payloadOptions";
+import useRegionStore from "src/store/zustand/generalSettings/region";
 
 export default function GeneralSetting() {
   const location = useLocation();
   const [value, setValue] = React.useState(0);
-  const [loading, setLoading] = useState(false);
   const [totalCount, setTotalCount] = React.useState(0);
   const [pathName, setPathName] = React.useState({
     backendUrl: "",
@@ -48,16 +45,12 @@ export default function GeneralSetting() {
   const [keyName, setKeyName] = useState("");
 
   const { systemParameters }: any = useAppStore();
-
-  const [generalSettingDatas, setGeneralSettingsDatas] = React.useState<BASConfigTableProps>({
-    items: [],
-    headers: [],
-    page: 1,
-    pages: 1,
-    size: 1,
-    total: 0,
-    archivedCount: 0,
-  });
+  const {
+    fetchRegions,
+    tableDatas: RegionTableData,
+    tableActionHandler: RegionTableActionHandler,
+    loading,
+  }: any = useRegionStore();
 
   const [urlUtils, setUrlUtils] = usePayloadHook();
 
@@ -96,42 +89,23 @@ export default function GeneralSetting() {
         setKeyName("name");
         break;
     }
-    setLoading(true);
-    const apiRequestResponse = await fetchApI({
-      setterFunction: (data: any) => {
-        setTotalCount(data.total);
-        setDeleteEndpoint(returnedParams);
-        setGeneralSettingsDatas((prev) => {
-          return {
-            ...prev,
-            ...data,
-            items: data.items,
-            headers: data.headers,
-            page: data.page,
-            pages: data.pages,
-            size: data.size,
-            total: data.total,
-            archivedCount: data?.info?.archived_count,
-          };
-        });
-      },
+    const apiRequestResponse = await fetchRegions({
       getAll: true,
-      url: `${returnedParams}/`,
-      queryParam: queryMaker(urlUtils),
-      // enqueueSnackbar: enqueueSnackbar,
+      enqueueSnackbar,
+      query: urlUtils,
     });
-    setLoading(false);
-    if (!apiRequestResponse) {
-      setGeneralSettingsDatas({
-        items: [],
-        headers: [],
-        page: 1,
-        pages: 1,
-        size: 5,
-        total: 0,
-        archivedCount: 0,
-      });
-    }
+
+    // if (!apiRequestResponse) {
+    //   setGeneralSettingsDatas({
+    //     items: [],
+    //     headers: [],
+    //     page: 1,
+    //     pages: 1,
+    //     size: 5,
+    //     total: 0,
+    //     archivedCount: 0,
+    //   });
+    // }
   };
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -195,6 +169,18 @@ export default function GeneralSetting() {
     location: permissionList.Location,
   };
 
+  const tableUpdateDatas: any = {
+    region: {
+      data: RegionTableData,
+      setterFn: async ({ datas, type }: any) => {
+        await RegionTableActionHandler({ values: datas, enqueueSnackbar, type: type });
+      },
+    },
+    country: { data: RegionTableData, setterFn: () => {} },
+    territory: { data: RegionTableData, setterFn: () => {} },
+    location: { data: RegionTableData, setterFn: () => {} },
+  };
+
   return (
     <OrganizationConfiguration>
       <GeneralSettingLayout>
@@ -206,17 +192,18 @@ export default function GeneralSetting() {
             setOpenModal={() => {
               setOpenModal(false);
             }}
-            headers={generalSettingDatas?.headers}
+            // headers={generalSettingDatas?.headers}
+            headers={tableUpdateDatas?.[returnedParams]?.data?.headers}
             viewData={viewData}
             chipOptions={["status"]}
           >
             {/* {JSON.stringify(viewData)} */}
           </CustomPopUp>
           <BASDataTableUpdate
-            data={generalSettingDatas}
+            data={tableUpdateDatas?.[returnedParams]?.data}
             deletePath={deleteEndpoint}
             onDataChange={onDataTableChange}
-            setterFunction={setGeneralSettingsDatas}
+            setterFunction={tableUpdateDatas?.[returnedParams]?.setterFn}
             configName={pathName?.buttonName}
             count={totalCount}
             tableIndicator={pathName}

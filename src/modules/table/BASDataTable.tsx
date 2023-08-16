@@ -29,7 +29,7 @@ import {
   Switch,
   Tooltip,
 } from "@mui/material";
-import { BASConfigTableProps, RegionProps } from "src/interfaces/configs";
+import { BASConfigTableProps, RegionProps } from "src/src/interfaces/configs";
 import { useLocation, useNavigate } from "react-router-dom";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { deleteAPI, getAPI } from "src/lib/axios";
@@ -45,7 +45,6 @@ import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import PopUpCustom from "./PopUp";
 // import './table.scss';
 import { IndividualListDisplay } from "./PopUp";
-import KebabIcon from "src/assets/icons/Kebab.png";
 import { RadioOptions } from "src/utils/FindingsUtils";
 import { GetShorterText } from "src/components/GetShortText";
 import { ConfigTableUrlUtils } from "@src/modules/config/generalSettings";
@@ -54,23 +53,18 @@ import { patchApiData, setErrorNotification } from "src/modules/apiRequest/apiRe
 import AddModal from "src/components/AddModal/AddModal";
 import GroupsIcon from "@mui/icons-material/Groups";
 import VerticalIcon from "src/assets/icons/vertical_icon.png";
-import DeletableChips from "src/modules/config/generalSettings/Filters/FilterChip";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import { postApiData, restoreAPIData } from "src/modules/apiRequest/apiRequest";
-import FullPageLoader from "src/components/FullPageLoader";
+import { postApiData } from "src/modules/apiRequest/apiRequest";
 import { checkPermission } from "src/utils/permission";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { permissionFilter } from "src/modules/config/generalSettings/OrganizationConfiguration";
 import { SwitchComponent } from "src/modules/config/Filters/CommonFilter";
 import RestoreIcon from "@mui/icons-material/Restore";
 import { debounce } from "lodash";
-import QueryString from "qs";
-import { AnyAaaaRecord } from "dns";
 import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import { checkDate, formatDate } from "src/utils/keyFunction";
 import useAppStore from "src/store/zustand/app";
 import DateRangeIcon from "@mui/icons-material/DateRange";
+import { ACTION_TYPE } from "src/store/zustand/actionType";
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -1209,33 +1203,34 @@ async function duplicateRestoreAPI({
   setIsFormLoading,
   domain,
   url,
-  setTableDatas,
-  method = "duplicate",
+  setterFunction,
+  method = ACTION_TYPE?.DUPLICATE,
 }: any) {
-  await postApiData({
-    setterFunction: (data: any) => {
-      if (method !== "duplicate") {
-        setTableDatas((prev: any) => ({
-          ...prev,
-          items: prev?.items?.filter((it: any) => !values?.includes(it?.id)) || [],
-        }));
-      }
-      setTableDatas((prev: any) => ({
-        ...prev,
-        items: [...(data?.data || []), ...prev?.items],
-      }));
-    },
-    values: values,
-    url:
-      method === "duplicate"
-        ? `/${url}/duplicate/${values?.id}`
-        : method === "re-store"
-        ? `/${url}/restore/`
-        : "",
-    enqueueSnackbar: enqueueSnackbar,
-    domain: domain,
-    setterLoading: setIsFormLoading,
-  });
+  setterFunction?.({ datas: values, type: method });
+  // await postApiData({
+  //   setterFunction: (data: any) => {
+  //     if (method !== "duplicate") {
+  //       setTableDatas((prev: any) => ({
+  //         ...prev,
+  //         items: prev?.items?.filter((it: any) => !values?.includes(it?.id)) || [],
+  //       }));
+  //     }
+  //     setTableDatas((prev: any) => ({
+  //       ...prev,
+  //       items: [...(data?.data || []), ...prev?.items],
+  //     }));
+  //   },
+  //   values: values,
+  //   url:
+  //     method === "duplicate"
+  //       ? `/${url}/duplicate/${values?.id}`
+  //       : method === "re-store"
+  //       ? `/${url}/restore/`
+  //       : "",
+  //   enqueueSnackbar: enqueueSnackbar,
+  //   domain: domain,
+  //   setterLoading: setIsFormLoading,
+  // });
 }
 
 // async function restoreAPI({
@@ -2121,37 +2116,38 @@ const BASDataTable: React.FC<{
   const deleteHandler = async (datas: object[], key: string = "name") => {
     let selectedIds = datas?.map((data: { id?: number }) => data?.id);
     let selectedName = datas?.map((data: any) => data?.[`${key}`]);
-    try {
-      await deleteAPI(`${tableIndicator?.backendUrl ? tableIndicator?.backendUrl : backendUrl}/`, {
-        config_ids: selectedIds,
-      });
-      enqueueSnackbar(
-        `${
-          (selectedName?.length > 1 ? selectedName?.join(", ") : selectedName[0]) || "Data"
-        } deleted successfully`,
-        {
-          variant: "success",
-        },
-      );
-      setterFunction?.((prev: any) => {
-        // if(prev?.items)
-        // need to put logic for those that have no items
-        const newItems = prev?.items?.filter(
-          (item: { id?: number }) => !selectedIds.includes(item.id),
-        );
-        return {
-          ...prev,
-          items: newItems,
-          archivedCount: Number(prev?.archivedCount || 0) + selectedIds?.length,
-          total: Number(prev?.total || 0) - selectedIds?.length,
-        };
-      });
+    setterFunction?.({ datas: selectedIds, type: ACTION_TYPE?.DELETE });
+    // try {
+    //   await deleteAPI(`${tableIndicator?.backendUrl ? tableIndicator?.backendUrl : backendUrl}/`, {
+    //     config_ids: selectedIds,
+    //   });
+    //   enqueueSnackbar(
+    //     `${
+    //       (selectedName?.length > 1 ? selectedName?.join(", ") : selectedName[0]) || "Data"
+    //     } deleted successfully`,
+    //     {
+    //       variant: "success",
+    //     },
+    //   );
+    //   setterFunction?.((prev: any) => {
+    //     // if(prev?.items)
+    //     // need to put logic for those that have no items
+    //     const newItems = prev?.items?.filter(
+    //       (item: { id?: number }) => !selectedIds.includes(item.id),
+    //     );
+    //     return {
+    //       ...prev,
+    //       items: newItems,
+    //       archivedCount: Number(prev?.archivedCount || 0) + selectedIds?.length,
+    //       total: Number(prev?.total || 0) - selectedIds?.length,
+    //     };
+    //   });
 
-      return true;
-    } catch (error: any) {
-      setErrorNotification(error, enqueueSnackbar);
-      return false;
-    }
+    //   return true;
+    // } catch (error: any) {
+    //   setErrorNotification(error, enqueueSnackbar);
+    //   return false;
+    // }
   };
 
   React.useEffect(() => {
@@ -2230,9 +2226,10 @@ const BASDataTable: React.FC<{
                 values: [...(selected?.map((it: any) => it?.id) || [])],
                 domain: tableIndicator?.buttonName,
                 url: tableIndicator?.backendUrl,
-                setTableDatas: setterFunction,
+                setterFunction,
                 enqueueSnackbar: enqueueSnackbar,
-                method: "re-store",
+                method: ACTION_TYPE.RESTORE,
+                // method: "re-store",
               });
               setterFunction?.((prev: any) => {
                 // if(prev?.items)
@@ -2276,7 +2273,7 @@ const BASDataTable: React.FC<{
                 },
                 domain: tableIndicator?.buttonName,
                 url: tableIndicator?.backendUrl,
-                setTableDatas: setterFunction,
+                setterFunction,
                 enqueueSnackbar: enqueueSnackbar,
               }));
             setDeleteLoading(false);
@@ -2308,7 +2305,7 @@ const BASDataTable: React.FC<{
                 values: [...(selected?.map((it: any) => it?.id) || [])],
                 domain: tableIndicator?.buttonName,
                 url: tableIndicator?.backendUrl,
-                setTableDatas: setterFunction,
+                setterFunction,
                 enqueueSnackbar: enqueueSnackbar,
                 method: "re-store",
               });

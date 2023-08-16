@@ -18,7 +18,7 @@ import {
 import { Formik, FormikProps, Field, FieldArray } from "formik";
 import { Form, useNavigate, useParams } from "react-router-dom";
 import { postAPI } from "src/lib/axios";
-import { customerProps } from "src/interfaces/configs";
+import { customerProps } from "src/src/interfaces/configs";
 import { useSnackbar } from "notistack";
 import { AddCustomerValidation } from "src/validationSchemas/ContractorValidation";
 import FullPageLoader from "src/components/FullPageLoader";

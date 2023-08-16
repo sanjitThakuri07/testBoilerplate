@@ -18,7 +18,7 @@ import { Formik, FormikProps, Field } from "formik";
 import ProfilePicture from "src/modules/setting/profile/ProfilePicture";
 import { useNavigate, useParams } from "react-router-dom";
 import PhoneNumberInput from "src/modules/setting/profile/PhoneNumberInput";
-import { contractorProps } from "src/interfaces/configs";
+import { contractorProps } from "src/src/interfaces/configs";
 import { useSnackbar, SnackbarKey, SnackbarMessage, OptionsObject } from "notistack";
 import Radio from "src/components/Radio";
 import MultiEmailAdd from "src/components/MultiEmail/MultiEmailAdd";
@@ -29,7 +29,7 @@ import FullPageLoader from "src/components/FullPageLoader";
 import DynamicSelectField from "src/modules/setting/profile/DynamicSelectField";
 import ModalLayout from "src/components/ModalLayout";
 import ServiceForm from "../../services/ServiceForm";
-import { serviceProps } from "src/interfaces/configs";
+import { serviceProps } from "src/src/interfaces/configs";
 import {
   putApiData,
   postApiData,

@@ -4,7 +4,7 @@ import {
   useContractorServicesStore,
   usePathUrlSettor,
 } from "src/store/zustand/globalStates/config";
-import { ResponseSetPropsS } from "src/interfaces/configs";
+import { ResponseSetPropsS } from "src/src/interfaces/configs";
 import { useEffect, useState } from "react";
 import { Link as Href, useLocation, useNavigate, useParams } from "react-router-dom";
 import InternalResponseSetForm from "./Form/InternalResponseSetForm";

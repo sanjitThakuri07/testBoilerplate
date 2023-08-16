@@ -1,7 +1,7 @@
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { Breadcrumbs, Button, CircularProgress, Link, Stack, Typography } from "@mui/material";
 import BackButton from "src/components/buttons/back";
-import { serviceProps } from "src/interfaces/configs";
+import { serviceProps } from "src/src/interfaces/configs";
 import { useEffect, useState } from "react";
 import BookingStatusForm from "./BookingStatusForm";
 import "./regions.scss";

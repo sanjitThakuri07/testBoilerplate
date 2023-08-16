@@ -8,28 +8,33 @@ import {
   fetchIndividualApi,
 } from "src/modules/apiRequest/apiRequest";
 import { url } from "src/utils/url";
+import { ACTION_TYPE } from "../../actionType";
 
 const useLocationStore = create((set) => ({
+  tableDatas: {
+    items: [],
+    headers: [],
+    page: 1,
+    pages: 1,
+    size: 1,
+    total: 0,
+    archivedCount: 0,
+  },
   locations: [],
   individualLocation: {},
   loading: false,
 
   // multiple response data
-  fetchLocations: async ({ query, changeFormat }: any) => {
+  fetchLocations: async ({ query, changeFormat, getAll }: any) => {
     set({ loading: true });
     const apiResponse = await fetchApI({
       url: url?.location + "/",
       setterFunction: (data: any) => {
-        if (changeFormat) {
-          //   const changeData = data?.map((opt: any) => ({
-          //     value: opt.id,
-          //     label: opt.name,
-          //     phone_code: opt.phone_code,
-          //   }));
-          set({ locations: data, loading: false });
-        } else {
-          set({ locations: data || [], loading: false });
-        }
+        set({
+          locations: getAll ? data?.items || [] : data || [],
+          tableDatas: getAll ? { ...data, archivedCount: data?.info?.archived_count || 0 } : {},
+          loading: false,
+        });
       },
     });
     !apiResponse && set({ loading: false });
@@ -117,6 +122,97 @@ const useLocationStore = create((set) => ({
         });
       },
     });
+    !apiResponse && set({ loading: false });
+    return apiResponse;
+  },
+
+  tableActionHandler: async ({ values, enqueueSnackbar, type, URL = url?.location }: any) => {
+    set({ loading: true });
+    let apiResponse = false;
+
+    switch (type) {
+      case ACTION_TYPE.DELETE:
+        apiResponse = await deleteAPiData({
+          values: values,
+          url: url?.location + "/",
+          // setterLoading: setLoading,
+          enqueueSnackbar: enqueueSnackbar,
+          getAll: true,
+          setterFunction: (data: any) => {
+            set((state: any) => {
+              let tableDatas = state.tableDatas || {};
+              let items = tableDatas?.items?.filter((data: any) => !values?.includes(data?.id));
+              return {
+                loading: false,
+                tableDatas: {
+                  ...(tableDatas || {}),
+                  archivedCount: tableDatas?.archivedCount + values?.length || 0,
+                  items,
+                },
+                locations: items,
+              };
+            });
+          },
+        });
+        break;
+      case ACTION_TYPE.RESTORE:
+        apiResponse = await postApiData({
+          values: values,
+          url: `/${url?.location}/${url?.restore}`,
+          // setterLoading: setLoading,
+          enqueueSnackbar: enqueueSnackbar,
+          setterFunction: (data: any) => {
+            set((state: any) => {
+              console.log({ data });
+              const updateData = state?.tableDatas?.items?.filter(
+                (data: any) => !values?.includes(data?.id),
+              );
+              const updatedTableData = {
+                ...(state.tableDatas || {}),
+                items: updateData,
+                archivedCount: state.tableDatas?.archivedCount - values?.length || 0,
+              };
+
+              return {
+                locations: updateData,
+                individualRegion: {},
+                tableDatas: updatedTableData,
+                loading: false,
+              };
+            });
+          },
+        });
+        break;
+      case ACTION_TYPE.DUPLICATE:
+        apiResponse = await postApiData({
+          values: values,
+          url: `/${url?.location}/${url?.duplicate}/${values?.id}`,
+          // setterLoading: setLoading,
+          enqueueSnackbar: enqueueSnackbar,
+          setterFunction: (data: any) => {
+            set((state: any) => {
+              console.log({ data });
+              const updateData = [...(data?.data || []), ...(state?.tableDatas?.items || [])];
+              const updatedTableData = {
+                ...(state.tableDatas || {}),
+                items: updateData,
+                archivedCount: state.tableDatas?.archivedCount - values?.length || 0,
+              };
+
+              return {
+                locations: updateData,
+                individualLocation: {},
+                tableDatas: updatedTableData,
+                loading: false,
+              };
+            });
+          },
+        });
+        break;
+      default:
+        break;
+    }
+
     !apiResponse && set({ loading: false });
     return apiResponse;
   },

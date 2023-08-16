@@ -35,6 +35,8 @@ export const url: any = {
   changeInvoiceStatus: "invoice/change-status",
   cancelBooking: "booking_templates-data/change-status",
   invoiceAnalytics: "invoice/analytics",
+  restore: "restore/",
+  duplicate: "duplicate",
 };
 
 export const moduleIdsFnR = [

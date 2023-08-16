@@ -12,7 +12,7 @@
 // import Box from '@mui/material/Box';
 // import FullPageLoader from 'src/components/;
 // import { Formik, FormikProps } from 'formik';
-// import { BASConfigTableProps, ResponseSetPropsS, TableValue } from 'interfaces/configs';
+// import { BASConfigTableProps, ResponseSetPropsS, TableValue } from 'src/interfaces/configs';
 // import { useSnackbar } from 'notistack';
 // import React, { useEffect, useState } from 'react';
 // import { useNavigate, useParams } from 'react-router-dom';
@@ -665,7 +665,7 @@ import {
 } from "@mui/material";
 import { Formik, FormikProps, Field } from "formik";
 import { useNavigate, useParams } from "react-router-dom";
-import { BASConfigTableProps, ResponseSetPropsS, TableValue } from "src/interfaces/configs";
+import { BASConfigTableProps, ResponseSetPropsS, TableValue } from "src/src/interfaces/configs";
 import { useSnackbar, SnackbarKey, SnackbarMessage, OptionsObject } from "notistack";
 import { InternalResponseSetValidationSchema } from "src/validationSchemas/InternalResponseSet";
 import FullPageLoader from "src/components/FullPageLoader";

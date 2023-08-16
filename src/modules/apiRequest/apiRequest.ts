@@ -402,7 +402,9 @@ export const deleteAPiData = async ({
   navigateTo,
   domain,
   id,
+  getAll,
 }: postInterface) => {
+  console.log({ url });
   try {
     setterLoading?.(true);
     const { status, data } = await deleteAPI(`${url}`, { config_ids: values });
@@ -410,7 +412,9 @@ export const deleteAPiData = async ({
       enqueueSnackbar?.(data?.message ? data?.message : `Data archived successfully`, {
         variant: "success",
       });
-      if (data?.length) {
+      if (getAll) {
+        setterFunction?.({ ...data, status });
+      } else if (data?.length) {
         setterFunction?.(data);
         setterLoading?.(false);
       } else if (data?.items) {

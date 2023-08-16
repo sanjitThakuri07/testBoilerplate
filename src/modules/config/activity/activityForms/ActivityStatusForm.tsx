@@ -13,7 +13,7 @@ import {
   TextField,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { commonTypeProps } from "src/interfaces/configs";
+import { commonTypeProps } from "src/src/interfaces/configs";
 import React, { FC, useEffect, useState } from "react";
 import { ServiceSchema } from "src/validationSchemas/config";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";

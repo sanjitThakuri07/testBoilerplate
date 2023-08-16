@@ -13,7 +13,7 @@ import {
   TextareaAutosize,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { RegionProps } from "src/interfaces/configs";
+import { RegionProps } from "src/src/interfaces/configs";
 import React, { FC, useState } from "react";
 import { ConfigRegionsSchema } from "src/validationSchemas/config";
 import { postAPI, putAPI } from "src/lib/axios";

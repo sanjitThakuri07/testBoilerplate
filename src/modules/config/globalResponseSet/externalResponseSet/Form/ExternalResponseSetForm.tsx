@@ -17,7 +17,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import FullPageLoader from "src/components/FullPageLoader";
 import { Formik, FormikProps } from "formik";
-import { ExternalConnectionProps } from "src/interfaces/configs";
+import { ExternalConnectionProps } from "src/src/interfaces/configs";
 import { useSnackbar } from "notistack";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";

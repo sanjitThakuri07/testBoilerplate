@@ -1,7 +1,12 @@
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { Breadcrumbs, Button, CircularProgress, Link, Stack, Typography } from "@mui/material";
 import BackButton from "src/components/buttons/back";
-import { CountryProps, LocationProps, RegionProps, TerritoryProps } from "src/interfaces/configs";
+import {
+  CountryProps,
+  LocationProps,
+  RegionProps,
+  TerritoryProps,
+} from "src/src/interfaces/configs";
 import { useEffect, useState } from "react";
 import RegionForm from "./RegionForm";
 import "./regions.scss";

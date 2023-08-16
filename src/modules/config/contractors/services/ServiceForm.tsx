@@ -13,7 +13,7 @@ import {
   TextField,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { serviceProps } from "src/interfaces/configs";
+import { serviceProps } from "src/src/interfaces/configs";
 import React, { FC, useEffect, useState } from "react";
 import {
   ConfigRegionsSchema,

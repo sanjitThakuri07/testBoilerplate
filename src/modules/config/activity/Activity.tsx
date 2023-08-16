@@ -8,7 +8,7 @@ import {
   activityTypeStore,
   useContractorServicesStore,
 } from "src/store/zustand/globalStates/config";
-import { BASConfigTableProps } from "src/interfaces/configs";
+import { BASConfigTableProps } from "src/src/interfaces/configs";
 import { useSnackbar } from "notistack";
 import { useLocation } from "react-router";
 import { getAPI } from "src/lib/axios";

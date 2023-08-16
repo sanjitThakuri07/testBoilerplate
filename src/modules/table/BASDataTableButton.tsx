@@ -14,7 +14,7 @@ import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
 import { AppBar, Badge, Button, Chip, Grid, OutlinedInput, Stack } from "@mui/material";
-import { BASConfigTableProps, RegionProps } from "src/interfaces/configs";
+import { BASConfigTableProps, RegionProps } from "src/src/interfaces/configs";
 import { useLocation, useNavigate } from "react-router-dom";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { deleteAPI, getAPI } from "src/lib/axios";

@@ -16,7 +16,7 @@ import PageOne from "./Form/CustomerForm";
 import PageTwo from "./Form/CustomerAddress";
 import PageThree from "./Form/CustomerAdd";
 import { fetchInitialValues } from "./Form/apiRequest";
-import { customerProps } from "src/interfaces/configs";
+import { customerProps } from "src/src/interfaces/configs";
 import EditView from "src/components/ViewEdit";
 import { permissionList } from "src/constants/permission";
 

@@ -1,5 +1,5 @@
 import { Button, Card, Grid, Typography } from "@mui/material";
-import { RegionProps } from "interfaces/configs";
+import { RegionProps } from "src/interfaces/configs";
 import { useLocation } from "react-router-dom";
 import { FC } from "react";
 
@@ -35,7 +35,7 @@ const RegionCard: FC<
             <Typography variant="h5" component="h5">
               {name}
               <img
-                src={`/assets/icons/${isActive ? "active" : "disable"}-polygon.svg`}
+                src={`/src/assets/icons/${isActive ? "active" : "disable"}-polygon.svg`}
                 alt="online"
                 title={isActive ? "active" : "disable"}
               />

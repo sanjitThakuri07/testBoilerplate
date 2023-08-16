@@ -1,7 +1,7 @@
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { Breadcrumbs, Button, Link, Stack, Typography } from "@mui/material";
 import BackButton from "src/components/buttons/back";
-import { RegionProps } from "src/interfaces/configs";
+import { RegionProps } from "src/src/interfaces/configs";
 import { useEffect, useState } from "react";
 import RegionForm from "./InspectionForm";
 import UploadCsv from "../upload/UploadCsv";

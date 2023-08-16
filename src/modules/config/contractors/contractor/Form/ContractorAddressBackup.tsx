@@ -16,7 +16,7 @@ import {
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import { Formik, FormikProps, Field, ErrorMessage, FieldArray, getIn } from "formik";
 import { useNavigate, useParams } from "react-router-dom";
-import { contractorAddressProps } from "src/interfaces/configs";
+import { contractorAddressProps } from "src/src/interfaces/configs";
 import { useSnackbar, SnackbarKey, SnackbarMessage, OptionsObject } from "notistack";
 import { allContractorAddressValidationSchema } from "src/validationSchemas/ContractorValidation";
 import FullPageLoader from "src/components/FullPageLoader";

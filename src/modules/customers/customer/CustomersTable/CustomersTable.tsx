@@ -7,7 +7,7 @@ import { Button, CircularProgress, Divider, Grid, Typography } from "@mui/materi
 import { ConfigTableUrlUtils } from "src/modules/config/generalSettings/OrganizationConfiguration";
 import BASDataTable from "src/modules/table/BASDataTable";
 import { deleteAPI, getAPI } from "src/lib/axios";
-import { BASConfigTableProps } from "src/interfaces/configs";
+import { BASConfigTableProps } from "src/src/interfaces/configs";
 import { useContractorServicesStore } from "src/store/zustand/globalStates/config";
 import { fetchTableData, setErrorNotification } from "src/modules/apiRequest/apiRequest";
 import InfoCard from "src/components/InfoCard/index";

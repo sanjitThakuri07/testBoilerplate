@@ -1,5 +1,5 @@
 import { Button, Card, Grid, Typography } from "@mui/material";
-import { commonTypeProps } from "interfaces/configs";
+import { commonTypeProps } from "src/interfaces/configs";
 import { FC } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -25,7 +25,7 @@ const ServiceCard: FC<
             <Typography variant="h5" component="h5">
               {name}{" "}
               <img
-                src={`/assets/icons/${isActive ? "active" : "disable"}-polygon.svg`}
+                src={`/src/assets/icons/${isActive ? "active" : "disable"}-polygon.svg`}
                 alt="online"
                 title={isActive ? "active" : "disable"}
               />

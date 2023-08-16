@@ -14,7 +14,7 @@ import {
   TextField,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { BillingAgreementProps } from "src/interfaces/configs";
+import { BillingAgreementProps } from "src/src/interfaces/configs";
 import React, { FC, useEffect, useState } from "react";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";

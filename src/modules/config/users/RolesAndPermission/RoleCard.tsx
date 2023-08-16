@@ -1,6 +1,6 @@
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { Button, Card, Grid, Typography } from "@mui/material";
-import { UserRolesProps } from "src/interfaces/configs";
+import { UserRolesProps } from "src/src/interfaces/configs";
 import { FC, useState } from "react";
 import { useParams } from "react-router-dom";
 import { lockFields } from "src/utils/url";
@@ -40,7 +40,7 @@ const RoleCard: FC<
             <Typography variant="h5" component="h5">
               {name}{" "}
               <img
-                src={`/assets/icons/${isActive ? "active" : "disable"}-polygon.svg`}
+                src={`/src/assets/icons/${isActive ? "active" : "disable"}-polygon.svg`}
                 alt="online"
                 title={isActive ? "active" : "disable"}
               />

@@ -1,5 +1,5 @@
 import { deleteAPI, getAPI } from "src/lib/axios";
-import { RegionProps } from "src/interfaces/configs";
+import { RegionProps } from "src/src/interfaces/configs";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Breadcrumbs, Button, Link, Stack, Typography } from "@mui/material";

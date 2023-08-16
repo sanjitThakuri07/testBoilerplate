@@ -14,7 +14,7 @@ import {
   TextField,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { UserRolesProps } from "src/interfaces/configs";
+import { UserRolesProps } from "src/src/interfaces/configs";
 import { useEffect, useState } from "react";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";

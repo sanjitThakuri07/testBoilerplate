@@ -15,7 +15,7 @@ import {
   TextareaAutosize,
 } from "@mui/material";
 import { Formik, FormikProps } from "formik";
-import { TariffRateTypeProps } from "src/interfaces/configs";
+import { TariffRateTypeProps } from "src/src/interfaces/configs";
 import React, { FC, useEffect, useState } from "react";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";

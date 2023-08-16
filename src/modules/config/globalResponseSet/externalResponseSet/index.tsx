@@ -6,7 +6,7 @@ import { useLocation, useParams, Link as Href, useNavigate } from "react-router-
 import { useContractorServicesStore } from "src/store/zustand/globalStates/config";
 import { usePathUrlSettor } from "src/store/zustand/globalStates/config";
 import { fetchInitialValues } from "./Form/apiRequest";
-import { ExternalConnectionProps, ResponseSetPropsS, TableValue } from "src/interfaces/configs";
+import { ExternalConnectionProps, ResponseSetPropsS, TableValue } from "src/src/interfaces/configs";
 import ExternalResponseSetForm from "./Form/ExternalResponseSetForm";
 
 const Index = () => {
