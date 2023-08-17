@@ -24,3 +24,27 @@ setterFunction => tableActionIndicator ()
 
 tableControls => to show, hide => edit, delete, restore, Duplicate
             => either an object or a function.
+
+navigateTitle => object, navigates to column => specially for view/ edit, primary column 
+tableOptions =>{
+    chipOptionsName => selecting default chip styles.
+    columnName => select hitting to api actions
+}
+
+
+exampleModal:{
+    edit:edit_modal,
+    delete:delete_modal,
+    create:create_modal,
+    view:view_modal,
+}
+
+permissions => from backend
+permission=> permission to give to that table => static => {
+
+}
+
+FilterComponent => callbackfunction with filterModal, setFielterModal => should return a jsx
+filterChildren => takes a component => with filtered option value
+
+allowFilter=> {filter:boolean, className: styling, filteredOptionLength}

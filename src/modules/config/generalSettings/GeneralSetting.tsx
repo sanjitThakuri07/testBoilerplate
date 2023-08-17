@@ -40,6 +40,7 @@ export default function GeneralSetting() {
     editFrontEndUrlGetter: null,
     deleteFieldName: "id",
     subSectionUrl: null,
+    tableTitle: "Region",
   });
   const [deleteEndpoint, setDeleteEndpoint] = React.useState("");
   const [getFilterValue, setFilterValue] = React.useState(REGION_INITIAL_VALUE);
@@ -104,6 +105,7 @@ export default function GeneralSetting() {
       ...prev,
       backendUrl: `${returnedParams}`,
       buttonName: returnedParams,
+      tableTitle: returnedParams,
     }));
     let apiRequestResponse = false;
     console.log({ urlUtils });
@@ -251,10 +253,8 @@ export default function GeneralSetting() {
           </CustomPopUp>
           <BASDataTableUpdate
             data={tableUpdateDatas?.[returnedParams]?.data}
-            deletePath={deleteEndpoint}
             onDataChange={onDataTableChange}
             setterFunction={tableUpdateDatas?.[returnedParams]?.setterFn}
-            configName={pathName?.buttonName}
             count={totalCount}
             tableIndicator={pathName}
             allowFilter={{
@@ -278,7 +278,6 @@ export default function GeneralSetting() {
             }}
             urlUtils={urlUtils}
             keyName={keyName}
-            backendUrl={returnedParams}
             navigateTitle={{
               navigateMode: "view",
               column: returnedParams === "location" ? "location" : "name",
@@ -293,9 +292,6 @@ export default function GeneralSetting() {
             onView={(data: any) => {
               setViewData(data);
               setOpenModal(true);
-            }}
-            onEdit={(data) => {
-              console.log({ data });
             }}
             FilterComponent={({ filterModal, setFilterModal }: any) => {
               return (

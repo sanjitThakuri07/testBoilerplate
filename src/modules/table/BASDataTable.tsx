@@ -420,7 +420,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             <Typography variant="h5" component="h3">
               {GetShorterText({
                 value: letterHandler({
-                  title: tableTitle ? tableTitle : "",
+                  title: tableIndicator?.tableTitle ? tableIndicator?.tableTitle : "",
                 }),
                 length: textTitleLength,
               })}
