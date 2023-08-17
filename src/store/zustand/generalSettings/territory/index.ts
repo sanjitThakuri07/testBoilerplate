@@ -25,21 +25,19 @@ const useTerriotryStore = create((set) => ({
   loading: false,
 
   // multiple response data
-  fetchTerriotrys: async ({ query, changeFormat }: any) => {
+  fetchTerriotrys: async ({ query, changeFormat, getAll, enqueueSnackbar }: any) => {
     set({ loading: true });
     const apiResponse = await fetchApI({
       url: url?.terriotry + "/",
+      queryParam: query,
+      getAll,
+      enqueueSnackbar,
       setterFunction: (data: any) => {
-        if (changeFormat) {
-          //   const changeData = data?.map((opt: any) => ({
-          //     value: opt.id,
-          //     label: opt.name,
-          //     phone_code: opt.phone_code,
-          //   }));
-          set({ terriotrys: data, loading: false });
-        } else {
-          set({ terriotrys: data || [], loading: false });
-        }
+        set({
+          terriotrys: getAll ? data?.items || [] : data || [],
+          tableDatas: getAll ? { ...data, archivedCount: data?.info?.archived_count || 0 } : {},
+          loading: false,
+        });
       },
     });
     !apiResponse && set({ loading: false });

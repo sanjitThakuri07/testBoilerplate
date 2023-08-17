@@ -1,0 +1,26 @@
+configName, backendUrl, tableTitle, deleteEndpoint => remove , 
+add tableIndicator
+
+
+
+tableIndicator=> {
+       backendUrl: "",
+    sectionTitle: "",
+    buttonName: "",
+    frontEndUrl: "",
+    editFrontEndUrlGetter: null,
+    deleteFieldName: "",
+    subSectionUrl: null,
+    popUpField: { key: "", label: "" },
+    showAddButton: true,
+}
+
+onView => for viewing table row data, => gives the whole row data
+onEdit => for editing purposes, => gives the whole row data
+onDelete => custom onDelete => gives the whole row data
+onDataChange=> querys, urlUtils
+urlUtils=> pagination datasets,
+setterFunction => tableActionIndicator ()
+
+tableControls => to show, hide => edit, delete, restore, Duplicate
+            => either an object or a function.

@@ -29,8 +29,11 @@ const useCountryStore = create((set) => ({
     set({ loading: true });
     const apiResponse = await fetchApI({
       url: url?.country + "/",
+      getAll,
+      queryParam: query,
       setterFunction: (data: any) => {
         // set({ countrys: data || [], loading: false });
+        console.log({ data });
         set({
           countrys: getAll ? data?.items || [] : data || [],
           tableDatas: getAll ? { ...data, archivedCount: data?.info?.archived_count || 0 } : {},

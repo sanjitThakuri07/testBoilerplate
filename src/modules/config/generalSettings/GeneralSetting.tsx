@@ -25,6 +25,8 @@ import useAppStore from "src/store/zustand/app";
 import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 import useRegionStore from "src/store/zustand/generalSettings/region";
 import useTerriotryStore from "src/store/zustand/generalSettings/territory";
+import useCountryStore from "src/store/zustand/generalSettings/country";
+import useLocationStore from "src/store/zustand/generalSettings/location";
 
 export default function GeneralSetting() {
   const location = useLocation();
@@ -52,12 +54,27 @@ export default function GeneralSetting() {
     tableActionHandler: RegionTableActionHandler,
     loading,
   }: any = useRegionStore();
-  // const {
-  //   fetchTerriotrys,
-  //   tableDatas: TerritoriesTableData,
-  //   tableActionHandler: TerritoryTableActionHandler,
-  //   loading: territoryLoading,
-  // }: any = useTerriotryStore();
+
+  const {
+    fetchCountrys,
+    tableDatas: CountryTableData,
+    tableActionHandler: CountryTableActionHandler,
+    loading: countryLoading,
+  }: any = useCountryStore();
+
+  const {
+    fetchTerriotrys,
+    tableDatas: TerritoriesTableData,
+    tableActionHandler: TerritoryTableActionHandler,
+    loading: territoryLoading,
+  }: any = useTerriotryStore();
+
+  const {
+    fetchLocations,
+    tableDatas: LocationTableData,
+    tableActionHandler: LocationTableActionHandler,
+    loading: locationLoading,
+  }: any = useLocationStore();
 
   const [urlUtils, setUrlUtils] = usePayloadHook();
 
@@ -88,35 +105,44 @@ export default function GeneralSetting() {
       backendUrl: `${returnedParams}`,
       buttonName: returnedParams,
     }));
+    let apiRequestResponse = false;
+    console.log({ urlUtils });
     switch (returnedParams) {
       case "location":
+        apiRequestResponse = await fetchLocations({
+          getAll: true,
+          enqueueSnackbar,
+          query: urlUtils,
+        });
         setKeyName("location");
+        break;
+      case "region":
+        apiRequestResponse = await fetchRegions({
+          getAll: true,
+          enqueueSnackbar,
+          query: urlUtils,
+        });
+        break;
+      case "country":
+        setKeyName("name");
+        apiRequestResponse = await fetchCountrys({
+          getAll: true,
+          enqueueSnackbar,
+          query: urlUtils,
+        });
+        break;
+      case "territory":
+        apiRequestResponse = await fetchTerriotrys({
+          getAll: true,
+          enqueueSnackbar,
+          query: urlUtils,
+        });
+        setKeyName("name");
         break;
       default:
         setKeyName("name");
         break;
     }
-    const apiRequestResponse = await fetchRegions({
-      getAll: true,
-      enqueueSnackbar,
-      query: urlUtils,
-    });
-
-    // if (!apiRequestResponse) {
-    //   setGeneralSettingsDatas({
-    //     items: [],
-    //     headers: [],
-    //     page: 1,
-    //     pages: 1,
-    //     size: 5,
-    //     total: 0,
-    //     archivedCount: 0,
-    //   });
-    // }
-  };
-
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
   };
 
   const onDataTableChange = ({ key, value }: any) => {
@@ -183,16 +209,33 @@ export default function GeneralSetting() {
         await RegionTableActionHandler({ values: datas, enqueueSnackbar, type: type });
       },
     },
-    country: { data: RegionTableData, setterFn: () => {} },
-    territory: { data: RegionTableData, setterFn: () => {} },
-    location: { data: RegionTableData, setterFn: () => {} },
+    country: {
+      data: CountryTableData,
+      setterFn: async ({ datas, type }: any) => {
+        await CountryTableActionHandler({ values: datas, enqueueSnackbar, type: type });
+      },
+    },
+    territory: {
+      data: TerritoriesTableData,
+      setterFn: async ({ datas, type }: any) => {
+        await TerritoryTableActionHandler({ values: datas, enqueueSnackbar, type: type });
+      },
+    },
+    location: {
+      data: LocationTableData,
+      setterFn: async ({ datas, type }: any) => {
+        await LocationTableActionHandler({ values: datas, enqueueSnackbar, type: type });
+      },
+    },
   };
 
   return (
     <OrganizationConfiguration>
       <GeneralSettingLayout>
         <Box sx={{ p: "20px" }} className="config-holder loader__parent">
-          {loading && <FullPageLoader className="custom__page-loader" />}
+          {(loading || countryLoading || territoryLoading || locationLoading) && (
+            <FullPageLoader className="custom__page-loader" />
+          )}
           <CustomPopUp
             openModal={openModal}
             title={viewData?.name || ""}
@@ -218,6 +261,9 @@ export default function GeneralSetting() {
               filter: true,
               className: "filter__field",
               filteredOptionLength: presentFilter,
+            }}
+            onDelete={(data) => {
+              console.log({ data });
             }}
             tableControls={(rowData: any) => {
               return {
@@ -247,6 +293,9 @@ export default function GeneralSetting() {
             onView={(data: any) => {
               setViewData(data);
               setOpenModal(true);
+            }}
+            onEdit={(data) => {
+              console.log({ data });
             }}
             FilterComponent={({ filterModal, setFilterModal }: any) => {
               return (

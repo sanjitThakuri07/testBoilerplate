@@ -91,10 +91,6 @@ function getComparator<Key extends keyof any>(
     : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
-// Since 2020 all major browsers ensure sort stability with Array.prototype.sort().
-// stableSort() brings sort stability to non-modern browsers (notably IE11). If you
-// only support modern browsers you can replace stableSort(exampleArray, exampleComparator)
-// with exampleArray.slice().sort(exampleComparator)
 function stableSort<T>(array: readonly T[], comparator: (a: T, b: T) => number) {
   const stabilizedThis = array?.map((el, index) => [el, index] as [T, number]);
   stabilizedThis.sort((a, b) => {
@@ -225,8 +221,6 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 
 interface EnhancedTableToolbarProps {
   numSelected: number;
-  configName: string;
-  backendUrl: string;
   count: number;
   additionalEdit?: string;
   onDataChange: ({ key, value }: any) => void;
@@ -271,6 +265,7 @@ export interface tableIndicatorProps {
   deleteFieldName?: any;
   subSectionUrl?: Function | null;
   showAddButton?: boolean;
+  tableTitle?: string;
   popUpField?: {
     key: string;
     label: string;
@@ -283,7 +278,6 @@ export interface tableIndicatorProps {
 function AddButton({
   tableIndicator,
   letterHandler,
-  configName,
   location,
   isAddModal,
   onAdd,
@@ -300,7 +294,7 @@ function AddButton({
         >
           Add{" "}
           {letterHandler({
-            title: tableIndicator?.buttonName ? tableIndicator?.buttonName : configName,
+            title: tableIndicator?.buttonName ? tableIndicator?.buttonName : "",
           })}
         </Button>
       ) : (
@@ -315,7 +309,9 @@ function AddButton({
           >
             Add{" "}
             {letterHandler({
-              title: tableIndicator?.buttonName ? tableIndicator?.buttonName : configName,
+              title: tableIndicator?.buttonName
+                ? tableIndicator?.buttonName
+                : tableIndicator?.tableTitle || "",
             })}
           </Button>
         </Link>
@@ -330,10 +326,8 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
     onDataChange,
     handleEditTable,
     handleFilterTable,
-    configName,
     count,
     archivedCount,
-    backendUrl,
     additionalEdit,
     tableTitle,
     tableIndicator,
@@ -370,13 +364,13 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
 
   // csv download
   const handleDownload = async () => {
-    const { status, data } = await getAPI(`${backendUrl}/export-csv`);
+    const { status, data } = await getAPI(`${tableIndicator?.backendUrl}/export-csv`);
 
     if (status === 200) {
       const url = window.URL.createObjectURL(new Blob([data]));
       const link = document.createElement("a");
       link.href = url;
-      let fileName = configName?.toString().split("/").slice(-1)?.join("") || "";
+      let fileName = tableIndicator?.sectionTitle?.toString().split("/").slice(-1)?.join("") || "";
       link.setAttribute("download", `${fileName || "untitled"}.csv`);
       document.body.appendChild(link);
       link.click();
@@ -426,7 +420,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             <Typography variant="h5" component="h3">
               {GetShorterText({
                 value: letterHandler({
-                  title: tableTitle ? tableTitle : configName,
+                  title: tableTitle ? tableTitle : "",
                 }),
                 length: textTitleLength,
               })}
@@ -488,7 +482,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                         : `Add ${letterHandler({
                             title: tableIndicator?.buttonName
                               ? tableIndicator?.buttonName
-                              : configName,
+                              : tableIndicator?.tableTitle || "",
                           })}`}
                     </Button>
                   ) : tableHeaderContainer ? (
@@ -514,7 +508,6 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                       <AddButton
                         tableIndicator={tableIndicator}
                         letterHandler={letterHandler}
-                        configName={configName}
                         location={location}
                         onAdd={onAdd}
                         onAddButtonDisabled={onAddButtonDisabled}
@@ -543,7 +536,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                 <Grid item>
                   <form className="search-form">
                     <OutlinedInput
-                      placeholder={`Search for ${configName}`}
+                      placeholder={`Search for ${tableIndicator?.tableTitle || ""}`}
                       startAdornment={<img src="/src/assets/icons/search.svg" alt="search" />}
                       // value={search}
                       fullWidth
@@ -551,21 +544,8 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                         minWidth: 400,
                       }}
                       onChange={debouncedResults}
-                      // onChange={(e: any) => {
-                      //   onDataChange({ key: 'q', value: e.target.value });
-                      // }}
                     />
                   </form>
-                  {/* <SearchInput
-                placeholder={`Search for ${configName}`}
-                startAdornment={<img src="/src/assets/icons/search.svg" alt="search" />}
-                fullWidth
-                sx={{
-                  minWidth: 400,
-                }}
-                onChange={onDataChange}
-                debounceDelay={500}
-              /> */}
                 </Grid>
                 {allowFilter?.filter && (
                   <Grid item>
@@ -889,7 +869,6 @@ function GetValue({
                 : moment.duration(currentDate - finalDate, "seconds");
 
               const finalDateRange = moment(value).format("LL");
-              const currentDateRange = moment().format("LL");
 
               const createdAtMoment = moment(row["created_at"]);
 
@@ -1041,9 +1020,7 @@ function GetValue({
               const keyName = `${
                 TABLEOPTIONSCOLUMN[`${columnName?.toLowerCase()}`]?.displayKeyName
               }`;
-              const backendDataSetKeyName = `${
-                TABLEOPTIONSCOLUMN[`${columnName?.toLowerCase()}`]?.setKeyName
-              }`;
+
               const options = { [keyName]: value };
               const chipTrue =
                 TABLEOPTIONSCOLUMN?.chipOptionsName?.indexOf(columnName) !== -1 ? true : false;
@@ -1257,6 +1234,7 @@ const TableDotActions = ({
   onView,
   tableControls,
   selectedData,
+  onDelete,
 }: any) => {
   // let {view, edit, add, delete} = tableControls || { view:true, edit:true, delete:true}
 
@@ -1353,7 +1331,7 @@ const TableDotActions = ({
                       : `edit/${row?.id}`
                   }`}
                   onClick={() => {
-                    onEdit && onEdit?.(row?.id);
+                    onEdit && onEdit?.(row);
                   }}
                   style={{ textDecoration: "none" }}
                 >
@@ -1391,7 +1369,7 @@ const TableDotActions = ({
                       : `edit/${row?.id}`
                   }`}
                   onClick={() => {
-                    onEdit && onEdit?.(row?.id);
+                    onEdit && onEdit?.(row);
                   }}
                   style={{ textDecoration: "none" }}
                 >
@@ -1434,7 +1412,8 @@ const TableDotActions = ({
                             : tableIndicator?.deleteFieldName
                         }`
                       ] || row?.name;
-                    handleIndividualDelete(row.id, name);
+                    onDelete && onDelete?.(row);
+                    !onDelete && handleIndividualDelete(row.id, name);
                   }}
                   spacing={2}
                   sx={{
@@ -1770,7 +1749,8 @@ const TableDotActions = ({
                               : tableIndicator?.deleteFieldName
                           }`
                         ] || row?.name;
-                      handleIndividualDelete(row.id, name);
+                      onDelete && onDelete?.(row);
+                      !onDelete && handleIndividualDelete(row.id, name);
                     }}
                     startIcon={<img src="/src/assets/icons/icon-trash.svg" alt="delete" />}
                   />
@@ -1801,10 +1781,7 @@ const TableDotActions = ({
 
 const BASDataTable: React.FC<{
   data: BASConfigTableProps;
-  configName: string;
-  deletePath: string;
   count: number;
-  backendUrl: string;
   additionalEdit?: string;
   onDataChange: ({ key, value }: any) => void;
   onDelete?: (id: object[]) => void;
@@ -1812,7 +1789,6 @@ const BASDataTable: React.FC<{
   popUpDisplay?: Boolean;
   staticHeader?: any;
   onTitleNavigate?: any;
-  tableTitle?: string;
   tableIndicator?: tableIndicatorProps;
   textTitleLength?: number;
   keyName?: string;
@@ -1861,17 +1837,13 @@ const BASDataTable: React.FC<{
 }> = ({
   data,
   onDataChange,
-  configName,
   count,
-  deletePath,
-  backendUrl,
   onDelete,
   additionalEdit,
   setterFunction,
   popUpDisplay = false,
   staticHeader = {},
   onTitleNavigate,
-  tableTitle,
   urlUtils,
   onView,
   tableIndicator,
@@ -2232,7 +2204,7 @@ const BASDataTable: React.FC<{
           confirmationHeading={`Do you want to ${
             method === "delete" ? method : "restore"
           } ${selected?.map((data: { name?: string }) => data.name).join(" ")}?`}
-          confirmationDesc={`This ${deletePath.replaceAll("-", " ")}  will be ${
+          confirmationDesc={`This ${tableIndicator?.sectionTitle?.replaceAll("-", " ")}  will be ${
             method === "delete" ? "deleted" : "restored"
           }.`}
           status="warning"
@@ -2307,9 +2279,9 @@ const BASDataTable: React.FC<{
             setOpenDeleteModal(false);
             setSelectedData([]);
           }}
-          confirmationHeading={`Do you want to ${
-            method === "delete" ? method : "restore"
-          } these ${deletePath} ?`}
+          confirmationHeading={`Do you want to ${method === "delete" ? method : "restore"} these ${
+            tableIndicator?.sectionTitle
+          } ?`}
           // confirmationDesc={`${selectedData?.map(
           //   (data: { name?: string }) => data?.name,
           // )}  will be  ${method === 'delete' ? 'deleted' : 'restored'}.`}
@@ -2327,13 +2299,6 @@ const BASDataTable: React.FC<{
           }}
           setFilterModal={setFilterModal}
           className={allowFilter.className ? allowFilter?.className : ""}
-          // handelConfirmation={async () => {
-          //   // deleteSelectedRows
-          //   // await onDelete?.([...selectedData]);
-          //   await deleteHandler([...selectedData]);
-          //   setOpenDeleteModal(false);
-          //   setSelectedData([]);
-          // }}
           confirmationHeading={`Apply Filter`}
           FilterComponent={({ filterModal, setFilterModal }: any) => {
             return FilterComponent?.({ filterModal, setFilterModal });
@@ -2351,20 +2316,16 @@ const BASDataTable: React.FC<{
         <Paper sx={{ width: "100%", mb: 2 }} className="config-table-holder">
           <EnhancedTableToolbar
             count={data.total}
-            configName={configName}
             numSelected={selectedData?.length}
             onDataChange={onDataChange}
             handleEditTable={handleEditTable}
             handleFilterTable={handleFilterTable}
             archivedCount={data.archivedCount}
-            backendUrl={backendUrl}
-            tableTitle={tableTitle}
             tableIndicator={tableIndicator}
             textTitleLength={textTitleLength}
             csvDownload={csvDownload}
             isAddModal={isAddModal}
             setOpenAddModal={setOpenAddModal}
-            // searchValue={urlUtils?.q}
             allowFilter={allowFilter}
             allowDateFilter={allowDateFilter}
             buttonLabel={buttonLabel}
@@ -2616,19 +2577,12 @@ const BASDataTable: React.FC<{
                           onView={onView}
                           tableControls={tableControls}
                           TABLECONTROLS={TABLECONTROLS}
+                          onDelete={onDelete}
                         />
                       </TableRow>
                     );
                   })
                 }
-                {/* {emptyRows > 0 && (
-                  <TableRow
-                    style={{
-                      height: (dense ? 33 : 53) * emptyRows,
-                    }}>
-                    <TableCell colSpan={6} />
-                  </TableRow>
-                )} */}
               </TableBody>
             </Table>
           </TableContainer>
@@ -2669,7 +2623,7 @@ const BASDataTable: React.FC<{
                         marginLeft: "15px",
                       }}
                     >
-                      {selectedData?.length} {configName} Selected
+                      {selectedData?.length} {tableIndicator?.tableTitle} Selected
                     </div>
                   </div>
                   <div className="right_items" style={{ display: "flex", alignItems: "center" }}>
@@ -2715,28 +2669,6 @@ const BASDataTable: React.FC<{
             )}
           </>
         )}
-        {/* {!!(data?.items?.length === 0) && showAdd && (
-          <Box sx={{ textAlign: 'center', marginTop: '50px' }}>
-            {checkPermission({
-              permissions,
-              permission: [permission?.add],
-            }) ? (
-              <Link
-                to={`${
-                  tableIndicator?.frontEndUrl
-                    ? tableIndicator?.frontEndUrl
-                    : `${location?.pathname}/add`
-                }`}>
-                <Button variant="contained">
-                  + Add{' '}
-                  {(tableIndicator?.buttonName ? tableIndicator?.buttonName : configName) || ''}
-                </Button>
-              </Link>
-            ) : (
-              <></>
-            )}
-          </Box>
-        )} */}
       </Box>
     </Box>
   );

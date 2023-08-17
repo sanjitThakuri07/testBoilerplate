@@ -25,10 +25,12 @@ const useLocationStore = create((set) => ({
   loading: false,
 
   // multiple response data
-  fetchLocations: async ({ query, changeFormat, getAll }: any) => {
+  fetchLocations: async ({ query, changeFormat, getAll = false }: any) => {
     set({ loading: true });
     const apiResponse = await fetchApI({
       url: url?.location + "/",
+      getAll,
+      queryParam: query,
       setterFunction: (data: any) => {
         set({
           locations: getAll ? data?.items || [] : data || [],
