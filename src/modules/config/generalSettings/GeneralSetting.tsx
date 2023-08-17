@@ -3,7 +3,7 @@ import FullPageLoader from "src/components/FullPageLoader";
 import { permissionList } from "src/constants/permission";
 import { fetchApI } from "src/modules/apiRequest/apiRequest";
 import BASDataTableUpdate from "src/modules/table/BASDataTable";
-import { BASConfigTableProps } from "src/src/interfaces/configs";
+import { BASConfigTableProps } from "src/interfaces/configs";
 import { useSnackbar } from "notistack";
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router";
@@ -24,6 +24,7 @@ import CustomPopUp from "src/components/CustomPopup/index";
 import useAppStore from "src/store/zustand/app";
 import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 import useRegionStore from "src/store/zustand/generalSettings/region";
+import useTerriotryStore from "src/store/zustand/generalSettings/territory";
 
 export default function GeneralSetting() {
   const location = useLocation();
@@ -51,6 +52,12 @@ export default function GeneralSetting() {
     tableActionHandler: RegionTableActionHandler,
     loading,
   }: any = useRegionStore();
+  // const {
+  //   fetchTerriotrys,
+  //   tableDatas: TerritoriesTableData,
+  //   tableActionHandler: TerritoryTableActionHandler,
+  //   loading: territoryLoading,
+  // }: any = useTerriotryStore();
 
   const [urlUtils, setUrlUtils] = usePayloadHook();
 

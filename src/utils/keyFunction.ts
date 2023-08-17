@@ -1,8 +1,8 @@
-import moment from 'moment';
+import moment from "moment";
 
 export const validateFieldTypeNames = {
-  FLOAT: 'FLOAT',
-  NUMBER: 'NUMBER',
+  FLOAT: "FLOAT",
+  NUMBER: "NUMBER",
 };
 
 export const queryMaker = (query: Object) => {
@@ -10,14 +10,14 @@ export const queryMaker = (query: Object) => {
     if (Array.isArray(value)) {
       let subQuery = value.reduce((acc: any, curr: any) => {
         return (acc = acc + `${key}=${curr}&`);
-      }, '');
+      }, "");
       acc += `${subQuery}`;
     } else {
-      acc += key === 'filterQuery' ? (!value?.length ? '' : `${value}`) : `${key}=${value}&`;
+      acc += key === "filterQuery" ? (!value?.length ? "" : `${value}`) : `${key}=${value}&`;
     }
 
     return acc;
-  }, '');
+  }, "");
   return querys;
 };
 
@@ -26,14 +26,14 @@ export const checkDate = function isValidDate(dateString: string) {
 };
 
 export const formatDate = ({ date }: any) => {
-  return moment(new Date(date)).format('MMM Do YY');
+  return moment(new Date(date)).format("MMM Do YY");
 };
 
 export const getHighestLowestData = ({ objectCollection }: any) => {
   let lowestStart = Infinity;
   let highestEnd = -Infinity;
   for (const key in objectCollection) {
-    if (objectCollection?.hasOwnProperty(key) && typeof objectCollection?.[key] === 'object') {
+    if (objectCollection?.hasOwnProperty(key) && typeof objectCollection?.[key] === "object") {
       const { start, end } = objectCollection?.[key];
       lowestStart = Math.min(lowestStart, start);
       highestEnd = Math.max(highestEnd, end);
@@ -50,7 +50,7 @@ export function getObjectsWithinRange({ obj, startRange, endRange }: any) {
   let lowestRange = Infinity;
   let highestRange = -Infinity;
   for (const key in obj) {
-    if (typeof obj?.[key] === 'object') {
+    if (typeof obj?.[key] === "object") {
       const { start, end } = obj?.[key];
       if (start > startRange && end < endRange) {
         result[key] = { start, end };
@@ -100,4 +100,39 @@ export function sortObjectKeysToCustomArray({ obj, customOrder }: any) {
   const keys = Object.keys(obj);
   keys.sort((a, b) => customOrder.indexOf(a) - customOrder.indexOf(b));
   return keys;
+}
+
+export function getNestedDataObject({ fetchData, data, fetchKey }: any) {
+  let value: any;
+  let keyName: any;
+  if (fetchData instanceof Object) {
+    let dataObject = data?.[fetchData?.obj_name];
+    if (Array?.isArray(dataObject)) {
+      let finalData = dataObject?.reduce((acc: any, curr: any) => {
+        if (Array.isArray(curr?.[fetchData?.field_name])) {
+          let val = curr?.[fetchData?.field_name]?.map((it: any) => {
+            return checkDate(it) ? formatDate({ date: it }) : it;
+          });
+
+          acc.push(...(val || []));
+        } else {
+          let val = checkDate(curr?.[fetchData?.field_name])
+            ? formatDate({ date: curr?.[fetchData?.field_name] })
+            : curr?.[fetchData?.field_name];
+
+          acc.push(val);
+        }
+        return acc;
+      }, []);
+      value = finalData;
+    } else if (dataObject instanceof Object) {
+      value = dataObject?.[fetchData?.field_name] || "";
+    }
+    keyName = fetchData?.label;
+  } else {
+    value = data?.[fetchKey] || "";
+    keyName = fetchData;
+  }
+
+  return { value, keyName };
 }

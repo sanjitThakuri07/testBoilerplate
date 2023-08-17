@@ -61,7 +61,7 @@ import { SwitchComponent } from "src/modules/config/Filters/CommonFilter";
 import RestoreIcon from "@mui/icons-material/Restore";
 import { debounce } from "lodash";
 import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
-import { checkDate, formatDate } from "src/utils/keyFunction";
+import { checkDate, formatDate, getNestedDataObject } from "src/utils/keyFunction";
 import useAppStore from "src/store/zustand/app";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import { ACTION_TYPE } from "src/store/zustand/actionType";
@@ -744,33 +744,13 @@ function GetValue({
   headers,
 }: any) {
   const fetchData: any = headers?.[columnName] || "";
-  let value: any;
-  if (fetchData instanceof Object) {
-    let dataObject = row?.[fetchData?.obj_name];
-    if (Array?.isArray(dataObject)) {
-      let finalData = dataObject?.reduce((acc: any, curr: any) => {
-        if (Array.isArray(curr?.[fetchData?.field_name])) {
-          let val = curr?.[fetchData?.field_name]?.map((it: any) => {
-            return checkDate(it) ? formatDate({ date: it }) : it;
-          });
+  let value =
+    getNestedDataObject({
+      fetchData,
+      fetchKey: columnName,
+      data: row,
+    })?.value || "";
 
-          acc.push(...(val || []));
-        } else {
-          let val = checkDate(curr?.[fetchData?.field_name])
-            ? formatDate({ date: curr?.[fetchData?.field_name] })
-            : curr?.[fetchData?.field_name];
-
-          acc.push(val);
-        }
-        return acc;
-      }, []);
-      value = finalData;
-    } else if (dataObject instanceof Object) {
-      value = dataObject?.[fetchData?.field_name] || "";
-    }
-  } else {
-    value = row?.[columnName] || "";
-  }
   const navigate = useNavigate();
   const [selectedOptions, setSelectedOptions] = React.useState<any>();
   const [showAll, setShowAll] = React.useState(Number(maxCharacters) ? false : true);
