@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { converText } from "src/modules/table/BASDataTable";
 import { RadioOptions } from "src/utils/FindingsUtils";
+import { getNestedDataObject } from "src/utils/keyFunction";
 
 interface CustomPopUpProps extends ButtonProps {
   // Define any additional props for your component here
@@ -217,14 +218,19 @@ const CustomPopUp = ({
                 {Object.keys(headers || {})
                   ?.filter((dt: any) => dt !== "id" || dt !== "attachments")
                   .map((key: any) => {
+                    let getValueObj = getNestedDataObject({
+                      fetchData: headers?.[key],
+                      fetchKey: key,
+                      data: viewData,
+                    });
                     return (
                       <li key={key}>
                         <div className="view__block-individual">
-                          <span className="key">{headers?.[key]}</span>
+                          <span className="key">{getValueObj?.keyName}</span>
                           <span className="value">
                             <span>:</span>
                             <GetValue
-                              data={viewData?.[key]}
+                              data={getValueObj?.value}
                               field={field}
                               columnKey={key}
                               isChip={chipOptions?.includes(key)}
