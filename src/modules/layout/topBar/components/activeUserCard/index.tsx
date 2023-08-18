@@ -15,6 +15,7 @@ import Stack from "@mui/material/Stack";
 import { useAuthStore } from "src/store/zustand/globalStates/auth";
 import { useLayoutStore } from "src/store/zustand/globalStates/layout";
 import { userDataStore } from "src/store/zustand/globalStates/userData";
+import InspectionIcon from "src/assets/navIcons/inspections.svg";
 import { useSnackbar } from "notistack";
 import { getAPI } from "src/lib/axios";
 
@@ -262,27 +263,19 @@ const ActiveUserCardComponent: React.FC<any> = () => {
                           <ListItemText>Notification Settings</ListItemText>
                           {GetActiveIcon(chooseTab?.url, RoutesNameUrl?.notification?.url)}
                         </MenuItem>
-                        {/* <MenuItem
+                        <MenuItem
                           className="top__bar-settings-menu-item"
-                          onClick={() => navigate('/setting')}>
+                          onClick={(e) => {
+                            handleClose(e);
+                            navigate(`${RoutesNameUrl?.formBuilder?.url}`);
+                          }}
+                        >
                           <ListItemIcon>
-                            <img src={LayoutIcon} alt="Audit Log Icon" />
+                            <img src={InspectionIcon} alt="Audit Log Icon" />
                           </ListItemIcon>
-                          <ListItemText>Compact Mode</ListItemText>
-                          <div>
-                            <IOSSwitch
-                              value="email"
-                              name="notify_tenant_signup_through"
-                              checked={false}
-                              onChange={() => {
-                                console.log('clicked');
-                              }}
-                              disabled={true}
-                              style={{ justifyContent: 'flex-end' }}
-                              disableText
-                            />
-                          </div>
-                        </MenuItem> */}
+                          <ListItemText>Form Builder</ListItemText>
+                          {GetActiveIcon(chooseTab?.url, RoutesNameUrl?.notification?.url)}
+                        </MenuItem>
                         <MenuItem className="top__bar-settings-menu-item" onClick={handleLogout}>
                           <ListItemIcon>
                             <img src={LogOutIcon} alt="Audit Log Icon" />
@@ -308,39 +301,5 @@ const ActiveUserCardComponent: React.FC<any> = () => {
     </Grid>
   );
 };
-
-// previous code
-{
-  /* <Popper
-sx={{ zIndex: 2 }}
-open={open}
-anchorEl={anchorRef.current}
-role={undefined}
-placement="bottom-start"
-transition
-disablePortal>
-{({ TransitionProps, placement }) => (
-  <Grow
-    {...TransitionProps}
-    style={{
-      transformOrigin: placement === 'bottom-start' ? 'left top' : 'left bottom',
-    }}>
-    <Paper>
-      <ClickAwayListener onClickAway={handleClose}>
-        <MenuList
-          autoFocusItem={open}
-          id="composition-menu"
-          aria-labelledby="composition-button"
-          onKeyDown={handleListKeyDown}>
-          <MenuItem onClick={() => navigate('/setting')}>Profile</MenuItem>
-          <MenuItem onClick={handleClose}>My account</MenuItem>
-          <MenuItem onClick={handleLogout}>Logout</MenuItem>
-        </MenuList>
-      </ClickAwayListener>
-    </Paper>
-  </Grow>
-)}
-</Popper> */
-}
 
 export default ActiveUserCardComponent;

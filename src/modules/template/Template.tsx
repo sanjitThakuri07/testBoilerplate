@@ -118,13 +118,6 @@ const Template = () => {
     resetForm();
   };
 
-  // useEffect(() => {
-  //   if (location.search.includes('mobile-preview')) {
-  //     setActivePage('small-screen');
-  //   } else {
-  //     setActivePage('Form');
-  //   }
-  // }, [location.search]);
   const [collapseSideBar, setCollapseSidebar] = React.useState(false);
 
   const [showModal, setShowModal] = useState(false);
@@ -153,32 +146,6 @@ const Template = () => {
   };
 
   const navigate = useNavigate();
-  // const [showPrompt, setShowPrompt] = useState(false);
-
-  // useEffect(() => {
-  //   const handleBeforeUnload = (event: any) => {
-  //     if (showPrompt) {
-  //       event.preventDefault();
-  //       event.returnValue = '';
-  //     }
-  //   };
-
-  //   window.addEventListener('beforeunload', handleBeforeUnload);
-
-  //   return () => {
-  //     window.removeEventListener('beforeunload', handleBeforeUnload);
-  //   };
-  // }, [showPrompt]);
-
-  // const handleNavigation = (confirmed: any) => {
-  //   console.log('where am i ?');
-  //   if (confirmed) {
-  //     setShowPrompt(false);
-  //     navigate(location.pathname);
-  //   } else {
-  //     setShowPrompt(true);
-  //   }
-  // };
 
   return (
     <div>

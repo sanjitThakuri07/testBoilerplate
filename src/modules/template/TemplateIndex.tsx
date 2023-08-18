@@ -29,6 +29,7 @@ import CommonFilter, {
 } from "src/modules/config/Filters/CommonFilter";
 import { FORM_INITIAL_VALUE } from "src/modules/config/filterOptionsList";
 import { usePayloadHook } from "src/constants/customHook/payloadOptions";
+import { useTemplateStore } from "src/store/zustand/templates/templateStore";
 
 interface NavigateColumnProps {
   navigateColumnName: string;
@@ -49,8 +50,6 @@ export default function TemplateIndex() {
   const handleModalClose = () => setShowModal(undefined);
 
   const location = useLocation();
-  const [loading, setLoading] = React.useState(false);
-  const [totalCount, setTotalCount] = React.useState(0);
   const [onNavigate, setOnNavigate] = React.useState<NavigateColumnProps>({
     navigateColumnName: "contract_no",
     navigateTo: (id: any) => {
@@ -67,27 +66,23 @@ export default function TemplateIndex() {
     deleteFieldName: "name",
     subSectionUrl: null,
   });
-  const [deleteEndpoint, setDeleteEndpoint] = React.useState("");
   const [presentFilter, setPresentFilter] = React.useState(false);
 
   const [qrData, setQrData] = React.useState<string>("");
   const { enqueueSnackbar } = useSnackbar();
-  const [templateData, setTemplateData] = React.useState<any>({
-    items: [],
-    headers: [],
-    page: 1,
-    pages: 1,
-    size: 1,
-    total: 0,
-    archivedCount: 0,
-  });
-  const { services, setServices } = useContractorServicesStore();
   const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
   const searchObject = searchParamObject(searchParams);
 
   const [urlUtils, setUrlUtils] = usePayloadHook();
   const [getFilterValue, setFilterValue] = React.useState(FORM_INITIAL_VALUE);
+
+  const {
+    getTemplates,
+    tableDatas,
+    tableActionHandler,
+    isLoading: templateLoading,
+  }: any = useTemplateStore();
 
   const getData = async () => {
     let params = location.pathname.split("/").slice(-1).join("");
@@ -110,41 +105,7 @@ export default function TemplateIndex() {
       buttonName: "Form",
       deleteFieldName: "contract_no",
     }));
-    try {
-      setLoading(true);
-      const { status, data } = await getAPI(`${returnedParams}/${parseQueryParams(urlUtils)}`);
-      if (status === 200) {
-        setLoading(false);
-        const itemss = data.items || [];
-        let newItems: any = [];
-        if (itemss?.length > 0) {
-          newItems = itemss?.map((item: any) => {
-            let phone_numbers = item?.phone_numbers?.length
-              ? item?.phone_numbers?.map((it: string) => it.split("/")?.reverse()[0])
-              : [];
-            return { ...item, phone_numbers, inspection: "Start Inspection" };
-          });
-        }
-        //setting common page data
-        setTemplateData((prev: any) => {
-          return {
-            ...prev,
-            items: newItems || [],
-            headers: { ...data.headers, inspection: "Inspection" },
-            page: data.page,
-            pages: data.pages,
-            size: data.size,
-            total: data.total,
-            archivedCount: data?.info?.archived_count,
-          };
-        });
-
-        setTotalCount(data.total);
-      }
-    } catch (error: any) {
-      setLoading(false);
-      setErrorNotification(error, enqueueSnackbar);
-    }
+    getTemplates({ query: urlUtils, getAll: true });
   };
 
   // for fetching multiple api according to search params
@@ -162,39 +123,18 @@ export default function TemplateIndex() {
   };
 
   useEffect(() => {
-    if (searchObject?.[`tariff`]) {
-      fetchData({
-        id: Number(searchObject?.["tariff"]),
-        setLoading,
-        fetchIndividualApi,
-        setTotalCount,
-        setPathName,
-        enqueueSnackbar,
-        setData: setTemplateData,
-        location,
-        urlUtils,
-        domain: "Record",
-        buttonName: "Record",
-        url: `finance-tariff/tariff-records`,
-      });
-      setOnNavigate((prev) => ({
-        navigateColumnName: "",
-        navigateTo: null,
-      }));
-    } else {
-      getData();
-      setPathName((prev) => ({
-        ...prev,
-        frontEndUrl: `${location?.pathname}/create`,
-      }));
-      setOnNavigate({
-        navigateColumnName: "inspection",
-        navigateTo: (id: any) => {
-          // Replace the current URL with the updated query parameters
-          navigate(`/template/inspection/${id}`);
-        },
-      });
-    }
+    getData();
+    setPathName((prev) => ({
+      ...prev,
+      frontEndUrl: `${location?.pathname}/create`,
+    }));
+    setOnNavigate({
+      navigateColumnName: "inspection",
+      navigateTo: (id: any) => {
+        // Replace the current URL with the updated query parameters
+        navigate(`/template/inspection/${id}`);
+      },
+    });
   }, [Object.keys(searchObject || {})?.length, urlUtils]);
 
   const handleCopyQrLink = () => {
@@ -217,21 +157,19 @@ export default function TemplateIndex() {
 
       URL.revokeObjectURL(url); // Release the object URL when no longer needed
     }
-
-    // if (canvas !== null) {
-    //   const pngUrl = canvas.toDataURL('image/png');
-    //   let downloadLink = document.createElement('a');
-    //   downloadLink.href = pngUrl;
-    //   downloadLink.download = 'qr-code.png';
-    //   document.body.appendChild(downloadLink);
-    //   downloadLink.click();
-    //   document.body.removeChild(downloadLink);
-    // }
   };
 
+  const tableUpdateDatas: any = {
+    template: {
+      data: tableDatas,
+      setterFn: async ({ datas, type }: any) => {
+        await tableActionHandler({ values: datas, enqueueSnackbar, type: type });
+      },
+    },
+  };
   return (
     <Box sx={{ p: "20px" }} className="config-holder">
-      {loading && <FullPageLoader />}
+      {templateLoading && <FullPageLoader />}
       {selected && (
         <AddModal
           confirmationHeading={`Assign inspection name to the template. ( ${selected?.name})`}
@@ -252,13 +190,10 @@ export default function TemplateIndex() {
       )}
 
       <BASDataTable
-        data={templateData}
-        deletePath={deleteEndpoint}
+        data={tableUpdateDatas?.template?.data}
         onDataChange={onDataTableChange}
-        configName={pathName?.buttonName}
-        backendUrl={pathName?.backendUrl}
-        count={totalCount}
-        setterFunction={setTemplateData}
+        // count={totalCount}
+        setterFunction={tableUpdateDatas?.template?.setterFn}
         textTitleLength={50}
         onTitleNavigate={onNavigate}
         tableIndicator={pathName}

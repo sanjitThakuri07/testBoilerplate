@@ -19,6 +19,7 @@ export const RoutesNameUrl: RoutesNameUrl = {
   account: { url: "account", id: 1 },
   audit: { url: "audit", id: 2 },
   notification: { url: "notification", id: 3 },
+  formBuilder: { url: "/template", id: 4 },
 };
 
 export const contractorsUrl: RoutesNameUrl = {

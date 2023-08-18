@@ -2,15 +2,26 @@ import create from "zustand";
 import { devtools } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 import { getAPI, patchAPI, postAPI, putAPI } from "src/lib/axios";
-import { postApiData } from "src/modules/apiRequest/apiRequest";
+import { deleteAPiData, fetchApI, postApiData } from "src/modules/apiRequest/apiRequest";
 import { responseChoice } from "../itemTypes/itemTypes";
 import { useTemplateFieldsStore } from "./templateFieldsStore";
+import { url } from "src/utils/url";
+import { ACTION_TYPE } from "../actionType";
 
 export const useTemplateStore = create(
   devtools(
     immer((set) => {
       const { resetTemplateValues }: any = useTemplateFieldsStore.getState();
       return {
+        tableDatas: {
+          items: [],
+          headers: [],
+          page: 1,
+          pages: 1,
+          size: 1,
+          total: 0,
+          archivedCount: 0,
+        },
         templates: [],
         template: undefined,
         inspection: undefined,
@@ -36,8 +47,13 @@ export const useTemplateStore = create(
               resetTemplateValues();
               set((state: any) => {
                 return {
-                  templates: data.data,
+                  templates: [data.data, ...state.templates],
                   isLoading: false,
+                  tableDatas: {
+                    ...state.tableDatas,
+
+                    items: [data?.data, ...state.tableDatas.items],
+                  },
                 };
               });
             },
@@ -145,21 +161,42 @@ export const useTemplateStore = create(
             }
           });
         },
-        getTemplates: async (inspection_id?: number) => {
-          set((state: any) => {
-            state.isLoading = true;
+        getTemplates: async ({ inspection_id, getAll, enqueueSnackbar, query }: any) => {
+          // set((state: any) => {
+          //   state.isLoading = true;
+          // });
+          // const response = await getAPI(
+          //   `templates/?q=&archived=false${
+          //     inspection_id ? `&inspection_id=${inspection_id}&` : ""
+          //   }`,
+          // );
+          // set((state: any) => {
+          //   if (response) {
+          //     state.templates = response.data;
+          //     state.isLoading = false;
+          //   }
+          // });
+
+          set({ isLoading: true });
+          const apiResponse = await fetchApI({
+            url: url?.template + "/",
+            setterFunction: (data: any) => {
+              set((state) => {
+                return {
+                  templates: getAll ? data?.items || [] : data || [],
+                  tableDatas: getAll
+                    ? { ...data, archivedCount: data?.info?.archived_count || 0 }
+                    : { ...state?.tableDatas, items: data },
+                  isLoading: false,
+                };
+              });
+            },
+            getAll,
+            queryParam: inspection_id ? { ...query, inspection_id } : query,
+            enqueueSnackbar,
           });
-          const response = await getAPI(
-            `templates/?q=&archived=false${
-              inspection_id ? `&inspection_id=${inspection_id}&` : ""
-            }`,
-          );
-          set((state: any) => {
-            if (response) {
-              state.templates = response.data;
-              state.isLoading = false;
-            }
-          });
+          !apiResponse && set({ isLoading: false });
+          return apiResponse;
         },
 
         postTemplateMedia: async (values: any) => {
@@ -194,6 +231,99 @@ export const useTemplateStore = create(
           set((state: any) => {
             state.inspection = response?.data;
           });
+        },
+
+        tableActionHandler: async ({ values, enqueueSnackbar, type, URL = url?.template }: any) => {
+          set({ loading: true });
+          let apiResponse = false;
+
+          switch (type) {
+            case ACTION_TYPE.DELETE:
+              apiResponse = await deleteAPiData({
+                values: values,
+                url: url?.template + "/",
+                // setterLoading: setLoading,
+                enqueueSnackbar: enqueueSnackbar,
+                getAll: true,
+                setterFunction: (data: any) => {
+                  set((state: any) => {
+                    let tableDatas = state.tableDatas || {};
+                    let items = tableDatas?.items?.filter(
+                      (data: any) => !values?.includes(data?.id),
+                    );
+                    return {
+                      loading: false,
+                      tableDatas: {
+                        ...(tableDatas || {}),
+                        archivedCount: tableDatas?.archivedCount + values?.length || 0,
+                        items,
+                      },
+                      regions: items,
+                    };
+                  });
+                },
+              });
+              break;
+            case ACTION_TYPE.RESTORE:
+              apiResponse = await postApiData({
+                values: values,
+                url: `/${url?.template}/${url?.restore}`,
+                // setterLoading: setLoading,
+                enqueueSnackbar: enqueueSnackbar,
+                setterFunction: (data: any) => {
+                  set((state: any) => {
+                    console.log({ data });
+                    const updateData = state?.tableDatas?.items?.filter(
+                      (data: any) => !values?.includes(data?.id),
+                    );
+                    const updatedTableData = {
+                      ...(state.tableDatas || {}),
+                      items: updateData,
+                      archivedCount: state.tableDatas?.archivedCount - values?.length || 0,
+                    };
+
+                    return {
+                      regions: updateData,
+                      individualRegion: {},
+                      tableDatas: updatedTableData,
+                      loading: false,
+                    };
+                  });
+                },
+              });
+              break;
+            case ACTION_TYPE.DUPLICATE:
+              apiResponse = await postApiData({
+                values: values,
+                url: `/${url?.template}/${url?.duplicate}/${values?.id}`,
+                // setterLoading: setLoading,
+                enqueueSnackbar: enqueueSnackbar,
+                setterFunction: (data: any) => {
+                  set((state: any) => {
+                    console.log({ data });
+                    const updateData = [...(data?.data || []), ...(state?.tableDatas?.items || [])];
+                    const updatedTableData = {
+                      ...(state.tableDatas || {}),
+                      items: updateData,
+                      archivedCount: state.tableDatas?.archivedCount - values?.length || 0,
+                    };
+
+                    return {
+                      regions: updateData,
+                      individualRegion: {},
+                      tableDatas: updatedTableData,
+                      loading: false,
+                    };
+                  });
+                },
+              });
+              break;
+            default:
+              break;
+          }
+
+          !apiResponse && set({ loading: false });
+          return apiResponse;
         },
       };
     }),

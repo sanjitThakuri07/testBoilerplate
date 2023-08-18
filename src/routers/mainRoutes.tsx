@@ -10,6 +10,7 @@ import Dashboard from "src/modules/dashboard";
 import PrivacyPolicy from "src/modules/privacyPolicy/PrivacyPolicy";
 import Setting from "src/modules/setting";
 import AddTenant from "src/modules/tenant/addTenant";
+import CommonSidebarLayout from "src/modules/CommonSidebarLayout/index";
 import TermsAndConditions from "src/modules/terms";
 
 // import BookingsRoutes from 'src/modules/Bookings/routes';
@@ -260,6 +261,12 @@ export const privateRoutes: any = [
   // ...BookingsRoutes,
   // ...FinanceRoutes,
   // ...ActivityRoutes,
+  {
+    title: "Common Sidebar Layout",
+    path: PrivateRoute.COMMON_SIDEBAR_LAYOUT,
+    component: <CommonSidebarLayout />,
+    newPage: false,
+  },
   ...TemplateRoutes,
   ...ConfigurationRoutes,
   ...OrganizationRoutes,

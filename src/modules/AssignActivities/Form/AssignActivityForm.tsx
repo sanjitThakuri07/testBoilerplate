@@ -54,7 +54,7 @@ const AssignActivityForm = ({
   }, [contentState]);
 
   useEffect(() => {
-    getTemplates();
+    getTemplates({});
   }, []);
 
   return (

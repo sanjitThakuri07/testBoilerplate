@@ -37,6 +37,7 @@ export const url: any = {
   invoiceAnalytics: "invoice/analytics",
   restore: "restore/",
   duplicate: "duplicate",
+  template: "templates",
 };
 
 export const moduleIdsFnR = [

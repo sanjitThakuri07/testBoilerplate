@@ -742,9 +742,23 @@ a {
   display: flex !important;
   height: 100% !important;
   width: 100% !important;
+  max-height: 80vh;
+  overflow: auto;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #8a8a8d !important;
+  }
 
   ul {
     width: 100% !important;
+
+    .sidebar__text {
+      span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
   }
 }
 

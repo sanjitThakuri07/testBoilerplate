@@ -1781,7 +1781,7 @@ const TableDotActions = ({
 
 const BASDataTable: React.FC<{
   data: BASConfigTableProps;
-  count: number;
+  count?: number;
   additionalEdit?: string;
   onDataChange: ({ key, value }: any) => void;
   onDelete?: (id: object[]) => void;
@@ -2359,7 +2359,7 @@ const BASDataTable: React.FC<{
                 orderBy={orderBy}
                 onSelectAllClick={handleSelectAllClick}
                 onRequestSort={handleRequestSort}
-                rowCount={rows.length}
+                rowCount={rows?.length || 0}
                 headCells={headCells}
                 exclude={data?.exclude || []}
                 tableControls={tableControls}

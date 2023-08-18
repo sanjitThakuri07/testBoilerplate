@@ -64,15 +64,15 @@ export const menuData = {
     //   tabsContainer: tabContainerBookings,
     //   depth: 1,
     // },
-    {
-      label: "Form Builder",
-      path: "/template",
-      icon: "template",
-      role: [],
-      permission: [permissionList.Form.view],
-      tabsContainer: [],
-      depth: 1,
-    },
+    // {
+    //   label: "Form Builder",
+    //   path: "/template",
+    //   icon: "template",
+    //   role: [],
+    //   permission: [permissionList.Form.view],
+    //   tabsContainer: [],
+    //   depth: 1,
+    // },
 
     {
       label: "Inspections",

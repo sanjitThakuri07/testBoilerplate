@@ -104,7 +104,7 @@ BasicCardProps) => {
   };
 
   const fetchInspectionType = () => {
-    getTemplates(inspectionId);
+    // getTemplates(inspectionId);
   };
 
   React.useEffect(() => {

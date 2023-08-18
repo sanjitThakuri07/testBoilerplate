@@ -182,13 +182,15 @@ $nav-collapsed-width: 80px;
 }
 
 .hamburger__button {
-  position: absolute !important;
-  top: 50%;
+  // position: absolute !important;
+  position: fixed !important;
+  top: 4%;
   z-index: 1000;
   left: 5%;
   transform: translateY(-50%);
+  z-index: 1010;
   display: block !important;
-  @media (min-width: '1100px') {
+  @media (min-width: "1100px") {
     display: none !important;
   }
 }

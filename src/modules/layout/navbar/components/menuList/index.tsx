@@ -11,7 +11,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { useLayoutStore } from "src/store/zustand/globalStates/layout";
 import { userDataStore } from "src/store/zustand/globalStates/userData";
 import { menuData } from "src/modules/layout/navbar/constants/menu.config";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 // Navicons
@@ -35,6 +35,7 @@ import { DecodedTokenProps } from "src/routers/private/privateRoute";
 import PaidOutlinedIcon from "@mui/icons-material/PaidOutlined";
 import jwt_decode from "jwt-decode";
 import { Tooltip } from "@mui/material";
+import { useTemplateStore } from "src/store/zustand/templates/templateStore";
 
 export const sidebarFilter = ({ item, permissions, userType }: any) => {
   const checkRole = item?.role.length ? item?.role?.includes(userType) : true;
@@ -49,6 +50,9 @@ const MenuListComponent: React.FC = () => {
   const layoutStore = useLayoutStore((state) => state);
   const { userType } = userDataStore();
   const { permissions, isLoading } = usePermissionStore();
+
+  const { templates, getTemplates }: any = useTemplateStore();
+  const [appendSidebar, setAppendSidebar] = useState([]);
 
   let permissionss = [...permissions];
 
@@ -105,6 +109,29 @@ const MenuListComponent: React.FC = () => {
         return <img src={Help} alt="" />;
     }
   };
+
+  useEffect(() => {
+    getTemplates({ query: { size: 999999999999 }, getAll: false });
+    if (templates?.length) {
+      setAppendSidebar((prev) => {
+        const data = templates?.map((template: any) => {
+          return {
+            ...template,
+            label: template?.name,
+            path: `page/${template?.id}`,
+            depth: 1,
+            tabsContainer: [],
+            permission: [],
+            icon: Inspection,
+          };
+        });
+
+        return data;
+      });
+    }
+  }, []);
+
+  console.log({ appendSidebar });
 
   const handleListNavigation = ({ menu }: any) => {
     return menu.tabsContainer.length && menu.depth === 1
@@ -235,11 +262,42 @@ const MenuListComponent: React.FC = () => {
             </List>
           ) : (
             <List sx={{ flexDirection: "column" }} className="sidebar___comon-style">
-              {menuData.ORGANIZATION?.filter((item) =>
-                sidebarFilter({ item, permissions: permissionss, userType }),
-              ).map((menu, ind) =>
-                menu?.position === "end" ? (
-                  <div style={{ flex: "1", display: "flex", alignItems: "flex-end" }}>
+              {[
+                ...(menuData.ORGANIZATION || []),
+                ...(templates || [])?.map((template: any) => {
+                  return {
+                    ...template,
+                    label: template?.name,
+                    path: `/page/${template?.id}`,
+                    depth: 1,
+                    tabsContainer: [],
+                    permission: [],
+                    icon: Inspection,
+                    role: [],
+                  };
+                }),
+              ]
+                ?.filter((item) => sidebarFilter({ item, permissions: permissionss, userType }))
+                .map((menu, ind) =>
+                  menu?.position === "end" ? (
+                    <div style={{ flex: "1", display: "flex", alignItems: "flex-end" }}>
+                      <ListItem
+                        disablePadding
+                        key={ind}
+                        className={`${location.pathname === menu.path ? "active" : ""}`}
+                        onClick={() => handleListNavigation({ menu })}
+                      >
+                        <ListItemButton>
+                          <ListItemIcon>{getIcon(menu.icon)}</ListItemIcon>
+                          {!layoutStore.menucollapsed && (
+                            <Tooltip title={menu.label} placement="top-start">
+                              <ListItemText primary={menu.label} className="sidebar__text" />
+                            </Tooltip>
+                          )}
+                        </ListItemButton>
+                      </ListItem>
+                    </div>
+                  ) : (
                     <ListItem
                       disablePadding
                       key={ind}
@@ -247,34 +305,28 @@ const MenuListComponent: React.FC = () => {
                       onClick={() => handleListNavigation({ menu })}
                     >
                       <ListItemButton>
-                        <ListItemIcon>{getIcon(menu.icon)}</ListItemIcon>
-                        {!layoutStore.menucollapsed && <ListItemText primary={menu.label} />}
+                        <Tooltip title={menu.label} arrow placement="right">
+                          <ListItemIcon
+                            style={{
+                              margin: "0.3rem 0",
+                              cursor: "pointer",
+                            }}
+                          >
+                            {getIcon(menu.icon)}
+                          </ListItemIcon>
+                        </Tooltip>
+
+                        {!layoutStore.menucollapsed && (
+                          <>
+                            <Tooltip title={menu.label} placement="top-start">
+                              <ListItemText primary={menu.label} />
+                            </Tooltip>
+                          </>
+                        )}
                       </ListItemButton>
                     </ListItem>
-                  </div>
-                ) : (
-                  <ListItem
-                    disablePadding
-                    key={ind}
-                    className={`${location.pathname === menu.path ? "active" : ""}`}
-                    onClick={() => handleListNavigation({ menu })}
-                  >
-                    <ListItemButton>
-                      <Tooltip title={menu.label} arrow placement="right">
-                        <ListItemIcon
-                          style={{
-                            margin: "0.3rem 0",
-                            cursor: "pointer",
-                          }}
-                        >
-                          {getIcon(menu.icon)}
-                        </ListItemIcon>
-                      </Tooltip>
-                      {!layoutStore.menucollapsed && <ListItemText primary={menu.label} />}
-                    </ListItemButton>
-                  </ListItem>
-                ),
-              )}
+                  ),
+                )}
             </List>
           ))}
         <Divider />
