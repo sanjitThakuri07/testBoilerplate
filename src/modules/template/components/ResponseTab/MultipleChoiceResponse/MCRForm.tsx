@@ -23,7 +23,7 @@ import { useSnackbar } from "notistack";
 import { getAPI } from "src/lib/axios";
 import FullPageLoader from "src/components/FullPageLoader";
 import NoDataFound from "src/components/NoDataFound";
-import useApiOptionsStore from "src/modules/template/store/apiOptionsTemplateStore";
+import useApiOptionsStore from "src/store/zustand/templates/apiOptionsTemplateStore";
 
 interface MCRColorProps {
   value: string;

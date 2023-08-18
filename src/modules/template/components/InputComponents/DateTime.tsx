@@ -1,9 +1,9 @@
-import { Checkbox, FormControlLabel } from '@mui/material';
-import { useState } from 'react';
+import { Checkbox, FormControlLabel } from "@mui/material";
+import { useState } from "react";
 
-import { useTemplateFieldsStore } from 'containers/template/store/templateFieldsStore';
-import DateTimeIcon from 'assets/template/icons/dateTime.png';
-import { LabelWrapper, BodyWrapper } from 'containers/template/components/Wrapper';
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
+import DateTimeIcon from "src/assets/template/icons/dateTime.png";
+import { LabelWrapper, BodyWrapper } from "src/modules/template/components/Wrapper";
 
 const DateTime = ({ dataItem, questionLogicShow }: any) => {
   const updateTemplateDatasets = useTemplateFieldsStore(
@@ -26,7 +26,7 @@ const DateTime = ({ dataItem, questionLogicShow }: any) => {
                     onChange={(e) => {
                       let checked = e.target.checked;
                       setIsRequiredDate(checked);
-                      updateTemplateDatasets(dataItem, 'variables', {
+                      updateTemplateDatasets(dataItem, "variables", {
                         ...dataItem.variables,
                         date: checked,
                         time: isRequiredTime,
@@ -44,7 +44,7 @@ const DateTime = ({ dataItem, questionLogicShow }: any) => {
                     onChange={(e) => {
                       let checked = e.target.checked;
                       setIsRequiredTime(checked);
-                      updateTemplateDatasets(dataItem, 'variables', {
+                      updateTemplateDatasets(dataItem, "variables", {
                         ...dataItem.variables,
                         date: isRequiredDate,
                         time: checked,

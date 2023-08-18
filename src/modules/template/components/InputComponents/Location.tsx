@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { textFieldStyle } from '../ChooseResponseType/ChooseResponseType';
-import LocationIcon from 'assets/template/icons/location_icon.svg';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import ComponentWrapper from 'containers/template/components/Wrapper';
-import { Grid } from '@mui/material';
+import React, { useState } from "react";
+import { textFieldStyle } from "../ChooseResponseType/ChooseResponseType";
+import LocationIcon from "src/assets/template/icons/location_icon.svg";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import ComponentWrapper from "src/modules/template/components/Wrapper";
+import { Grid } from "@mui/material";
 
 export default function Location({ dataItem }: any) {
   const [open, setOpen] = useState(false);
@@ -21,7 +21,8 @@ export default function Location({ dataItem }: any) {
           <div
             className="fake_custom_select_field_wrapper"
             onClick={onClick}
-            style={textFieldStyle}>
+            style={textFieldStyle}
+          >
             <div className="fake_custom_select_field_input_type">
               <div className="select_icon_styling">
                 <img src={LocationIcon} alt="Temperature" />
@@ -31,8 +32,9 @@ export default function Location({ dataItem }: any) {
             <div
               className="fake_custom_select_field_input_type_icon"
               style={{
-                transform: open ? 'rotate(90deg)' : 'rotate(180deg)',
-              }}>
+                transform: open ? "rotate(90deg)" : "rotate(180deg)",
+              }}
+            >
               <KeyboardArrowUpIcon className="select_item_icon" />
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { useTemplateFieldsStore } from 'containers/template/store/templateFieldsStore';
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 
 const useUndoRedo = (initialDatas) => {
   const templateDatasets = useTemplateFieldsStore((state) => state.templateDatasets);

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Box, ImageList, ImageListItem } from "@mui/material";
-import NoImageFoundIcon from "src/assets/iconsno_image_found_icon.svg";
+import NoImageFoundIcon from "src/assets/icons/no_image_found_icon.svg";
 
 export default function PdfMediaSetting({ has_media_summary, media_thumbnail }: any) {
   // for image datasets

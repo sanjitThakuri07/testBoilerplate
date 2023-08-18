@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import SaveIcon from "src/assets/icons/save_icon.svg";
+import SaveIcon from "/src/assets/icons/save_icon.svg";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 
 const BackButton = ({ onBackAction, backRoute }: any) => {

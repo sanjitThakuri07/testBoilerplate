@@ -15,7 +15,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import AddIcon from "@mui/icons-material/Add";
 import ModalLayout from "src/components/ModalLayout";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 import InspectionDateIcon from "src/assets/template/icons/inspectionDate.png";
 import { CheckBox } from "@mui/icons-material";
 import ComponentWrapper, {

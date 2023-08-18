@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import useApiOptionsStore from "src/modules/template/store/apiOptionsTemplateStore";
-import { useTemplateStore } from "src/modules/template/store/templateStore";
+import useApiOptionsStore from "src/store/zustand/templates/apiOptionsTemplateStore";
+import { useTemplateStore } from "src/store/zustand/templates/templateStore";
 import { reduceDataSet } from "src/modules/utils/reducedDataSet";
 import { deepCloneArray } from "src/modules/utils/deepCloneArray";
 import { v4 as uuidv4 } from "uuid";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { KeyboardArrowUp, KeyboardArrowDown, DeleteOutline } from "@mui/icons-material";
-import responseItems from "constants/template/responseItems";
+import responseItems from "src/constants/template/responseItems";
 import { Button } from "@mui/material";
 import { InputFields } from "./inspectionSubComponents";
 import { FormNode } from "./formNode";

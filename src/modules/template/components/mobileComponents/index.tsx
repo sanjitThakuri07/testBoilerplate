@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import MobileTextAnswer from "./MobileTextAnswer/MobileTextAnswer";
 import MobileSlider from "./MobileSlider/MobileSlider";
 import { useTemplate } from "src/store/zustand/globalStates/templates/templateData";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
-import responseItems from "constants/template/responseItems";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
+import responseItems from "src/constants/template/responseItems";
 import { Formik, FieldArray, Form, Field, getIn } from "formik";
 
 import MobileDateTime from "./MobileDateTime/MobileDateTime";
 import MobileInspectionDate from "./MobileInspectionDate/MobileInspectionDate";
 import ReusableMobileComponent from "./ReusableMobileComponent/ReusableMobileComponent";
 import { fetchApI } from "src/modules/apiRequest/apiRequest";
-import useDebounceSearch from "hooks/useDebounceSearch";
+import useDebounceSearch from "src/hooks/useDebounceSearch";
 import SelectInternalResponse from "./SelectInternalResponse";
 import SelectMultipleResponse from "./SelectMultipleResponse";
 import MobileNumber from "./MobileNumber";

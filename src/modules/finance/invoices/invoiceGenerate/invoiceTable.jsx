@@ -21,7 +21,7 @@ import {
   useUpdateRemarkIndex,
   useUpdatingAdjustment,
 } from "src/store/zustand/globalStates/invoice/invoice";
-import SaveIcon from "src/assets/icons/save_icon.svg";
+import SaveIcon from "/src/assets/icons/save_icon.svg";
 import { getHighestLowestData, getObjectsWithinRange } from "src/utils/keyFunction";
 
 const itemtypes = {

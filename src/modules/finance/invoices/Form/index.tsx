@@ -33,7 +33,7 @@ import { FINANCE_INITIAL_VALUE } from "src/modules/config/filterOptionsList";
 import NotInterestedIcon from "@mui/icons-material/NotInterested";
 import AddToPhotosIcon from "@mui/icons-material/AddToPhotos";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
-import SaveIcon from "src/assets/icons/save_icon.svg";
+import SaveIcon from "/src/assets/icons/save_icon.svg";
 import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 import { invoiceStatusOptions } from "src/utils/url";
 import useInvoiceStore from "src/store/zustand/invoice";

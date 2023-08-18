@@ -1,4 +1,4 @@
-// import { CustomTextField, ResponseTab } from 'containers/template/components';
+// import { CustomTextField, ResponseTab } from 'src/modules/template/components';
 import { CustomTextField } from "src/modules/template/components";
 import ResponseTab from "src/modules/template/components/ResponseTab/OldResponseTab";
 import { TabContext, TabList, TabPanel } from "@mui/lab";

@@ -26,7 +26,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import OrganizationSchema from "src/validationSchemas/Organization";
 import * as Yup from "yup";
-import SaveIcon from "src/assets/icons/save_icon.svg";
+import SaveIcon from "/src/assets/icons/save_icon.svg";
 // import './style.scss';
 
 interface IOrganization {

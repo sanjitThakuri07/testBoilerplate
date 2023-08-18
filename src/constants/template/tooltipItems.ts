@@ -1,20 +1,20 @@
-import addQuestion from 'assets/template/icons/addQuestion.svg';
-import addSection from 'assets/template/icons/addSection.svg';
-import addImage from 'assets/template/icons/addImage.svg';
-import addTitleDesc from 'assets/template/icons/addTitleDesc.svg';
-import importQuestion from 'assets/template/icons/importQuestion.svg';
-import Delete from 'assets/template/icons/delete.svg';
+import addQuestion from "src/assets/template/icons/addQuestion.svg";
+import addSection from "src/assets/template/icons/addSection.svg";
+import addImage from "src/assets/template/icons/addImage.svg";
+import addTitleDesc from "src/assets/template/icons/addTitleDesc.svg";
+import importQuestion from "src/assets/template/icons/importQuestion.svg";
+import Delete from "src/assets/template/icons/delete.svg";
 
 export default [
   {
-    index:0,
-    title: 'Add Question',
+    index: 0,
+    title: "Add Question",
     icon: addQuestion,
     disabled: false,
   },
   {
-    index:1,
-    title: 'Add Section',
+    index: 1,
+    title: "Add Section",
     icon: addSection,
     disabled: false,
   },
@@ -37,8 +37,8 @@ export default [
   //   disabled: false,
   // },
   {
-    index:5,
-    title: 'Delete',
+    index: 5,
+    title: "Delete",
     icon: Delete,
     disabled: false,
   },

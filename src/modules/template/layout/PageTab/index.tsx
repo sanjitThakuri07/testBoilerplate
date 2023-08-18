@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import LogoutIcon from "src/assets/icons/logout_icon.svg";
 import { useSnackbar } from "notistack";

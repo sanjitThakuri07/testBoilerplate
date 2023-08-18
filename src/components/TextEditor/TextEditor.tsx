@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { convertFromRaw, EditorState, ContentState, convertFromHTML } from 'draft-js';
+import React, { useState, useEffect } from "react";
+import { convertFromRaw, EditorState, ContentState, convertFromHTML } from "draft-js";
 
-import draftToHtml from 'draftjs-to-html';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import '../../styles/TextEditor.scss';
-import { Box } from '@mui/material';
+import draftToHtml from "draftjs-to-html";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import "../../styles/TextEditor.scss";
+import { Box } from "@mui/material";
 // import CustomComponent from './CustomComponent';
 
-import { Editor } from 'react-draft-wysiwyg';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import '../../styles/TextEditor.scss';
-import { useTemplateFieldsStore } from 'containers/template/store/templateFieldsStore';
+import { Editor } from "react-draft-wysiwyg";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import "../../styles/TextEditor.scss";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 
 interface TextEditorInterface {
   setContentState?: React.Dispatch<React.SetStateAction<string | null>>;
@@ -59,17 +59,17 @@ export default function TextEditor({
   //   toolbar customization
   const toolbar = {
     options: [
-      'blockType',
-      'inline',
-      'list',
+      "blockType",
+      "inline",
+      "list",
       // "textAlign",
-      'link',
+      "link",
       // "embedded",
-      'image',
+      "image",
     ],
     blockType: {
       inDropdown: true,
-      options: ['H2', 'H3', 'H4', 'Normal', 'Blockquote'],
+      options: ["H2", "H3", "H4", "Normal", "Blockquote"],
       className: undefined,
       component: undefined,
       dropdownClassName: undefined,
@@ -79,14 +79,14 @@ export default function TextEditor({
       className: undefined,
       component: undefined,
       dropdownClassName: undefined,
-      options: ['bold', 'italic', 'underline'],
+      options: ["bold", "italic", "underline"],
     },
     link: {
-      options: ['link', 'unlink'],
+      options: ["link", "unlink"],
       showOpenOptionOnHover: false,
     },
     list: {
-      options: ['ordered', 'unordered'],
+      options: ["ordered", "unordered"],
     },
     image: {
       className: undefined,
@@ -97,42 +97,42 @@ export default function TextEditor({
       alignmentEnabled: true,
       uploadCallback: undefined,
       previewImage: false,
-      inputAccept: 'image/gif,image/jpeg,image/jpg,image/png',
+      inputAccept: "image/gif,image/jpeg,image/jpg,image/png",
       alt: { present: true, mandatory: true },
       defaultSize: {
-        height: 'auto',
-        width: 'auto',
+        height: "auto",
+        width: "auto",
       },
     },
   };
 
   //   localization
   const localization = {
-    locale: 'en-us',
+    locale: "en-us",
     translations: {
-      'generic.add': 'Add',
-      'generic.cancel': 'Cancel',
+      "generic.add": "Add",
+      "generic.cancel": "Cancel",
 
-      'components.controls.blocktype.normal': 'Normal',
-      'components.controls.blocktype.h2': 'Heading 1',
-      'components.controls.blocktype.h3': 'Heading 2',
-      'components.controls.blocktype.h4': 'Heading 3',
-      'components.controls.blocktype.blockquote': 'Blockquote',
+      "components.controls.blocktype.normal": "Normal",
+      "components.controls.blocktype.h2": "Heading 1",
+      "components.controls.blocktype.h3": "Heading 2",
+      "components.controls.blocktype.h4": "Heading 3",
+      "components.controls.blocktype.blockquote": "Blockquote",
 
-      'components.controls.embedded.embedded': 'Embedded',
-      'components.controls.embedded.embeddedlink': 'Embedded Link',
-      'components.controls.embedded.enterlink': 'Enter link',
+      "components.controls.embedded.embedded": "Embedded",
+      "components.controls.embedded.embeddedlink": "Embedded Link",
+      "components.controls.embedded.enterlink": "Enter link",
 
-      'components.controls.link.linkTitle': 'Link Title',
-      'components.controls.link.linkTarget': 'Link Target',
-      'components.controls.link.linkTargetOption': 'Open link in new window',
-      'components.controls.link.link': 'Link',
-      'components.controls.link.unlink': 'Unlink',
+      "components.controls.link.linkTitle": "Link Title",
+      "components.controls.link.linkTarget": "Link Target",
+      "components.controls.link.linkTargetOption": "Open link in new window",
+      "components.controls.link.link": "Link",
+      "components.controls.link.unlink": "Unlink",
 
-      'components.controls.image.image': 'Image',
-      'components.controls.image.fileUpload': 'File Upload',
-      'components.controls.image.byURL': 'URL',
-      'components.controls.image.dropFileText': 'Drop the file or click to upload',
+      "components.controls.image.image": "Image",
+      "components.controls.image.fileUpload": "File Upload",
+      "components.controls.image.byURL": "URL",
+      "components.controls.image.dropFileText": "Drop the file or click to upload",
     },
   };
 
@@ -156,7 +156,7 @@ export default function TextEditor({
         editorState={editorState}
         toolbarClassName="editor-toolbar"
         wrapperClassName="editor-wrapper"
-        editorClassName={`editorcontainer ${templateHeight ? 'templateHeight' : 'editor'}`}
+        editorClassName={`editorcontainer ${templateHeight ? "templateHeight" : "editor"}`}
         onEditorStateChange={handleEditorStateChange}
         onContentStateChange={handleContentStateChange}
         toolbar={toolbar}

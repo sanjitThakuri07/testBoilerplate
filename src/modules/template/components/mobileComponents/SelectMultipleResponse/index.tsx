@@ -5,7 +5,7 @@ import { fetchApI } from "src/modules/apiRequest/apiRequest";
 import ErrorComponent from "src/components/Error";
 import { errorValue } from "src/modules/template/validation/inputLogicCheck";
 import ExtraUserFields from "src/modules/template/components/mobileComponents/ReusableMobileComponent/ExtraUserFields";
-import useApiOptionsStore from "src/modules/template/store/apiOptionsTemplateStore";
+import useApiOptionsStore from "src/store/zustand/templates/apiOptionsTemplateStore";
 
 export default function SelectMultipleResponse({
   onChange,

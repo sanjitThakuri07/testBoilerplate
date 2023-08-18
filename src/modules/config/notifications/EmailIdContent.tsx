@@ -20,7 +20,7 @@ import { Field, Form, Formik, FormikProps } from "formik";
 import ButtonLoaderSpinner from "src/components/ButtonLoaderSpinner/ButtonLoaderSpinner";
 import { EmailIdContentSchema } from "src/components/validationSchema";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
-import SaveIcon from "src/assets/icons/save_icon.svg";
+import SaveIcon from "/src/assets/icons/save_icon.svg";
 import { useAlertPopup } from "src/store/zustand/globalStates/alertPopup";
 import MultiSelect from "./MultipleSelect";
 import MultiEmailCustom from "src/components/MultiEmail/MultiEmail2";

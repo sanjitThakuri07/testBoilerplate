@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import useApiOptionsStore from "src/modules/template/store/apiOptionsTemplateStore";
-import { useTemplateStore } from "src/modules/template/store/templateStore";
+import useApiOptionsStore from "src/store/zustand/templates/apiOptionsTemplateStore";
+import { useTemplateStore } from "src/store/zustand/templates/templateStore";
 import { validateInput } from "src/modules/template/validation/inputLogicCheck";
 import { findData } from "src/modules/template/validation/keyValidationFunction";
 import { InputFields } from "./inspectionSubComponents";
-import responseItems from "constants/template/responseItems";
+import responseItems from "src/constants/template/responseItems";
 import { KeyboardArrowUp, KeyboardArrowDown, DeleteOutline } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import { GroupFields } from "./inspectionSection";

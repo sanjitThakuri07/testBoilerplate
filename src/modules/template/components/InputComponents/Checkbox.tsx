@@ -1,8 +1,8 @@
-import React from 'react';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import CheckboxIcon from 'assets/template/icons//checkbox.svg';
+import React from "react";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import CheckboxIcon from "src/assets/template/icons//checkbox.svg";
 
-import { BodyWrapper } from 'containers/template/components/Wrapper';
+import { BodyWrapper } from "src/modules/template/components/Wrapper";
 
 export default function Checkbox({ dataItem }: any) {
   const [open, setOpen] = React.useState(false);

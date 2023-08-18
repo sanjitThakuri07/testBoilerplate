@@ -1,7 +1,7 @@
-import { Button, Chip, Grid } from '@mui/material';
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import ComponentWrapper, { MultipleResponseWrapper } from 'containers/template/components/Wrapper';
+import { Button, Chip, Grid } from "@mui/material";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import ComponentWrapper, { MultipleResponseWrapper } from "src/modules/template/components/Wrapper";
 
 export interface MultitpleResponseItemProps {
   open?: any;
@@ -32,7 +32,7 @@ const MultipleResponseItem = ({
     ),
     label: (
       <MultipleResponseWrapper onClick={onClick}>
-        <div className="label-chips-container" style={{ display: 'flex', gap: '8px' }}>
+        <div className="label-chips-container" style={{ display: "flex", gap: "8px" }}>
           {multipleResponseItem?.options.slice(0, 2).map((option: any, index: number) => (
             <div className="label-chips" key={index}>
               <Chip
@@ -40,20 +40,20 @@ const MultipleResponseItem = ({
                 icon={
                   <FiberManualRecordIcon
                     style={{
-                      fontSize: '10px',
-                      marginLeft: '3px',
-                      color: option.color_code === '#FFFFFF' ? '#000000' : option.color_code,
+                      fontSize: "10px",
+                      marginLeft: "3px",
+                      color: option.color_code === "#FFFFFF" ? "#000000" : option.color_code,
                     }}
                   />
                 }
                 style={{
                   // backgroundColor: option.color_code,
-                  color: option.color_code === '#FFFFFF' ? '#000000' : option.color_code,
+                  color: option.color_code === "#FFFFFF" ? "#000000" : option.color_code,
                 }}
                 label={option.name}
                 size="small"
                 variant="outlined"
-              />{' '}
+              />{" "}
             </div>
           ))}
           {multipleResponseItem?.options?.length > 2 ? (

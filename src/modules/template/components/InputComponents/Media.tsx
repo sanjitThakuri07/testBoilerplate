@@ -1,10 +1,10 @@
-import { Chip, Grid, Menu, MenuItem, TextField } from '@mui/material';
-import React, { FC } from 'react';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
-import AddIcon from '@mui/icons-material/Add';
-import MediaIcon from 'assets/template/icons/media.png';
-import { useTemplateFieldsStore } from 'containers/template/store/templateFieldsStore';
+import { Chip, Grid, Menu, MenuItem, TextField } from "@mui/material";
+import React, { FC } from "react";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
+import AddIcon from "@mui/icons-material/Add";
+import MediaIcon from "src/assets/template/icons/media.png";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 
 type MediaProps = {
   responseTypeId?: any;
@@ -17,11 +17,11 @@ const Media = ({ responseTypeId, dataItem, isQuestionFocused }: any) => {
   const { selectedDataset } = useTemplateFieldsStore();
 
   const [blankChip, setBlankChip] = React.useState<boolean>(true);
-  const [blankValue, setBlankValue] = React.useState<string>('Blank');
+  const [blankValue, setBlankValue] = React.useState<string>("Blank");
 
   const [triggerValue, setTriggerValue] = React.useState<string[]>([]);
 
-  const [isAnswerLogic, setIsAnswerLogic] = React.useState<string>('is');
+  const [isAnswerLogic, setIsAnswerLogic] = React.useState<string>("is");
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [anchorElIsAnswerLogic, setAnchorElIsAnswerLogic] = React.useState<null | HTMLElement>(
@@ -70,7 +70,7 @@ const Media = ({ responseTypeId, dataItem, isQuestionFocused }: any) => {
     return;
   };
 
-  const triggerActions = ['Require Action', 'Require Evidence', 'Notify', 'Ask Question'];
+  const triggerActions = ["Require Action", "Require Evidence", "Notify", "Ask Question"];
 
   return {
     body: (
@@ -99,11 +99,12 @@ const Media = ({ responseTypeId, dataItem, isQuestionFocused }: any) => {
               item
               xs={12}
               sx={{
-                backgroundColor: '#F4F6FA;',
-                paddingBottom: '15px',
-                marginLeft: '30px',
-                marginTop: '10px',
-              }}>
+                backgroundColor: "#F4F6FA;",
+                paddingBottom: "15px",
+                marginLeft: "30px",
+                marginTop: "10px",
+              }}
+            >
               <div className="text_answer_add_logic">
                 <div className="text_answer_add_logic_inner">
                   If the answer
@@ -111,7 +112,7 @@ const Media = ({ responseTypeId, dataItem, isQuestionFocused }: any) => {
                     label={isAnswerLogic}
                     onClick={handleMenuClickIsAnswerLogic}
                     size="small"
-                    sx={{ marginRight: '6px', marginLeft: '8px', borderRadius: '5px' }}
+                    sx={{ marginRight: "6px", marginLeft: "8px", borderRadius: "5px" }}
                     deleteIcon={<DriveFileRenameOutlineIcon />}
                     variant="outlined"
                   />
@@ -119,7 +120,7 @@ const Media = ({ responseTypeId, dataItem, isQuestionFocused }: any) => {
                     <Chip
                       label={blankValue}
                       size="small"
-                      sx={{ marginRight: '10px', marginLeft: '5px', borderRadius: '5px' }}
+                      sx={{ marginRight: "10px", marginLeft: "5px", borderRadius: "5px" }}
                       onDelete={() => setBlankChip(false)}
                       deleteIcon={<DriveFileRenameOutlineIcon />}
                       variant="outlined"
@@ -129,7 +130,7 @@ const Media = ({ responseTypeId, dataItem, isQuestionFocused }: any) => {
                       variant="standard"
                       autoFocus
                       value={blankValue}
-                      sx={{ backgroundColor: '#f9fafb', height: '25px', marginRight: '10px' }}
+                      sx={{ backgroundColor: "#f9fafb", height: "25px", marginRight: "10px" }}
                       InputProps={{
                         disableUnderline: true,
                       }}
@@ -137,7 +138,7 @@ const Media = ({ responseTypeId, dataItem, isQuestionFocused }: any) => {
                       onBlur={(event) => setBlankChip(true)}
                     />
                   )}
-                  then{' '}
+                  then{" "}
                   <div className="trigger_value">
                     {triggerValue.length > 0
                       ? triggerValue.map((item, index) => {
@@ -146,11 +147,11 @@ const Media = ({ responseTypeId, dataItem, isQuestionFocused }: any) => {
                               label={item}
                               size="small"
                               sx={{
-                                border: 'none',
-                                marginLeft: '5px',
-                                transform: 'scale(0.9)',
-                                backgroundColor: '#FFFAEB',
-                                color: '#B14608',
+                                border: "none",
+                                marginLeft: "5px",
+                                transform: "scale(0.9)",
+                                backgroundColor: "#FFFAEB",
+                                color: "#B14608",
                               }}
                               variant="outlined"
                               onDelete={() => {
@@ -162,14 +163,14 @@ const Media = ({ responseTypeId, dataItem, isQuestionFocused }: any) => {
                             />
                           );
                         })
-                      : ''}
+                      : ""}
                   </div>
                   <AddIcon
                     sx={{
-                      fontSize: '17px',
-                      marginLeft: '5px',
+                      fontSize: "17px",
+                      marginLeft: "5px",
                     }}
-                  />{' '}
+                  />{" "}
                   <span onClick={handleMenuClickTrigger}>Trigger</span>
                 </div>
 
@@ -178,16 +179,17 @@ const Media = ({ responseTypeId, dataItem, isQuestionFocused }: any) => {
                   aria-labelledby="format-positioned-button"
                   anchorEl={anchorElIsAnswerLogic}
                   open={openMenuIsAnswerLogic}
-                  sx={{ marginTop: '23px' }}
+                  sx={{ marginTop: "23px" }}
                   onClose={handleMenuCloseAction}
                   anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'center',
+                    vertical: "top",
+                    horizontal: "center",
                   }}
                   transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
-                  }}>
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                >
                   <MenuItem onClick={handleMenuCloseIsAnswerLogic}>is</MenuItem>
                   <MenuItem onClick={handleMenuCloseIsAnswerLogic}>is not</MenuItem>
                 </Menu>
@@ -197,16 +199,17 @@ const Media = ({ responseTypeId, dataItem, isQuestionFocused }: any) => {
                   aria-labelledby="format-positioned-button"
                   anchorEl={anchorElTrigger}
                   open={openMenuTrigger}
-                  sx={{ marginTop: '23px' }}
+                  sx={{ marginTop: "23px" }}
                   onClose={handleMenuCloseAction}
                   anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'center',
+                    vertical: "top",
+                    horizontal: "center",
                   }}
                   transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
-                  }}>
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                >
                   {triggerActions.map((item, index) => {
                     return (
                       <MenuItem onClick={handleMenuCloseTrigger} key={index}>

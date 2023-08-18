@@ -20,7 +20,7 @@ import CommonFilter, {
 } from "src/modules/config/Filters/CommonFilter";
 import { INSPECTION_INITIAL_VALUE } from "src/modules/config/filterOptionsList";
 import { usePayloadHook } from "src/constants/customHook/payloadOptions";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 
 interface NavigateColumnProps {
   navigateColumnName: string;

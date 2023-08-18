@@ -20,7 +20,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getAPI, postAPI, putAPI } from "src/lib/axios";
 import PhoneNumberInput from "src/modules/setting/profile/PhoneNumberInput";
 import { MenuOptions, Phone } from "src/interfaces/profile";
-import SaveIcon from "src/assets/icons/save_icon.svg";
+import SaveIcon from "/src/assets/icons/save_icon.svg";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { useSnackbar } from "notistack";
 import BackButton from "src/components/buttons/back";

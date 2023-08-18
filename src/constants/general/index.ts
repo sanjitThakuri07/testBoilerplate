@@ -10,7 +10,7 @@ export * from "./continents";
 export * from "./duration";
 
 // usage
-// import { days } from "constants/general";
+// import { days } from "src/constants/general";
 
 // you still can do this one
-// import { days } from "constants/general/days";
+// import { days } from "src/constants/general/days";

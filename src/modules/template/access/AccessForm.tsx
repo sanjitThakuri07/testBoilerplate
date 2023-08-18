@@ -5,7 +5,7 @@ import Select from "react-select";
 import { Form, Formik, FormikProps } from "formik";
 import ButtonLoaderSpinner from "src/components/ButtonLoaderSpinner/ButtonLoaderSpinner";
 
-import { useTemplateAccessStore } from "../store/templateAccessStore";
+import { useTemplateAccessStore } from "src/store/zustand/templates/templateAccessStore";
 
 const optionTypes: any = [
   {

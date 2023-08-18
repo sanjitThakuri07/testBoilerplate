@@ -5,7 +5,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import AddIcon from "@mui/icons-material/Add";
 import NumberIcon from "src/assets/template/icons/number.png";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 import ComponentWrapper, { LabelWrapper } from "src/modules/template/components/Wrapper";
 
 type NumberProps = {

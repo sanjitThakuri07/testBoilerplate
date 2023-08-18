@@ -2,7 +2,7 @@ import { Divider } from "@mui/material";
 import React, { useEffect } from "react";
 import InstructionIcon from "src/assets/template/icons/instruction.png";
 import ModalLayout from "src/components/ModalLayout";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 import BASTooltip from "src/components/BASTooltip/BASTooltip";
 import InfoIcon from "@mui/icons-material/Info";
 import UploadImage from "../mobileComponents/MobileMedia/UploadImage";

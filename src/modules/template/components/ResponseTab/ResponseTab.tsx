@@ -19,12 +19,12 @@ import GRSModal from "./GlobalResponseSet/GRSModal";
 import EditIcon from "src/assets/template/icons/chip_edit_icon.png";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import { fetchApI } from "src/modules/apiRequest/apiRequest";
-import useDebounceSearch from "hooks/useDebounceSearch";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import useDebounceSearch from "src/hooks/useDebounceSearch";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 import { itemTypes, responseChoice } from "src/modules/template/itemTypes/itemTypes";
-import { withDragHOC } from "HOC/withDragDropHoc";
+import { withDragHOC } from "src/hoc/withDragDropHoc";
 
-import useApiOptionsStore from "src/modules/template/store/apiOptionsTemplateStore";
+import useApiOptionsStore from "src/store/zustand/templates/apiOptionsTemplateStore";
 import { moduleIdsFnR } from "src/utils/url";
 
 interface CustomDropDownProps {

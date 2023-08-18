@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import FullPageLoader from "src/components/FullPageLoader";
 import { fetchApI } from "src/modules/apiRequest/apiRequest";
 
-import responseItems from "constants/template/responseItems";
+import responseItems from "src/constants/template/responseItems";
 import { Formik } from "formik";
 
 import { Button } from "@mui/material";
@@ -20,7 +20,7 @@ import MobileTemperature from "src/modules/template/components/mobileComponents/
 import MobileInstruction from "src/modules/template/components/mobileComponents/MobileInstruction";
 import MobileSignature from "src/modules/template/components/mobileComponents/MobileSignature";
 import SelectInternalResponse from "src/modules/template/components/mobileComponents/SelectInternalResponse";
-import { useInspectionStore } from "src/modules/template/store/inspectionStore";
+import { useInspectionStore } from "src/store/zustand/templates/inspectionStore";
 import { validateInput } from "src/modules/template/validation/inputLogicCheck";
 import { findData } from "src/modules/template/validation/keyValidationFunction";
 import MobileAnnotation from "src/modules/template/components/mobileComponents/MobileAnnotation/mobileAnnotation";

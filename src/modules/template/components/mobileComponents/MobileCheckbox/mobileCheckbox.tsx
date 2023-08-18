@@ -1,5 +1,5 @@
 import { Box, Checkbox, Stack } from "@mui/material";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 import ErrorComponent from "src/components/Error";
 import { errorValue } from "src/modules/template/validation/inputLogicCheck";
 import ExtraUserFields from "src/modules/template/components/mobileComponents/ReusableMobileComponent/ExtraUserFields";

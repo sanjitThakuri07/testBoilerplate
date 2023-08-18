@@ -6,7 +6,7 @@ import Radio from "src/components/Radio";
 import { Form, Formik, FormikProps } from "formik";
 import ButtonLoaderSpinner from "src/components/ButtonLoaderSpinner/ButtonLoaderSpinner";
 
-import { useTemplateAccessStore } from "../store/templateAccessStore";
+import { useTemplateAccessStore } from "src/store/zustand/templates/templateAccessStore";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 
 const optionTypes: any = [

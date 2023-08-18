@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
 
-import { useTemplateStore } from "src/modules/template/store/templateStore";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import { useTemplateStore } from "src/store/zustand/templates/templateStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 import LogoutIcon from "src/assets/icons/logout_icon.svg";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import FullPageLoader from "src/components/FullPageLoader";
 import { fetchApI } from "src/modules/apiRequest/apiRequest";
-import responseItems from "constants/template/responseItems";
+import responseItems from "src/constants/template/responseItems";
 import { Formik } from "formik";
 import { Button } from "@mui/material";
 import SelectMultipleResponse from "../components/mobileComponents/SelectMultipleResponse";
@@ -27,7 +27,7 @@ import MobileCheckbox from "../components/mobileComponents/MobileCheckbox/mobile
 
 import { DynamicSchemaGenerator } from "../validation";
 import MobileMedia from "../components/mobileComponents/MobileMedia/MobileMedia";
-import useApiOptionsStore from "src/modules/template/store/apiOptionsTemplateStore";
+import useApiOptionsStore from "src/store/zustand/templates/apiOptionsTemplateStore";
 import { useInspectionStore } from "../store/inspectionStore";
 import { useSnackbar } from "notistack";
 import QuestionToolBar from "./questionToolBar";

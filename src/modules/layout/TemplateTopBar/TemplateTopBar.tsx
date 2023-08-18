@@ -5,7 +5,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 // import "./TemplateTopBar.scss";
 import PublishIcon from "src/assets/icons/publish_icon.svg";
 
-import { useTemplateStore } from "src/modules/template/store/templateStore";
+import { useTemplateStore } from "src/store/zustand/templates/templateStore";
 import { userDataStore } from "src/store/zustand/globalStates/userData";
 import { useReportRequestStore } from "src/modules/template/ReportLayout/store/ReportRequestStore";
 import { useReportLayoutDataSets } from "src/modules/template/ReportLayout/store/ReportStoreDataSets";
@@ -46,6 +46,7 @@ export default function TemplateTopBar({
   );
 
   const layoutButtonLoader = useReportRequestStore((state: any) => state?.isLayoutLoading);
+  const isTemplateLoading = useTemplateStore((state: any) => state?.isLoading);
 
   const { buttonReference } = userDataStore();
 
@@ -116,22 +117,6 @@ export default function TemplateTopBar({
       />
 
       <Box id="TemplateTopBar">
-        {/* success toaster  */}
-        <Snackbar
-          anchorOrigin={{ vertical: "top", horizontal: "center" }}
-          open={successOpen}
-          autoHideDuration={3000}
-          onClose={(reason) => handleCloseSnack(reason)}
-        >
-          <Alert
-            onClose={(reason) => handleCloseSnack(reason)}
-            severity="success"
-            sx={{ width: "100%" }}
-          >
-            {successMessage || "Booking template created successfully"}
-          </Alert>
-        </Snackbar>
-
         <Grid
           container
           className="top-bar-container"
@@ -216,7 +201,7 @@ export default function TemplateTopBar({
                   }}
                   variant="contained"
                   type="submit"
-                  disabled={isLoading || isTemplateLoading ? true : false}
+                  disabled={isTemplateLoading ? true : false}
                   sx={{
                     background: "#fff",
                     marginRight: "0.5rem",
@@ -231,8 +216,8 @@ export default function TemplateTopBar({
                   }}
                 >
                   <Stack direction="row" alignItems="center" spacing={1}>
-                    <Box>{isLoading ? "Saving" : "Save as draft"}</Box>
-                    {isLoading ? (
+                    <Box>{isTemplateLoading ? "Saving" : "Save as draft"}</Box>
+                    {isTemplateLoading ? (
                       <CircularProgress style={{ color: "#283352" }} size={20} />
                     ) : (
                       <img src={PublishIcon} alt="publish" />
@@ -253,7 +238,7 @@ export default function TemplateTopBar({
                     }}
                     variant="contained"
                     type="submit"
-                    disabled={isLoading ? true : false}
+                    disabled={isTemplateLoading ? true : false}
                     sx={{
                       background: "#fff",
                       color: "#1D2939",
@@ -267,8 +252,8 @@ export default function TemplateTopBar({
                     }}
                   >
                     <Stack direction="row" alignItems="center" spacing={1}>
-                      <Box>{isLoading ? "Saving" : "Save booking"}</Box>
-                      {isLoading ? (
+                      <Box>{isTemplateLoading ? "Saving" : "Save booking"}</Box>
+                      {isTemplateLoading ? (
                         <CircularProgress style={{ color: "#283352" }} size={20} />
                       ) : (
                         <img src={PublishIcon} alt="publish" />
@@ -286,7 +271,7 @@ export default function TemplateTopBar({
                     }}
                     variant="contained"
                     type="submit"
-                    disabled={isLoading ? true : false}
+                    disabled={isTemplateLoading ? true : false}
                     sx={{
                       background: "#fff",
                       color: "#1D2939",
@@ -300,8 +285,8 @@ export default function TemplateTopBar({
                     }}
                   >
                     <Stack direction="row" alignItems="center" spacing={1}>
-                      <Box>{isLoading ? "Saving" : "Save Quotation"}</Box>
-                      {isLoading ? (
+                      <Box>{isTemplateLoading ? "Saving" : "Save Quotation"}</Box>
+                      {isTemplateLoading ? (
                         <CircularProgress style={{ color: "#283352" }} size={20} />
                       ) : (
                         <img src={PublishIcon} alt="publish" />
@@ -325,9 +310,7 @@ export default function TemplateTopBar({
                       templatePublishHandler();
                     }}
                     variant="contained"
-                    disabled={
-                      isLoading || isQuotationBtnLoading || isTemplateLoading ? true : false
-                    }
+                    disabled={isTemplateLoading ? true : false}
                     sx={{
                       background: "#fff",
                       color: "#1D2939",
@@ -341,16 +324,12 @@ export default function TemplateTopBar({
                     }}
                   >
                     <Stack direction="row" alignItems="center" spacing={1}>
-                      {bookingTemplateId ? (
-                        <Box>{isLoading || isQuotationBtnLoading ? "Updating" : "Update now"}</Box>
-                      ) : (
-                        <Box>
-                          {isLoading || isQuotationBtnLoading || layoutButtonLoader
-                            ? btn?.textContent || "Building"
-                            : btn?.textContent || "Build"}
-                        </Box>
-                      )}
-                      {isLoading || isQuotationBtnLoading || layoutButtonLoader ? (
+                      <Box>
+                        {isTemplateLoading
+                          ? btn?.textContent || "Building"
+                          : btn?.textContent || "Build"}
+                      </Box>
+                      {isTemplateLoading ? (
                         <CircularProgress style={{ color: "#283352" }} size={20} />
                       ) : (
                         <img src={PublishIcon} alt="publish" />

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 import { InputLabel, TextField } from "@mui/material";
 import TextEditor from "src/components/TextEditor/TextEditor";
 import BASTooltip from "src/components/BASTooltip/BASTooltip";

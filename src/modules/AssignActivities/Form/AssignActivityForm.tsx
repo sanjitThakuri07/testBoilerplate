@@ -17,7 +17,7 @@ import {
 import React, { ReactHTMLElement, useEffect, useState } from "react";
 
 import moment from "moment";
-import { useTemplateStore } from "src/modules/template/store/templateStore";
+import { useTemplateStore } from "src/store/zustand/templates/templateStore";
 import { useNavigate, useParams } from "react-router-dom";
 import TextEditor from "src/components/MyTextEditor/MyEditor";
 

@@ -9,14 +9,14 @@ import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import ListAltOutlinedIcon from "@mui/icons-material/ListAltOutlined";
 
-import { useTemplateStore } from "src/modules/template/store/templateStore";
+import { useTemplateStore } from "src/store/zustand/templates/templateStore";
 import PlayCircleOutlineOutlinedIcon from "@mui/icons-material/PlayCircleOutlineOutlined";
 import { Alert, Tooltip } from "@mui/material";
 
 import EngineeringOutlinedIcon from "@mui/icons-material/EngineeringOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import ContentPasteSearchOutlinedIcon from "@mui/icons-material/ContentPasteSearchOutlined";
-import { useInspectionStore } from "src/modules/template/store/inspectionStore";
+import { useInspectionStore } from "src/store/zustand/templates/inspectionStore";
 import CalendarInspection from "src/modules/calendar/Inspection/CalendarInspection";
 
 interface BasicCardProps {

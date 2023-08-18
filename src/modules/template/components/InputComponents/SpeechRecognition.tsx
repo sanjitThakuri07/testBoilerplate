@@ -1,8 +1,8 @@
-import { Grid } from '@mui/material';
-import React from 'react';
-import { textFieldStyle } from '../ChooseResponseType/ChooseResponseType';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import SpeechRecognitionIcon from 'assets/template/icons/speech_recognition.svg';
+import { Grid } from "@mui/material";
+import React from "react";
+import { textFieldStyle } from "../ChooseResponseType/ChooseResponseType";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import SpeechRecognitionIcon from "src/assets/template/icons/speech_recognition.svg";
 
 export default function SpeechRecognition({ dataItem }: any) {
   const [open, setOpen] = React.useState<boolean>(false);

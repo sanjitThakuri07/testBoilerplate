@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
 
-import { useTemplateStore } from "src/modules/template/store/templateStore";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import { useTemplateStore } from "src/store/zustand/templates/templateStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import FullPageLoader from "src/components/FullPageLoader";
 import { fetchApI, fetchExternalApI } from "src/modules/apiRequest/apiRequest";
 
-import responseItems from "constants/template/responseItems";
+import responseItems from "src/constants/template/responseItems";
 import { Formik } from "formik";
 import { Button } from "@mui/material";
 import SelectMultipleResponse from "../components/mobileComponents/SelectMultipleResponse";
@@ -32,7 +32,7 @@ import { reduceDataSet } from "src/modules/utils/reducedDataSet";
 import { deepCloneArray } from "src/modules/utils/deepCloneArray";
 import { DynamicSchemaGenerator } from "../validation";
 import MobileMedia from "../components/mobileComponents/MobileMedia/MobileMedia";
-import useApiOptionsStore from "src/modules/template/store/apiOptionsTemplateStore";
+import useApiOptionsStore from "src/store/zustand/templates/apiOptionsTemplateStore";
 import SelectExternalResponse from "../components/mobileComponents/SelectExternalResponse";
 import { KeyOptionsName } from "src/modules/template/components/InputComponents/ResponseInputLogicNew";
 import { useInspectionStore } from "../store/inspectionStore";

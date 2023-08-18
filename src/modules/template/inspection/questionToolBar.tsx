@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ListIcon from "@mui/icons-material/List";
 import Tooltip from "@mui/material/Tooltip";
 import { SwitchComponent } from "src/modules/config/Filters/CommonFilter";
-import useApiOptionsStore from "src/modules/template/store/apiOptionsTemplateStore";
+import useApiOptionsStore from "src/store/zustand/templates/apiOptionsTemplateStore";
 import { findData } from "src/modules/template/validation/keyValidationFunction";
 import { validateInput } from "../validation/inputLogicCheck";
 import { Button } from "@mui/material";

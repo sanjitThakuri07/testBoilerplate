@@ -2,7 +2,7 @@ import React from "react";
 // import {onDrop}
 import { useDrag, useDrop } from "react-dnd";
 import { itemTypes } from "src/modules/template/itemTypes/itemTypes";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 
 export const OuterDropTarget = ({ children }: any) => {
   const [{ canDrop, isOver }, drop] = useDrop({

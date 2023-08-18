@@ -12,12 +12,12 @@ import GroupsIcon from "@mui/icons-material/Groups";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import PersonIcon from "@mui/icons-material/Person";
-import { useOrganizationUserStore } "src/store/zustand/users/organizationUserStore";
-import { useUserRoleStore } "src/store/zustand/users/userRoleStore";
+import { useOrganizationUserStore } from "src/store/zustand/users/organizationUserStore";
+import { useUserRoleStore } from "src/store/zustand/users/userRoleStore";
 import BackButton from "src/components/buttons/back";
-import { useTemplateAccessStore } from  "src/modules/template/store/templateAccessStore";
-import { useBookingTemplateAccessStore } from  "src/modules/template/store/bookingTemplateAccessStore";
-import { useQuotationTemplateAccessStore } from  "src/modules/template/store/quotationTemplateAccessStore";
+import { useTemplateAccessStore } from "src/modules/template/store/templateAccessStore";
+import { useBookingTemplateAccessStore } from "src/modules/template/store/bookingTemplateAccessStore";
+import { useQuotationTemplateAccessStore } from "src/modules/template/store/quotationTemplateAccessStore";
 
 const optionTypes: any = {
   1: "Start",

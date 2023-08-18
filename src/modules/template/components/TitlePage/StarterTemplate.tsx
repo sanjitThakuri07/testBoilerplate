@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, RefObject } from "react";
 import TextAnswer from "../TextAnswer/TextAnswer";
-import tooltipItems from "constants/template/tooltipItems";
+import tooltipItems from "src/constants/template/tooltipItems";
 import Section from "../Section/Section";
 
 import {
@@ -21,8 +21,8 @@ import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModa
 import MultiUploader from "src/components/MultiFileUploader/index";
 import LogoutIcon from "src/assets/icons/logout_icon.svg";
 import { TemplateDataStructure } from "./TemplateInitialDataStructure";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
-import { useTemplateStore } from "src/modules/template/store/templateStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
+import { useTemplateStore } from "src/store/zustand/templates/templateStore";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 // import TemplateHeading from '../TemplateHeading/TemplateHeading';
 import FullPageLoader from "src/components/FullPageLoader";
@@ -36,9 +36,9 @@ import withScrolling from "react-dnd-scrolling";
 import { userDataStore } from "src/store/zustand/globalStates/userData";
 import { searchParamObject } from "src/modules/utils/index";
 import { fetchApI } from "src/modules/apiRequest/apiRequest";
-import useApiOptionsStore from "src/modules/template/store/apiOptionsTemplateStore";
+import useApiOptionsStore from "src/store/zustand/templates/apiOptionsTemplateStore";
 import { useSnackbar } from "notistack";
-import useUndoRedo from "hooks/useUndoRedo";
+import useUndoRedo from "src/hooks/useUndoRedo";
 import FnrModal from "./FnRModal";
 import CustomBottomNavigation from "src/modules/template/container/layout/bottombar";
 import { MobileIndex, MobilePreview } from "src/modules/template/components/index";

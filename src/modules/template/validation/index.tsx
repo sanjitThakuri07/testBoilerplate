@@ -1,4 +1,4 @@
-import * as Yup from 'yup';
+import * as Yup from "yup";
 import {
   generateLogicConditionTriggerDataSet,
   findData,
@@ -6,10 +6,10 @@ import {
   IndividualValidationLogic,
   mediaValidationSchema,
   actionValidationSchema,
-} from './keyValidationFunction';
+} from "./keyValidationFunction";
 
-import { validateInput, setSchema } from './inputLogicCheck';
-import useApiOptionsStore from '../store/apiOptionsTemplateStore';
+import { validateInput, setSchema } from "./inputLogicCheck";
+import useApiOptionsStore from "../../../store/zustand/templates/apiOptionsTemplateStore";
 
 const YupTypeMap: any = {
   text: Yup.string(),
@@ -42,7 +42,7 @@ const UpdateValidation = ({
   apiDatas,
 }: any) => {
   //   let fieldSchema = YupTypeMap[question?.type];
-  if (question.component === 'section') {
+  if (question.component === "section") {
     const findChildren = dataSetSeperator?.logicQuestion?.filter((item: any) => {
       return question?.id === item?.parent;
     });
@@ -78,7 +78,7 @@ const UpdateValidation = ({
 
   let { multipleResponseData, options, globalResponseData }: any = apiDatas;
 
-  let fieldSchema = YupTypeMap[question?.type] ? YupTypeMap[question?.type] : YupTypeMap['text'];
+  let fieldSchema = YupTypeMap[question?.type] ? YupTypeMap[question?.type] : YupTypeMap["text"];
   // find logic of that question
   // in that logic we have linkQuestions
   const findLogic = dataSetSeperator?.logicDataSet?.find(
@@ -104,7 +104,7 @@ const UpdateValidation = ({
       }: any) {
         let subFieldSchema = YupTypeMap[question?.type]
           ? YupTypeMap[currentQuestion?.type]
-          : YupTypeMap['text'];
+          : YupTypeMap["text"];
 
         if (currentQuestion?.required || logic?.required) {
           subFieldSchema = setSchema({
@@ -115,15 +115,15 @@ const UpdateValidation = ({
 
         let ALL_OPTIONS: any = [];
         switch (findLogic?.logicApi?.response_choice) {
-          case 'internal':
+          case "internal":
             ALL_OPTIONS = options?.[logic?.logicApi?.storeKey];
             break;
-          case 'multiple':
+          case "multiple":
             ALL_OPTIONS =
               multipleResponseData?.find((opt: any) => opt?.id === logic?.logicApi?.url)?.options ||
               [];
             break;
-          case 'global':
+          case "global":
             ALL_OPTIONS =
               globalResponseData?.find((opt: any) => opt?.id === logic?.logicApi?.url)?.options ||
               [];
@@ -141,15 +141,15 @@ const UpdateValidation = ({
           if (currentQuestion[`${key}`]) {
             const commonKeyName = `${keyFields
               ?.map((field: any) => currentQuestion?.[`${field}`])
-              ?.join('__')}`;
+              ?.join("__")}`;
             datas[`${commonKeyName}`] = {
               when: `${parentQuestion.label}`,
-              self: 'isParent',
+              self: "isParent",
               linkQuestions: getLogicAndResponseSet.logicAndConditionTriggerDataSet.linkQuestions,
             };
             let parentKeyName = `${keyFields
               ?.map((field: any) => parentQuestion?.[`${field}`])
-              ?.join('__')}`;
+              ?.join("__")}`;
 
             schemaObject[
               `${currentQuestion?.[`${keyFields?.[0]}`]}__${currentQuestion?.[`${keyFields?.[1]}`]}`
@@ -166,28 +166,28 @@ const UpdateValidation = ({
                 });
 
                 return Yup.object().shape({
-                  value: val ? subFieldSchema : YupTypeMap[currentQuestion?.type || 'text'],
-                  action: Yup.string().when('value', (value, schema) => {
+                  value: val ? subFieldSchema : YupTypeMap[currentQuestion?.type || "text"],
+                  action: Yup.string().when("value", (value, schema) => {
                     let checkValue = IndividualValidationLogic({
                       value,
                       getLogicAndResponseSet,
                       fieldName: {
-                        name: 'Require_Action',
-                        value: 'Require Action',
+                        name: "Require_Action",
+                        value: "Require Action",
                       },
                       // allOptions: logic?.logicOptions || [],
                       allOptions: ALL_OPTIONS,
                     });
                     return checkValue ? actionValidationSchema({}) : Yup.array();
                   }),
-                  media: Yup.array().when('value', {
+                  media: Yup.array().when("value", {
                     is: (value: any) => {
                       let checkValue = IndividualValidationLogic({
                         value,
                         getLogicAndResponseSet,
                         fieldName: {
-                          name: 'Require_Evidence',
-                          value: 'media',
+                          name: "Require_Evidence",
+                          value: "media",
                         },
                         // allOptions: logic?.logicOptions || [],
                         allOptions: ALL_OPTIONS,
@@ -197,19 +197,19 @@ const UpdateValidation = ({
                     then: mediaValidationSchema({}),
                     // otherwise: Yup.string(),
                   }),
-                  notes: Yup.string().when('value', (value, schema) => {
+                  notes: Yup.string().when("value", (value, schema) => {
                     let checkValue = IndividualValidationLogic({
                       value,
                       getLogicAndResponseSet,
                       fieldName: {
-                        name: 'Require Evidence',
-                        value: 'notes',
+                        name: "Require Evidence",
+                        value: "notes",
                       },
                       // allOptions: logic?.logicOptions || [],
                       allOptions: ALL_OPTIONS,
                     });
                     return checkValue
-                      ? Yup.string().required('Notes is a required field')
+                      ? Yup.string().required("Notes is a required field")
                       : Yup.string();
                   }),
                 });
@@ -248,11 +248,11 @@ const UpdateValidation = ({
           if (currentQuestion[`${key}`]) {
             const commonKeyName = `${keyFields
               ?.map((field: any) => currentQuestion?.[`${field}`])
-              ?.join('__')}`;
+              ?.join("__")}`;
 
             datas[`${commonKeyName}`] = {
               when: `${parentQuestion?.[`${key}`]}`,
-              self: 'called',
+              self: "called",
               linkQuestions: getLogicAndResponseSet.logicAndConditionTriggerDataSet.linkQuestions,
             };
 
@@ -260,13 +260,13 @@ const UpdateValidation = ({
               `${currentQuestion?.[`${keyFields?.[0]}`]}__${currentQuestion?.[`${keyFields?.[1]}`]}`
             ] = Yup.object().shape({
               value: fieldSchema,
-              action: Yup.string().when('value', (value, schema) => {
+              action: Yup.string().when("value", (value, schema) => {
                 let checkValue = IndividualValidationLogic({
                   value,
                   getLogicAndResponseSet,
                   fieldName: {
-                    name: 'Require_Action',
-                    value: 'Require Action',
+                    name: "Require_Action",
+                    value: "Require Action",
                   },
                   // allOptions: logic?.logicOptions || [],
                   allOptions: ALL_OPTIONS,
@@ -274,14 +274,14 @@ const UpdateValidation = ({
 
                 return checkValue ? actionValidationSchema({}) : Yup.array();
               }),
-              media: Yup.array().when('value', {
+              media: Yup.array().when("value", {
                 is: (value: any) => {
                   let checkValue = IndividualValidationLogic({
                     value,
                     getLogicAndResponseSet,
                     fieldName: {
-                      name: 'Require_Evidence',
-                      value: 'media',
+                      name: "Require_Evidence",
+                      value: "media",
                     },
                     // allOptions: logic?.logicOptions || [],
                     allOptions: ALL_OPTIONS,
@@ -291,19 +291,19 @@ const UpdateValidation = ({
                 then: mediaValidationSchema({}),
                 // otherwise: Yup.string(),
               }),
-              notes: Yup.string().when('value', (value, schema) => {
+              notes: Yup.string().when("value", (value, schema) => {
                 let checkValue = IndividualValidationLogic({
                   value,
                   getLogicAndResponseSet,
                   fieldName: {
-                    name: 'Require_Evidence',
-                    value: 'notes',
+                    name: "Require_Evidence",
+                    value: "notes",
                   },
                   // allOptions: logic?.logicOptions || [],
                   allOptions: ALL_OPTIONS,
                 });
                 return checkValue
-                  ? Yup.string().required('Notes is a required field')
+                  ? Yup.string().required("Notes is a required field")
                   : Yup.string();
               }),
             });
@@ -350,16 +350,16 @@ const UpdateValidation = ({
       });
     } else {
       if (findLogic?.required || question?.required) {
-        fieldSchema = fieldSchema.required('This field is required');
+        fieldSchema = fieldSchema.required("This field is required");
       }
 
       if (!parentQuestions) {
-        schemaObject[`${keyFields?.map((field: any) => question?.[`${field}`])?.join('__')}`] =
+        schemaObject[`${keyFields?.map((field: any) => question?.[`${field}`])?.join("__")}`] =
           Yup.object().shape({
             value: fieldSchema,
           });
       } else {
-        schemaObject[`${keyFields?.map((field: any) => question?.[`${field}`])?.join('__')}`] =
+        schemaObject[`${keyFields?.map((field: any) => question?.[`${field}`])?.join("__")}`] =
           Yup.object().shape({
             value: fieldSchema,
           });
@@ -370,7 +370,7 @@ const UpdateValidation = ({
 
 export const DynamicSchemaGenerator = ({
   questions,
-  key = 'question',
+  key = "question",
   dataSetSeperator,
   keyFields,
   initialValues,

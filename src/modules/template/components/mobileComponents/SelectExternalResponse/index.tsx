@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import { Box } from "@mui/material";
 import { fetchApI } from "src/modules/apiRequest/apiRequest";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 import ErrorComponent from "src/components/Error";
 import { errorValue } from "src/modules/template/validation/inputLogicCheck";
 import ExtraUserFields from "src/modules/template/components/mobileComponents/ReusableMobileComponent/ExtraUserFields";

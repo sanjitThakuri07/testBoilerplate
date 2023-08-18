@@ -4,7 +4,7 @@ import React, { FC } from "react";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import SignatureIcon from "src/assets/template/icons/signature.png";
 import ModalLayout from "src/components/ModalLayout";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 import ComponentWrapper, {
   LabelWrapper,
   BodyWrapper,

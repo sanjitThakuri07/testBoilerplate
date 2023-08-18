@@ -1,21 +1,21 @@
-import TextAnswerIcon from 'assets/template/icons/Text_answer.png';
-import CheckboxIcon from 'assets/template/icons/checkbox.svg';
-import DateTime from 'assets/template/icons/dateTime.png';
-import InstructionIcon from 'assets/template/icons/instruction.png';
-import MediaIcon from 'assets/template/icons/media.png';
-import NumberIcon from 'assets/template/icons/number.png';
-import SignatureIcon from 'assets/template/icons/signature.png';
-import SliderIcon from 'assets/template/icons/slider.png';
-import SpeechRecognitionIcon from 'assets/template/icons/speech_recognition.svg';
-import TemperatureIcon from 'assets/template/icons/temperature.svg';
+import TextAnswerIcon from "src/assets/template/icons/Text_answer.png";
+import CheckboxIcon from "src/assets/template/icons/checkbox.svg";
+import DateTime from "src/assets/template/icons/dateTime.png";
+import InstructionIcon from "src/assets/template/icons/instruction.png";
+import MediaIcon from "src/assets/template/icons/media.png";
+import NumberIcon from "src/assets/template/icons/number.png";
+import SignatureIcon from "src/assets/template/icons/signature.png";
+import SliderIcon from "src/assets/template/icons/slider.png";
+import SpeechRecognitionIcon from "src/assets/template/icons/speech_recognition.svg";
+import TemperatureIcon from "src/assets/template/icons/temperature.svg";
 
 export default [
   {
-    id: 'TEXT_001',
-    label: 'Text Answer',
-    type: 'text',
-    input_type: 'text',
-    value: 'text_answer',
+    id: "TEXT_001",
+    label: "Text Answer",
+    type: "text",
+    input_type: "text",
+    value: "text_answer",
     Icon: TextAnswerIcon,
   },
   // {
@@ -27,11 +27,11 @@ export default [
   //   Icon: InspectionDateIcon,
   // },
   {
-    id: 'DATE_001',
-    label: 'Date Time',
-    type: 'date',
-    input_type: 'date',
-    value: 'date_time',
+    id: "DATE_001",
+    label: "Date Time",
+    type: "date",
+    input_type: "date",
+    value: "date_time",
     Icon: DateTime,
   },
   // {
@@ -43,19 +43,19 @@ export default [
   //   Icon: DocumentNumberIcon,
   // },
   {
-    id: 'SLID_001',
-    label: 'Slider',
-    value: 'slider',
-    type: 'range',
-    input_type: 'range',
+    id: "SLID_001",
+    label: "Slider",
+    value: "slider",
+    type: "range",
+    input_type: "range",
     Icon: SliderIcon,
   },
   {
-    id: 'TEMP_001',
-    label: 'Temperature',
-    value: 'temperature',
-    type: 'temp',
-    input_type: 'temp',
+    id: "TEMP_001",
+    label: "Temperature",
+    value: "temperature",
+    type: "temp",
+    input_type: "temp",
     Icon: TemperatureIcon,
   },
   // {
@@ -67,11 +67,11 @@ export default [
   //   Icon: AnnotationIcon,
   // },
   {
-    id: 'CHECK_001',
-    label: 'Checkbox',
-    value: 'Checkbox',
-    type: 'checkbox',
-    input_type: 'checkbox',
+    id: "CHECK_001",
+    label: "Checkbox",
+    value: "Checkbox",
+    type: "checkbox",
+    input_type: "checkbox",
     Icon: CheckboxIcon,
   },
   // {
@@ -91,35 +91,35 @@ export default [
   //   Icon: LocationIcon,
   // },
   {
-    id: 'NUM_001',
-    label: 'Number',
-    value: 'Number',
-    type: 'number',
-    input_type: 'number',
+    id: "NUM_001",
+    label: "Number",
+    value: "Number",
+    type: "number",
+    input_type: "number",
     Icon: NumberIcon,
   },
   {
-    id: 'SIGN_001',
-    label: 'Signature',
-    value: 'Signature',
-    type: 'signature',
-    input_type: 'signature',
+    id: "SIGN_001",
+    label: "Signature",
+    value: "Signature",
+    type: "signature",
+    input_type: "signature",
     Icon: SignatureIcon,
   },
   {
-    id: 'INSTRUCT_001',
-    label: 'Instruction',
-    value: 'Instruction',
-    type: 'instruction',
-    input_type: 'instruction',
+    id: "INSTRUCT_001",
+    label: "Instruction",
+    value: "Instruction",
+    type: "instruction",
+    input_type: "instruction",
     Icon: InstructionIcon,
   },
   {
-    id: 'MEDIA_001',
-    label: 'Media',
-    value: 'Media',
-    type: 'media',
-    input_type: 'media',
+    id: "MEDIA_001",
+    label: "Media",
+    value: "Media",
+    type: "media",
+    input_type: "media",
     Icon: MediaIcon,
   },
 ];

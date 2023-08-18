@@ -19,7 +19,7 @@ import { useSnackbar } from "notistack";
 import FullPageLoader from "src/components/FullPageLoader";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import useApiOptionsStore from "src/modules/template/store/apiOptionsTemplateStore";
+import useApiOptionsStore from "src/store/zustand/templates/apiOptionsTemplateStore";
 import { v4 as uuidv4 } from "uuid";
 
 interface GRSModalProps {

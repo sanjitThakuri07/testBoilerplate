@@ -3,7 +3,7 @@ import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { Button, InputLabel, ToggleButton, ToggleButtonGroup, Tooltip } from "@mui/material";
 import { fetchApI } from "src/modules/apiRequest/apiRequest";
 import { itemTypes } from "src/modules/template/itemTypes/itemTypes";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 import { useTextAnswer } from "src/store/zustand/globalStates/templates/TextAnswer";
 import { useDrag, useDrop } from "react-dnd";
 import ChooseResponseType from "../ChooseResponseType/ChooseResponseType";

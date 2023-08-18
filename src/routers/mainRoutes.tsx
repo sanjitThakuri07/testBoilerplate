@@ -20,7 +20,7 @@ import ConfigurationRoutes from "src/modules/config/routes";
 // import FinanceRoutes from 'src/modules/finance/routes';
 // import InspectionRoutes from 'src/modules/inspections/routes';
 // import { routes as ScheduleRoutes } from 'src/modules/schedule/route';
-// import TemplateRoutes from 'src/modules/template/routes';
+import TemplateRoutes from "src/modules/template/routes";
 // import _401 from 'pages/message/_401';
 
 // import ActivityRoutes from 'src/modules/AssignActivities/routes';
@@ -260,7 +260,7 @@ export const privateRoutes: any = [
   // ...BookingsRoutes,
   // ...FinanceRoutes,
   // ...ActivityRoutes,
-  // ...TemplateRoutes,
+  ...TemplateRoutes,
   ...ConfigurationRoutes,
   ...OrganizationRoutes,
   // ...InspectionRoutes,

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Button } from "@mui/material";
 import MultiUploader from "src/components/MultiFileUploader/index";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 
 export default function MobileAnnotation({ dataItem }: any) {
   const [OpenImageUPloadModal, setOpenImageUploadModal] = useState(false);

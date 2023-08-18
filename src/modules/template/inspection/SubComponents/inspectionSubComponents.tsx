@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import useApiOptionsStore from "src/modules/template/store/apiOptionsTemplateStore";
-import { useTemplateStore } from "src/modules/template/store/templateStore";
+import useApiOptionsStore from "src/store/zustand/templates/apiOptionsTemplateStore";
+import { useTemplateStore } from "src/store/zustand/templates/templateStore";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import SelectMultipleResponse from "src/modules/template/components/mobileComponents/SelectMultipleResponse";
 import MobileTextAnswer from "src/modules/template/components/mobileComponents/MobileTextAnswer/MobileTextAnswer";

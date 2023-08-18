@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 
 import FullPageLoader from "src/components/FullPageLoader";
-import responseItems from "constants/template/responseItems";
+import responseItems from "src/constants/template/responseItems";
 import { fetchApI } from "src/modules/apiRequest/apiRequest";
 import { Formik } from "formik";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
@@ -25,14 +25,14 @@ import MobileTemperature from "src/modules/template/components/mobileComponents/
 import MobileTextAnswer from "src/modules/template/components/mobileComponents/MobileTextAnswer/MobileTextAnswer";
 import SelectInternalResponse from "src/modules/template/components/mobileComponents/SelectInternalResponse";
 import SelectMultipleResponse from "src/modules/template/components/mobileComponents/SelectMultipleResponse";
-import { useInspectionStore } from "src/modules/template/store/inspectionStore";
+import { useInspectionStore } from "src/store/zustand/templates/inspectionStore";
 import { validateInput } from "src/modules/template/validation/inputLogicCheck";
 import { findData } from "src/modules/template/validation/keyValidationFunction";
 import { deepCloneArray } from "src/modules/utils/deepCloneArray";
 import { reduceDataSet } from "src/modules/utils/reducedDataSet";
 import { v4 as uuidv4 } from "uuid";
 import MobileMedia from "src/modules/template/components/mobileComponents/MobileMedia/MobileMedia";
-import useApiOptionsStore from "src/modules/template/store/apiOptionsTemplateStore";
+import useApiOptionsStore from "src/store/zustand/templates/apiOptionsTemplateStore";
 
 function InputFields({
   responseChoice,

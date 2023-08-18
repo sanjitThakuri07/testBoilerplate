@@ -13,7 +13,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { useLocation, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 import BlockingModal from "src/components/BlockingModal";
 
 const RenderComponent = ({

@@ -2,9 +2,9 @@ import { useTextAnswer } from "src/store/zustand/globalStates/templates/TextAnsw
 import { useState } from "react";
 import "./SelectResponseType.scss";
 import ReactSelect from "src/components/ReactSelect/ReactSelect";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
-import responseItems from "constants/template/responseItems";
-import { withDragHOC } from "HOC/withDragDropHoc";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
+import responseItems from "src/constants/template/responseItems";
+import { withDragHOC } from "src/hoc/withDragDropHoc";
 import { itemTypes } from "src/modules/template/itemTypes/itemTypes";
 
 const DefaultResponseSetDrag = withDragHOC({

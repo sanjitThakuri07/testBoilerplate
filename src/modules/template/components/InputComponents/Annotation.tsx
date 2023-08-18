@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import AnnotationIcon from "assets/template/icons/annotation.png";
+import AnnotationIcon from "src/assets/template/icons/annotation.png";
 import { textFieldStyle } from "../ChooseResponseType/ChooseResponseType";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { Stack } from "@mui/material";
-import AddImgIcon from "assets/template/icons/add_image.svg";
+import AddImgIcon from "src/assets/template/icons/add_image.svg";
 import MultiUploader from "src/components/MultiFileUploader/index";
 import TemplateImageContainer from "../TemplateImageContainer/TemplateImageContainer";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 
 export default function Annotation({ dataItem }: any) {
   const [open, setOpen] = React.useState(false);

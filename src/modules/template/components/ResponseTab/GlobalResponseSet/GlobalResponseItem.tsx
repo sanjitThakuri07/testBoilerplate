@@ -1,6 +1,6 @@
-import { Typography } from '@mui/material';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { LabelWrapper } from 'containers/template/components/Wrapper';
+import { Typography } from "@mui/material";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { LabelWrapper } from "src/modules/template/components/Wrapper";
 
 export interface GlobalResponseItemProps {
   open?: any;

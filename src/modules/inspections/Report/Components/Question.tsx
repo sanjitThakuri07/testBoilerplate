@@ -10,7 +10,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import responseItems from "constants/template/responseItems";
+import responseItems from "src/constants/template/responseItems";
 import { validateInput } from "src/modules/template/validation/inputLogicCheck";
 import { findData } from "src/modules/template/validation/keyValidationFunction";
 
@@ -21,7 +21,7 @@ import ActionIcon from "src/assets/template/mobileIcons/action.png";
 import AddAssignActivity from "src/modules/AssignActivities/AddAssignActivity";
 import { fetchIndividualApi } from "src/modules/apiRequest/apiRequest";
 import { useCurrentLayout, useReportDataSets } from "src/modules/inspections/store/inspection";
-import { useInspectionStore } from "src/modules/template/store/inspectionStore";
+import { useInspectionStore } from "src/store/zustand/templates/inspectionStore";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { RenderMedia } from "./Media";

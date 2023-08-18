@@ -22,14 +22,14 @@ import GRSModal from "./GlobalResponseSet/GRSModal";
 import EditIcon from "src/assets/template/icons/chip_edit_icon.png";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import { fetchApI } from "src/modules/apiRequest/apiRequest";
-import useDebounceSearch from "hooks/useDebounceSearch";
+import useDebounceSearch from "src/hooks/useDebounceSearch";
 import {
   useTemplateFieldsStore,
   selectFiledOptions,
-} from "src/modules/template/store/templateFieldsStore";
+} from "src/store/zustand/templates/templateFieldsStore";
 import { itemTypes, responseChoice } from "src/modules/template/itemTypes/itemTypes";
 import { useDrag, useDrop } from "react-dnd";
-import { withDragHOC } from "HOC/withDragDropHoc";
+import { withDragHOC } from "src/hoc/withDragDropHoc";
 import responseType from "@constants/template/responseType";
 
 interface CustomDropDownProps {

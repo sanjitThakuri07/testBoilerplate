@@ -3,7 +3,7 @@ import { Menu, MenuItem } from "@mui/material";
 import React, { MouseEvent } from "react";
 
 import TextAnswerIcon from "src/assets/template/icons/Text_answer.png";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 import { BodyWrapper } from "src/modules/template/components/Wrapper";
 import { ArrowDropDown, KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 

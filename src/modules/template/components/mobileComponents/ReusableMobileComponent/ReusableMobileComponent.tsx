@@ -1,12 +1,12 @@
-import { Button, Chip, IconButton, ListItemIcon, Menu, MenuItem, TextField } from '@mui/material';
-import React from 'react';
-import NoteIcon from 'assets/template/mobileIcons/notes.png';
-import MediaIcon from 'assets/template/mobileIcons/media.png';
-import ActionIcon from 'assets/template/mobileIcons/action.png';
-import UploadImage from '../MobileMedia/UploadImage';
-import EditIcon from 'assets/template/mobileIcons/edit.png';
-import DeleteIcon from 'assets/template/mobileIcons/delete.png';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { Button, Chip, IconButton, ListItemIcon, Menu, MenuItem, TextField } from "@mui/material";
+import React from "react";
+import NoteIcon from "src/assets/template/mobileIcons/notes.png";
+import MediaIcon from "src/assets/template/mobileIcons/media.png";
+import ActionIcon from "src/assets/template/mobileIcons/action.png";
+import UploadImage from "../MobileMedia/UploadImage";
+import EditIcon from "src/assets/template/mobileIcons/edit.png";
+import DeleteIcon from "src/assets/template/mobileIcons/delete.png";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 interface ReusableMobileComponentProps {
   children: React.ReactNode;
@@ -22,8 +22,8 @@ const ReusableMobileComponent = ({ children, label, item }: ReusableMobileCompon
   });
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [isActionCreated, setIsActionCreated] = React.useState(false);
-  const [action, setAction] = React.useState('');
-  const [errorMessage, setErrorMessage] = React.useState('');
+  const [action, setAction] = React.useState("");
+  const [errorMessage, setErrorMessage] = React.useState("");
   const open = Boolean(anchorEl);
 
   const handleNotes = () => {
@@ -54,8 +54,8 @@ const ReusableMobileComponent = ({ children, label, item }: ReusableMobileCompon
   };
 
   const handleActionCreate = () => {
-    if (action === '') {
-      setErrorMessage('Please enter action name');
+    if (action === "") {
+      setErrorMessage("Please enter action name");
     } else {
       setIsActionCreated(true);
       setState({ ...state, addAction: false });
@@ -80,8 +80,8 @@ const ReusableMobileComponent = ({ children, label, item }: ReusableMobileCompon
               <>
                 <div className="footer_items_action_menu">
                   <div className="mobile_component_box_wrapper_heading">
-                    {' '}
-                    <p>Notes</p>{' '}
+                    {" "}
+                    <p>Notes</p>{" "}
                   </div>
                   <div className="mobile_component_box_wrapper_input">
                     <TextField fullWidth id="fullWidth" />
@@ -114,8 +114,8 @@ const ReusableMobileComponent = ({ children, label, item }: ReusableMobileCompon
               <>
                 <div className="footer_items_action_menu">
                   <div className="mobile_component_box_wrapper_heading">
-                    {' '}
-                    <p>Create Action</p>{' '}
+                    {" "}
+                    <p>Create Action</p>{" "}
                   </div>
                   <div className="mobile_component_box_wrapper_input">
                     <TextField
@@ -124,7 +124,7 @@ const ReusableMobileComponent = ({ children, label, item }: ReusableMobileCompon
                       id="fullWidth"
                       onChange={(e) => setAction(e.target.value)}
                     />
-                    {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+                    {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
                   </div>
 
                   <div className="action_buttons">
@@ -143,17 +143,18 @@ const ReusableMobileComponent = ({ children, label, item }: ReusableMobileCompon
               <>
                 <div className="footer_items_action_menu">
                   <div className="mobile_component_box_wrapper_heading">
-                    {' '}
-                    <p>Create Action</p>{' '}
+                    {" "}
+                    <p>Create Action</p>{" "}
                   </div>
 
                   <div className="create_action_">
                     <div
                       className="create_action_left"
                       style={{
-                        fontSize: '14px',
+                        fontSize: "14px",
                         fontWeight: 500,
-                      }}>
+                      }}
+                    >
                       {action}
                     </div>
                     <div className="create_action_right">
@@ -162,8 +163,8 @@ const ReusableMobileComponent = ({ children, label, item }: ReusableMobileCompon
                           label="TODO"
                           size="small"
                           sx={{
-                            backgroundColor: '#FFFAEB',
-                            color: '#FFC107',
+                            backgroundColor: "#FFFAEB",
+                            color: "#FFC107",
                           }}
                         />
                       </div>
@@ -182,13 +183,14 @@ const ReusableMobileComponent = ({ children, label, item }: ReusableMobileCompon
                   open={open}
                   onClose={handleActionClose}
                   anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
+                    vertical: "top",
+                    horizontal: "left",
                   }}
                   transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
-                  }}>
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                >
                   <MenuItem onClick={handleActionEdit}>
                     <ListItemIcon sx={{ mr: 1 }}>
                       <img src={EditIcon} alt="" />
@@ -207,7 +209,7 @@ const ReusableMobileComponent = ({ children, label, item }: ReusableMobileCompon
           </div>
 
           {item.response_type === 1003 ? (
-            ''
+            ""
           ) : (
             <div className="mobile_component_box_wrapper_footer">
               <div className="footer_item" onClick={handleNotes}>

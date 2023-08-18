@@ -1,10 +1,10 @@
-import { Typography } from '@mui/material';
+import { Typography } from "@mui/material";
 
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import ComponentWrapper, {
   MultipleResponseWrapper,
   LabelWrapper,
-} from 'containers/template/components/Wrapper';
+} from "src/modules/template/components/Wrapper";
 
 export interface InternalResponseItemProps {
   open?: any;

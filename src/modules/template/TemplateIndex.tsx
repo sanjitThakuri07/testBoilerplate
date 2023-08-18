@@ -6,7 +6,7 @@ import { ConfigTableUrlUtils } from "src/modules/config/generalSettings/Organiza
 import { getAPI } from "src/lib/axios";
 import { useContractorServicesStore } from "src/store/zustand/globalStates/config";
 import { fetchIndividualApi, setErrorNotification } from "src/modules/apiRequest/apiRequest";
-import { searchParamObject } from  "src/modules/utils/index";
+import { searchParamObject } from "src/modules/utils/index";
 import { fetchData } from "../finance/functionality";
 import FullPageLoader from "src/components/FullPageLoader";
 import "../finance/finance.scss";
@@ -16,7 +16,7 @@ import BASDataTable from "src/modules/table/BASDataTable";
 import ScheduleIcon from "src/assets/icons/schedule_Icon.svg";
 import AddModal from "src/components/AddModal/AddModalTest";
 import AssignInspectionName from "./assignInspectionName/Form";
-import { useAssignInspectionStore } "src/store/zustand/inspection/assignInspection";
+import { useAssignInspectionStore } from "src/store/zustand/inspection/assignInspection";
 import ManageHistoryIcon from "@mui/icons-material/ManageHistory";
 import QRCode from "react-qr-code";
 import ModalLayout from "src/components/ModalLayout";

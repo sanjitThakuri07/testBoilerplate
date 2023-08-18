@@ -18,10 +18,10 @@ import {
 import { converText } from "src/modules/table/BASDataTable";
 import { useEffect, useState } from "react";
 import { RadioOptions } from "src/utils/FindingsUtils";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 import TextAnswer from "../TextAnswer/TextAnswer";
 import GetTextInput from "../TextAnswer/GetTextInput";
-import useApiOptionsStore from "src/modules/template/store/apiOptionsTemplateStore";
+import useApiOptionsStore from "src/store/zustand/templates/apiOptionsTemplateStore";
 import { useLocation } from "react-router-dom";
 
 interface CustomPopUpProps extends ButtonProps {

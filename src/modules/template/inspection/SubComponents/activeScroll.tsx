@@ -1,20 +1,20 @@
-import { validateInput } from 'containers/template/validation/inputLogicCheck';
-import { KeyOptionsName } from 'containers/template/components/InputComponents/ResponseInputLogicNew';
+import { validateInput } from "containers/template/validation/inputLogicCheck";
+import { KeyOptionsName } from "src/modules/template/components/InputComponents/ResponseInputLogicNew";
 
-export function activeScroll(element: any, state: string = 'hide') {
+export function activeScroll(element: any, state: string = "hide") {
   const blurOtherElement = document.querySelectorAll(`[data-item]`);
-  if (state !== 'remove') {
+  if (state !== "remove") {
     blurOtherElement.forEach((el: any) => {
-      el.classList.add('blur__question');
+      el.classList.add("blur__question");
     });
-    element.classList.remove('blur__question');
-    element.style.scrollMarginTop = '100px';
-    element.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    element.classList.remove("blur__question");
+    element.style.scrollMarginTop = "100px";
+    element.scrollIntoView({ block: "start", behavior: "smooth" });
     // element.style.border = '1px solid red';
-    element.classList.add('focus__question');
+    element.classList.add("focus__question");
   } else {
     blurOtherElement.forEach((element: any) => {
-      element.classList.remove('blur__question');
+      element.classList.remove("blur__question");
     });
   }
 }
@@ -36,7 +36,7 @@ export function checkActionTrigger({
 
   let keyName = !question.globalLogicReferenceId
     ? question.logicId
-    : question.globalLogicReferenceId?.split('[logicParentId]')?.[0];
+    : question.globalLogicReferenceId?.split("[logicParentId]")?.[0];
   for (let i = 0; i < logic.logics.length; i++) {
     let conditionDataset = {
       condition: logic?.logics?.[`${i}`].condition,
@@ -62,13 +62,13 @@ export function checkActionTrigger({
         // api request or set value to form
         const triggerValue = conditionDataset?.trigger[indexOfTrigger];
         let updatedValue = value;
-        if (question.response_choice !== 'default' && Array.isArray(value) && logic?.logicApi) {
+        if (question.response_choice !== "default" && Array.isArray(value) && logic?.logicApi) {
           // updatedValue = updatedValue?.map((it: any) => it?.[logic?.logicApi?.field || 'name']);
-          updatedValue = updatedValue?.[0]?.[logic?.logicApi?.field || 'name'];
+          updatedValue = updatedValue?.[0]?.[logic?.logicApi?.field || "name"];
         }
         let finalValues = {
           inspection_url: window.location.href,
-          question: question.label || '',
+          question: question.label || "",
           answer: updatedValue,
           form: templateTitle,
           to: [
@@ -79,7 +79,7 @@ export function checkActionTrigger({
           id: question.id,
         };
 
-        setFieldValue('notification', {
+        setFieldValue("notification", {
           ...(values.notification || {}),
           [keyName]: [finalValues, ...(values?.notification?.[keyName] || [])],
         });
@@ -90,12 +90,12 @@ export function checkActionTrigger({
       if (!prevNotification?.[`${keyName}`]) return;
       if (prevNotification[question?.logicId]) {
         delete prevNotification?.[question?.logicId];
-        setFieldValue('notification', prevNotification);
+        setFieldValue("notification", prevNotification);
       } else {
         const updatedNotificationData = prevNotification?.[keyName]?.filter(
           (it: any) => it?.id !== question?.id,
         );
-        setFieldValue('notification', {
+        setFieldValue("notification", {
           ...(values.notification || {}),
           [keyName]: updatedNotificationData,
         });

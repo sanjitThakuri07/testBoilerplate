@@ -1,4 +1,4 @@
-import { useTemplateAccessStore } from "../store/templateAccessStore";
+import { useTemplateAccessStore } from "src/store/zustand/templates/templateAccessStore";
 import { useEffect, useState } from "react";
 import { Breadcrumbs, Button, Link, Stack, Typography } from "@mui/material";
 import { Link as Href, useParams } from "react-router-dom";
@@ -13,8 +13,8 @@ import GroupsIcon from "@mui/icons-material/Groups";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import PersonIcon from "@mui/icons-material/Person";
-import { useOrganizationUserStore } "src/store/zustand/users/organizationUserStore";
-import { useUserRoleStore } "src/store/zustand/users/userRoleStore";
+import { useOrganizationUserStore } from "src/store/zustand/users/organizationUserStore";
+import { useUserRoleStore } from "src/store/zustand/users/userRoleStore";
 import BackButton from "src/components/buttons/back";
 
 const optionTypes: any = {

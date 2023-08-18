@@ -385,7 +385,7 @@ const UploadModal: React.FC<UploadModalProps> = ({
                 </Grid>
               ))
             ) : (
-              <></>
+              <React.Fragment key={`empty-${index}`}></React.Fragment>
             ),
           )}
         </div>

@@ -5,7 +5,7 @@ import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
 import ModalLayout from "src/components/ModalLayout";
 import { useEffect, useRef, useState } from "react";
 import UploadImage from "../MobileMedia/UploadImage";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 import { postAPI } from "src/lib/axios";
 import ErrorComponent from "src/components/Error";
 import { errorValue } from "src/modules/template/validation/inputLogicCheck";

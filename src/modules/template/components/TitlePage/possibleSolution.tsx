@@ -1,6 +1,6 @@
 import React, { useEffect, useState, CSSProperties, useRef, RefObject } from "react";
 import TextAnswer from "../TextAnswer/TextAnswer";
-import tooltipItems from "constants/template/tooltipItems";
+import tooltipItems from "src/constants/template/tooltipItems";
 import Section from "../Section/Section";
 import { itemTypes } from "src/modules/template/itemTypes/itemTypes";
 import { useDrag } from "react-dnd";
@@ -24,8 +24,8 @@ import MultiUploader from "src/components/MultiFileUploader/index";
 import BASTooltip from "src/components/BASTooltip/BASTooltip";
 import LogoutIcon from "src/assets/iconslogout_icon.svg";
 import { TemplateDataStructure } from "./TemplateInitialDataStructure";
-import { useTemplateFieldsStore } from "src/modules/template/store/templateFieldsStore";
-import { useTemplateStore } from "src/modules/template/store/templateStore";
+import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
+import { useTemplateStore } from "src/store/zustand/templates/templateStore";
 import { useNavigate, useParams } from "react-router-dom";
 import FullPageLoader from "src/components/FullPageLoader";
 import TemplateImageContainer from "../TemplateImageContainer/TemplateImageContainer";
