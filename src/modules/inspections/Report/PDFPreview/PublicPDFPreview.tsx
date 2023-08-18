@@ -4,7 +4,7 @@ import { Box, Button, styled } from "@mui/material";
 import ServerStyleSheets from "@mui/styles/ServerStyleSheets";
 import FullPageLoader from "src/components/FullPageLoader";
 import { fetchApI, fetchIndividualApi } from "src/modules/apiRequest/apiRequest";
-import { useCurrentLayout, useReportDataSets } from "src/modules/inspections/store/inspection";
+import { useCurrentLayout, useReportDataSets } from "src/store/zustand/inspectionTemp/inspection";
 import { validateInput } from "src/modules/template/validation/inputLogicCheck";
 import { findData } from "src/modules/template/validation/keyValidationFunction";
 import { useEffect, useRef, useState } from "react";

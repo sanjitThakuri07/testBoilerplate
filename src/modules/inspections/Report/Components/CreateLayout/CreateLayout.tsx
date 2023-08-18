@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import { ReactComponent as InfoIcon } from "/src/assets/icons/info_icon.svg";
-import { useCurrentLayout } from "src/modules/inspections/store/inspection";
+import { useCurrentLayout } from "src/store/zustand/inspectionTemp/inspection";
 
 export default function CreateLayout({ layouts = [] }: any) {
   const { currentReportLayout } = useCurrentLayout();

@@ -4,7 +4,7 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Collapse, TextareaAutosize } from "@mui/material";
 import { Box, Stack } from "@mui/system";
-import { useReportLayoutDataSets } from "../store/ReportStoreDataSets";
+import { useReportLayoutDataSets } from "../../../../store/zustand/report/ReportStoreDataSets";
 import BASTooltip from "src/components/BASTooltip/BASTooltip";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 

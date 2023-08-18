@@ -20,7 +20,7 @@ import { GridCloseIcon } from "@mui/x-data-grid";
 import ActionIcon from "src/assets/template/mobileIcons/action.png";
 import AddAssignActivity from "src/modules/AssignActivities/AddAssignActivity";
 import { fetchIndividualApi } from "src/modules/apiRequest/apiRequest";
-import { useCurrentLayout, useReportDataSets } from "src/modules/inspections/store/inspection";
+import { useCurrentLayout, useReportDataSets } from "src/store/zustand/inspectionTemp/inspection";
 import { useInspectionStore } from "src/store/zustand/templates/inspectionStore";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";

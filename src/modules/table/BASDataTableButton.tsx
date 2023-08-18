@@ -781,7 +781,7 @@ const BASDataTableButton: React.FC<{
             .join(" ")}?`}
           confirmationDesc={`This ${deletePath.replaceAll("-", " ")}  will be deleted.`}
           status="warning"
-          confirmationIcon="src/assets/icons/icon-feature.svg"
+          confirmationIcon="/src/assets/icons/icon-feature.svg"
           loader={deleteLoading}
         />
         <Popover

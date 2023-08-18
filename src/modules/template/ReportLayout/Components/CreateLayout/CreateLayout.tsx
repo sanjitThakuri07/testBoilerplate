@@ -21,7 +21,7 @@ import BASTooltip from "src/components/BASTooltip/BASTooltip";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import NoDataFoundImg from "/src/assets/images/no_data_found.svg";
 import { ReactComponent as LayoutIcon } from "/src/assets/icons/layout_icon.svg";
-import { useReportLayoutDataSets } from "../../store/ReportStoreDataSets";
+import { useReportLayoutDataSets } from "../../../../../store/zustand/report/ReportStoreDataSets";
 
 export default function CreateLayout({
   setOpenSuccessSnack,
@@ -142,7 +142,7 @@ export default function CreateLayout({
         confirmationHeading={`Are you sure you want to delete ${layoutInfos?.name} layout ?`}
         confirmationDesc={`You can create more layout whenever you want.`}
         status="warning"
-        confirmationIcon="src/assets/icons/icon-feature.svg"
+        confirmationIcon="/src/assets/icons/icon-feature.svg"
         loader={deleteButtonLoader}
       />
 

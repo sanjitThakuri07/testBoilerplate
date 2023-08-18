@@ -28,7 +28,7 @@ import MobileCheckbox from "../components/mobileComponents/MobileCheckbox/mobile
 import { DynamicSchemaGenerator } from "../validation";
 import MobileMedia from "../components/mobileComponents/MobileMedia/MobileMedia";
 import useApiOptionsStore from "src/store/zustand/templates/apiOptionsTemplateStore";
-import { useInspectionStore } from "../store/inspectionStore";
+import { useInspectionStore } from "src/store/zustand/templates/inspectionStore";
 import { useSnackbar } from "notistack";
 import QuestionToolBar from "./questionToolBar";
 import { activeScroll, checkActionTrigger } from "./SubComponents/activeScroll";

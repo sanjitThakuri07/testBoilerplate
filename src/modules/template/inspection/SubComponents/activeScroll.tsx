@@ -1,4 +1,4 @@
-import { validateInput } from "containers/template/validation/inputLogicCheck";
+import { validateInput } from "src/modules//template/validation/inputLogicCheck";
 import { KeyOptionsName } from "src/modules/template/components/InputComponents/ResponseInputLogicNew";
 
 export function activeScroll(element: any, state: string = "hide") {

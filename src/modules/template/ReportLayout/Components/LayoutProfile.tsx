@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 import DragAndUploadFields from "src/components/DragAndUploadFields/index";
 import React from "react";
 import MultiUploader from "src/components/MultiFileUploader/index";
-import { useReportLayoutDataSets } from "../store/ReportStoreDataSets";
+import { useReportLayoutDataSets } from "../../../../store/zustand/report/ReportStoreDataSets";
 
 export default function LayoutProfile({
   layoutObj,

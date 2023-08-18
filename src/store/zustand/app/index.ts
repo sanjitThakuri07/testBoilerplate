@@ -22,6 +22,7 @@ const useAppStore = create((set) => {
     systemParameters: {},
     userSecurity: {},
     error: {},
+    sidebarData: [],
 
     setError: (data: any) => {
       set({ loading: false, error: data });
@@ -278,6 +279,38 @@ const useAppStore = create((set) => {
           set({ user: data, loading: false });
         },
         enqueueSnackbar,
+      });
+      !apiResponse && set({ loading: false });
+      return apiResponse;
+    },
+
+    setSidebarData: async ({ values, enqueSnackbar }: any) => {
+      set({ loading: false, sidebarData: values });
+    },
+
+    getSidebarData: async ({ enqueSnackbar }: any) => {
+      set({ loading: true });
+      const apiResponse = await fetchApI({
+        url: url?.profile,
+        getAll: true,
+        setterFunction: (data: any) => {
+          set({ user: data, loading: false });
+        },
+        enqueSnackbar,
+      });
+      !apiResponse && set({ loading: false });
+      return apiResponse;
+    },
+
+    updateSidebarData: async ({ values, enqueSnackbar }: any) => {
+      set({ loading: true });
+      const apiResponse = await fetchApI({
+        url: url?.profile,
+        getAll: true,
+        setterFunction: (data: any) => {
+          set({ user: data, loading: false });
+        },
+        enqueSnackbar,
       });
       !apiResponse && set({ loading: false });
       return apiResponse;

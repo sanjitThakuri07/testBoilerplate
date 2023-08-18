@@ -18,7 +18,7 @@ import TermsAndConditions from "src/modules/terms";
 import ConfigurationRoutes from "src/modules/config/routes";
 // import CustomersRoutes from 'src/modules/customers/routes';
 // import FinanceRoutes from 'src/modules/finance/routes';
-// import InspectionRoutes from 'src/modules/inspections/routes';
+import InspectionRoutes from "src/modules/inspections/routes";
 // import { routes as ScheduleRoutes } from 'src/modules/schedule/route';
 import TemplateRoutes from "src/modules/template/routes";
 // import _401 from 'pages/message/_401';
@@ -263,6 +263,6 @@ export const privateRoutes: any = [
   ...TemplateRoutes,
   ...ConfigurationRoutes,
   ...OrganizationRoutes,
-  // ...InspectionRoutes,
+  ...InspectionRoutes,
   // ...ScheduleRoutes,
 ];

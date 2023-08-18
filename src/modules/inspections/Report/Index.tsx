@@ -3,12 +3,15 @@ import { Button, Divider, Grid, Stack } from "@mui/material";
 import FullPageLoader from "src/components/FullPageLoader";
 import ReportEmailComponent from "src/components/ReportEmailComponent/ReportEmailComponent";
 import { fetchApI, fetchIndividualApi } from "src/modules/apiRequest/apiRequest";
-import { useReportLayoutDataSets } from "src/modules/template/ReportLayout/store/ReportStoreDataSets";
+import { useReportLayoutDataSets } from "src/store/zustand/report/ReportStoreDataSets";
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useReactToPrint } from "react-to-print";
 import { apiRoutes } from "src/routers/apiRoutes/index";
-import { useCurrentLayout, useReportDataSets } from "../store/inspection";
+import {
+  useCurrentLayout,
+  useReportDataSets,
+} from "../../../store/zustand/inspectionTemp/inspection";
 import CreateLayout from "./Components/CreateLayout/CreateLayout";
 import PDFPreview from "./PDFPreview/PDFPreview";
 import "./ReportLayout.css";

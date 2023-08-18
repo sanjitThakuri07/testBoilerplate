@@ -203,7 +203,7 @@ const ExtraUserFields = ({
         confirmationHeading={`Do you want to delete ${individualAction?.title}?`}
         confirmationDesc={`This ${individualAction?.title} activity will be deleted.`}
         status="warning"
-        confirmationIcon="src/assets/icons/icon-feature.svg"
+        confirmationIcon="/src/assets/icons/icon-feature.svg"
         loader={isDelete}
       />
       <div id="ExtraUserFields">

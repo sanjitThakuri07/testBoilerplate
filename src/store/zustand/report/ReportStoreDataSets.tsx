@@ -29,11 +29,9 @@ export const useReportLayoutDataSets = create<ReportStoreDataSetsI>((set) => ({
   setLayoutObj: (payload: any) => set({ layoutObj: payload }),
   setLayoutObjLoader: (payload: any) => set({ layoutObjLoader: payload }),
   setLayoutParams: (payload: any) => set({ layoutParams: payload }),
-  setProfileLabelLoading: (payload: any) =>
-    set({ profileLabelLoading: payload }),
+  setProfileLabelLoading: (payload: any) => set({ profileLabelLoading: payload }),
 
-  setGetDatasFromTemplates: (payload: any) =>
-    set({ getDatasFromTemplates: payload }),
+  setGetDatasFromTemplates: (payload: any) => set({ getDatasFromTemplates: payload }),
 
   updateLayoutProperties: (name: any, value: any) => {
     if (name === "report_email") {

@@ -1,10 +1,8 @@
 import React from "react";
 import { Box, Divider, Stack } from "@mui/material";
-import { useReportLayoutDataSets } from "../store/ReportStoreDataSets";
+import { useReportLayoutDataSets } from "../../../../store/zustand/report/ReportStoreDataSets";
 
-export default function PdfUnansweredQuestions({
-  has_unanswered_questions,
-}: any) {
+export default function PdfUnansweredQuestions({ has_unanswered_questions }: any) {
   const {
     getDatasFromTemplates: { reducerDatas },
   } = useReportLayoutDataSets();
@@ -17,23 +15,19 @@ export default function PdfUnansweredQuestions({
             Unanswered Questions
           </Box>
 
-          {reducerDatas?.unansweredQuestions
-            ?.slice(0, 5)
-            ?.map((ques: any, index: any) => {
-              return (
-                <>
-                  {index !== 0 && <Divider />}
-                  <Box key={index} className="individual_box_container">
-                    <Stack direction="row" justifyContent="space-between">
-                      <Box sx={{ fontSize: "15px" }}>
-                        {ques?.label ?? "N/A"}
-                      </Box>
-                      <Box sx={{ opacity: "0.7", mt: 0.3 }}>Unanswered</Box>
-                    </Stack>
-                  </Box>
-                </>
-              );
-            })}
+          {reducerDatas?.unansweredQuestions?.slice(0, 5)?.map((ques: any, index: any) => {
+            return (
+              <>
+                {index !== 0 && <Divider />}
+                <Box key={index} className="individual_box_container">
+                  <Stack direction="row" justifyContent="space-between">
+                    <Box sx={{ fontSize: "15px" }}>{ques?.label ?? "N/A"}</Box>
+                    <Box sx={{ opacity: "0.7", mt: 0.3 }}>Unanswered</Box>
+                  </Stack>
+                </Box>
+              </>
+            );
+          })}
         </Box>
       )}
     </Box>

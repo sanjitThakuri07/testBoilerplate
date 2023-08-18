@@ -14,7 +14,7 @@ import { ICalendarFilter } from "src/interfaces/calendarFilter";
 
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 
-import SaveIcon from "/src/assets/icons/save_icon.svg";
+import SaveIcon from "src/assets/icons/save_icon.svg";
 
 import { useSnackbar } from "notistack";
 

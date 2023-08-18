@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
-import SaveIcon from "/src/assets/icons/save_icon.svg";
+import SaveIcon from "src/assets/icons/save_icon.svg";
 import { useAuthStore } from "src/store/zustand/globalStates/auth";
 import { useLayoutStore } from "src/store/zustand/globalStates/layout";
 import { userDataStore } from "src/store/zustand/globalStates/userData";

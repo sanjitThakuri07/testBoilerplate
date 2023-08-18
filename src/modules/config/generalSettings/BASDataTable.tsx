@@ -686,7 +686,7 @@ const BASDataTable: React.FC<{
           } `}
           confirmationDesc={`This ${deletePath.replaceAll("-", " ")}  will be deleted.`}
           status="warning"
-          confirmationIcon="src/assets/icons/icon-feature.svg"
+          confirmationIcon="/src/assets/icons/icon-feature.svg"
           loader={deleteLoading}
         />
         <ConfirmationModal
@@ -702,7 +702,7 @@ const BASDataTable: React.FC<{
           confirmationHeading={`Do you want to delete these ${deletePath} ?`}
           confirmationDesc={`${selected.map((name) => name)}  will be deleted.`}
           status="warning"
-          confirmationIcon="src/assets/icons/icon-feature.svg"
+          confirmationIcon="/src/assets/icons/icon-feature.svg"
         />
 
         <TableColumns

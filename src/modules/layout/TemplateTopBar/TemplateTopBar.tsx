@@ -7,8 +7,8 @@ import PublishIcon from "src/assets/icons/publish_icon.svg";
 
 import { useTemplateStore } from "src/store/zustand/templates/templateStore";
 import { userDataStore } from "src/store/zustand/globalStates/userData";
-import { useReportRequestStore } from "src/modules/template/ReportLayout/store/ReportRequestStore";
-import { useReportLayoutDataSets } from "src/modules/template/ReportLayout/store/ReportStoreDataSets";
+import { useReportRequestStore } from "src/store/zustand/report/ReportRequestStore";
+import { useReportLayoutDataSets } from "src/store/zustand/report/ReportStoreDataSets";
 import { useSnackbar } from "notistack";
 import { loggedUserDataStore } from "src/store/zustand/globalStates/loggedUserData";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
@@ -108,7 +108,7 @@ export default function TemplateTopBar({
       <ConfirmationModal
         openModal={isBackModal}
         setOpenModal={setIsBackModal}
-        confirmationIcon={"src/assets/icons/icon-feature.svg"}
+        confirmationIcon={"/src/assets/icons/icon-feature.svg"}
         handelConfirmation={() => navigate(-1)}
         confirmationHeading={`Are you sure you want to go back?`}
         confirmationDesc={`Your entire ${paramsDatas} data will be erased completely!`}

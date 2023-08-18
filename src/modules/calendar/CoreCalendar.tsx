@@ -512,7 +512,7 @@ const CoreCalendar = () => {
             deleteFilterId !== 0 ? "filter" : "event"
           } permanently.`}
           status="warning"
-          confirmationIcon="src/assets/icons/icon-feature.svg"
+          confirmationIcon="/src/assets/icons/icon-feature.svg"
           // loader={deleteLoading}
         />
 

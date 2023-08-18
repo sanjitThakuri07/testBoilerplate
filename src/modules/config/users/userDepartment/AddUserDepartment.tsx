@@ -182,7 +182,7 @@ const AddUserDepartment = () => {
         confirmationHeading={`Do you want to delete region ${currentDepartment?.name}?`}
         confirmationDesc={"This region will be deleted."}
         status="warning"
-        confirmationIcon="src/assets/icons/icon-feature.svg"
+        confirmationIcon="/src/assets/icons/icon-feature.svg"
       />
       <UploadCsv
         sampleLink="/"

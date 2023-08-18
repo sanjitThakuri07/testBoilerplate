@@ -35,7 +35,7 @@ import MobileMedia from "../components/mobileComponents/MobileMedia/MobileMedia"
 import useApiOptionsStore from "src/store/zustand/templates/apiOptionsTemplateStore";
 import SelectExternalResponse from "../components/mobileComponents/SelectExternalResponse";
 import { KeyOptionsName } from "src/modules/template/components/InputComponents/ResponseInputLogicNew";
-import { useInspectionStore } from "../store/inspectionStore";
+import { useInspectionStore } from "src/store/zustand/templates/inspectionStore";
 import { useSnackbar } from "notistack";
 import QuestionToolBar from "./questionToolBar";
 

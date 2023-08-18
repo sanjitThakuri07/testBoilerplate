@@ -1,15 +1,15 @@
-import { Box, Divider } from '@mui/material';
-import Disclaimer from '../Components/Disclaimer';
-import FlaggedItems from '../Components/FlaggedItems';
-import Overview from '../Components/Overview';
-import Question from '../Components/Question';
-import Questions from '../Components/Question';
-import Actions from '../Components/Actions';
-import { useState } from 'react';
-import Media from '../Components/Media';
-import { useReportDataSets } from 'containers/inspections/store/inspection';
-import { validateInput } from 'containers/template/validation/inputLogicCheck';
-import { findData } from 'containers/template/validation/keyValidationFunction';
+import { Box, Divider } from "@mui/material";
+import Disclaimer from "../Components/Disclaimer";
+import FlaggedItems from "../Components/FlaggedItems";
+import Overview from "../Components/Overview";
+import Question from "../Components/Question";
+import Questions from "../Components/Question";
+import Actions from "../Components/Actions";
+import { useState } from "react";
+import Media from "../Components/Media";
+import { useReportDataSets } from "src/store/zustand/inspectionTemp/inspection";
+import { validateInput } from "src/modules/template/validation/inputLogicCheck";
+import { findData } from "src/modules/template/validation/keyValidationFunction";
 
 const WebPreview = ({ ...rest }: any) => {
   const { currentLayout } = rest;
@@ -18,12 +18,12 @@ const WebPreview = ({ ...rest }: any) => {
   const dataSetSeperators = initialState?.fields?.reduce(
     (acc: any, curr: any) => {
       if (
-        curr.component?.toLowerCase() !== 'logic' &&
+        curr.component?.toLowerCase() !== "logic" &&
         curr.logicReferenceId === null &&
         curr.parent === null
       ) {
         acc.questionDataSet.push(curr);
-      } else if (curr.component === 'logic') {
+      } else if (curr.component === "logic") {
         acc.logicDataSet.push(curr);
       } else if (curr.logicReferenceId || curr.parent) {
         acc.logicQuestion.push(curr);
@@ -58,12 +58,12 @@ const WebPreview = ({ ...rest }: any) => {
           ) {
             trigger = logic?.trigger.reduce((acc: any, curr: any) => {
               if (curr?.name) {
-                acc[`${curr.name?.toString()?.split(' ').join('_')}`] = curr.value;
+                acc[`${curr.name?.toString()?.split(" ").join("_")}`] = curr.value;
               }
               return acc;
             }, {});
             datas = logic.linkQuestions.map((data: any) =>
-              findData(dataSetSeperator.logicQuestion, data, 'id'),
+              findData(dataSetSeperator.logicQuestion, data, "id"),
             );
           }
           return datas;
@@ -77,7 +77,7 @@ const WebPreview = ({ ...rest }: any) => {
     conditionQuestions?.map((data: any) => {
       const qnLogic = dataSetSeperator?.logicDataSet?.find((lg: any) => lg?.id === data?.logicId);
 
-      if (data?.component === 'question') {
+      if (data?.component === "question") {
         // do saving
         // recursive vall
         acc.filterQuestion.push(data);
@@ -86,7 +86,7 @@ const WebPreview = ({ ...rest }: any) => {
         data?.action?.length && acc.actions.push(...data?.action);
         data?.flaggedValue?.length && acc.flaggedQuestions.push(...data?.flaggedValue);
         dataNode({ dataSetSeperator: dataSetSeperator, data: data, acc });
-      } else if (data.component === 'section') {
+      } else if (data.component === "section") {
         dataSection({ dataSetSeperator: dataSetSeperator, data: data, acc });
       }
     });
@@ -99,14 +99,14 @@ const WebPreview = ({ ...rest }: any) => {
 
     if (!findChildren?.length) return;
     findChildren?.map((child: any) => {
-      if (child.component === 'question') {
+      if (child.component === "question") {
         acc.filterQuestion.push(child);
         child?.media?.[0]?.documents?.length && acc.medias.push(...child?.media?.[0]?.documents);
         child?.action?.length && acc.actions.push(...child?.action);
         child?.flaggedValue?.length && acc.flaggedQuestions.push(...child?.flaggedValue);
 
         dataNode({ dataSetSeperator: dataSetSeperator, data: child, acc });
-      } else if (child.component === 'section') {
+      } else if (child.component === "section") {
         dataSection({ dataSetSeperator: dataSetSeperator, data: child, acc });
       }
     });
@@ -117,14 +117,14 @@ const WebPreview = ({ ...rest }: any) => {
       const foundLogic = dataSetSeperators?.logicDataSet?.find(
         (lg: any) => lg?.id === curr?.logicId,
       );
-      if (curr?.component === 'question') {
+      if (curr?.component === "question") {
         acc.filterQuestion.push(curr);
         curr?.media?.[0]?.documents?.length && acc.medias.push(...curr?.media?.[0]?.documents);
         curr?.action?.length && acc.actions.push(...curr?.action);
         curr?.flaggedValue?.length && acc.flaggedQuestions.push(...curr?.flaggedValue);
 
         dataNode({ dataSetSeperator: dataSetSeperators, data: curr, acc });
-      } else if (curr.component === 'section') {
+      } else if (curr.component === "section") {
         dataSection({ dataSetSeperator: dataSetSeperators, data: curr, acc });
       }
       return acc;
@@ -136,13 +136,13 @@ const WebPreview = ({ ...rest }: any) => {
     <>
       <div id="overview">
         <Box p={1}>
-          <Overview badgeContent={{ value: 'Incomplete', status: 'Pending' }} datass={datass} />
+          <Overview badgeContent={{ value: "Incomplete", status: "Pending" }} datass={datass} />
         </Box>
       </div>
       {currentLayout?.has_disclaimer && (
         <div id="disclaimer">
           <Box p={1}>
-            {' '}
+            {" "}
             <Disclaimer />
           </Box>
         </div>
@@ -151,7 +151,7 @@ const WebPreview = ({ ...rest }: any) => {
       {currentLayout?.has_flagged_summary && (
         <div id="flaggedItems">
           <Box p={1}>
-            {' '}
+            {" "}
             <FlaggedItems {...rest} />
           </Box>
         </div>
@@ -159,20 +159,20 @@ const WebPreview = ({ ...rest }: any) => {
       {currentLayout?.has_action_summary && (
         <div id="actions">
           <Box p={1}>
-            {' '}
+            {" "}
             <Actions {...rest} />
           </Box>
         </div>
       )}
       <div id="questions">
-        <Box p={1} sx={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <Box p={1} sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           <Questions {...rest} />
         </Box>
       </div>
       {currentLayout?.has_media_summary && (
         <div id="media">
           <Box p={1}>
-            {' '}
+            {" "}
             <Media {...rest} />
           </Box>
         </div>

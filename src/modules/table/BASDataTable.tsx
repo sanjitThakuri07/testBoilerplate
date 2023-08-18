@@ -2208,7 +2208,7 @@ const BASDataTable: React.FC<{
             method === "delete" ? "deleted" : "restored"
           }.`}
           status="warning"
-          confirmationIcon="src/assets/icons/icon-feature.svg"
+          confirmationIcon="/src/assets/icons/icon-feature.svg"
           loader={deleteLoading}
         />
         <ConfirmationModal
@@ -2234,7 +2234,7 @@ const BASDataTable: React.FC<{
           confirmationHeading={`Are you sure to perform this action`}
           confirmationDesc={`It will make the copy of ${copyID?.name || ""}`}
           status="warning"
-          confirmationIcon="src/assets/icons/icon-feature.svg"
+          confirmationIcon="/src/assets/icons/icon-feature.svg"
           loader={deleteLoading}
         />
         <ConfirmationModal
@@ -2289,7 +2289,7 @@ const BASDataTable: React.FC<{
             method === "delete" ? "deleted" : "restored"
           }.`}
           status="warning"
-          confirmationIcon="src/assets/icons/icon-feature.svg"
+          confirmationIcon="/src/assets/icons/icon-feature.svg"
         />
         <FilterModal
           openModal={filterModal}

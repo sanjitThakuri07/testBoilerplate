@@ -233,7 +233,7 @@ const AddServiceConfig = () => {
         confirmationHeading={`Do you want to delete ${trackLabel}?`}
         confirmationDesc={`This ${configName.pathname.replaceAll("-", " ")} will be deleted.`}
         status="warning"
-        confirmationIcon="src/assets/icons/icon-feature.svg"
+        confirmationIcon="/src/assets/icons/icon-feature.svg"
         loader={deleteLoading}
       />
       <UploadCsv

@@ -181,7 +181,7 @@ const BillingPlans = () => {
       <ConfirmationModal
         openModal={openConfirmationModal}
         setOpenModal={setOpenConfirmationModal}
-        confirmationIcon={"src/assets/icons/icon-feature.svg"}
+        confirmationIcon={"/src/assets/icons/icon-feature.svg"}
         handelConfirmation={handleDeleteConfirmation}
         confirmationHeading={`Do you want to delete this plan?`}
         confirmationDesc={`This action will permanently delete this plan. If you want to continue, please click on yes.`}

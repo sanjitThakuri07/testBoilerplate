@@ -2,9 +2,9 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box, Collapse, Stack, Typography } from "@mui/material";
 import CustomBadgeCreator from "src/components/CustomBadgeCreator/index";
-import { useCurrentLayout, useReportDataSets } from "src/modules/inspections/store/inspection";
+import { useCurrentLayout, useReportDataSets } from "src/store/zustand/inspectionTemp/inspection";
 import LayoutProfile from "src/modules/template/ReportLayout/Components/LayoutProfile";
-import { useReportLayoutDataSets } from "src/modules/template/ReportLayout/store/ReportStoreDataSets";
+import { useReportLayoutDataSets } from "src/store/zustand/report/ReportStoreDataSets";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 

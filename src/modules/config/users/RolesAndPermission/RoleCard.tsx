@@ -30,7 +30,7 @@ const RoleCard: FC<
         confirmationHeading={`Do you want to delete role ${name}?`}
         confirmationDesc={`This ${name} role will be deleted`}
         status="warning"
-        confirmationIcon="src/assets/icons/icon-feature.svg"
+        confirmationIcon="/src/assets/icons/icon-feature.svg"
         loader={deleteLoading}
       />
 

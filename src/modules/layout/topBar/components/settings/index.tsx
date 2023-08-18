@@ -33,7 +33,6 @@ import NotificationIcon from "src/assets/icons/bell-ringing-03.svg";
 import LayoutIcon from "src/assets/icons/layout-alt-03.svg";
 import LogOutIcon from "src/assets/icons/log-out-04.svg";
 import CheckIcon from "src/assets/icons/tick_icon.svg";
-import "./settings.scss";
 import { usePermissionStore } from "src/store/zustand/permission";
 
 const GetActiveIcon = (currentRoute: string, url: string) =>

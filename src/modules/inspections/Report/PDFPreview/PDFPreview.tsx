@@ -1,28 +1,28 @@
-import { Box } from '@mui/material';
-import { useReportDataSets } from 'containers/inspections/store/inspection';
-import { validateInput } from 'containers/template/validation/inputLogicCheck';
-import { findData } from 'containers/template/validation/keyValidationFunction';
-import Actions from '../Components/Actions';
-import Disclaimer from '../Components/Disclaimer';
-import FlaggedItems from '../Components/FlaggedItems';
-import Media from '../Components/Media';
-import Overview from '../Components/Overview';
-import Questions from '../Components/Question';
-import PdfTableOfContents from './PdfTableOfContents';
-import PdfCountingDatas from './pdfCountingDatas';
+import { Box } from "@mui/material";
+import { useReportDataSets } from "src/store/zustand/inspectionTemp/inspection";
+import { validateInput } from "src/modules/template/validation/inputLogicCheck";
+import { findData } from "src/modules/template/validation/keyValidationFunction";
+import Actions from "../Components/Actions";
+import Disclaimer from "../Components/Disclaimer";
+import FlaggedItems from "../Components/FlaggedItems";
+import Media from "../Components/Media";
+import Overview from "../Components/Overview";
+import Questions from "../Components/Question";
+import PdfTableOfContents from "./PdfTableOfContents";
+import PdfCountingDatas from "./pdfCountingDatas";
 
 const PDFPreview = ({ ...rest }: any) => {
   const { currentLayout } = rest;
   const { initialState, setInitialState } = useReportDataSets();
 
   const pages =
-    initialState?.fields && initialState?.fields?.filter((list: any) => list?.component === 'page');
+    initialState?.fields && initialState?.fields?.filter((list: any) => list?.component === "page");
 
   const pagesWithSections =
     pages && pages?.length
       ? pages.map((page: any, index: number, arr: any[]) => {
           const sections = (initialState?.fields || []).filter(
-            (field: any) => field.component === 'section' && field?.parentPage === page.id,
+            (field: any) => field.component === "section" && field?.parentPage === page.id,
           );
           return {
             ...page,
@@ -34,12 +34,12 @@ const PDFPreview = ({ ...rest }: any) => {
   const dataSetSeperators = initialState?.fields?.reduce(
     (acc: any, curr: any) => {
       if (
-        curr.component?.toLowerCase() !== 'logic' &&
+        curr.component?.toLowerCase() !== "logic" &&
         curr.logicReferenceId === null &&
         curr.parent === null
       ) {
         acc.questionDataSet.push(curr);
-      } else if (curr.component === 'logic') {
+      } else if (curr.component === "logic") {
         acc.logicDataSet.push(curr);
       } else if (curr.logicReferenceId || curr.parent) {
         acc.logicQuestion.push(curr);
@@ -74,12 +74,12 @@ const PDFPreview = ({ ...rest }: any) => {
           ) {
             trigger = logic?.trigger.reduce((acc: any, curr: any) => {
               if (curr?.name) {
-                acc[`${curr.name?.toString()?.split(' ').join('_')}`] = curr.value;
+                acc[`${curr.name?.toString()?.split(" ").join("_")}`] = curr.value;
               }
               return acc;
             }, {});
             datas = logic.linkQuestions.map((data: any) =>
-              findData(dataSetSeperator.logicQuestion, data, 'id'),
+              findData(dataSetSeperator.logicQuestion, data, "id"),
             );
           }
           return datas;
@@ -93,7 +93,7 @@ const PDFPreview = ({ ...rest }: any) => {
     conditionQuestions?.map((data: any) => {
       const qnLogic = dataSetSeperator?.logicDataSet?.find((lg: any) => lg?.id === data?.logicId);
 
-      if (data?.component === 'question') {
+      if (data?.component === "question") {
         // do saving
         // recursive vall
         acc.filterQuestion.push(data);
@@ -102,7 +102,7 @@ const PDFPreview = ({ ...rest }: any) => {
         data?.action?.length && acc.actions.push(...data?.action);
         data?.flaggedValue?.length && acc.flaggedQuestions.push(...data?.flaggedValue);
         dataNode({ dataSetSeperator: dataSetSeperator, data: data, acc });
-      } else if (data.component === 'section') {
+      } else if (data.component === "section") {
         dataSection({ dataSetSeperator: dataSetSeperator, data: data, acc });
       }
     });
@@ -115,14 +115,14 @@ const PDFPreview = ({ ...rest }: any) => {
 
     if (!findChildren?.length) return;
     findChildren?.map((child: any) => {
-      if (child.component === 'question') {
+      if (child.component === "question") {
         acc.filterQuestion.push(child);
         child?.media?.[0]?.documents?.length && acc.medias.push(...child?.media?.[0]?.documents);
         child?.action?.length && acc.actions.push(...child?.action);
         child?.flaggedValue?.length && acc.flaggedQuestions.push(...child?.flaggedValue);
 
         dataNode({ dataSetSeperator: dataSetSeperator, data: child, acc });
-      } else if (child.component === 'section') {
+      } else if (child.component === "section") {
         dataSection({ dataSetSeperator: dataSetSeperator, data: child, acc });
       }
     });
@@ -133,14 +133,14 @@ const PDFPreview = ({ ...rest }: any) => {
       const foundLogic = dataSetSeperators?.logicDataSet?.find(
         (lg: any) => lg?.id === curr?.logicId,
       );
-      if (curr?.component === 'question') {
+      if (curr?.component === "question") {
         acc.filterQuestion.push(curr);
         curr?.media?.[0]?.documents?.length && acc.medias.push(...curr?.media?.[0]?.documents);
         curr?.action?.length && acc.actions.push(...curr?.action);
         curr?.flaggedValue?.length && acc.flaggedQuestions.push(...curr?.flaggedValue);
 
         dataNode({ dataSetSeperator: dataSetSeperators, data: curr, acc });
-      } else if (curr.component === 'section') {
+      } else if (curr.component === "section") {
         dataSection({ dataSetSeperator: dataSetSeperators, data: curr, acc });
       }
       return acc;
@@ -152,7 +152,7 @@ const PDFPreview = ({ ...rest }: any) => {
     <Box px={3} py={1}>
       <div id="overview">
         <Box>
-          <Overview badgeContent={{ value: 'Incomplete', status: 'Pending' }} mode="pdf" />
+          <Overview badgeContent={{ value: "Incomplete", status: "Pending" }} mode="pdf" />
         </Box>
       </div>
       <PdfCountingDatas
@@ -167,14 +167,15 @@ const PDFPreview = ({ ...rest }: any) => {
         <div
           style={{
             marginTop: 10,
-          }}>
+          }}
+        >
           <PdfTableOfContents pagesWithSections={pagesWithSections} currentLayout={currentLayout} />
         </div>
       )}
       {currentLayout?.has_disclaimer && (
         <div style={{ marginTop: 10 }} id="disclaimer" className="page-break">
           <Box>
-            {' '}
+            {" "}
             <Disclaimer mode="pdf" />
           </Box>
         </div>
@@ -183,7 +184,7 @@ const PDFPreview = ({ ...rest }: any) => {
       {currentLayout?.has_flagged_summary && (
         <div style={{ marginTop: 10 }} id="flaggedItems" className="page-break">
           <Box>
-            {' '}
+            {" "}
             <FlaggedItems {...rest} mode="pdf" />
           </Box>
         </div>
@@ -191,20 +192,20 @@ const PDFPreview = ({ ...rest }: any) => {
       {currentLayout?.has_action_summary && (
         <div style={{ marginTop: 10 }} id="actions">
           <Box>
-            {' '}
+            {" "}
             <Actions {...rest} mode="pdf" />
           </Box>
         </div>
       )}
       <div style={{ marginTop: 10 }} id="questions" className="page-break">
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           <Questions {...rest} mode="pdf" />
         </Box>
       </div>
       {currentLayout?.has_media_summary && (
         <div style={{ marginTop: 10 }} id="media" className="page-break">
           <Box>
-            {' '}
+            {" "}
             <Media {...rest} mode="pdf" />
           </Box>
         </div>

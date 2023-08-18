@@ -1,7 +1,7 @@
 import { Box, Collapse, Stack, Typography } from "@mui/material";
 import responseItems from "src/constants/template/responseItems";
-import { validateInput } from "containers/template/validation/inputLogicCheck";
-import { findData } from "containers/template/validation/keyValidationFunction";
+import { validateInput } from "src/modules//template/validation/inputLogicCheck";
+import { findData } from "src/modules//template/validation/keyValidationFunction";
 
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

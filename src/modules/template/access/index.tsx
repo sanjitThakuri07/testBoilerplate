@@ -136,7 +136,7 @@ const AccessControl = ({}: any) => {
         }}
         confirmationHeading={`Do you sure want to delete`}
         status="warning"
-        confirmationIcon="src/assets/icons/icon-feature.svg"
+        confirmationIcon="/src/assets/icons/icon-feature.svg"
       />
 
       {isLoading && <FullPageLoader />}
