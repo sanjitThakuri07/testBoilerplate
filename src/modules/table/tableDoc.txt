@@ -25,7 +25,7 @@ setterFunction => tableActionIndicator ()
 tableControls => to show, hide => edit, delete, restore, Duplicate
             => either an object or a function.
 
-navigateTitle => object, navigates to column => specially for view/ edit, primary column 
+navigateTitle => object, navigates to column => specially for view/ edit, primary column , routePath => for custom route or actions
 tableOptions =>{
     chipOptionsName => selecting default chip styles.
     columnName => select hitting to api actions

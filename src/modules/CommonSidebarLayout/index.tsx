@@ -7,6 +7,7 @@ import { searchParamObject } from "src/modules/utils/index";
 import { useContractorServicesStore } from "src/store/zustand/globalStates/config";
 import { useSnackbar } from "notistack";
 import React, { useEffect } from "react";
+import { useParams } from "react-router";
 import { useLocation, useNavigate } from "react-router";
 import { getAPI } from "src/lib/axios";
 import { usePermissionStore } from "src/store/zustand/permission";
@@ -21,6 +22,7 @@ import CommonFilter, {
 import { INSPECTION_INITIAL_VALUE } from "src/modules/config/filterOptionsList";
 import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
+import usePageStore from "src/store/zustand/page";
 
 interface NavigateColumnProps {
   navigateColumnName: string;
@@ -31,9 +33,9 @@ interface NavigateColumnProps {
 export default function CommonSidebarLayout() {
   const location = useLocation();
   const [value, setValue] = React.useState(0);
-  const [loading, setLoading] = React.useState(false);
   const [totalCount, setTotalCount] = React.useState(0);
   const [presentFilter, setPresentFilter] = React.useState(false);
+  const navigate = useNavigate();
 
   const [onNavigate, setOnNavigate] = React.useState<NavigateColumnProps>({
     navigateColumnName: "contract_no",
@@ -45,95 +47,37 @@ export default function CommonSidebarLayout() {
   const [pathName, setPathName] = React.useState({
     backendUrl: "",
     sectionTitle: "",
-    buttonName: "Inspection",
+    buttonName: "Data",
     frontEndUrl: "",
     editFrontEndUrlGetter: null,
     deleteFieldName: "id",
     subSectionUrl: null,
   });
-  const [deleteEndpoint, setDeleteEndpoint] = React.useState("");
   const [getFilterValue, setFilterValue] = React.useState(INSPECTION_INITIAL_VALUE);
   const { enqueueSnackbar } = useSnackbar();
-  const [templateData, setTemplateData] = React.useState<any>({
-    items: [],
-    headers: [],
-    page: 1,
-    pages: 1,
-    size: 1,
-    total: 0,
-    archivedCount: 0,
-  });
+
   const { services, setServices } = useContractorServicesStore();
-  const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
   const searchObject = searchParamObject(searchParams);
+
+  const { sidebarId } = useParams();
 
   const [urlUtils, setUrlUtils] = usePayloadHook();
 
   const { permissions } = usePermissionStore();
 
-  const getData = async () => {
-    let params = location.pathname.split("/").slice(-1).join("");
-    // for api end point
-    let returnedParams = "";
-    let path = "";
+  const { pages, fetchPages, loading, tableActionHandler, tableDatas }: any = usePageStore();
 
-    switch (params) {
-      case "template":
-        returnedParams = "templates";
-        path = "";
-        break;
-      default:
-        returnedParams = "";
-        path = "";
-    }
+  const getData = async () => {
+    // for api end point
     setPathName((prev: any) => ({
       ...prev,
       backendUrl: "templates-data",
       buttonName: "Inspection",
       deleteFieldName: { value: "id", key: "title" },
     }));
-    try {
-      setLoading(true);
-      const { status, data } = await getAPI(`templates-data/${parseQueryParams(urlUtils)}`);
-      if (status === 200) {
-        setLoading(false);
-        const itemss = data.items || [];
-        let newItems: any = [];
-        if (itemss?.length > 0) {
-          newItems = itemss?.map((item: any) => {
-            let phone_numbers = item?.phone_numbers?.length
-              ? item?.phone_numbers?.map((it: string) => it.split("/")?.reverse()[0])
-              : [];
-            return { ...item, phone_numbers };
-          });
-        }
-        //setting common page data
-        setTemplateData((prev: any) => {
-          return {
-            ...prev,
-            items: newItems || [],
-            headers: { ...data.headers },
-            page: data.page,
-            pages: data.pages,
-            size: data.size,
-            total: data.total,
-            archivedCount: data?.info?.archived_count,
-          };
-        });
 
-        setTotalCount(data.total);
-      }
-    } catch (error: any) {
-      setLoading(false);
-      setErrorNotification(error, enqueueSnackbar);
-    }
-  };
-
-  // for fetching multiple api according to search params
-
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
+    const apiResponse = await fetchPages({ query: { templates: sidebarId }, getAll: true });
   };
 
   const onDataTableChange = ({ key, value }: any) => {
@@ -149,29 +93,11 @@ export default function CommonSidebarLayout() {
   };
 
   useEffect(() => {
-    if (searchObject?.[`tariff`]) {
-      fetchData({
-        id: Number(searchObject?.["tariff"]),
-        setLoading,
-        fetchIndividualApi,
-        setTotalCount,
-        setPathName,
-        enqueueSnackbar,
-        setData: setTemplateData,
-        urlUtils,
-        location,
-        domain: "Record",
-        buttonName: "Record",
-        url: "finance-tariff/tariff-records",
-      });
-      setOnNavigate((prev) => ({
-        navigateColumnName: "",
-        navigateTo: null,
-      }));
-    } else {
+    if (sidebarId) {
       getData();
       setPathName((prev) => ({
         ...prev,
+        buttonName: "Data",
         frontEndUrl: `${location?.pathname}/create`,
       }));
       setOnNavigate({
@@ -182,35 +108,29 @@ export default function CommonSidebarLayout() {
         },
       });
     }
-  }, [Object.keys(searchObject || {})?.length, urlUtils]);
+  }, [urlUtils, sidebarId]);
 
-  const {
-    templateDatasets,
-    setTemplateDatasets,
-    setTemplateHeading,
-    updateTemplateDatasets,
-    resetTemplateValues,
-  } = useTemplateFieldsStore();
-
-  useEffect(() => {
-    resetTemplateValues();
-  }, []);
+  const tableUpdateDatas: any = {
+    page: {
+      data: tableDatas,
+      setterFn: async ({ datas, type }: any) => {
+        await tableActionHandler({ values: datas, enqueueSnackbar, type: type });
+      },
+    },
+  };
 
   return (
     <Box sx={{ p: "20px" }} className="config-holder">
       {loading && <FullPageLoader />}
 
       <BASDataTable
-        data={templateData}
-        deletePath={deleteEndpoint}
+        data={tableUpdateDatas?.page?.data || []}
         onDataChange={onDataTableChange}
         tableIndicator={pathName}
-        setterFunction={setTemplateData}
-        configName={pathName?.buttonName}
+        setterFunction={tableUpdateDatas?.page?.setterFn || null}
         count={totalCount}
         csvDownload={false}
         urlUtils={urlUtils}
-        backendUrl={pathName?.backendUrl}
         tableOptions={{
           chipOptionsName: ["inspection_status"],
         }}
@@ -220,8 +140,18 @@ export default function CommonSidebarLayout() {
           column: "template",
           navigate: true,
           navigateMode: "view",
+          routePath: ({ data }: any) => {
+            navigate(`/inspections/edit/${data?.id}`);
+          },
         }}
-        showAdd={false}
+        onAdd={() => {
+          navigate(`/template/inspection/${sidebarId}`);
+        }}
+        onEdit={(data: any) => {
+          navigate(`/inspections/edit/${data?.id}`);
+          // navigate(`template/inspection/${data?.id}`);
+          // return
+        }}
         actionViewMode={{
           type: "dot",
           dotModeOptions: [

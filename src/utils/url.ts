@@ -38,6 +38,7 @@ export const url: any = {
   restore: "restore/",
   duplicate: "duplicate",
   template: "templates",
+  page: "templates-data",
 };
 
 export const moduleIdsFnR = [

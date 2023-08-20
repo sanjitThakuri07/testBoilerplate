@@ -48,7 +48,7 @@ export const PrivateRoute = {
   ALL_ORGANIZATIONS_USERS: "organization/",
   VIEW_TENANT: "tenant/user/:id",
   DEACTIVATE_TENANT: "/tenant/update-status",
-  COMMON_SIDEBAR_LAYOUT: "/page/:id",
+  COMMON_SIDEBAR_LAYOUT: "/page/:sidebarId",
 
   CALENDAR: {
     root: "/calendar",

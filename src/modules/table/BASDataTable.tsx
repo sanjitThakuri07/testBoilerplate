@@ -30,7 +30,7 @@ import {
   Tooltip,
 } from "@mui/material";
 import { BASConfigTableProps, RegionProps } from "src/src/interfaces/configs";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import { deleteAPI, getAPI } from "src/lib/axios";
 import { useConfigStore } from "src/store/zustand/globalStates/config";
@@ -1242,6 +1242,7 @@ const TableDotActions = ({
   const [verticalAnchorEl, setVerticalAnchorEl] = React.useState<any>(null);
   const open = Boolean(verticalAnchorEl);
   const verticalId = open ? "simple-popover" : undefined;
+  const navigate = useNavigate();
   // vertical popup on actions
   const handleVerticalPopup = (event: any) => {
     setVerticalAnchorEl(event.currentTarget);
@@ -1358,7 +1359,7 @@ const TableDotActions = ({
                 }) &&
                 isAccessRuleExist &&
                 [2, 3].includes(row?.access_rule) ? (
-                <Link
+                <div
                   to={`${
                     onEdit
                       ? "#"
@@ -1368,7 +1369,12 @@ const TableDotActions = ({
                       ? `edit/${rowEditLink}`
                       : `edit/${row?.id}`
                   }`}
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault();
+                    // if (!onEdit) {
+                    //   tableIndicator?.editFrontEndUrlGetter ? navigate(tableIndicator?.editFrontEndUrlGetter(row?.id)): rowEditLink?
+                    //   // navigate();
+                    // }
                     onEdit && onEdit?.(row);
                   }}
                   style={{ textDecoration: "none" }}
@@ -1389,7 +1395,7 @@ const TableDotActions = ({
 
                     <span>Edit</span>
                   </Stack>
-                </Link>
+                </div>
               ) : null}
               <Divider />
               {/* delete */}
@@ -2369,7 +2375,7 @@ const BASDataTable: React.FC<{
                 {
                   // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   // stableSort(rows as any, getComparator(order, orderBy))
-                  rows.slice(0, rows?.length).map((row: any, index: number) => {
+                  rows?.slice(0, rows?.length).map((row: any, index: number) => {
                     let isObject = tableIndicator?.deleteFieldName instanceof Object || false;
                     let name =
                       row?.[

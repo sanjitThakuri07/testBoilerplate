@@ -212,6 +212,7 @@ const CommonFilter = ({
       enableReinitialize={true}
       //   validationSchema={validation}
       onSubmit={async (values, formikHelpers) => {
+        console.log({ values });
         hasFilter({ values });
         const querys: { query: string; formValues: any } = Object.entries(values || {}).reduce(
           (acc: any, [key, value]: any) => {
@@ -254,6 +255,7 @@ const CommonFilter = ({
           },
         );
         setFilterUrl((prev: any) => ({ ...prev, filterQuery: querys?.query }));
+        console.log({ querys });
         filterObj?.setFilterValue({ ...querys?.formValues });
         setFilterModal?.(false);
       }}
