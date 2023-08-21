@@ -210,7 +210,7 @@ export const useTemplateStore = create(
           });
         },
 
-        postTemplateInspection: async (values: any, navigate: any) => {
+        postTemplateInspection: async ({ values, navigate, goTo }: any) => {
           const response = await postAPI("/templates-data/", values);
           if (response) {
             if (values?.issueID) {
@@ -225,7 +225,12 @@ export const useTemplateStore = create(
                 state.templateIssue = response.data;
               });
             } else {
-              navigate?.("/inspections");
+              if (!goTo) {
+                navigate?.("/inspections");
+                return;
+              } else {
+                goTo?.(response?.data);
+              }
             }
           }
           set((state: any) => {
@@ -272,7 +277,6 @@ export const useTemplateStore = create(
                 enqueueSnackbar: enqueueSnackbar,
                 setterFunction: (data: any) => {
                   set((state: any) => {
-                    console.log({ data });
                     const updateData = state?.tableDatas?.items?.filter(
                       (data: any) => !values?.includes(data?.id),
                     );
@@ -300,7 +304,6 @@ export const useTemplateStore = create(
                 enqueueSnackbar: enqueueSnackbar,
                 setterFunction: (data: any) => {
                   set((state: any) => {
-                    console.log({ data });
                     const updateData = [...(data?.data || []), ...(state?.tableDatas?.items || [])];
                     const updatedTableData = {
                       ...(state.tableDatas || {}),

@@ -419,7 +419,7 @@ const RenderQuestion = ({ data, icon, typeOfResponse, mode }: any) => {
                 return field;
               });
               const newValues = { ...initialState, fields: updatedFields };
-              updateInspection(inspectionId, newValues);
+              updateInspection({ inspectionId: inspectionId, values: newValues });
               setInitialState(newValues);
             }}
             isEdit={individualAction?.id ? true : false}

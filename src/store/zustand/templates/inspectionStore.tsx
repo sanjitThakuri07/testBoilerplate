@@ -34,7 +34,7 @@ export const useInspectionStore = create(
           }
         },
 
-        updateInspection: async (inspectionId: number, values: any, navigate: any) => {
+        updateInspection: async ({ inspectionId, values, navigate, goTo }: any) => {
           set({ isLoading: true });
           const response = await putAPI(`templates-data/${inspectionId}`, values);
           if (response) {
@@ -42,7 +42,11 @@ export const useInspectionStore = create(
               state.inspections = [];
               state.isLoading = false;
             });
-            navigate?.("/inspections");
+            if (!goTo) {
+              navigate?.("/inspections");
+              return;
+            }
+            goTo?.(response.data);
           }
         },
 
@@ -127,7 +131,6 @@ export const useInspectionStore = create(
             getAll: true,
             setterFunction: (data: any) => {
               if (data) {
-                console.log({ data });
                 set({ setStatusAs: data, isLoading: false });
               }
             },

@@ -1340,11 +1340,11 @@ const InspectionCreateUpdate = ({}: any) => {
               return obj;
             });
             if (finalValues) {
-              updateInspection(
-                inspection.id,
-                { template_id: inspection.template_id, fields: finalValues },
+              updateInspection({
+                inspectionId: inspection.id,
+                values: { template_id: inspection.template_id, fields: finalValues },
                 navigate,
-              );
+              });
             }
           }}
         >

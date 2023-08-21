@@ -1859,10 +1859,10 @@ const InspectionStarter = ({ readOnly }: any) => {
               notifyUser({ values: mergedArray, enqueueSnackbar });
             }
             if (finalValues) {
-              postTemplateInspection(
-                { template_id: template.id, issueID: issueID, fields: finalValues },
+              postTemplateInspection({
+                values: { template_id: template.id, issueID: issueID, fields: finalValues },
                 navigate,
-              );
+              });
             }
           }}
         >

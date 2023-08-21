@@ -77,7 +77,10 @@ export default function CommonSidebarLayout() {
       deleteFieldName: { value: "id", key: "title" },
     }));
 
-    const apiResponse = await fetchPages({ query: { templates: sidebarId }, getAll: true });
+    const apiResponse = await fetchPages({
+      query: { templates: sidebarId, ...(urlUtils || {}) },
+      getAll: true,
+    });
   };
 
   const onDataTableChange = ({ key, value }: any) => {
@@ -145,10 +148,10 @@ export default function CommonSidebarLayout() {
           },
         }}
         onAdd={() => {
-          navigate(`/template/inspection/${sidebarId}`);
+          navigate(`/template/inspection/${sidebarId}?goTo=/page`);
         }}
         onEdit={(data: any) => {
-          navigate(`/inspections/edit/${data?.id}`);
+          navigate(`/inspections/edit/${data?.id}?goTo=/page`);
         }}
         actionViewMode={{
           type: "dot",

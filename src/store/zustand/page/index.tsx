@@ -27,7 +27,6 @@ const usePageStore = create((set) => ({
   // multiple response data
   fetchPages: async ({ query, changeFormat, getAll = false, enqueueSnackbar }: any) => {
     set({ loading: true });
-    console.log({ query });
     const apiResponse = await fetchApI({
       url: url?.page + "/",
       setterFunction: (data: any) => {

@@ -1229,22 +1229,31 @@ const InspectionStarter = ({}: any) => {
             inspection_status: type == "submit" ? "Completed" : "In Progress",
             booking_id: searchObject?.BOOKING_ID || null,
           };
-      postTemplateInspection(params, navigate);
+      postTemplateInspection({
+        values: params,
+        navigate,
+        goTo: (data: any) => {
+          searchObject.goTo && navigate(`${searchObject?.goTo}/${templateId}`);
+        },
+      });
       // if (type !== 'draft') {
       // } else {
       //   postTemplateInspection(params);
       // }
     } else if (finalValues && inspectionId) {
-      updateInspection(
-        inspection.id,
-        {
-          template_id: Number(inspectionId),
+      updateInspection({
+        inspectionId: inspection.id,
+        values: {
+          template_id: Number(inspection?.template_id),
           fields: finalValues,
           inspection_status: type == "submit" ? "Completed" : "In Progress",
           booking_id: Number(searchObject?.BOOKING_ID) || null,
         },
         navigate,
-      );
+        goTo: (data: any) => {
+          searchObject.goTo && navigate(`${searchObject?.goTo}/${Number(inspection?.template_id)}`);
+        },
+      });
       // if (type !== 'draft') {
       // } else {
       //   updateInspection(inspection.id, {
