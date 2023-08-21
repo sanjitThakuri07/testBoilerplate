@@ -11,8 +11,6 @@ import { MuiThemeProvider } from "src/theme/mui/MuiThemeProvider";
 // import "src/theme_old/sass/index.scss";
 import Routes from "./App";
 import StyledThemeProvider from "./theme/styled-component/StyledThemeProvider";
-import { ThemeProvider } from "@mui/material/styles";
-import themeManager from "src/theme/mui/themeManager";
 // import ReactThemeProvider from  "src/modules/ReactThemeProvider/ReactThemeProvider";
 
 const store = initializeStore();
@@ -26,10 +24,9 @@ function AppIndex() {
   return (
     <ErrorBoundary FallbackComponent={ReactError} onError={errorHandler}>
       <ReduxProvider store={store}>
-        <ThemeProvider theme={themeManager("blue")}>
-          {/* <ReactThemeProvider> */}
-          {/* <StyledThemeProvider> */}
-          {/* <Notification
+        {/* <ReactThemeProvider> */}
+        {/* <StyledThemeProvider> */}
+        {/* <Notification
               position="bottom-right"
               autoClose={5000}
               hideProgressBar={false}
@@ -41,14 +38,13 @@ function AppIndex() {
               pauseOnHover
               theme="light"
             /> */}
-          {/* <MuiThemeProvider> */}
+        <MuiThemeProvider>
           <BrowserRouter>
             <Routes />
           </BrowserRouter>
-          {/* </MuiThemeProvider> */}
-          {/* </StyledThemeProvider> */}
-          {/* </ReactThemeProvider> */}
-        </ThemeProvider>
+        </MuiThemeProvider>
+        {/* </StyledThemeProvider> */}
+        {/* </ReactThemeProvider> */}
       </ReduxProvider>
     </ErrorBoundary>
   );

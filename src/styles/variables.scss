@@ -38,6 +38,10 @@ $hover-primary-color: rgb(39, 50, 81);
 
 $hover-code-dropdown-bg: rgba(0, 0, 0, 0.04);
 
+// body {
+//   background-color: var(--mui-palette-primary-main) !important;
+// }
+
 // conversion
 @mixin toRemProp($property, $value) {
   #{$property}: ($base-px-rem * $value) + rem;
@@ -117,7 +121,7 @@ $custom-template-padding-wrapper-side: toRem(32);
 
     &::after,
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 70%;
     }
@@ -133,7 +137,7 @@ $custom-template-padding-wrapper-side: toRem(32);
     }
 
     &::before {
-      content: '';
+      content: "";
       width: toRem(10);
       height: toRem(10);
       background: $question-dash-style;
@@ -182,7 +186,7 @@ $custom-template-padding-wrapper-side: toRem(32);
       display: flex;
 
       &::after {
-        content: ',';
+        content: ",";
       }
     }
   }
@@ -207,7 +211,7 @@ $custom-template-padding-wrapper-side: toRem(32);
     display: flex;
 
     &::after {
-      content: ',';
+      content: ",";
     }
   }
 }
@@ -247,9 +251,9 @@ $custom-template-padding-wrapper-side: toRem(32);
     border-radius: toRem(4);
     text-decoration: none;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    outline: 2px solid $color-primary;
+    outline: 2px solid var(--mui-palette-primary-main);
     color: $color-white;
-    background-color: $color-primary;
+    background-color: var(--mui-palette-primary-main);
   }
 }
 
@@ -259,7 +263,7 @@ $custom-template-padding-wrapper-side: toRem(32);
   outline: none;
   border: none;
   border-radius: toRem(8);
-  color: $color-primary;
+  color: var(--mui-palette-primary-main);
   font-size: toRem(15);
 
   &.note__button {
@@ -428,7 +432,7 @@ $custom-template-padding-wrapper-side: toRem(32);
   padding: 8px 12px;
 
   &:hover {
-    background-color: $color-primary;
+    background-color: var(--mui-palette-primary-main);
     color: $color-white;
 
     svg {

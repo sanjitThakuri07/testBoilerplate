@@ -149,8 +149,6 @@ export default function CommonSidebarLayout() {
         }}
         onEdit={(data: any) => {
           navigate(`/inspections/edit/${data?.id}`);
-          // navigate(`template/inspection/${data?.id}`);
-          // return
         }}
         actionViewMode={{
           type: "dot",

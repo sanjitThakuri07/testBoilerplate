@@ -1,23 +1,23 @@
 .modal__box-assign {
   .assign-activity-form {
-    border    : none;
+    border: none;
     box-shadow: none;
 
-    &>button,
-    &>h6 {
+    & > button,
+    & > h6 {
       display: none;
     }
 
     .formGroupItem {
-      display              : grid;
+      display: grid;
       grid-template-columns: repeat(2, 1fr);
-      row-gap              : toRem(12);
+      row-gap: toRem(12);
 
       @container (max-width: 700px) {
         grid-template-columns: repeat(1, 1fr);
       }
 
-      &>div {
+      & > div {
         max-width: none;
       }
     }
@@ -26,26 +26,26 @@
       grid-template-columns: auto;
 
       .image__uploader-box {
-        grid-row    : auto;
-        grid-column : auto;
+        grid-row: auto;
+        grid-column: auto;
         justify-self: start;
       }
 
       @container (max-width: 590px) {
-        width             : 89%;
-        flex-wrap         : wrap;
-        gap               : toRem(8);
-        grid-column       : auto;
+        width: 89%;
+        flex-wrap: wrap;
+        gap: toRem(8);
+        grid-column: auto;
         grid-template-rows: toRem(200) 1fr;
 
         .header__toolbar {
           flex-direction: column;
-          gap           : toRem(8);
+          gap: toRem(8);
         }
 
         .RichEditor-controls {
           flex-wrap: wrap;
-          gap      : toRem(8);
+          gap: toRem(8);
         }
       }
     }
@@ -57,26 +57,26 @@
 }
 
 .action__container-activity {
-  display       : flex;
+  display: flex;
   flex-direction: column;
-  gap           : toRem(16);
-  max-height    : toRem(150);
-  overflow      : auto;
-  padding-top   : toRem(16);
+  gap: toRem(16);
+  max-height: toRem(150);
+  overflow: auto;
+  padding-top: toRem(16);
 
   .activity__card {
-    display        : flex;
-    border         : 1px solid $evidence-border;
+    display: flex;
+    border: 1px solid $evidence-border;
     justify-content: space-between;
-    align-items    : center;
-    border-radius  : toRem(5);
-    padding        : toRem(8) toRem(16);
+    align-items: center;
+    border-radius: toRem(5);
+    padding: toRem(8) toRem(16);
 
     p,
     h4 {
-      margin        : 0;
+      margin: 0;
       text-transform: capitalize;
-      font-weight   : 500;
+      font-weight: 500;
 
       span {
         font-weight: normal;
@@ -84,15 +84,15 @@
     }
 
     .actions {
-      display    : flex;
+      display: flex;
       align-items: center;
-      gap        : toRem(4);
+      gap: toRem(4);
 
       button {
         background: none;
-        outline   : none;
-        border    : none;
-        cursor    : pointer;
+        outline: none;
+        border: none;
+        cursor: pointer;
         transition: all 0.3s;
 
         &:hover {
@@ -108,9 +108,9 @@
   background: $color-white;
 
   .inspection_starter__wrapper {
-    max-width  : 60%;
-    margin     : 0 auto;
-    box-sizing : border-box;
+    max-width: 60%;
+    margin: 0 auto;
+    box-sizing: border-box;
     padding-top: toRem(30);
 
     form {
@@ -119,33 +119,33 @@
   }
 
   .mobile_component_box {
-    margin-top      : 15px;
+    margin-top: 15px;
     background-color: #ffffff;
-    border-radius   : 10px;
-    padding         : toRem(16) toRem(18);
-    border          : 1px solid #eaecf0;
+    border-radius: 10px;
+    padding: toRem(16) toRem(18);
+    border: 1px solid #eaecf0;
 
     #MobileTextAnswer {
       line-height: 2.4;
-      position   : relative;
+      position: relative;
 
       &::after {
-        content      : '';
-        position     : absolute;
-        left         : toRem(-19);
-        width        : toRem(3);
-        height       : 85%;
-        background   : $inspection-question-indicator;
-        top          : 13%;
+        content: "";
+        position: absolute;
+        left: toRem(-19);
+        width: toRem(3);
+        height: 85%;
+        background: $inspection-question-indicator;
+        top: 13%;
         border-radius: toRem(15);
       }
 
       .speech__box {
-        position : absolute;
-        right    : 3px;
-        top      : 50%;
+        position: absolute;
+        right: 3px;
+        top: 50%;
         transform: translateY(-50%);
-        z-index  : 10;
+        z-index: 10;
       }
 
       .custom__input-style {
@@ -160,8 +160,8 @@
     }
 
     .action_buttons {
-      margin         : 15px 0;
-      display        : flex;
+      margin: 15px 0;
+      display: flex;
       justify-content: space-between;
 
       .MuiButton-outlined {
@@ -174,10 +174,10 @@
     }
 
     .mobile_component_box_wrapper_footer {
-      display        : flex;
+      display: flex;
       justify-content: flex-end;
-      margin-top     : 14px;
-      gap            : toRem(16);
+      margin-top: 14px;
+      gap: toRem(16);
 
       // .footer_item {
       //   cursor: pointer;
@@ -205,12 +205,12 @@
         margin: 20px 0;
 
         .create_action_ {
-          display        : flex;
-          align-items    : center;
+          display: flex;
+          align-items: center;
           justify-content: space-between;
 
           .create_action_right {
-            display    : flex;
+            display: flex;
             align-items: center;
           }
         }
@@ -222,48 +222,48 @@
 // inspection form new design
 .inspection_starter__wrapper {
   .inspection__header {
-    box-sizing   : border-box;
-    width        : 100%;
-    display      : flex;
-    align-items  : center;
-    border       : $inspection-border;
-    padding      : toRem(16) toRem(18);
-    border-top   : none;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: $inspection-border;
+    padding: toRem(16) toRem(18);
+    border-top: none;
     border-radius: toRem(4);
 
-    &>* {
+    & > * {
       width: 100%;
     }
 
-    &>.group {
+    & > .group {
       &:last-child {
         text-align: end;
       }
     }
 
     .group {
-      display       : flex;
+      display: flex;
       flex-direction: column;
 
-      &>div {
+      & > div {
         margin-bottom: toRem(8);
       }
 
       .page__style {
-        background   : $inspection-page-indicator;
-        align-self   : flex-start;
-        padding      : toRem(6) toRem(12);
+        background: $inspection-page-indicator;
+        align-self: flex-start;
+        padding: toRem(6) toRem(12);
         border-radius: toRem(15);
-        cursor       : pointer;
+        cursor: pointer;
 
         &,
         span {
-          display    : flex;
+          display: flex;
           align-items: center;
         }
 
         svg {
-          font-size  : toRem(20);
+          font-size: toRem(20);
           margin-left: toRem(6);
         }
       }
@@ -271,19 +271,17 @@
   }
 }
 
-
-
 .inspection__section {
   border-radius: toRem(8) !important;
-  background   : #283352 !important;
+  background: #283352 !important;
 
   &-image {
-    background    : #283352;
-    display       : flex;
-    align-items   : center;
-    margin-right  : toRem(12);
+    background: #283352;
+    display: flex;
+    align-items: center;
+    margin-right: toRem(12);
     mix-blend-mode: exclusion;
-    border-radius : toRem(4);
+    border-radius: toRem(4);
   }
 }
 
@@ -298,20 +296,20 @@
 }
 
 .error-message__modal {
-  z-index               : 20;
-  position              : fixed;
+  z-index: 20;
+  position: fixed;
   // transform: translateY(-50%);
-  right                 : 0%;
-  box-shadow            : rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  right: 0%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   // background: $color-light;
-  background            : $color-white;
-  bottom                : 0;
+  background: $color-white;
+  bottom: 0;
   border-top-left-radius: toRem(14);
-  overflow              : hidden;
-  width                 : min(toRem(400), toRem(500));
-  padding-right         : toRem(4);
-  transition            : all 0.3s;
-  max-height            : toRem(800);
+  overflow: hidden;
+  width: min(toRem(400), toRem(500));
+  padding-right: toRem(4);
+  transition: all 0.3s;
+  max-height: toRem(800);
 
   &.close {
     // bottom: -57vh;
@@ -319,24 +317,24 @@
   }
 
   .question__list-header {
-    display              : grid;
-    align-items          : center;
-    padding              : toRem(8) toRem(12);
-    padding-bottom       : toRem(6);
-    gap                  : toRem(8);
-    font-weight          : bold;
-    color                : $color-primary;
-    letter-spacing       : 1px;
-    transition           : all 0.3s;
-    cursor               : pointer;
-    transform-origin     : center;
-    border-bottom        : 1px solid $inspection-page-indicator;
+    display: grid;
+    align-items: center;
+    padding: toRem(8) toRem(12);
+    padding-bottom: toRem(6);
+    gap: toRem(8);
+    font-weight: bold;
+    color: var(--mui-palette-primary-main);
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    cursor: pointer;
+    transform-origin: center;
+    border-bottom: 1px solid $inspection-page-indicator;
     grid-template-columns: toRem(32) 1fr toRem(20);
 
     &:hover {
       letter-spacing: 1.2px;
-      background    : $color-primary;
-      color         : $color-white;
+      background: var(--mui-palette-primary-main);
+      color: $color-white;
     }
 
     svg {
@@ -348,13 +346,13 @@
     }
 
     .heading__body {
-      display    : flex;
+      display: flex;
       align-items: center;
-      gap        : 8px;
+      gap: 8px;
 
       svg {
         font-size: toRem(20);
-        color    : $error-color-code;
+        color: $error-color-code;
       }
     }
   }
@@ -365,36 +363,36 @@
 
       &:hover {
         background-color: $error-color-bg-1;
-        color           : $error-color-code;
+        color: $error-color-code;
       }
     }
   }
 
   .filter {
-    padding       : toRem(8) toRem(12);
-    border-bottom : 1px solid $inspection-page-indicator;
-    display       : flex;
+    padding: toRem(8) toRem(12);
+    border-bottom: 1px solid $inspection-page-indicator;
+    display: flex;
     flex-direction: column;
-    gap           : toRem(8);
+    gap: toRem(8);
 
-    &>div {
-      width      : 100%;
-      display    : flex;
+    & > div {
+      width: 100%;
+      display: flex;
       align-items: center;
     }
 
     .search__text {
       input {
-        width        : 100%;
-        padding      : toRem(8) toRem(16);
-        outline      : none;
-        border       : 1px solid rgba(0, 0, 0, 0.23);
+        width: 100%;
+        padding: toRem(8) toRem(16);
+        outline: none;
+        border: 1px solid rgba(0, 0, 0, 0.23);
         border-radius: 4px;
       }
     }
 
     .switch__group {
-      display        : flex;
+      display: flex;
       justify-content: flex-end;
 
       // padding-right: toRem(14);
@@ -406,26 +404,26 @@
   }
 
   .question__list-main {
-    width     : 100%;
-    overflow  : auto;
+    width: 100%;
+    overflow: auto;
     max-height: 50vh;
     min-height: 30vh;
 
     div {
-      padding              : toRem(8) toRem(12);
-      cursor               : pointer;
-      font-size            : toRem(14);
-      font-weight          : 500;
-      line-height          : 1.6;
-      display              : grid;
+      padding: toRem(8) toRem(12);
+      cursor: pointer;
+      font-size: toRem(14);
+      font-weight: 500;
+      line-height: 1.6;
+      display: grid;
       grid-template-columns: minmax(toRem(10), toRem(24)) 1fr toRem(40);
-      transition           : all 0.3s;
-      border-bottom        : 1px solid $inspection-page-indicator;
+      transition: all 0.3s;
+      border-bottom: 1px solid $inspection-page-indicator;
 
       .text__body {
-        overflow          : hidden;
-        text-overflow     : ellipsis;
-        display           : -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
       }
@@ -433,13 +431,13 @@
       &:hover {
         // color: #fff;
         background-color: $inspection-page-indicator;
-        border-color    : transparent;
+        border-color: transparent;
       }
     }
 
     .error__box-question {
       // border: 1px solid $error-color-code;
-      color     : $error-color-code !important;
+      color: $error-color-code !important;
       background: $error-color-bg-1;
 
       &:hover {

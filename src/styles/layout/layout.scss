@@ -17,7 +17,7 @@
       transition: all 0.3s;
 
       &:hover {
-        color: $color-primary;
+        color: var(--mui-palette-primary-main);
         text-decoration: underline;
       }
     }
@@ -59,7 +59,7 @@
 
   & + span {
     font-size: toRem(16) !important;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 500 !important;
   }
 
@@ -73,7 +73,7 @@
 .custom__options-2 {
   font-size: toRem(16) !important;
   font-weight: normal;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 // pop up modal filter

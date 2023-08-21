@@ -67,7 +67,7 @@ $tab-background: #f4f6fa;
           display: flex;
           background: #fff;
           font-size: 14px;
-          font-family: 'Inter', sans-serif;
+          font-family: "Inter", sans-serif;
           font-weight: 400;
           color: rgba(0, 0, 0, 0.87);
           cursor: pointer;
@@ -171,7 +171,7 @@ $tab-background: #f4f6fa;
     & > span {
       background: #fff;
       font-size: 14px;
-      font-family: 'Inter', sans-serif;
+      font-family: "Inter", sans-serif;
       font-weight: 400;
       line-height: 1.4375em;
       color: rgba(0, 0, 0, 0.87);
@@ -211,7 +211,7 @@ $tab-background: #f4f6fa;
     // white-space: nowrap;
 
     &.active {
-      border-bottom: 2px solid $color-primary;
+      border-bottom: 2px solid var(--mui-palette-primary-main);
     }
   }
 }
@@ -312,7 +312,7 @@ $tab-background: #f4f6fa;
     }
 
     .config_modal_title {
-      color: $color-primary;
+      color: var(--mui-palette-primary-main);
       line-height: 2;
     }
 
