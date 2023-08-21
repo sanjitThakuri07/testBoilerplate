@@ -163,6 +163,7 @@ export default function TemplateIndex() {
     template: {
       data: tableDatas,
       setterFn: async ({ datas, type }: any) => {
+        console.log("data");
         await tableActionHandler({ values: datas, enqueueSnackbar, type: type });
       },
     },

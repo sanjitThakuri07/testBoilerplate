@@ -239,9 +239,9 @@ export const useTemplateStore = create(
         },
 
         tableActionHandler: async ({ values, enqueueSnackbar, type, URL = url?.template }: any) => {
-          set({ loading: true });
+          set({ isLoading: true });
           let apiResponse = false;
-
+          console.log({ type });
           switch (type) {
             case ACTION_TYPE.DELETE:
               apiResponse = await deleteAPiData({
@@ -257,13 +257,13 @@ export const useTemplateStore = create(
                       (data: any) => !values?.includes(data?.id),
                     );
                     return {
-                      loading: false,
+                      isLoading: false,
                       tableDatas: {
                         ...(tableDatas || {}),
                         archivedCount: tableDatas?.archivedCount + values?.length || 0,
                         items,
                       },
-                      regions: items,
+                      templates: items,
                     };
                   });
                 },
@@ -287,10 +287,10 @@ export const useTemplateStore = create(
                     };
 
                     return {
-                      regions: updateData,
+                      templates: updateData,
                       individualRegion: {},
                       tableDatas: updatedTableData,
-                      loading: false,
+                      isLoading: false,
                     };
                   });
                 },
@@ -312,10 +312,10 @@ export const useTemplateStore = create(
                     };
 
                     return {
-                      regions: updateData,
+                      templates: updateData,
                       individualRegion: {},
                       tableDatas: updatedTableData,
-                      loading: false,
+                      isLoading: false,
                     };
                   });
                 },
@@ -325,7 +325,7 @@ export const useTemplateStore = create(
               break;
           }
 
-          !apiResponse && set({ loading: false });
+          !apiResponse && set({ isLoading: false });
           return apiResponse;
         },
       };

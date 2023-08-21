@@ -1163,6 +1163,7 @@ async function duplicateRestoreAPI({
   setterFunction,
   method = ACTION_TYPE?.DUPLICATE,
 }: any) {
+  console.log("here", setterFunction);
   setterFunction?.({ datas: values, type: method });
   // await postApiData({
   //   setterFunction: (data: any) => {
@@ -2074,6 +2075,7 @@ const BASDataTable: React.FC<{
   const deleteHandler = async (datas: object[], key: string = "name") => {
     let selectedIds = datas?.map((data: { id?: number }) => data?.id);
     let selectedName = datas?.map((data: any) => data?.[`${key}`]);
+    console.log({ setterFunction });
     setterFunction?.({ datas: selectedIds, type: ACTION_TYPE?.DELETE });
     // try {
     //   await deleteAPI(`${tableIndicator?.backendUrl ? tableIndicator?.backendUrl : backendUrl}/`, {
@@ -2172,6 +2174,7 @@ const BASDataTable: React.FC<{
             // const isDeleted = await onDelete?.([...selected]);
             setDeleteLoading(true);
             let isObject = tableIndicator?.deleteFieldName instanceof Object;
+            console.log({ method });
             if (method === "delete") {
               await deleteHandler(
                 [...selected],
@@ -2189,19 +2192,19 @@ const BASDataTable: React.FC<{
                 method: ACTION_TYPE.RESTORE,
                 // method: "re-store",
               });
-              setterFunction?.((prev: any) => {
-                // if(prev?.items)
-                // need to put logic for those that have no items
-                const newItems = prev?.items?.filter(
-                  (item: { id?: number }) => !selectedIds.includes(item.id),
-                );
-                return {
-                  ...prev,
-                  items: newItems,
-                  archivedCount: Number(prev?.archivedCount || 0) - 1,
-                  total: Number(prev?.total || 0) - 1,
-                };
-              });
+              // setterFunction?.((prev: any) => {
+              //   // if(prev?.items)
+              //   // need to put logic for those that have no items
+              //   const newItems = prev?.items?.filter(
+              //     (item: { id?: number }) => !selectedIds.includes(item.id),
+              //   );
+              //   return {
+              //     ...prev,
+              //     items: newItems,
+              //     archivedCount: Number(prev?.archivedCount || 0) - 1,
+              //     total: Number(prev?.total || 0) - 1,
+              //   };
+              // });
             }
             setDeleteLoading(false);
             setOpenModal(false);
@@ -2210,9 +2213,10 @@ const BASDataTable: React.FC<{
           confirmationHeading={`Do you want to ${
             method === "delete" ? method : "restore"
           } ${selected?.map((data: { name?: string }) => data.name).join(" ")}?`}
-          confirmationDesc={`This ${tableIndicator?.sectionTitle?.replaceAll("-", " ")}  will be ${
-            method === "delete" ? "deleted" : "restored"
-          }.`}
+          confirmationDesc={`This hkbkin ${tableIndicator?.sectionTitle?.replaceAll(
+            "-",
+            " ",
+          )}  will be ${method === "delete" ? "deleted" : "restored"}.`}
           status="warning"
           confirmationIcon="/src/assets/icons/icon-feature.svg"
           loader={deleteLoading}

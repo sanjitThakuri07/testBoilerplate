@@ -117,6 +117,7 @@ export default function CommonSidebarLayout() {
     page: {
       data: tableDatas,
       setterFn: async ({ datas, type }: any) => {
+        console.log("here");
         await tableActionHandler({ values: datas, enqueueSnackbar, type: type });
       },
     },
