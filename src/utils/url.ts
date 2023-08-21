@@ -39,6 +39,9 @@ export const url: any = {
   duplicate: "duplicate",
   template: "templates",
   page: "templates-data",
+  role: "user-role",
+  department: "user-department",
+  userOrg: "organization-user",
 };
 
 export const moduleIdsFnR = [

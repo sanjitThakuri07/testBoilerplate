@@ -27,17 +27,18 @@ function AppIndex() {
         {/* <ReactThemeProvider> */}
         {/* <StyledThemeProvider> */}
         {/* <Notification
-              position="bottom-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme="light"
-            /> */}
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        /> */}
+
         <MuiThemeProvider>
           <BrowserRouter>
             <Routes />
@@ -53,7 +54,9 @@ function AppIndex() {
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   // <React.StrictMode>
-  <AppIndex />,
+  <>
+    <AppIndex />
+  </>,
   // </React.StrictMode>,
 );
 

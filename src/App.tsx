@@ -4,11 +4,19 @@ import { Loader } from "src/components/Spinner/Spinner";
 import AppRoutes from "src/routes";
 import { fetchMe, setSidebar } from "src/store/redux/app/actions";
 import { AppState } from "src/store/redux/reducer";
+import { SnackbarProvider, enqueueSnackbar } from "notistack";
 
 function App({ me }: PropsFromRedux) {
   return (
     <Suspense fallback={<Loader />}>
-      <AppRoutes />
+      <SnackbarProvider
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+      >
+        <AppRoutes />
+      </SnackbarProvider>
     </Suspense>
   );
 }

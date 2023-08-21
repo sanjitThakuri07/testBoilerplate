@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
-import { getAPI } from "src/lib/axios";
 import { useSnackbar } from "notistack";
-import { useConfigStore } from "src/store/zustand/globalStates/config";
+import UsersRoleStore from "src/store/zustand/userSettings/userRole/index";
 import { Box } from "@mui/system";
-import { CircularProgress } from "@mui/material";
 import OrganizationConfiguration, {
   ConfigTableUrlUtils,
 } from "../generalSettings/OrganizationConfiguration";
-import BASDataTable from "../generalSettings/BASDataTable";
 import { BASConfigTableProps } from "src/src/interfaces/configs";
 import UsersSettingLayout from "./UserSettingLayout";
 import { usePermissionStore } from "src/store/zustand/permission";
@@ -23,6 +20,8 @@ import FullPageLoader from "src/components/FullPageLoader";
 import CustomPopUp from "src/components/CustomPopup";
 import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 import { lockFields } from "src/utils/url";
+import useDepartmentStore from "src/store/zustand/userSettings/userDepartment";
+import useUserOrgStore from "src/store/zustand/userSettings/userOrg";
 
 // =============== USER DEPARTMENT AND USERS COMMON COMPONENT ==============
 export default function UserSetting() {
@@ -47,17 +46,27 @@ export default function UserSetting() {
   const { enqueueSnackbar } = useSnackbar();
   const [isSuccess, setIsSuccess] = React.useState(false);
   const [presentFilter, setPresentFilter] = React.useState(false);
-  const [userSettingData, setUserSettingData] = React.useState<BASConfigTableProps>({
-    items: [],
-    headers: [],
-    page: 1,
-    pages: 1,
-    size: 1,
-    total: 0,
-    archivedCount: 0,
-  });
 
   const [urlUtils, setUrlUtils] = usePayloadHook();
+
+  const {
+    fetchRoles,
+    tableActionHandler: RoleTableActionHandler,
+    tableDatas: RoleTableDatas,
+    loading: RoleLoading,
+  }: any = UsersRoleStore();
+  const {
+    fetchDepartments,
+    tableActionHandler: DepartmentTableActionHandler,
+    tableDatas: DepartmentTableDatas,
+    loading: DepartmentLoading,
+  }: any = useDepartmentStore();
+  const {
+    fetchUserOrgs,
+    tableActionHandler: OrgUserTableActionHandler,
+    loading: OrganizationLoading,
+    tableDatas: OrgUserTableDatas,
+  }: any = useUserOrgStore();
 
   const [openAddModal, setOpenAddModal] = React.useState(false);
   const [openModal, setOpenModal] = useState(false);
@@ -88,20 +97,26 @@ export default function UserSetting() {
 
   const getAllUserSettings = async () => {
     setLoading(true);
-    setDeleteEndpoint(UserBaseUrl());
+    let url: string = UserBaseUrl();
     setPathName((prev: any) => ({
       ...prev,
-      backendUrl: `${UserBaseUrl()}`,
-      buttonName: UserBaseUrl(),
+      backendUrl: `${url}`,
+      buttonName: userLabel,
     }));
-    await fetchTableData({
-      returnWholeData: false,
-      setData: setUserSettingData,
-      api: UserBaseUrl(),
-      setTotalCount,
-      enqueueSnackbar,
-      urlUtils,
-    });
+    switch (url) {
+      case "user-role":
+        await fetchRoles({ query: urlUtils, getAll: true, enqueueSnackbar });
+        break;
+      case "user-department":
+        await fetchDepartments({ query: urlUtils, getAll: true });
+        break;
+      case "organization-user":
+        await fetchUserOrgs({ query: urlUtils, getAll: true });
+        break;
+      default:
+        break;
+    }
+
     setLoading(false);
   };
 
@@ -124,6 +139,7 @@ export default function UserSetting() {
   useEffect(() => {
     getAllUserSettings();
   }, [urlUtils, location.pathname]);
+
   useEffect(() => {
     if (isSuccess) {
       getAllUserSettings();
@@ -153,6 +169,28 @@ export default function UserSetting() {
       ? true
       : false;
 
+  const tableUpdateDatas: any = {
+    ["roles-and-permission"]: {
+      data: RoleTableDatas,
+      setterFn: async ({ datas, type }: any) => {
+        await RoleTableActionHandler({ values: datas, enqueueSnackbar, type: type });
+      },
+    },
+    ["user-department"]: {
+      data: DepartmentTableDatas,
+      setterFn: async ({ datas, type }: any) => {
+        await DepartmentTableActionHandler({ values: datas, enqueueSnackbar, type: type });
+      },
+    },
+    ["user"]: {
+      data: OrgUserTableDatas,
+      setterFn: async ({ datas, type }: any) => {
+        await OrgUserTableActionHandler({ values: datas, enqueueSnackbar, type: type });
+      },
+    },
+  };
+
+  let returnedParams = location.pathname?.toString().split("/")?.reverse()?.[0];
   return (
     <OrganizationConfiguration>
       <AddModal
@@ -172,20 +210,20 @@ export default function UserSetting() {
             setOpenModal={() => {
               setOpenModal(false);
             }}
-            headers={userSettingData?.headers}
+            headers={tableUpdateDatas?.[`${returnedParams}`]?.data?.headers}
             viewData={viewData}
             chipOptions={["status"]}
-          >
-            {/* {JSON.stringify(viewData)} */}
-          </CustomPopUp>
-          {loading && <FullPageLoader className="custom__page-loader" />}
+          ></CustomPopUp>
+          {(RoleLoading || DepartmentLoading || OrganizationLoading) && (
+            <FullPageLoader className="custom__page-loader" />
+          )}
 
           <BASDataTableUpdate
-            data={userSettingData}
-            deletePath={deleteEndpoint}
+            data={tableUpdateDatas?.[`${returnedParams}`]?.data || []}
+            // deletePath={deleteEndpoint}
             onDataChange={onDataTableChange}
-            setterFunction={setUserSettingData}
-            configName={userLabel}
+            setterFunction={tableUpdateDatas?.[`${returnedParams}`]?.setterFn || null}
+            // configName={userLabel}
             count={totalCount}
             tableIndicator={pathName}
             tableControls={(rowData: any) => {

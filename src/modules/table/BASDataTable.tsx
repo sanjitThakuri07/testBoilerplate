@@ -424,7 +424,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                 }),
                 length: textTitleLength,
               })}
-              <Chip label={`${count} Total`} />
+              <Chip label={`${count || 0} Total`} />
             </Typography>
             <Typography variant="body1" component="p">
               {TABLECONTROLS?.archieved && (
@@ -1163,7 +1163,6 @@ async function duplicateRestoreAPI({
   setterFunction,
   method = ACTION_TYPE?.DUPLICATE,
 }: any) {
-  console.log("here", setterFunction);
   setterFunction?.({ datas: values, type: method });
   // await postApiData({
   //   setterFunction: (data: any) => {
@@ -2075,7 +2074,6 @@ const BASDataTable: React.FC<{
   const deleteHandler = async (datas: object[], key: string = "name") => {
     let selectedIds = datas?.map((data: { id?: number }) => data?.id);
     let selectedName = datas?.map((data: any) => data?.[`${key}`]);
-    console.log({ setterFunction });
     setterFunction?.({ datas: selectedIds, type: ACTION_TYPE?.DELETE });
     // try {
     //   await deleteAPI(`${tableIndicator?.backendUrl ? tableIndicator?.backendUrl : backendUrl}/`, {
@@ -2174,7 +2172,6 @@ const BASDataTable: React.FC<{
             // const isDeleted = await onDelete?.([...selected]);
             setDeleteLoading(true);
             let isObject = tableIndicator?.deleteFieldName instanceof Object;
-            console.log({ method });
             if (method === "delete") {
               await deleteHandler(
                 [...selected],
