@@ -39,8 +39,8 @@ const OrganizationFormat = () => {
   const [loading, setLoading] = useState(false);
   const [isViewOnly, setIsViewOnly] = useState(true);
   const [languageOptions, setLanguageOptions] = useState<MenuOptions[]>([]);
-  const [dateFormatOptions, setDateFormatOptions] = useState<MenuOptions[]>([]);
-  const [timeFormatOptions, setTimeFormatOptions] = useState<MenuOptions[]>([]);
+  // const [dateFormatOptions, setDateFormatOptions] = useState<MenuOptions[]>([]);
+  // const [timeFormatOptions, setTimeFormatOptions] = useState<MenuOptions[]>([]);
   const [displayColorPicker, setDisplayColorPicker] = useState<boolean>(false);
   const [initialFormInitialValues, setInitialFormInitialValues] =
     useState<IOrganizationSettingFormats>(initialValues);
@@ -67,10 +67,10 @@ const OrganizationFormat = () => {
     try {
       setLoading(true);
       const { data, ...res } = await postAPI("/organization-global-settings/format", {
-        barnd_color: values.brandColor.length ? values.brandColor : null,
-        date_format: values.dateFormat.length ? values.dateFormat : null,
-        language: values.language.length ? values.language : null,
-        time_format: values.timeFormat.length ? values.timeFormat : null,
+        barnd_color: values.brandColor.length ? values.brandColor : `#384874`,
+        // date_format: values.dateFormat.length ? values.dateFormat : null,
+        // language: values.language.length ? values.language : null,
+        // time_format: values.timeFormat.length ? values.timeFormat : null,
       });
       setInitialFormInitialValues(values);
       setIsViewOnly(true);
@@ -119,35 +119,35 @@ const OrganizationFormat = () => {
     setFieldTouched("brandColor");
   };
 
-  const fetchLangauges = async () => {
-    const { status, data } = await getAPI("config/language");
-    if (status === 200) {
-      const options = data;
-      const menuOptions = generateMenuOptions(options);
-      setLanguageOptions(menuOptions);
-      return data;
-    }
-  };
+  // const fetchLangauges = async () => {
+  //   const { status, data } = await getAPI("config/language");
+  //   if (status === 200) {
+  //     const options = data;
+  //     const menuOptions = generateMenuOptions(options);
+  //     setLanguageOptions(menuOptions);
+  //     return data;
+  //   }
+  // };
 
-  const fetchDateFormats = async () => {
-    const { status, data } = await getAPI("config/date-format");
-    if (status === 200) {
-      const options = data;
-      const menuOptions = generateMenuOptions(options);
-      setDateFormatOptions(menuOptions);
-      return data;
-    }
-  };
+  // const fetchDateFormats = async () => {
+  //   const { status, data } = await getAPI("config/date-format");
+  //   if (status === 200) {
+  //     const options = data;
+  //     const menuOptions = generateMenuOptions(options);
+  //     setDateFormatOptions(menuOptions);
+  //     return data;
+  //   }
+  // };
 
-  const fetchTimeFormats = async () => {
-    const { status, data } = await getAPI("config/time-format");
-    if (status === 200) {
-      const options = data;
-      const menuOptions = generateMenuOptions(options);
-      setTimeFormatOptions(menuOptions);
-      return data;
-    }
-  };
+  // const fetchTimeFormats = async () => {
+  //   const { status, data } = await getAPI("config/time-format");
+  //   if (status === 200) {
+  //     const options = data;
+  //     const menuOptions = generateMenuOptions(options);
+  //     setTimeFormatOptions(menuOptions);
+  //     return data;
+  //   }
+  // };
 
   const fetchOrganizationDetails = async () => {
     const { status, data } = await getAPI("organization-global-settings/format");
@@ -166,9 +166,9 @@ const OrganizationFormat = () => {
   };
 
   useEffect(() => {
-    if (languageOptions?.length === 0) fetchLangauges();
-    if (dateFormatOptions?.length === 0) fetchDateFormats();
-    if (timeFormatOptions?.length === 0) fetchTimeFormats();
+    // if (languageOptions?.length === 0) fetchLangauges();
+    // if (dateFormatOptions?.length === 0) fetchDateFormats();
+    // if (timeFormatOptions?.length === 0) fetchTimeFormats();
     fetchOrganizationDetails();
   }, []);
 
@@ -206,7 +206,7 @@ const OrganizationFormat = () => {
         </div>
       </div>
       <form className="setting-form-group" onSubmit={handleSubmit}>
-        <Grid container spacing={4} className="formGroupItem">
+        {/* <Grid container spacing={4} className="formGroupItem">
           <Grid item xs={4}>
             <InputLabel htmlFor="langauge">
               <div className="label-heading">Language</div>
@@ -265,7 +265,7 @@ const OrganizationFormat = () => {
               touched={touched.timeFormat}
             />
           </Grid>
-        </Grid>
+        </Grid> */}
         <Grid container spacing={4} className="formGroupItem">
           <Grid item xs={4}>
             <InputLabel htmlFor="brandColor">

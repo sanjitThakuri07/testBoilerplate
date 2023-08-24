@@ -1,4 +1,4 @@
-import * as yup from 'yup';
+import * as yup from "yup";
 
 const PHONE_NO_REGEX = /^[0-9\- ]{8,14}$/;
 
@@ -6,11 +6,11 @@ const OrganizationSettingDetailsSchema = yup.object().shape({
   profilePicture: yup.string().nullable(),
   orgName: yup
     .string()
-    .required('Organization name is required.')
-    .min(3, 'Name cannot be less than 3 character')
-    .max(50, 'Name cannot be more than 50 character'),
-  industry: yup.string().nullable().required('Industry is required.'),
-  country: yup.string().nullable().required('Country is required.'),
+    .required("Organization name is required.")
+    .min(3, "Name cannot be less than 3 character")
+    .max(50, "Name cannot be more than 50 character"),
+  industry: yup.string().nullable().required("Industry is required."),
+  country: yup.string().nullable().required("Country is required."),
   location: yup.string().nullable(),
   // email: yup
   //   .string()
@@ -24,7 +24,7 @@ const OrganizationSettingDetailsSchema = yup.object().shape({
         code: yup.string().nullable(),
         phone: yup
           .string()
-          .matches(PHONE_NO_REGEX, { message: 'not valid phone no', excludeEmptyString: true }),
+          .matches(PHONE_NO_REGEX, { message: "not valid phone no", excludeEmptyString: true }),
       }),
     )
     .ensure(),
@@ -32,9 +32,9 @@ const OrganizationSettingDetailsSchema = yup.object().shape({
 
 const OrganizationSettingFormatSchema = yup.object().shape({
   // brandColor: yup.string().required('Brand color is required.').nullable(),
-  dateFormat: yup.string().nullable(),
-  language: yup.string().nullable(),
-  timeFormat: yup.string().nullable(),
+  // dateFormat: yup.string().nullable(),
+  // language: yup.string().nullable(),
+  // timeFormat: yup.string().nullable(),
 });
 
 const OrganizationSettingAddressSchema = yup.object().shape({

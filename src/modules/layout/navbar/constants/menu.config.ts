@@ -74,15 +74,15 @@ export const menuData = {
     //   depth: 1,
     // },
 
-    {
-      label: "Inspections",
-      path: PrivateRoute.INSPECTION.ROOT,
-      icon: "inspection",
-      role: [],
-      permission: [permissionList.Inspection.view],
-      tabsContainer: [],
-      depth: 1,
-    },
+    // {
+    //   label: "Inspections",
+    //   path: PrivateRoute.INSPECTION.ROOT,
+    //   icon: "inspection",
+    //   role: [],
+    //   permission: [permissionList.Inspection.view],
+    //   tabsContainer: [],
+    //   depth: 1,
+    // },
     {
       label: "Finance",
       path: "/finance/invoice/to-be-invoiced",
@@ -115,7 +115,7 @@ export const menuData = {
       label: "Configuration",
       path: "/config/general-settings/region",
       icon: "configuration",
-      position: "end",
+      position: "top",
       role: [rolesList.organization],
       permission: [
         permissionList.Region.view,

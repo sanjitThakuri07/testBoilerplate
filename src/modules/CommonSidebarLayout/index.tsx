@@ -23,6 +23,7 @@ import { INSPECTION_INITIAL_VALUE } from "src/modules/config/filterOptionsList";
 import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 import { useTemplateFieldsStore } from "src/store/zustand/templates/templateFieldsStore";
 import usePageStore from "src/store/zustand/page";
+import { useTemplateStore } from "src/store/zustand/templates/templateStore";
 
 interface NavigateColumnProps {
   navigateColumnName: string;
@@ -56,6 +57,8 @@ export default function CommonSidebarLayout() {
   const [getFilterValue, setFilterValue] = React.useState(INSPECTION_INITIAL_VALUE);
   const { enqueueSnackbar } = useSnackbar();
 
+  const { templates, getTemplates, getTemplate, template }: any = useTemplateStore();
+
   const { services, setServices } = useContractorServicesStore();
   const searchParams = new URLSearchParams(location.search);
   const searchObject = searchParamObject(searchParams);
@@ -69,12 +72,14 @@ export default function CommonSidebarLayout() {
   const { pages, fetchPages, loading, tableActionHandler, tableDatas }: any = usePageStore();
 
   const getData = async () => {
+    const data = await getTemplate(sidebarId);
     // for api end point
     setPathName((prev: any) => ({
       ...prev,
       backendUrl: "templates-data",
       buttonName: "Inspection",
       deleteFieldName: { value: "id", key: "title" },
+      tableTitle: template?.name || "",
     }));
 
     const apiResponse = await fetchPages({
@@ -117,7 +122,6 @@ export default function CommonSidebarLayout() {
     page: {
       data: tableDatas,
       setterFn: async ({ datas, type }: any) => {
-        console.log("here");
         await tableActionHandler({ values: datas, enqueueSnackbar, type: type });
       },
     },
@@ -139,7 +143,7 @@ export default function CommonSidebarLayout() {
           chipOptionsName: ["inspection_status"],
         }}
         permissions={permissions}
-        permission={permissionList.InspectionName}
+        permission={permissionList.Inspection}
         navigateTitle={{
           column: "template",
           navigate: true,
@@ -156,18 +160,10 @@ export default function CommonSidebarLayout() {
         }}
         actionViewMode={{
           type: "dot",
-          dotModeOptions: [
-            {
-              Icon: <img src="/src/assets/icons/manage_access.svg" alt="report" />,
-              label: "Generate Report",
-              handleButtonClick: ({ id }: any) => {
-                navigate(`report/${id}`);
-              },
-            },
-          ],
+          dotModeOptions: [],
         }}
         allowFilter={{
-          filter: true,
+          filter: false,
           className: "filter__field",
           filteredOptionLength: presentFilter,
         }}

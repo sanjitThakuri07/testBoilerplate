@@ -58,7 +58,8 @@ const NavBar: React.FC<any> = () => {
     }
   };
 
-  const logoPic = logo ? `${process.env.VITE_HOST_URL}/${logo}` : BASLogo;
+  // const logoPic = logo ? `${process.env.VITE_HOST_URL}/${logo}` : BASLogo;
+  const logoPic = `https://media.licdn.com/dms/image/C560BAQGwHd4oj4DKFg/company-logo_100_100/0/1659430562669?e=1700697600&v=beta&t=cz0QQ4qezipfSLNB_8JonRIUy3EmWjJ_soL3MpvMOKY`;
   return (
     <Grid
       container

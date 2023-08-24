@@ -122,7 +122,7 @@ const MenuListComponent: React.FC = () => {
             depth: 1,
             tabsContainer: [],
             permission: [],
-            icon: Inspection,
+            icon: "organization",
           };
         });
 
@@ -272,61 +272,66 @@ const MenuListComponent: React.FC = () => {
                     depth: 1,
                     tabsContainer: [],
                     permission: [],
-                    icon: Inspection,
+                    icon: "organization",
                     role: [],
+                    position: "end",
                   };
                 }),
               ]
                 ?.filter((item) => sidebarFilter({ item, permissions: permissionss, userType }))
-                .map((menu, ind) =>
-                  menu?.position === "end" ? (
-                    <div style={{ flex: "1", display: "flex", alignItems: "flex-end" }}>
-                      <ListItem
-                        disablePadding
-                        key={ind}
-                        className={`${location.pathname === menu.path ? "active" : ""}`}
-                        onClick={() => handleListNavigation({ menu })}
-                      >
-                        <ListItemButton>
-                          <ListItemIcon>{getIcon(menu.icon)}</ListItemIcon>
-                          {!layoutStore.menucollapsed && (
-                            <Tooltip title={menu.label} placement="top-start">
-                              <ListItemText primary={menu.label} className="sidebar__text" />
-                            </Tooltip>
-                          )}
-                        </ListItemButton>
-                      </ListItem>
-                    </div>
-                  ) : (
-                    <ListItem
-                      disablePadding
-                      key={ind}
-                      className={`${location.pathname === menu.path ? "active" : ""}`}
-                      onClick={() => handleListNavigation({ menu })}
-                    >
-                      <ListItemButton>
-                        <Tooltip title={menu.label} arrow placement="right">
-                          <ListItemIcon
-                            style={{
-                              margin: "0.3rem 0",
-                              cursor: "pointer",
-                            }}
+                .map((menu, ind) => {
+                  return (
+                    <>
+                      {menu?.position === "end" ? (
+                        <div style={{ flex: "1", display: "flex", alignItems: "flex-end" }}>
+                          <ListItem
+                            disablePadding
+                            key={ind}
+                            className={`${location.pathname === menu.path ? "active" : ""}`}
+                            onClick={() => handleListNavigation({ menu })}
                           >
-                            {getIcon(menu.icon)}
-                          </ListItemIcon>
-                        </Tooltip>
-
-                        {!layoutStore.menucollapsed && (
-                          <>
-                            <Tooltip title={menu.label} placement="top-start">
-                              <ListItemText primary={menu.label} />
+                            <ListItemButton>
+                              <ListItemIcon>{getIcon(menu.icon)}</ListItemIcon>
+                              {!layoutStore.menucollapsed && (
+                                <Tooltip title={menu.label} placement="top-start">
+                                  <ListItemText primary={menu.label} className="sidebar__text" />
+                                </Tooltip>
+                              )}
+                            </ListItemButton>
+                          </ListItem>
+                        </div>
+                      ) : (
+                        <ListItem
+                          disablePadding
+                          key={ind}
+                          className={`${location.pathname === menu.path ? "active" : ""}`}
+                          onClick={() => handleListNavigation({ menu })}
+                        >
+                          <ListItemButton>
+                            <Tooltip title={menu.label} arrow placement="right">
+                              <ListItemIcon
+                                style={{
+                                  margin: "0.3rem 0",
+                                  cursor: "pointer",
+                                }}
+                              >
+                                {getIcon(menu.icon)}
+                              </ListItemIcon>
                             </Tooltip>
-                          </>
-                        )}
-                      </ListItemButton>
-                    </ListItem>
-                  ),
-                )}
+
+                            {!layoutStore.menucollapsed && (
+                              <>
+                                <Tooltip title={menu.label} placement="top-start">
+                                  <ListItemText primary={menu.label} />
+                                </Tooltip>
+                              </>
+                            )}
+                          </ListItemButton>
+                        </ListItem>
+                      )}
+                    </>
+                  );
+                })}
             </List>
           ))}
         <Divider />

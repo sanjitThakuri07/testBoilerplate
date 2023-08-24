@@ -1331,7 +1331,9 @@ const TableDotActions = ({
                       ? `edit/${rowEditLink}`
                       : `edit/${row?.id}`
                   }`}
-                  onClick={() => {
+                  onClick={(e: any) => {
+                    e.preventDefault();
+                    console.log("clicked");
                     onEdit && onEdit?.(row);
                   }}
                   style={{ textDecoration: "none" }}
