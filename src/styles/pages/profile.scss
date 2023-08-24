@@ -1,5 +1,5 @@
 body {
-  color: #475467;
+  color: $color-without-bg-text;
   font-size: 14px;
   line-height: 1.5;
   // background : #f9fafb;
@@ -40,7 +40,7 @@ body {
 }
 
 .label-heading {
-  color: #344054;
+  color: $color-priamry-dark;
   font-weight: 500;
 
   & + p {
@@ -124,7 +124,8 @@ body {
 
   .MuiOutlinedInput-input {
     &:not(.Mui-disabled) {
-      color: #33426a;
+      // color: #33426a;
+      color: $color-without-bg-text;
       font-weight: 600;
     }
   }
@@ -182,7 +183,7 @@ body {
 
       &.Mui-selected {
         background: #f2f4f7;
-        color: #344054;
+        color: $color-priamry-dark;
       }
     }
   }
@@ -205,7 +206,7 @@ body {
 
       &.Mui-selected {
         background: #f2f4f7;
-        color: #344054;
+        color: $color-priamry-dark;
       }
     }
   }

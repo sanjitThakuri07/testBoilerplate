@@ -68,6 +68,8 @@
   border: 1.5px solid #eaecf0;
   border-radius: 8px;
   padding: 13px 15px;
+  // overflow-y: scroll;
+  // height: 60vh;
 }
 
 .active-field-focused {
@@ -189,7 +191,8 @@
 
 .enable-booking-component {
   pointer-events: none !important;
-  cursor: none !important;
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
 }
 
 // .rate-block-container {
@@ -206,4 +209,11 @@
 .NewTextEditor .jodit-toolbar__box {
   height: 100% !important;
   padding: 10px 0px;
+}
+
+.fields_hammer_sidebar {
+  position: sticky;
+  top: 0;
+  max-height: calc(100vh - 80px);
+  overflow: auto;
 }

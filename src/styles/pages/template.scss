@@ -170,7 +170,7 @@
           .label__style {
             position: relative;
             &::after {
-              content: "";
+              content: '';
               position: absolute;
               width: 7px;
               height: 7px;
@@ -181,7 +181,7 @@
           }
 
           &::before {
-            content: "";
+            content: '';
             position: absolute;
             height: toRem(30);
             width: 2px;
@@ -191,7 +191,7 @@
           }
 
           &::after {
-            content: "";
+            content: '';
             position: absolute;
             width: toRem(22);
             height: 2px;
@@ -217,7 +217,7 @@
           .label__style {
             position: relative;
             &::after {
-              content: "";
+              content: '';
               position: absolute;
               width: 7px;
               height: 7px;
@@ -228,7 +228,7 @@
           }
 
           &::before {
-            content: "";
+            content: '';
             position: absolute;
             height: toRem(30);
             width: 2px;
@@ -238,7 +238,7 @@
           }
 
           &::after {
-            content: "";
+            content: '';
             position: absolute;
             width: toRem(22);
             height: 2px;
@@ -295,7 +295,7 @@
       flex-direction: row;
       align-items: center;
       gap: toRem(8);
-      color: var(--mui-palette-primary-main);
+      color: $color-primary;
 
       svg {
         font-size: toRem(16);

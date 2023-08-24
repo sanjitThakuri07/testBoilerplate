@@ -68,7 +68,7 @@
         &.active {
           transition: all 0.3s;
           background: $color-mobile-prev-btn;
-          color: var(--mui-palette-primary-main);
+          color: $color-primary;
         }
       }
     }

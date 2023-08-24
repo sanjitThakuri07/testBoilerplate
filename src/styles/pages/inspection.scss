@@ -130,7 +130,7 @@
       position: relative;
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         left: toRem(-19);
         width: toRem(3);
@@ -273,7 +273,7 @@
 
 .inspection__section {
   border-radius: toRem(8) !important;
-  background: #283352 !important;
+  background: $color-priamry-dark !important;
 
   &-image {
     background: #283352;
@@ -323,7 +323,7 @@
     padding-bottom: toRem(6);
     gap: toRem(8);
     font-weight: bold;
-    color: var(--mui-palette-primary-main);
+    color: $color-primary;
     letter-spacing: 1px;
     transition: all 0.3s;
     cursor: pointer;
@@ -333,7 +333,7 @@
 
     &:hover {
       letter-spacing: 1.2px;
-      background: var(--mui-palette-primary-main);
+      background: $color-primary;
       color: $color-white;
     }
 

@@ -34,7 +34,7 @@ $nav-collapsed-width: 80px;
 
   &.blue {
     .nav-container {
-      background: #283352;
+      background: $color-primary;
     }
   }
 
@@ -88,13 +88,28 @@ $nav-collapsed-width: 80px;
       width: 100%;
 
       .active {
-        background: #33426a !important;
+        // background: #33426a !important;
+        background: $color-priamry-hover;
       }
     }
 
     .page-container {
       width: calc(100% - $nav-collapsed-width);
       transition: all ease-in 1s;
+    }
+  }
+
+  .hamburger__button {
+    // position: absolute !important;
+    position: fixed !important;
+    top: 4%;
+    z-index: 1000;
+    left: 5%;
+    transform: translateY(-50%);
+    z-index: 1010;
+    display: block !important;
+    @media (min-width: '1100px') {
+      display: none !important;
     }
   }
 
@@ -119,7 +134,7 @@ $nav-collapsed-width: 80px;
         padding: 0px 20px;
 
         .user-title {
-          color: #344054;
+          color: $color-priamry-dark;
           font-size: 16px;
           font-weight: 600;
           line-height: 24px;
@@ -127,7 +142,7 @@ $nav-collapsed-width: 80px;
         }
 
         .user-time-zone {
-          color: #344054;
+          color: $color-priamry-dark;
           font-size: 16px;
           font-weight: 400;
           line-height: 24px;
@@ -182,15 +197,13 @@ $nav-collapsed-width: 80px;
 }
 
 .hamburger__button {
-  // position: absolute !important;
-  position: fixed !important;
-  top: 4%;
+  position: absolute !important;
+  top: 50%;
   z-index: 1000;
   left: 5%;
   transform: translateY(-50%);
-  z-index: 1010;
   display: block !important;
-  @media (min-width: "1100px") {
+  @media (min-width: '1100px') {
     display: none !important;
   }
 }

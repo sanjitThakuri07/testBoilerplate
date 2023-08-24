@@ -13,6 +13,8 @@ import { getAPI, putAPI } from "src/lib/axios";
 import Billing from "./Billing";
 import TenantProfileSchema from "src/validationSchemas/TenantProfile";
 import { userDataStore } from "src/store/zustand/globalStates/userData";
+import useAppStore from "src/store/zustand/app";
+import FullPageLoader from "src/components/FullPageLoader";
 
 const initialValues: ProfilePayload = {
   brandColor: "#284493",
@@ -44,54 +46,101 @@ const Profile = () => {
   const isTenant = userType === "Tenant";
 
   const { enqueueSnackbar } = useSnackbar();
+  const { user, fetchProfile, updateUser, loading: UserLoading }: any = useAppStore();
 
   const handleFormSubmit = async (values: ProfilePayload) => {
-    try {
-      setLoading(true);
-      //we should not update email
-      const profileDetails = {
-        profile: {
-          company_name: values.company,
-          designation: values.designation,
-          country: values.country,
-          phone: values.phone,
-          location: values.location,
-          photo: values.profilePicture?.includes("data:")
-            ? values.profilePicture?.replace("data:", "")
-            : values.profilePicture,
-          full_name: values.fullName,
-        },
-        profile_format: {
-          language: values.language,
-          date_format: values.dateFormat,
-          time_format: values.timeFormat,
-          time_zone: values.timeZone,
-          brand_color: values.brandColor,
-        },
-        billing_plan: values?.billing_plan,
-      };
-      const data = await putAPI(`user/profile`, profileDetails);
+    const profileDetails = {
+      profile: {
+        company_name: values.company,
+        designation: values.designation,
+        country: values.country,
+        phone: values.phone,
+        location: values.location,
+        photo: values.profilePicture?.includes("data:")
+          ? values.profilePicture?.replace("data:", "")
+          : values.profilePicture,
+        full_name: values.fullName,
+      },
+      profile_format: {
+        language: values.language,
+        date_format: values.dateFormat,
+        time_format: values.timeFormat,
+        time_zone: values.timeZone,
+        brand_color: values.brandColor,
+      },
+      billing_plan: values?.billing_plan,
+    };
+    const apiResponse = await updateUser({
+      values: profileDetails,
+      otherDatas: { login_id: values?.email },
+    });
+    // try {
+    //   setLoading(true);
+    //   //we should not update email
+    // const profileDetails = {
+    //   profile: {
+    //     company_name: values.company,
+    //     designation: values.designation,
+    //     country: values.country,
+    //     phone: values.phone,
+    //     location: values.location,
+    //     photo: values.profilePicture?.includes("data:")
+    //       ? values.profilePicture?.replace("data:", "")
+    //       : values.profilePicture,
+    //     full_name: values.fullName,
+    //   },
+    //   profile_format: {
+    //     language: values.language,
+    //     date_format: values.dateFormat,
+    //     time_format: values.timeFormat,
+    //     time_zone: values.timeZone,
+    //     brand_color: values.brandColor,
+    //   },
+    //   billing_plan: values?.billing_plan,
+    // };
+    // const data = await putAPI(`user/profile`, profileDetails);
 
-      enqueueSnackbar(data?.data?.message || "updated successfully", {
-        variant: "success",
-      });
-      setIsViewOnly(true);
-      fetchProfile();
-      return;
-    } catch (error: any) {
-      enqueueSnackbar(error.response.data.message || "Something went wrong!", {
-        variant: "error",
-      });
-    } finally {
-      setLoading(false);
-    }
+    //   enqueueSnackbar(data?.data?.message || "updated successfully", {
+    //     variant: "success",
+    //   });
+    //   setIsViewOnly(true);
+    //   fetchProfile();
+    //   return;
+    // } catch (error: any) {
+    //   enqueueSnackbar(error.response.data.message || "Something went wrong!", {
+    //     variant: "error",
+    //   });
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
   const formikBags = useFormik({
-    initialValues: isTenant ? tenantInitialValues : initialValues,
+    // initialValues: isTenant ? tenantInitialValues : initialValues,
+    initialValues: isTenant
+      ? tenantInitialValues
+      : user
+      ? {
+          ...user,
+          brandColor: user?.brand_color,
+          country: user?.country,
+          dateFormat: user?.date_format,
+          email: user?.login_id,
+          fullName: user?.full_name,
+          language: user?.language,
+          phone: user?.phone,
+          timeFormat: user?.time_format,
+          timeZone: user?.time_zone,
+          company: user?.company_name,
+          designation: user?.designation,
+          location: user?.location,
+          profilePicture: user?.photo,
+        }
+      : initialValues,
     validateOnChange: true,
     validationSchema: isTenant ? TenantProfileSchema : ProfileSchema,
     onSubmit: handleFormSubmit,
+    enableReinitialize: true,
   });
 
   const {
@@ -113,51 +162,51 @@ const Profile = () => {
     touched: Object.values(touched).length > 0,
   };
 
-  const fetchProfile = async (): Promise<void> => {
-    try {
-      setLoading(true);
-      const { status, data } = await getAPI(`user/profile`);
-      const profileDetails: ProfilePayload = {
-        brandColor: data?.brand_color,
-        country: data?.country,
-        dateFormat: data?.date_format,
-        email: data?.login_id,
-        fullName: data?.full_name,
-        language: data?.language,
-        phone: data?.phone,
-        timeFormat: data?.time_format,
-        timeZone: data?.time_zone,
-        company: data?.company_name,
-        designation: data?.designation,
-        location: data?.location,
-        profilePicture: data?.photo,
-        ...data,
-      };
-      if (status === 200) {
-        setValues(profileDetails);
-        setInitialProfile(profileDetails);
+  // const fetchProfile = async (): Promise<void> => {
+  //   try {
+  //     setLoading(true);
+  //     const { status, data } = await getAPI(`user/profile`);
+  //     const profileDetails: ProfilePayload = {
+  //       brandColor: data?.brand_color,
+  //       country: data?.country,
+  //       dateFormat: data?.date_format,
+  //       email: data?.login_id,
+  //       fullName: data?.full_name,
+  //       language: data?.language,
+  //       phone: data?.phone,
+  //       timeFormat: data?.time_format,
+  //       timeZone: data?.time_zone,
+  //       company: data?.company_name,
+  //       designation: data?.designation,
+  //       location: data?.location,
+  //       profilePicture: data?.photo,
+  //       ...data,
+  //     };
+  //     if (status === 200) {
+  //       setValues(profileDetails);
+  //       setInitialProfile(profileDetails);
 
-        setUserData({
-          token,
-          refresh_token,
-          userType,
-          clientId,
-          timezone,
-          userName: data?.full_name,
-          profilePicture: data?.photo,
-        });
+  //       setUserData({
+  //         token,
+  //         refresh_token,
+  //         userType,
+  //         clientId,
+  //         timezone,
+  //         userName: data?.full_name,
+  //         profilePicture: data?.photo,
+  //       });
 
-        return;
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  //       return;
+  //     }
+  //   } catch (error) {
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   useEffect(() => {
-    fetchProfile();
+    // fetchProfile();
+    fetchProfile({});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -188,7 +237,7 @@ const Profile = () => {
 
   return (
     <form className={`profile-form ${isViewOnly ? "edit-mode" : ""}`} onSubmit={handleSubmit}>
-      {loading && <CircularProgress className="page-loader" />}
+      {(loading || UserLoading) && <FullPageLoader />}
 
       <div className="org_update ">
         <div>

@@ -1,11 +1,14 @@
-import { CircularProgress } from '@mui/material';
-import { Box } from '@mui/system';
-import './index.scss';
+import { CircularProgress } from "@mui/material";
+import { Box } from "@mui/system";
+// import './index.scss';
 
-const FullPageLoader = ({ className , style={}}: any) => {
+const FullPageLoader = ({ className, style = {} }: any) => {
   return (
-    <Box className={`fullpage__loader ${className ? className : ''}`} sx={{ display: 'flex',...style }}>
-      <CircularProgress  />
+    <Box
+      className={`fullpage__loader ${className ? className : ""}`}
+      sx={{ display: "flex", ...style }}
+    >
+      <CircularProgress />
     </Box>
   );
 };

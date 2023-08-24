@@ -11,18 +11,18 @@
     display: flex;
     align-items: center;
     border: 1px solid #ddd;
-    border-radius: 0 0.15rem 0.15rem 0;
+    border-radius: 0 .15rem .15rem 0;
     justify-content: space-between;
     position: relative;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       bottom: 0;
       left: 0;
       width: 0%;
       height: toRem(2);
-      background: var(--mui-palette-primary-main);
+      background: $color-primary;
       transition: 0.3s;
     }
 
@@ -92,7 +92,7 @@
         }
 
         &.active {
-          outline: 1px solid var(--mui-palette-primary-main);
+          outline: 1px solid $color-primary;
           transition: all 0.3s;
 
           & .fake_custom_select_field_input_type_icon {

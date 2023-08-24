@@ -12,7 +12,7 @@ import {
   Alert,
 } from "@mui/material";
 import { useDropzone } from "react-dropzone";
-import "./multiFileUploader.scss";
+// import "./multiFileUploader.scss";
 import { IndividualFile } from "./index";
 import { makeStyles } from "@mui/styles";
 import CloseIcon from "@mui/icons-material/Close";

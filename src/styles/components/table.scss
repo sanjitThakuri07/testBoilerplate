@@ -120,7 +120,7 @@ ol {
 
   .filtered__text {
     font-size: toRem(14);
-    color: var(--mui-palette-primary-main);
+    color: $color-primary;
     font-weight: normal;
     padding-top: toRem(20);
   }

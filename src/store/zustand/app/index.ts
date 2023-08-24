@@ -41,22 +41,28 @@ const useAppStore = create((set) => {
       return apiResponse;
     },
 
-    updateUser: async ({ values, id, updateState, enqueueSnackbar }: any) => {
+    updateUser: async ({ values, id, updateState, enqueueSnackbar, otherDatas }: any) => {
       set({ loading: true });
       return await putApiData({
         values: values,
         id,
-        url: "multiple-response",
+        url: url?.profile,
+        getAll: true,
         // setterLoading: setLoading,
         enqueueSnackbar: enqueueSnackbar,
         setterFunction: (data: any) => {
           updateState?.(data);
+          console.log({ data });
           set((state: any) => {
-            const filteredData = state?.multipleResponseData?.filter(
-              (data: any) => data?.id !== id,
-            );
-
-            return { user: [{ ...data?.data }, ...filteredData], loading: false };
+            return {
+              loading: false,
+              user: {
+                ...(otherDatas || {}),
+                billing_plan: values?.billing_plan,
+                ...(values?.profile || {}),
+                ...(values?.profile_format || {}),
+              },
+            };
           });
         },
       });

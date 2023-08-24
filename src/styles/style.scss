@@ -1,5 +1,5 @@
 body {
-  color: #475467;
+  color: $color-without-bg-text;
 
   font-size: 14px;
 
@@ -39,7 +39,7 @@ body {
 }
 
 .label-heading {
-  color: #344054;
+  color: $color-priamry-dark;
 
   font-weight: 500;
 
@@ -63,18 +63,18 @@ body {
   .css-aux6d7-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled,
   .css-1a2lq1l-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled {
     opacity: 1;
-    -webkit-text-fill-color: #384874 !important;
+    -webkit-text-fill-color: $color-primary !important;
     font-weight: 600 !important;
     font-size: 16px !important;
-    // color: #384874 !important;
+    // color: $color-primary !important;
   }
 
   .css-jqb9td-MuiInputBase-root-MuiOutlinedInput-root {
     opacity: 1;
-    -webkit-text-fill-color: #384874 !important;
+    -webkit-text-fill-color: $color-primary !important;
     font-weight: 600 !important;
     font-size: 16px !important;
-    color: #384874 !important;
+    color: $color-primary !important;
   }
 }
 

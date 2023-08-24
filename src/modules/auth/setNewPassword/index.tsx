@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Button, FormHelperText, InputLabel, OutlinedInput, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
-import "../../../styles/authentication.scss";
+// import "../../../styles/authentication.scss";
 import KeyIcon from "src/assets/icons/key_icon.svg";
 import LeftArrow from "src/assets/icons/left_arrow.svg";
 import AuthFooter from "../../../components/AuthFooter";

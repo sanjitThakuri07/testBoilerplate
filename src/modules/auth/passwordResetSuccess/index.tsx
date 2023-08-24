@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Button, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
-import "../../../styles/authentication.scss";
+// import "../../../styles/authentication.scss";
 import CheckIcon from "src/assets/icons/check_icon.svg";
 import AuthFooter from "../../../components/AuthFooter";
 import { Link } from "react-router-dom";

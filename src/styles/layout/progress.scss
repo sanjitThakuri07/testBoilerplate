@@ -1,0 +1,131 @@
+.indexedStep {
+  color: rgb(190, 190, 190);
+  width: 30px;
+  height: 30px;
+  font-size: 12px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: 3px solid #fff;
+  border: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    width: 10px;
+    height: 10px;
+    background: #eaecf0;
+    border-radius: 50%;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+  }
+}
+
+.indexedStep.accomplished {
+  background: #ebedf1;
+  color: white;
+  border-style: none;
+}
+
+.indexedStep.active {
+  outline: 3px solid #33426a;
+  span {
+    background: #33426a;
+  }
+}
+
+.RSPBprogressBar {
+  height: 2px;
+  width: 65%;
+  line-height: 1;
+  border-radius: 10px;
+  position: relative;
+  background-color: rgb(207, 207, 207);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 0;
+  margin: 2.4rem auto;
+  margin-bottom: 6.4rem;
+
+  .complete {
+    outline: 10px solid #ebedf1;
+
+    &__icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #33426a;
+      outline: 3px solid;
+      border-radius: 50%;
+      outline-offset: 6px;
+
+      svg {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+.RSPBprogressBar .RSPBstep {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+  position: absolute;
+  transform: translateX(-50%);
+  transition-property: all;
+  transition-timing-function: ease;
+  outline: 7px solid #c1c6d5;
+  border-radius: 50%;
+  outline-offset: 3px;
+}
+
+.RSPBprogressBar .RSPBprogressBarText {
+  color: white;
+  font-size: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.RSPBprogressBar .RSPBprogression {
+  position: absolute;
+  transition: width 0.3s ease;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 10px;
+  background: #33426a;
+  z-index: -1;
+}
+
+.block {
+  &__description {
+    position: absolute;
+    bottom: -50px;
+    text-align: center;
+    width: 250px;
+    color: $color-priamry-dark;
+    font-weight: 500;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .indexedStep {
+    width: 15px;
+    height: 15px;
+    font-size: 6px;
+  }
+}

@@ -273,6 +273,7 @@ export const putApiData = async ({
   domain,
   id,
   message,
+  getAll,
 }: postInterface) => {
   try {
     setterLoading?.(true);
@@ -280,7 +281,7 @@ export const putApiData = async ({
       ? await putAPI(`${url}`, values)
       : await putAPI(`${url}/${id}`, values);
 
-    if (status === 200) {
+    if (status >= 200) {
       if (data?.message) {
         enqueueSnackbar?.(`${data?.message}`, { variant: "success" });
       } else {
@@ -288,7 +289,9 @@ export const putApiData = async ({
           variant: "success",
         });
       }
-      if (data?.length) {
+      if (getAll) {
+        setterFunction?.(data);
+      } else if (data?.length) {
         setterFunction?.(data);
         setterLoading?.(false);
       } else if (data?.items) {

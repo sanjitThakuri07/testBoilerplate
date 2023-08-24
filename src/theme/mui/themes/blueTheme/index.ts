@@ -1,6 +1,4 @@
-import { createTheme } from "@mui/material/styles";
-
-const blueTheme = createTheme({
+const blueTheme = {
   palette: {
     common: {
       black: "#475467",
@@ -109,6 +107,6 @@ const blueTheme = createTheme({
     //     }}
     //   }
   },
-});
+};
 
 export default blueTheme;

@@ -21,7 +21,7 @@ import {
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import "../../../styles/authentication.scss";
+// import "../../../styles/authentication.scss";
 import { useAuthStore } from "src/store/zustand/globalStates/auth";
 import AuthFooter from "../../../components/AuthFooter";
 import { Form } from "formik";

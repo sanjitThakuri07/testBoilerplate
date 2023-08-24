@@ -1,4 +1,9 @@
-$color-primary: #384874;
+// $color-primary
+$color-primary: var(--mui-palette-primary-main);
+$color-priamry-dark: var(--mui-palette-primary-dark);
+$color-priamry-hover: var(--mui-palette-primary-dark);
+$color-primary-bg-text: var(--mui-palette-primary-dark-primary-bg-text);
+$color-without-bg-text: #424242;
 $color-light: #afb6c7;
 $color-dark: #000;
 $color-white: #fff;
@@ -8,7 +13,7 @@ $tweleve-px-rem: 0.6rem;
 $sixteen-px-rem: 0.8rem;
 $base-px-rem: 0.055;
 $section-bg: #f2f3f6;
-$section-text: #344054;
+$section-text: $color-priamry-dark;
 // $section-after: #b51a93;
 $section-after: #2e7ec7;
 $section-after_repeat: #11b199;
@@ -37,10 +42,6 @@ $color-pale-sky: #777;
 $hover-primary-color: rgb(39, 50, 81);
 
 $hover-code-dropdown-bg: rgba(0, 0, 0, 0.04);
-
-// body {
-//   background-color: var(--mui-palette-primary-main) !important;
-// }
 
 // conversion
 @mixin toRemProp($property, $value) {
@@ -251,9 +252,9 @@ $custom-template-padding-wrapper-side: toRem(32);
     border-radius: toRem(4);
     text-decoration: none;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    outline: 2px solid var(--mui-palette-primary-main);
+    outline: 2px solid $color-primary;
     color: $color-white;
-    background-color: var(--mui-palette-primary-main);
+    background-color: $color-primary;
   }
 }
 
@@ -263,7 +264,7 @@ $custom-template-padding-wrapper-side: toRem(32);
   outline: none;
   border: none;
   border-radius: toRem(8);
-  color: var(--mui-palette-primary-main);
+  color: $color-primary;
   font-size: toRem(15);
 
   &.note__button {
@@ -432,7 +433,7 @@ $custom-template-padding-wrapper-side: toRem(32);
   padding: 8px 12px;
 
   &:hover {
-    background-color: var(--mui-palette-primary-main);
+    background-color: $color-primary;
     color: $color-white;
 
     svg {

@@ -2,13 +2,13 @@
   position: relative;
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 0%;
     height: toRem(2);
-    background: var(--mui-palette-primary-main);
+    background: $color-primary;
     transition: 0.3s;
   }
 

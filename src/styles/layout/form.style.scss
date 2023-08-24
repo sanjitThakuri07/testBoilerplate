@@ -26,7 +26,7 @@
 
   .PrivateSwitchBase-input + span {
     &.css-r8uj3u {
-      background: #283352;
+      background: $color-primary;
       opacity: 0.8;
     }
   }
@@ -58,4 +58,40 @@
   .mobile_component_box {
     padding-bottom: toRem(32) !important;
   }
+}
+
+.add-another__rate {
+  background: transparent !important;
+  color: #475467 !important;
+  box-shadow: none !important;
+}
+
+.middle__seperator {
+  padding-top: 2rem;
+  padding-bottom: 0.6rem;
+  border-top: 2px solid #eaecf0;
+  border-bottom: 2px solid #eaecf0;
+  margin-bottom: 2rem;
+
+  .add-another__rate {
+    display: flex;
+    align-items: center;
+    span:first-child {
+      font-size: 1.4rem;
+    }
+    transition: all 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.rate__field-block {
+  position: relative;
+  background: #f9fafb;
+  padding: 18px;
+  padding-bottom: 11px;
+  /* width: 82%; */
+  border-radius: 16px;
+  margin-bottom: 2rem;
 }

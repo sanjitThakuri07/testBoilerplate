@@ -40,8 +40,18 @@ $theme-green: green !important;
 @import "./components/newResponseType.scss";
 @import "./pages/bottomTemplateNavigation.scss";
 @import "./layout/layout.scss";
+@import "./layout/config.scss";
+@import "./layout/terms.scss";
 // @import './/table.scss';
+@import "./layout/TemplateTopBar.scss";
+@import "./components/invoiceGenerate.scss";
+@import "./components/InvoicePreview.scss";
+@import "./layout/form.style.scss";
+@import "./pages/regions.scss";
+@import "./pages/tabs.scss";
+@import "./pages/finance.scss";
 @import "./pages/Report.scss";
+@import "./pages/customer.scss";
 @import "./pages/accessControl.scss";
 @import "./pages/inspections.scss";
 @import "./layout/ReportLayout.scss";
@@ -52,14 +62,22 @@ $theme-green: green !important;
 @import "./components/assignActivityForm.scss";
 @import "./pages/forms.scss";
 @import "./components/customBreadcrumb.scss";
-// @import '../containers/calendar/event/AddEvent.scss';
-@import "./components/TemplateTopBar.scss";
+@import "/src/modules/calendar/event/AddEvent.scss";
 @import "./components/org.scss";
 @import "./pages/profile.scss";
 @import "./pages/Booking.scss";
 @import "./pages/template.scss";
-@import "./components/settings.scss";
-// @import "../containers/calendar/Calendar.scss";
+@import "./components/UserAlertModule.scss";
+@import "./components/revenue_card.scss";
+@import "./pages/Calendar.scss";
+@import "./components/FullpageLoader.scss";
+@import "./components/multiFileUploader.scss";
+@import "./components/GeoLocation.scss";
+@import "./layout/progress.scss";
+@import "./authentication.scss";
+@import "./pages/twofactor.scss";
+@import "./pages/BillingPlans.scss";
+
 body {
   margin: 0;
   padding: 0;
@@ -116,11 +134,11 @@ a {
 
 .blue {
   .input-label {
-    color: #344054 !important;
+    color: $color-priamry-dark !important;
   }
 
   .badge-tab-indicator {
-    background: #283352;
+    background: $color-primary;
   }
 }
 
@@ -154,7 +172,7 @@ a {
 }
 
 .MuiCardHeader-content > .MuiCardHeader-title {
-  color: #384874 !important;
+  color: $color-primary !important;
   font-weight: 500 !important;
   font-size: 17px !important;
 }
@@ -235,7 +253,7 @@ a {
   border: 1px solid #d0d5dd !important;
   padding: 10px 0px !important;
   border-radius: 8px !important;
-  color: #344054 !important;
+  color: $color-priamry-dark !important;
 }
 
 .containedButton {
@@ -481,7 +499,7 @@ a {
 }
 
 .privacy_policy_tab_container .Mui-selected {
-  color: #384874 !important;
+  color: $color-primary !important;
   background: white !important;
   margin: 8px !important;
   text-transform: initial !important;
@@ -669,11 +687,11 @@ a {
 }
 
 .MuiTooltip-tooltip {
-  background-color: #384874 !important;
+  background-color: $color-primary !important;
 }
 
 .MuiTooltip-arrow {
-  color: #384874 !important;
+  color: $color-primary !important;
 }
 
 .inner_field_component_styling_in_template {
@@ -742,23 +760,9 @@ a {
   display: flex !important;
   height: 100% !important;
   width: 100% !important;
-  max-height: 80vh;
-  overflow: auto;
-
-  &::-webkit-scrollbar-thumb {
-    background-color: #8a8a8d !important;
-  }
 
   ul {
     width: 100% !important;
-
-    .sidebar__text {
-      span {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-    }
   }
 }
 
@@ -815,6 +819,7 @@ a {
       box-shadow: none;
       box-shadow: 2 10px 0px 5px red;
       border-bottom: 2px solid;
+      border-color: $color-primary;
     }
   }
 }
@@ -1240,7 +1245,7 @@ a {
 }
 
 .bk_qu_label_heading {
-  color: #344054;
+  color: $color-priamry-dark;
 
   font-weight: 500;
 
@@ -1277,4 +1282,47 @@ a {
       color: #667085;
     }
   }
+}
+
+// notifications card
+.notification_card_header {
+  padding: 10px !important;
+  cursor: pointer;
+  border-radius: 6px !important;
+  transition: 0.2s ease;
+}
+
+.notification_card_header:hover {
+  background-color: #f9fafb;
+  transition: 0.2s ease;
+}
+
+.unread_notifications {
+  background-color: #0285ff !important;
+  height: 8px;
+  width: 8px;
+  border-radius: 50px;
+}
+
+.validation_alert {
+  animation: validation_alert 0.2s ease-in-out 0s 2;
+}
+
+@keyframes validation_alert {
+  0% {
+    margin-left: 0rem;
+  }
+  25% {
+    margin-left: 0.6rem;
+  }
+  75% {
+    margin-left: -0.8rem;
+  }
+  100% {
+    margin-left: 0rem;
+  }
+}
+
+.button__without-bg {
+  color: $color-without-bg-text !important;
 }

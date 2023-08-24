@@ -3,7 +3,7 @@
   padding-right: toRem(14);
   padding-right: toRem(34);
   &::after {
-    content: "";
+    content: '';
     top: 0;
     left: 0;
     position: absolute;
@@ -65,5 +65,5 @@
 // }
 
 .dragging {
-  background-color: rgba($color: var(--mui-palette-primary-main), $alpha: 0.4);
+  background-color: rgba($color: $color-primary, $alpha: 0.4);
 }

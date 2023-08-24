@@ -87,7 +87,7 @@
 .border__top {
   position: relative;
   &::after {
-    content: "";
+    content: '';
     width: 100%;
     height: 10px;
     background: red;
@@ -149,7 +149,7 @@
 
 .custom__option:hover {
   background-color: $hover-code-dropdown-bg;
-  color: var(--mui-palette-primary-main);
+  color: $color-primary;
 }
 
 .custom__option.selected {

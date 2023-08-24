@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { Stack } from "@mui/system";
 import { Link } from "react-router-dom";
-import "../../../styles/authentication.scss";
+// import "../../../styles/authentication.scss";
 import KeyIcon from "src/assets/icons/key_icon.svg";
 import LeftArrow from "src/assets/icons/left_arrow.svg";
 import AuthFooter from "../../../components/AuthFooter";

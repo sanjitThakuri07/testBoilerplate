@@ -1,0 +1,126 @@
+#BillingPlans {
+  .billing_plan_container {
+    padding: 20px;
+    .billing_plan__heading {
+      .MuiTypography-h3 {
+        font-size: 22px;
+        font-weight: 500;
+      }
+
+      .billing_plan__title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .billing_plan_container_body {
+      margin: 40px 0;
+    }
+  }
+
+  #BillingCard {
+    .Billingdiv_card_heading {
+      font-size: 18px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .Billingdiv_card_text {
+      font-size: 14px;
+      font-weight: 400;
+      color: #475467;
+    }
+    .BillingCard_container {
+      padding: 20px;
+      margin-bottom: 25px;
+      background: #ffffff;
+      border: 1px solid #eaecf0;
+      box-shadow: 0px 3px 15px rgba(16, 24, 43, 0.1), 0px 1px 2px rgba(16, 24, 40, 0.06);
+      border-radius: 12px;
+      max-width: 350px;
+
+      .BillingCard_inner_card {
+        margin-top: 10px;
+        background: #ffffff;
+
+        border: 1px solid #eaecf0;
+        border-radius: 8px;
+        padding: 10px;
+
+        .inner_card_img {
+          img {
+            height: 38px;
+            width: 100%;
+          }
+        }
+
+        .billing_card_checkbox {
+          margin-bottom: -5px;
+          height: 20px;
+          width: 20px;
+          margin-right: 7px;
+        }
+
+        .inner_card_heading {
+          display: flex;
+          align-items: center;
+          .BillingCard_inner_card_title {
+            font-size: 16px;
+            font-weight: 400;
+            margin-left: 10px;
+          }
+          border-bottom: 1px solid #eaecf0;
+        }
+
+        .BillingCard_inner_card_text {
+          .BillingCard_inner_card_list {
+            margin-top: 5px;
+          }
+          margin-top: 10px;
+
+          .BillingCard_inner_card_text_icon {
+            color: #00b87c;
+            font-size: 20px;
+            margin-right: 5px;
+            margin-bottom: -5px;
+          }
+        }
+
+        .BillingCard_inner_card_btn {
+          margin-top: 10px;
+          .MuiButtonBase-root {
+            border: 1px solid #d0d5dd;
+            background: transparent;
+            padding: 0px 10px;
+            font-size: 14px;
+            font-weight: 500;
+            &:hover {
+              background: #0002471a;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .BillingCard_container:hover,
+  .BillingCard_container_active {
+    background-color: #33426a !important;
+    cursor: pointer;
+
+    .Billingdiv_card_heading {
+      color: #ffffff !important;
+    }
+
+    .Billingdiv_card_text {
+      color: #c6c5c5 !important;
+    }
+
+    .edit_plan_btn {
+      background-color: #33426a !important;
+      color: #ffffff !important;
+    }
+  }
+}

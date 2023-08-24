@@ -1,4 +1,4 @@
-$color-primary: #384874;
+$color-primary: $color-primary;
 $color-bolder: #eaecf0;
 
 .popup {
@@ -6,7 +6,7 @@ $color-bolder: #eaecf0;
     // padding: 2rem;
 
     ol {
-      color: var(--mui-palette-primary-main) !important;
+      color: $color-without-bg-text !important;
       font-size: 16px;
       padding: 0 16px;
       padding-top: 16px;
@@ -27,7 +27,7 @@ $color-bolder: #eaecf0;
   }
 
   &__heading {
-    color: var(--mui-palette-primary-main) !important;
+    color: $color-without-bg-text !important;
     display: flex;
     flex-direction: column;
     padding: 24px;
