@@ -274,7 +274,7 @@ const MenuListComponent: React.FC = () => {
                     permission: [],
                     icon: "organization",
                     role: [],
-                    position: "end",
+                    position: "",
                   };
                 }),
               ]
@@ -283,7 +283,10 @@ const MenuListComponent: React.FC = () => {
                   return (
                     <>
                       {menu?.position === "end" ? (
-                        <div style={{ flex: "1", display: "flex", alignItems: "flex-end" }}>
+                        <div
+                          style={{ flex: "1", display: "flex", alignItems: "flex-end" }}
+                          className={menu?.className ? menu?.className : ""}
+                        >
                           <ListItem
                             disablePadding
                             key={ind}

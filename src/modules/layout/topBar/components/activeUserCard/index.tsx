@@ -224,7 +224,7 @@ const ActiveUserCardComponent: React.FC<any> = () => {
                           <ListItemText>Edit Profile</ListItemText>
                           {GetActiveIcon(chooseTab?.url, RoutesNameUrl?.profile?.url)}
                         </MenuItem>
-                        <MenuItem
+                        {/* <MenuItem
                           className="top__bar-settings-menu-item"
                           onClick={(e) => {
                             handleClose(e);
@@ -236,8 +236,8 @@ const ActiveUserCardComponent: React.FC<any> = () => {
                           </ListItemIcon>
                           <ListItemText>Account Security</ListItemText>
                           {GetActiveIcon(chooseTab?.url, RoutesNameUrl?.account?.url)}
-                        </MenuItem>
-                        <MenuItem
+                        </MenuItem> */}
+                        {/* <MenuItem
                           className="top__bar-settings-menu-item"
                           onClick={(e) => {
                             handleClose(e);
@@ -249,8 +249,8 @@ const ActiveUserCardComponent: React.FC<any> = () => {
                           </ListItemIcon>
                           <ListItemText>Audit Logs</ListItemText>
                           {GetActiveIcon(chooseTab?.url, RoutesNameUrl?.audit?.url)}
-                        </MenuItem>
-                        <MenuItem
+                        </MenuItem> */}
+                        {/* <MenuItem
                           className="top__bar-settings-menu-item"
                           onClick={(e) => {
                             handleClose(e);
@@ -262,7 +262,7 @@ const ActiveUserCardComponent: React.FC<any> = () => {
                           </ListItemIcon>
                           <ListItemText>Notification Settings</ListItemText>
                           {GetActiveIcon(chooseTab?.url, RoutesNameUrl?.notification?.url)}
-                        </MenuItem>
+                        </MenuItem> */}
                         <MenuItem
                           className="top__bar-settings-menu-item"
                           onClick={(e) => {

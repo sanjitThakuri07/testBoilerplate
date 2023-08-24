@@ -153,7 +153,17 @@ export const menuData = {
       tabsContainer: [],
       depth: 1,
     },
-
+    {
+      label: "",
+      icon: "",
+      path: "",
+      // permission: [permissionList.Logs.view],
+      role: [],
+      tabsContainer: [],
+      depth: 1,
+      position: "end",
+      className: "none",
+    },
     // { label: 'Help', path: PrivateRoute.ANALYTICS, icon: 'help' },
   ],
 };
