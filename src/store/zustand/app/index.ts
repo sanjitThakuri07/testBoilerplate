@@ -23,6 +23,7 @@ const useAppStore = create((set) => {
     userSecurity: {},
     error: {},
     sidebarData: [],
+    organizationData: {},
 
     setError: (data: any) => {
       set({ loading: false, error: data });
@@ -317,6 +318,42 @@ const useAppStore = create((set) => {
           set({ user: data, loading: false });
         },
         enqueSnackbar,
+      });
+      !apiResponse && set({ loading: false });
+      return apiResponse;
+    },
+
+    updateOrganization: async ({ values, id, updateState, enqueueSnackbar }: any) => {
+      set({ loading: true });
+      const apiResponse = await postApiData({
+        values: values,
+        url: "/" + url?.orgazniationFormat,
+        // setterLoading: setLoading,
+        enqueueSnackbar: enqueueSnackbar,
+        setterFunction: (data: any) => {
+          updateState?.(data);
+          set((state: any) => {
+            return {
+              organization: { ...(state?.organization || {}), brand_color: values?.brand_color },
+              loading: false,
+            };
+          });
+        },
+        domain: "Multiple Response",
+      });
+      !apiResponse && set({ loading: false });
+      return apiResponse;
+    },
+
+    fetchOrganization: async ({ enqueueSnackbar }: any) => {
+      set({ loading: true });
+      const apiResponse = await fetchApI({
+        url: url?.orgazniationFormat,
+        getAll: true,
+        setterFunction: (data: any) => {
+          set({ organization: data, loading: false });
+        },
+        enqueueSnackbar,
       });
       !apiResponse && set({ loading: false });
       return apiResponse;

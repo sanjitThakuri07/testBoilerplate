@@ -19,7 +19,7 @@ export function MuiThemeProvider({ children }: PropsWithChildren<Record<string, 
   // const cssVarsTheme = extendTheme(theme);
   const [newTheme, setNewTheme] = useState(theme);
 
-  const { user }: any = useAppStore();
+  const { organization: user }: any = useAppStore();
   useEffect(() => {
     if (user?.brand_color) {
       let hslaColor: string = hexToHSLA(user?.brand_color, 1);

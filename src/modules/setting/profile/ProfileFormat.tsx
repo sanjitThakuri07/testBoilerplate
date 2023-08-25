@@ -73,41 +73,41 @@ const ProfileFormat: FC<IProps> = ({ formikBag, isViewOnly }) => {
   //   }
   // };
 
-  const fetchDateFormats = async () => {
-    const { status, data } = await getAPI("config/date-format");
-    if (status === 200) {
-      const options = data;
-      const menuOptions = generateMenuOptions(options);
-      setDateFormatOptions(menuOptions);
-      return data;
-    }
-  };
+  // const fetchDateFormats = async () => {
+  //   const { status, data } = await getAPI("config/date-format");
+  //   if (status === 200) {
+  //     const options = data;
+  //     const menuOptions = generateMenuOptions(options);
+  //     setDateFormatOptions(menuOptions);
+  //     return data;
+  //   }
+  // };
 
-  const fetchTimeFormats = async () => {
-    const { status, data } = await getAPI("config/time-format");
-    if (status === 200) {
-      const options = data;
-      const menuOptions = generateMenuOptions(options);
-      setTimeFormatOptions(menuOptions);
-      return data;
-    }
-  };
+  // const fetchTimeFormats = async () => {
+  //   const { status, data } = await getAPI("config/time-format");
+  //   if (status === 200) {
+  //     const options = data;
+  //     const menuOptions = generateMenuOptions(options);
+  //     setTimeFormatOptions(menuOptions);
+  //     return data;
+  //   }
+  // };
 
-  const fetchTimeZones = async () => {
-    const { status, data } = await getAPI("config/time-zone");
-    if (status === 200) {
-      const options = data;
-      const menuOptions = generateMenuOptions(options, "timezone");
-      setTimeZoneOptions(menuOptions);
-      return data;
-    }
-  };
+  // const fetchTimeZones = async () => {
+  //   const { status, data } = await getAPI("config/time-zone");
+  //   if (status === 200) {
+  //     const options = data;
+  //     const menuOptions = generateMenuOptions(options, "timezone");
+  //     setTimeZoneOptions(menuOptions);
+  //     return data;
+  //   }
+  // };
 
   useEffect(() => {
     // if (languageOptions?.length === 0) fetchLangauges();
-    if (dateFormatOptions?.length === 0) fetchDateFormats();
-    if (timeFormatOptions?.length === 0) fetchTimeFormats();
-    if (timeZoneOptions?.length === 0) fetchTimeZones(); // wrong data
+    // if (dateFormatOptions?.length === 0) fetchDateFormats();
+    // if (timeFormatOptions?.length === 0) fetchTimeFormats();
+    // if (timeZoneOptions?.length === 0) fetchTimeZones(); // wrong data
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -142,7 +142,7 @@ const ProfileFormat: FC<IProps> = ({ formikBag, isViewOnly }) => {
             />
           </Grid>
         </Grid> */}
-        <Grid container spacing={4} className="formGroupItem">
+        {/* <Grid container spacing={4} className="formGroupItem">
           <Grid item xs={4}>
             <InputLabel htmlFor="dateFormat">
               <div className="label-heading">
@@ -207,7 +207,7 @@ const ProfileFormat: FC<IProps> = ({ formikBag, isViewOnly }) => {
               touched={touched.timeZone}
             />
           </Grid>
-        </Grid>
+        </Grid> */}
         <Grid container spacing={4} className="formGroupItem">
           <Grid item xs={4}>
             <InputLabel htmlFor="brandColor">

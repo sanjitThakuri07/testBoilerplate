@@ -240,7 +240,7 @@ const OrganizationDetails = () => {
             </FormGroup>
           </Grid>
         </Grid>
-        <Grid container spacing={4} className="formGroupItem">
+        {/* <Grid container spacing={4} className="formGroupItem">
           <Grid item xs={4}>
             <InputLabel htmlFor="industry">
               <div className="label-heading">
@@ -261,7 +261,7 @@ const OrganizationDetails = () => {
               touched={false}
             />
           </Grid>
-        </Grid>
+        </Grid> */}
         <Grid container spacing={4} className="formGroupItem">
           <Grid item xs={4}>
             <InputLabel htmlFor="country">

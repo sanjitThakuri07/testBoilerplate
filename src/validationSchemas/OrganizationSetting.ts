@@ -9,7 +9,7 @@ const OrganizationSettingDetailsSchema = yup.object().shape({
     .required("Organization name is required.")
     .min(3, "Name cannot be less than 3 character")
     .max(50, "Name cannot be more than 50 character"),
-  industry: yup.string().nullable().required("Industry is required."),
+  // industry: yup.string().nullable().required("Industry is required."),
   country: yup.string().nullable().required("Country is required."),
   location: yup.string().nullable(),
   // email: yup

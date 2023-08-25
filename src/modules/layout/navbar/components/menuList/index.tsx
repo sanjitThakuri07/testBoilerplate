@@ -13,6 +13,7 @@ import { userDataStore } from "src/store/zustand/globalStates/userData";
 import { menuData } from "src/modules/layout/navbar/constants/menu.config";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import ListAltIcon from "@mui/icons-material/ListAlt";
 
 // Navicons
 import { usePermissionStore } from "src/store/zustand/permission";
@@ -272,7 +273,7 @@ const MenuListComponent: React.FC = () => {
                     depth: 1,
                     tabsContainer: [],
                     permission: [],
-                    icon: "organization",
+                    icon: "none",
                     role: [],
                     position: "",
                   };
@@ -318,7 +319,17 @@ const MenuListComponent: React.FC = () => {
                                   cursor: "pointer",
                                 }}
                               >
-                                {getIcon(menu.icon)}
+                                {menu?.icon === "none" ? (
+                                  <ListAltIcon
+                                    sx={{
+                                      fill: "rgb(122, 132, 161)",
+                                      width: "30px",
+                                      marginRight: "2px",
+                                    }}
+                                  />
+                                ) : (
+                                  getIcon(menu?.icon)
+                                )}
                               </ListItemIcon>
                             </Tooltip>
 

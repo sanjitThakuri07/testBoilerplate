@@ -271,14 +271,14 @@ const Profile = () => {
         handleUploadImage={handleUploadImage}
         loading={loading}
       />
-      <Typography variant="h3" color="primary">
+      {/* <Typography variant="h3" color="primary">
         Profile Formats
       </Typography>
       <Typography variant="body1" component="p">
         Update your personal format details here.
-      </Typography>
+      </Typography> */}
 
-      <ProfileFormat formikBag={formikBags} isViewOnly={isViewOnly} />
+      {/* <ProfileFormat formikBag={formikBags} isViewOnly={isViewOnly} /> */}
 
       {/* {isTenant && <Billing formikBag={formikBags as any} isViewOnly={isViewOnly} />} */}
       <SettingFooter

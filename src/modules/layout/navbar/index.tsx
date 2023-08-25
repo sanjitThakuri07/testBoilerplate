@@ -121,7 +121,7 @@ const NavBar: React.FC<any> = () => {
             color: "white",
           }}
         >
-          <List>
+          {/* <List>
             <ListItem disablePadding className={""}>
               <div className="nav_help_topography" style={{ width: "100%" }}>
                 <ListItemButton>
@@ -142,7 +142,7 @@ const NavBar: React.FC<any> = () => {
                 </ListItemButton>
               </div>
             </ListItem>
-          </List>
+          </List> */}
           <Grid container justifyContent={"flex-end"} alignItems={"center"}>
             <Grid item container justifyContent={"flex-end"} alignItems={"center"}>
               <Divider className="text-white" sx={{ width: "100%" }} />

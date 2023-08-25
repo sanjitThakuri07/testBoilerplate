@@ -44,6 +44,7 @@ export const url: any = {
   userOrg: "organization-user",
   generalStatus: "status",
   module: "module",
+  orgazniationFormat: "organization-global-settings/format",
 };
 
 export const moduleIdsFnR = [

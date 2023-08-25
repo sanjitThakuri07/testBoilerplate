@@ -18,6 +18,8 @@ import { MenuOptions } from "src/interfaces/profile";
 import DynamicSelectField from "src/modules/setting/profile/DynamicSelectField";
 import { ChromePicker } from "react-color";
 import { useSnackbar } from "notistack";
+import useAppStore from "src/store/zustand/app";
+import FullPageLoader from "src/components/FullPageLoader";
 
 const initialValues: IOrganizationSettingFormats = {
   brandColor: "#000000",
@@ -38,17 +40,24 @@ const generateMenuOptions = (options: any[], extraKey?: string): MenuOptions[] =
 const OrganizationFormat = () => {
   const [loading, setLoading] = useState(false);
   const [isViewOnly, setIsViewOnly] = useState(true);
-  const [languageOptions, setLanguageOptions] = useState<MenuOptions[]>([]);
+  // const [languageOptions, setLanguageOptions] = useState<MenuOptions[]>([]);
   // const [dateFormatOptions, setDateFormatOptions] = useState<MenuOptions[]>([]);
   // const [timeFormatOptions, setTimeFormatOptions] = useState<MenuOptions[]>([]);
   const [displayColorPicker, setDisplayColorPicker] = useState<boolean>(false);
-  const [initialFormInitialValues, setInitialFormInitialValues] =
-    useState<IOrganizationSettingFormats>(initialValues);
+  const [initialFormInitialValues, setInitialFormInitialValues] = useState<any>(initialValues);
 
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
   const { enqueueSnackbar } = useSnackbar();
 
   const [brandColor, setBrandColor] = useState<string>("#283352");
+
+  const {
+    organization,
+    updateOrganization,
+    loading: UserLoading,
+    fetchOrganization,
+  }: any = useAppStore();
+
   const handleClick = (event: React.MouseEvent<any>) => {
     if (isViewOnly) return;
     setDisplayColorPicker(!displayColorPicker);
@@ -64,27 +73,30 @@ const OrganizationFormat = () => {
   const id = open ? "simple-popover" : undefined;
 
   const handleFormSubmit = async (values: IOrganizationSettingFormats): Promise<void> => {
-    try {
-      setLoading(true);
-      const { data, ...res } = await postAPI("/organization-global-settings/format", {
-        brand_color: values.brandColor.length ? values.brandColor : `#384874`,
-        // date_format: values.dateFormat.length ? values.dateFormat : null,
-        // language: values.language.length ? values.language : null,
-        // time_format: values.timeFormat.length ? values.timeFormat : null,
-      });
-      setInitialFormInitialValues(values);
-      setIsViewOnly(true);
-      setLoading(false);
-      enqueueSnackbar(res?.message || "Organization format updated successfully", {
-        variant: "success",
-      });
-    } catch (error: any) {
-      setLoading(false);
-      initialValues && setValues(initialValues);
-      enqueueSnackbar(error?.detail || "Error on updatating organization format", {
-        variant: "error",
-      });
-    }
+    updateOrganization({
+      values: { brand_color: values.brandColor.length ? values.brandColor : `#384874` },
+    });
+    // try {
+    //   setLoading(true);
+    //   // const { data, ...res } = await postAPI("/organization-global-settings/format", {
+    //   //   brand_color: values.brandColor.length ? values.brandColor : `#384874`,
+    //   //   // date_format: values.dateFormat.length ? values.dateFormat : null,
+    //   //   // language: values.language.length ? values.language : null,
+    //   //   // time_format: values.timeFormat.length ? values.timeFormat : null,
+    //   // });
+    //   setInitialFormInitialValues(values);
+    //   setIsViewOnly(true);
+    //   setLoading(false);
+    //   enqueueSnackbar(res?.message || "Organization format updated successfully", {
+    //     variant: "success",
+    //   });
+    // } catch (error: any) {
+    //   setLoading(false);
+    //   initialValues && setValues(initialValues);
+    //   enqueueSnackbar(error?.detail || "Error on updatating organization format", {
+    //     variant: "error",
+    //   });
+    // }
   };
 
   const formikBags = useFormik({
@@ -150,19 +162,20 @@ const OrganizationFormat = () => {
   // };
 
   const fetchOrganizationDetails = async () => {
-    const { status, data } = await getAPI("organization-global-settings/format");
-    if (status === 200) {
-      const { brand_color, date_format, language, time_format } = data;
-      const initialData = {
-        brandColor: brand_color,
-        dateFormat: date_format,
-        language,
-        timeFormat: time_format,
-      };
-
-      setInitialFormInitialValues(initialData);
-      setValues(initialData);
-    }
+    const apiResponse = await fetchOrganization({ enqueueSnackbar });
+    // const { status, data } = await getAPI("organization-global-settings/format");
+    // if (status === 200) {
+    //   const { brand_color } = data;
+    //   // const { brand_color, date_format, language, time_format } = data;
+    //   const initialData = {
+    //     brandColor: brand_color,
+    //     // dateFormat: date_format,
+    //     // language,
+    //     // timeFormat: time_format,
+    //   };
+    //   // setInitialFormInitialValues(initialData);
+    //   // setValues(initialData);
+    // }
   };
 
   useEffect(() => {
@@ -184,29 +197,31 @@ const OrganizationFormat = () => {
   };
 
   return (
-    <div className="organization-holder">
-      <div className="header-holder org_update org_update">
-        <div>
-          {" "}
-          <Typography variant="h3" color="primary">
-            Organisation Formats
-          </Typography>
-          <Typography variant="body1" component="p">
-            Update your personal format details here.
-          </Typography>
+    <>
+      {UserLoading && <FullPageLoader />}
+      <div className="organization-holder">
+        <div className="header-holder org_update org_update">
+          <div>
+            {" "}
+            <Typography variant="h3" color="primary">
+              Organisation Formats
+            </Typography>
+            <Typography variant="body1" component="p">
+              Update your personal format details here.
+            </Typography>
+          </div>
+          <div>
+            <SettingFooter
+              isViewOnly={isViewOnly}
+              loading={loading}
+              handleViewOnly={handleViewOnly}
+              formikHelpers={formikHelpers}
+              handleSubmit={handleSubmit}
+            />
+          </div>
         </div>
-        <div>
-          <SettingFooter
-            isViewOnly={isViewOnly}
-            loading={loading}
-            handleViewOnly={handleViewOnly}
-            formikHelpers={formikHelpers}
-            handleSubmit={handleSubmit}
-          />
-        </div>
-      </div>
-      <form className="setting-form-group" onSubmit={handleSubmit}>
-        {/* <Grid container spacing={4} className="formGroupItem">
+        <form className="setting-form-group" onSubmit={handleSubmit}>
+          {/* <Grid container spacing={4} className="formGroupItem">
           <Grid item xs={4}>
             <InputLabel htmlFor="langauge">
               <div className="label-heading">Language</div>
@@ -266,58 +281,59 @@ const OrganizationFormat = () => {
             />
           </Grid>
         </Grid> */}
-        <Grid container spacing={4} className="formGroupItem">
-          <Grid item xs={4}>
-            <InputLabel htmlFor="brandColor">
-              <div className="label-heading">Brand Colour</div>
-            </InputLabel>
-          </Grid>
-          <Grid item xs={7}>
-            <FormGroup className="input-holder">
-              {displayColorPicker ? (
-                <Popover
-                  id={id}
-                  open={open}
-                  anchorEl={anchorEl}
-                  onClose={handleClose}
-                  anchorOrigin={{
-                    vertical: "bottom",
-                    horizontal: "left",
-                  }}
-                >
-                  <ChromePicker color={brandColor} onChange={handleColorChange} />
-                </Popover>
-              ) : null}
-              <OutlinedInput
-                id="brandColor"
-                type="text"
-                size="small"
-                fullWidth
-                name="brandColor"
-                sx={{
-                  color: `${brandColor} !important`,
-                }}
-                onClick={handleClick}
-                startAdornment={
-                  <span
-                    className="color-preview"
-                    style={{
-                      background: brandColor,
+          <Grid container spacing={4} className="formGroupItem">
+            <Grid item xs={4}>
+              <InputLabel htmlFor="brandColor">
+                <div className="label-heading">Brand Colour</div>
+              </InputLabel>
+            </Grid>
+            <Grid item xs={7}>
+              <FormGroup className="input-holder">
+                {displayColorPicker ? (
+                  <Popover
+                    id={id}
+                    open={open}
+                    anchorEl={anchorEl}
+                    onClose={handleClose}
+                    anchorOrigin={{
+                      vertical: "bottom",
+                      horizontal: "left",
                     }}
-                  />
-                }
-                value={brandColor}
-                error={Boolean(touched.brandColor && errors.brandColor)}
-                disabled={isViewOnly}
-              />
-              {Boolean(touched.brandColor && errors.brandColor) && (
-                <FormHelperText error>{errors.brandColor}</FormHelperText>
-              )}
-            </FormGroup>
+                  >
+                    <ChromePicker color={brandColor} onChange={handleColorChange} />
+                  </Popover>
+                ) : null}
+                <OutlinedInput
+                  id="brandColor"
+                  type="text"
+                  size="small"
+                  fullWidth
+                  name="brandColor"
+                  sx={{
+                    color: `${brandColor} !important`,
+                  }}
+                  onClick={handleClick}
+                  startAdornment={
+                    <span
+                      className="color-preview"
+                      style={{
+                        background: brandColor,
+                      }}
+                    />
+                  }
+                  value={brandColor}
+                  error={Boolean(touched.brandColor && errors.brandColor)}
+                  disabled={isViewOnly}
+                />
+                {Boolean(touched.brandColor && errors.brandColor) && (
+                  <FormHelperText error>{errors.brandColor}</FormHelperText>
+                )}
+              </FormGroup>
+            </Grid>
           </Grid>
-        </Grid>
-      </form>
-    </div>
+        </form>
+      </div>
+    </>
   );
 };
 

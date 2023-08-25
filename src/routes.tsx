@@ -97,7 +97,7 @@ function AppRoutes() {
   const { getPermissions } = usePermissionStore();
   const { userType } = userDataStore();
   const { setOrgData } = loggedUserDataStore();
-  const { fetchProfile }: any = useAppStore();
+  const { fetchProfile, fetchOrganization }: any = useAppStore();
 
   const fetchDetails = async ({ url }: any) => {
     await fetchApI({
@@ -117,6 +117,7 @@ function AppRoutes() {
     if (localStorage.getItem("access")) {
       getPermissions();
       fetchProfile({});
+      fetchOrganization({});
     }
     if (userType === "Organization" || userType === "Customer") {
       fetchSystemParameters({});
