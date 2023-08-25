@@ -1,6 +1,6 @@
 import { Box, Card, CardContent, Divider, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import CustomBadgeCreator from "components/CustomBadgeCreator/index";
+import CustomBadgeCreator from "src/components/CustomBadgeCreator/index";
 import { RadioOptions } from "src/utils/FindingsUtils";
 
 const useStyles = makeStyles(() => ({

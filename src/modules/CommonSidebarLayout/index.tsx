@@ -72,19 +72,21 @@ export default function CommonSidebarLayout() {
   const { pages, fetchPages, loading, tableActionHandler, tableDatas }: any = usePageStore();
 
   const getData = async () => {
-    const data = await getTemplate(sidebarId);
+    // const data = await getTemplate(sidebarId);
     // for api end point
-    setPathName((prev: any) => ({
-      ...prev,
-      backendUrl: "templates-data",
-      buttonName: template?.name,
-      deleteFieldName: { value: "id", key: "title" },
-      tableTitle: template?.name || "",
-    }));
 
     const apiResponse = await fetchPages({
       query: { templates: sidebarId, ...(urlUtils || {}) },
       getAll: true,
+      returnImmediateData: (data) => {
+        setPathName((prev: any) => ({
+          ...prev,
+          backendUrl: "templates-data",
+          buttonName: data ? data?.info?.form_name : "Data",
+          deleteFieldName: { value: "id", key: "title" },
+          tableTitle: tableDatas?.info?.form_name || "",
+        }));
+      },
     });
   };
 

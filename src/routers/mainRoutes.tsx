@@ -24,7 +24,7 @@ import InspectionRoutes from "src/modules/inspections/routes";
 import TemplateRoutes from "src/modules/template/routes";
 // import _401 from 'pages/message/_401';
 
-// import ActivityRoutes from 'src/modules/AssignActivities/routes';
+import ActivityRoutes from "src/modules/AssignActivities/routes";
 // import AddInspectionStatusConfig from 'src/modules/config/generalSettings/inspection/AddInspectionStatusConfig';
 import OrganizationRoutes from "src/modules/organization/routes";
 
@@ -260,7 +260,7 @@ export const privateRoutes: any = [
   // ...QuotationsRoutes,
   // ...BookingsRoutes,
   // ...FinanceRoutes,
-  // ...ActivityRoutes,
+  ...ActivityRoutes,
   {
     title: "Common Sidebar Layout",
     path: PrivateRoute.COMMON_SIDEBAR_LAYOUT,

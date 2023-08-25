@@ -26,6 +26,7 @@ import { Typography } from "@mui/material";
 import AssignActivityForm from "./Form/AssignActivityForm";
 import SendChat from "./Chat/SendChat";
 import { fetchApI } from "src/modules/apiRequest/apiRequest";
+import useGeneralStatusStore from "src/store/zustand/generalStatus";
 
 interface RoleProps {
   title: string;
@@ -114,6 +115,16 @@ const AddAssignActivity = ({
   //     permissions: inspectionValues?.permissions,
   //   });
   // };
+
+  const {
+    fetchGeneralStatuss,
+    postGeneralStatus,
+    updateGeneralStatus,
+    fetchIndividualGeneralStatus,
+    individualGeneralStatus,
+    generalStatuss,
+  }: any = useGeneralStatusStore();
+
   const validation = Yup.object().shape({
     title: Yup.string().required("Title is required"),
     user_department: Yup.array()
@@ -181,14 +192,16 @@ const AddAssignActivity = ({
   };
 
   const getStatus = async () => {
-    const url = "activity-status/";
-    await fetchApI({
-      url: url,
-      setterLoading: setLoading,
-      setterFunction: (data: any) => {
-        setActivityStatus(data);
-      },
-    });
+    // const url = "activity-status/";
+    // await fetchApI({
+    //   url: url,
+    //   setterLoading: setLoading,
+    //   setterFunction: (data: any) => {
+    //     setActivityStatus(data);
+    //   },
+    // });
+
+    await fetchGeneralStatuss({});
   };
 
   useEffect(() => {
@@ -350,7 +363,7 @@ const AddAssignActivity = ({
                   userDepartmentData={userDepartmentData}
                   assigneesData={assigneesData}
                   prevData={assignData}
-                  activityStatus={activityStatus}
+                  activityStatus={generalStatuss}
                   setFieldValue={setFieldValue}
                   clearData={clearData}
                   setClearData={setClearData}
@@ -359,7 +372,7 @@ const AddAssignActivity = ({
                   loading={loading}
                 />
               </div>
-              {isEdit && (
+              {/* {isEdit && (
                 <div>
                   <SendChat
                     handleChange={handleChange}
@@ -373,7 +386,7 @@ const AddAssignActivity = ({
                     disabled={disabled}
                   />
                 </div>
-              )}
+              )} */}
 
               {!disabled && (
                 <div className="">

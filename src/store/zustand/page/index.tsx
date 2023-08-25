@@ -25,11 +25,18 @@ const usePageStore = create((set) => ({
   loading: false,
 
   // multiple response data
-  fetchPages: async ({ query, changeFormat, getAll = false, enqueueSnackbar }: any) => {
+  fetchPages: async ({
+    query,
+    changeFormat,
+    getAll = false,
+    enqueueSnackbar,
+    returnImmediateData,
+  }: any) => {
     set({ loading: true });
     const apiResponse = await fetchApI({
       url: url?.page + "/",
       setterFunction: (data: any) => {
+        returnImmediateData?.(data);
         set({
           pages: getAll ? data?.items || [] : data || [],
           tableDatas: getAll ? { ...data, archivedCount: data?.info?.archived_count || 0 } : {},

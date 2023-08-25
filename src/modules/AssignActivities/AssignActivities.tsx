@@ -208,35 +208,7 @@ const AssignActivities = () => {
       <Typography variant="h1" mt={2} className="customer__heading">
         Assign Activities
       </Typography>
-      {/* <Grid className="info__container" container spacing={2}>
-        {[
-          {
-            title: `${assignActivity?.items?.length}`,
-            subtitle: 'Total Activities',
-            badgeContent: { value: '', status: '' },
-          },
-          {
-            title: '2',
-            subtitle: 'Pending',
-            badgeContent: { value: ' (2)', status: 'Pending' },
-          },
-          {
-            title: '0',
-            subtitle: 'Completed',
-            badgeContent: { value: 'Completed (0)', status: 'Paid' },
-          },
-        ].map((item, index): any => {
-          return (
-            <Grid item xs={4} md={2} key={index}>
-              <InfoCard
-                title={item?.title}
-                subtitle={item?.subtitle}
-                badgeContent={item?.badgeContent}
-              />
-            </Grid>
-          );
-        })}
-      </Grid> */}
+
       <Box
         sx={{
           display: "flex",
@@ -261,15 +233,7 @@ const AssignActivities = () => {
           return <ActivityAnalyticCard key={key} title={key} count={value} />;
         })}
       </Box>
-      {/* <Grid className="info__container" container spacing={2}>
-        {Object.entries(activityAnalytics || {}).map(([key, value], index): any => {
-          return (
-            <div key={index}>
-              <ActivityAnalyticCard title={key} count={value} />
-            </div>
-          );
-        })}
-      </Grid> */}
+
       {loading && <FullPageLoader />}
       <AssignActivityTabs />
       <CustomPopUp

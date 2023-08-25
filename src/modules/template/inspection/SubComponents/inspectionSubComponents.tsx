@@ -312,34 +312,37 @@ export function InputFields({
                       />
                     );
                   case "number":
+                  case "mobile_number":
                     return (
-                      <MobileNumber
-                        item={data}
-                        handleFormikFields={handleFormikFields}
-                        logic={foundLogic}
-                        disabled={readOnly}
-                        name={`${data?.component}__${data?.id}.value`}
-                        onBlur={(e: any) => {
-                          e.stopPropagation();
-                          setFieldValue(`${data?.component}__${data?.id}.value`, typing);
-                        }}
-                        // value={values?.[`${data?.component}__${data?.id}`]?.value}
-                        value={typing}
-                        errors={errors?.[`${data?.component}__${data?.id}`]}
-                        onChange={(e: any) => {
-                          setTyping(e.target.value);
-                          // setFieldValue(`${data?.component}__${data?.id}.value`, );
-                          checkActionTrigger({
-                            value: e.target.value,
-                            logic: foundLogic,
-                            ALL_OPTIONS: ALL_OPTIONS,
-                            templateTitle: template?.name || "",
-                            setFieldValue: setFieldValue,
-                            values: values,
-                            question: data,
-                          });
-                        }}
-                      />
+                      <>
+                        <MobileNumber
+                          item={data}
+                          handleFormikFields={handleFormikFields}
+                          logic={foundLogic}
+                          disabled={readOnly}
+                          name={`${data?.component}__${data?.id}.value`}
+                          onBlur={(e: any) => {
+                            e.stopPropagation();
+                            setFieldValue(`${data?.component}__${data?.id}.value`, typing);
+                          }}
+                          // value={values?.[`${data?.component}__${data?.id}`]?.value}
+                          value={typing}
+                          errors={errors?.[`${data?.component}__${data?.id}`]}
+                          onChange={(e: any) => {
+                            setTyping(e.target.value);
+                            // setFieldValue(`${data?.component}__${data?.id}.value`, );
+                            checkActionTrigger({
+                              value: e.target.value,
+                              logic: foundLogic,
+                              ALL_OPTIONS: ALL_OPTIONS,
+                              templateTitle: template?.name || "",
+                              setFieldValue: setFieldValue,
+                              values: values,
+                              question: data,
+                            });
+                          }}
+                        />
+                      </>
                     );
                   case "speech_recognition":
                     return (

@@ -362,32 +362,34 @@ const FormComponent = ({
                           );
                         case "number":
                           return (
-                            <MobileNumber
-                              handleFormikFields={handleFormikFields}
-                              onBlur={(e: any) => {
-                                e.stopPropagation();
-                                setFieldValue(`${data?.component}__${data?.id}.value`, typing);
-                              }}
-                              logic={foundLogic}
-                              disabled={readOnly}
-                              item={data}
-                              value={typing}
-                              name={`${data?.component}__${data?.id}.value`}
-                              errors={errors?.[`${data?.component}__${data?.id}`]}
-                              onChange={(e: any) => {
-                                setTyping(e.target.value);
-                                // for notification
-                                checkActionTrigger({
-                                  value: e.target.value,
-                                  logic: foundLogic,
-                                  ALL_OPTIONS: ALL_OPTIONS,
-                                  question: data,
-                                  templateTitle: template?.name || "",
-                                  setFieldValue: setFieldValue,
-                                  values: values,
-                                });
-                              }}
-                            />
+                            <>
+                              <MobileNumber
+                                handleFormikFields={handleFormikFields}
+                                onBlur={(e: any) => {
+                                  e.stopPropagation();
+                                  setFieldValue(`${data?.component}__${data?.id}.value`, typing);
+                                }}
+                                logic={foundLogic}
+                                disabled={readOnly}
+                                item={data}
+                                value={typing}
+                                name={`${data?.component}__${data?.id}.value`}
+                                errors={errors?.[`${data?.component}__${data?.id}`]}
+                                onChange={(e: any) => {
+                                  setTyping(e.target.value);
+                                  // for notification
+                                  checkActionTrigger({
+                                    value: e.target.value,
+                                    logic: foundLogic,
+                                    ALL_OPTIONS: ALL_OPTIONS,
+                                    question: data,
+                                    templateTitle: template?.name || "",
+                                    setFieldValue: setFieldValue,
+                                    values: values,
+                                  });
+                                }}
+                              />
+                            </>
                           );
                         case "speech_recognition":
                           return (
@@ -927,7 +929,7 @@ const InspectionStarter = ({}: any) => {
   const fetchResponseData = async () => {
     await fetchMultipleResponseData({});
     await fetchGlobalResponseData({});
-    await fetchExternalResponseData({});
+    // await fetchExternalResponseData({});
     // await fetchInspectionStatuss({
     //   query: {
     //     name: ['Completed', 'In Progress'],

@@ -76,6 +76,7 @@ const BookingStatusForm: FC<{
     individualGeneralStatus,
     generalStatuss,
   }: any = useGeneralStatusStore();
+
   const { fetchModules, modules }: any = useModuleStore();
 
   const fetchData = async ({ id }: any) => {

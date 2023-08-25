@@ -139,7 +139,7 @@ const OrganizationAddress = () => {
 
   useEffect(() => {
     fetchCountry();
-    // fetchOrganizationAddress();
+    fetchOrganizationAddress();
   }, []);
 
   const formikHelpers: FormikFormHelpers = {

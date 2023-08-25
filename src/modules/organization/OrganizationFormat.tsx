@@ -67,7 +67,7 @@ const OrganizationFormat = () => {
     try {
       setLoading(true);
       const { data, ...res } = await postAPI("/organization-global-settings/format", {
-        barnd_color: values.brandColor.length ? values.brandColor : `#384874`,
+        brand_color: values.brandColor.length ? values.brandColor : `#384874`,
         // date_format: values.dateFormat.length ? values.dateFormat : null,
         // language: values.language.length ? values.language : null,
         // time_format: values.timeFormat.length ? values.timeFormat : null,
