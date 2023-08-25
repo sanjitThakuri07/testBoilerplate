@@ -77,7 +77,7 @@ export default function CommonSidebarLayout() {
     setPathName((prev: any) => ({
       ...prev,
       backendUrl: "templates-data",
-      buttonName: "Inspection",
+      buttonName: template?.name,
       deleteFieldName: { value: "id", key: "title" },
       tableTitle: template?.name || "",
     }));

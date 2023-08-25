@@ -47,6 +47,7 @@ export default function SelectInternalResponse({
   ...rest
 }: any) {
   const { internalResponseData: options, fetchInternalResponseData }: any = useApiOptionsStore();
+  console.log({ options });
 
   const [isClearable, setIsClearable] = useState(true);
   const [isSearchable, setIsSearchable] = useState(true);
@@ -69,8 +70,8 @@ export default function SelectInternalResponse({
   }
 
   function getValue() {
-    const data = options?.[`${item?.response_type}`]?.filter((it: any) =>
-      value?.some((val: any) => val?.id === it?.id),
+    const data = options?.[`${item?.response_type}`]?.filter(
+      (it: any) => value && value?.some((val: any) => val?.id === it?.id),
     );
 
     return data;
@@ -86,8 +87,8 @@ export default function SelectInternalResponse({
         url = `${item?.linkFieldId}`;
         break;
     }
-    const data = options?.[`${url}`]?.filter((it: any) =>
-      value?.some((val: any) => val?.id === it?.id),
+    const data = options?.[`${url}`]?.filter(
+      (it: any) => value && value?.some((val: any) => val?.id === it?.id),
     );
 
     return data;
@@ -156,7 +157,7 @@ export default function SelectInternalResponse({
         // for styling
         isMulti={logic?.multipleSelection || false}
         isRtl={isRtl}
-        className="SelectResponseType"
+        className="SelectResponseType react-select-wrapper"
         classNamePrefix="select"
         placeholder="Select"
         onChange={async (e: any) => {

@@ -93,6 +93,7 @@ export default function GlobalResponseSet() {
             titleFieldName: "name",
           },
           showAddButton: false,
+          tableTitle: "Internal Attributes",
         }));
         break;
       case "custom":
@@ -114,6 +115,7 @@ export default function GlobalResponseSet() {
             titleFieldName: "name",
           },
           showAddButton: false,
+          tableTitle: "Global Response",
         }));
         break;
       case "external":
@@ -130,6 +132,7 @@ export default function GlobalResponseSet() {
             titleFieldName: "",
           },
           showAddButton: false,
+          tableTitle: "External Attributes",
         }));
         break;
       case "status":
@@ -147,6 +150,7 @@ export default function GlobalResponseSet() {
             componentType: "custom__chip",
             oneLine: "true",
           },
+          tableTitle: "Status Attributes",
         }));
         break;
       default:

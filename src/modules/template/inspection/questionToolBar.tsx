@@ -303,6 +303,7 @@ const QuestionToolBar = ({
   setScrollToQuestion,
   dataSetSeperator,
   errors,
+  title,
 }: any) => {
   const [pageCountQn, setPageCountQn] = useState(0);
   const [closeQnSidebar, setCloseQnSidebar] = useState(true);
@@ -339,7 +340,7 @@ const QuestionToolBar = ({
       >
         <ListIcon />
         <span className="heading__body">
-          List of Inspection Questions
+          List of {title || ""} Questions
           {!!Object.keys(errors || {})?.length && <ErrorOutline />}
         </span>
         <KeyboardArrowDownIcon className={closeQnSidebar ? "rotate" : ""} />
@@ -522,35 +523,3 @@ const QuestionToolBar = ({
 };
 
 export default QuestionToolBar;
-
-{
-  /* {questionData?.map((it: any, index: number) => {
-          return (
-            <div
-              onClick={() => {
-                const element: any = document.querySelector(`[data-item="${it}"]`);
-                inputBlur?.setIsBlur(true);
-                if (element) {
-                  activeScroll(element);
-                } else {
-                  const findPageIndex = dataSetSeperator?.pages?.findIndex(
-                    (pg: any) => pg?.id === values?.[it]?.page,
-                  );
-                  setPageCount(findPageIndex);
-                  setScrollToQuestion(it);
-                }
-              }}
-              key={`${it}__index`}>
-              <span className="counter">{index + 1}.</span>
-              <Tooltip title={values?.[it]?.label} placement="top-start">
-                <span className="text__body">{values?.[it]?.label || ''}</span>
-              </Tooltip>
-              <input
-                type="checkbox"
-                disabled
-                checked={values?.[it]?.value?.length && !errors?.[it]}
-              />
-            </div>
-          );
-        })} */
-}

@@ -25,12 +25,14 @@ import CheckIcon from "src/assets/icons/tick_icon.svg";
 import { RoutesNameUrl } from "src/routers/routingsUrl";
 
 import { useLocation, useNavigate } from "react-router-dom";
+import Configuration from "src/assets/navIcons/configuration.svg";
 
 import NotificationIcon from "src/assets/icons/bell-ringing-03.svg";
 import AuditLogIcon from "src/assets/icons/layers-three-01.svg";
 import LogOutIcon from "src/assets/icons/log-out-04.svg";
 import AccountIcon from "src/assets/icons/user-check-02.svg";
 import EditIcon from "src/assets/icons/edit-03.svg";
+import Organization from "src/assets/navIcons/organization.svg";
 // import UserIcon from '../src/assets/icons/userIcon.png';
 
 import useAppStore from "src/store/zustand/app";
@@ -224,45 +226,32 @@ const ActiveUserCardComponent: React.FC<any> = () => {
                           <ListItemText>Edit Profile</ListItemText>
                           {GetActiveIcon(chooseTab?.url, RoutesNameUrl?.profile?.url)}
                         </MenuItem>
-                        {/* <MenuItem
+                        <MenuItem
                           className="top__bar-settings-menu-item"
                           onClick={(e) => {
                             handleClose(e);
-                            navigate(`/settings?select=${RoutesNameUrl?.account?.url}`);
+                            navigate(`${RoutesNameUrl?.organization?.url}`);
                           }}
                         >
                           <ListItemIcon>
-                            <img src={AccountIcon} alt="edit" />
+                            <img src={Organization} alt="Organization Icon" />
                           </ListItemIcon>
-                          <ListItemText>Account Security</ListItemText>
-                          {GetActiveIcon(chooseTab?.url, RoutesNameUrl?.account?.url)}
-                        </MenuItem> */}
-                        {/* <MenuItem
+                          <ListItemText>Organization</ListItemText>
+                          {GetActiveIcon(chooseTab?.url, RoutesNameUrl?.organization?.url)}
+                        </MenuItem>
+                        <MenuItem
                           className="top__bar-settings-menu-item"
                           onClick={(e) => {
                             handleClose(e);
-                            navigate(`/settings?select=${RoutesNameUrl?.audit?.url}`);
+                            navigate(`${RoutesNameUrl?.configuration?.url}`);
                           }}
                         >
                           <ListItemIcon>
-                            <img src={AuditLogIcon} alt="Audit Log Icon" />
+                            <img src={Configuration} alt="Configuration Icon" />
                           </ListItemIcon>
-                          <ListItemText>Audit Logs</ListItemText>
-                          {GetActiveIcon(chooseTab?.url, RoutesNameUrl?.audit?.url)}
-                        </MenuItem> */}
-                        {/* <MenuItem
-                          className="top__bar-settings-menu-item"
-                          onClick={(e) => {
-                            handleClose(e);
-                            navigate(`/settings?select=${RoutesNameUrl?.notification?.url}`);
-                          }}
-                        >
-                          <ListItemIcon>
-                            <img src={NotificationIcon} alt="Audit Log Icon" />
-                          </ListItemIcon>
-                          <ListItemText>Notification Settings</ListItemText>
-                          {GetActiveIcon(chooseTab?.url, RoutesNameUrl?.notification?.url)}
-                        </MenuItem> */}
+                          <ListItemText>Configuration</ListItemText>
+                          {GetActiveIcon(chooseTab?.url, RoutesNameUrl?.configuration?.url)}
+                        </MenuItem>
                         <MenuItem
                           className="top__bar-settings-menu-item"
                           onClick={(e) => {
@@ -271,11 +260,12 @@ const ActiveUserCardComponent: React.FC<any> = () => {
                           }}
                         >
                           <ListItemIcon>
-                            <img src={InspectionIcon} alt="Audit Log Icon" />
+                            <img src={InspectionIcon} alt="Form Builder" />
                           </ListItemIcon>
                           <ListItemText>Form Builder</ListItemText>
                           {GetActiveIcon(chooseTab?.url, RoutesNameUrl?.notification?.url)}
                         </MenuItem>
+
                         <MenuItem className="top__bar-settings-menu-item" onClick={handleLogout}>
                           <ListItemIcon>
                             <img src={LogOutIcon} alt="Audit Log Icon" />

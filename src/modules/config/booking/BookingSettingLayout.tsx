@@ -28,7 +28,7 @@ export default function Booking() {
     backendUrl: "",
     pathUrl: "",
     deleteFieldName: "",
-    tableTiltle: "General Status",
+    tableTitle: "General Status",
   });
   const [getFilterValue, setFilterValue] = React.useState(BOOKING_STATUS_FILTER_INITIAL_VALUE);
   const { enqueueSnackbar } = useSnackbar();

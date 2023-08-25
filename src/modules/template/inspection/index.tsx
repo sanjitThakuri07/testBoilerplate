@@ -944,7 +944,8 @@ const InspectionStarter = ({}: any) => {
   const handleSearchInternalResponse = async () => {
     await fetchApI({
       setterFunction: setInternalResponseData,
-      url: `internal-response/?page=1&size=50`,
+      url: `internal-response/`,
+      queryParam: { size: 99999999 },
     });
   };
   useEffect(() => {
@@ -1358,6 +1359,7 @@ const InspectionStarter = ({}: any) => {
                   setPageCount={setPageCount}
                   setScrollToQuestion={setScrollToQuestion}
                   errors={errors}
+                  title={template?.name}
                 />
               </>
             );

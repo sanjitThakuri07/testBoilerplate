@@ -14,6 +14,7 @@ function App({ me }: PropsFromRedux) {
           vertical: "top",
           horizontal: "right",
         }}
+        autoHideDuration={1500}
       >
         <AppRoutes />
       </SnackbarProvider>

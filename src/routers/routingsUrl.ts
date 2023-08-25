@@ -20,6 +20,8 @@ export const RoutesNameUrl: RoutesNameUrl = {
   audit: { url: "audit", id: 2 },
   notification: { url: "notification", id: 3 },
   formBuilder: { url: "/template", id: 4 },
+  organization: { url: "/organization", id: 5 },
+  configuration: { url: "/config/general-settings/region", id: 6 },
 };
 
 export const contractorsUrl: RoutesNameUrl = {

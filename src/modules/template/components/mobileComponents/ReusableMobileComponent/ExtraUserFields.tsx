@@ -175,6 +175,8 @@ const ExtraUserFields = ({
   const handleActionOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
+  return <></>;
   return (
     <>
       {state.loading && <FullPageLoader />}
