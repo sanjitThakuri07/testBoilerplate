@@ -44,12 +44,12 @@ const sidebarTabData = [
     icon: <Internal />,
     value: "internal",
   },
-  {
-    id: uuidv4(),
-    title: "External Attributes",
-    icon: <External />,
-    value: "external",
-  },
+  // {
+  //   id: uuidv4(),
+  //   title: "External Attributes",
+  //   icon: <External />,
+  //   value: "external",
+  // },
 ];
 
 export default function TemporaryDrawer({ setCollapseSidebar }: any) {

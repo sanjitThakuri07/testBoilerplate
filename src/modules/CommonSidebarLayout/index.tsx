@@ -84,7 +84,7 @@ export default function CommonSidebarLayout() {
           backendUrl: "templates-data",
           buttonName: data ? data?.info?.form_name : "Data",
           deleteFieldName: { value: "id", key: "title" },
-          tableTitle: tableDatas?.info?.form_name || "",
+          tableTitle: data ? data?.info?.form_name : "Data",
         }));
       },
     });

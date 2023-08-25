@@ -20,6 +20,7 @@ import BASTooltip from "src/components/BASTooltip/BASTooltip";
 import { loggedUserDataStore } from "src/store/zustand/globalStates/loggedUserData";
 import { useParams } from "react-router-dom";
 import BASLogo from "src/assets/icons/logo.png";
+import { imageUrl } from "src/utils/FindingsUtils";
 
 interface TemplateHeadingProps {
   formikBag: any;
@@ -39,7 +40,8 @@ const TemplateHeading = ({ formikBag, isViewOnly, isTab = false }: TemplateHeadi
   const param = useParams();
 
   const { logo } = loggedUserDataStore();
-  const logoPic = logo ? `${process.env.VITE_HOST_URL}/${logo}` : BASLogo;
+  // const logoPic = logo ? `${process.env.VITE_HOST_URL}/${logo}` : BASLogo;
+  const logoPic = imageUrl;
 
   const renderIcon = () => {
     return (

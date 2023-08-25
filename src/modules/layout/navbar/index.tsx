@@ -98,7 +98,7 @@ const NavBar: React.FC<any> = () => {
               height={layoutStore?.menucollapsed ? 40 : 80}
               // height={60}
               style={{
-                // borderRadius: '50%',
+                borderRadius: "50%",
                 objectFit: "cover",
                 cursor: "pointer",
               }}

@@ -13,6 +13,7 @@ import { useSnackbar } from "notistack";
 import { loggedUserDataStore } from "src/store/zustand/globalStates/loggedUserData";
 import ConfirmationModal from "src/components/ConfirmationModal/ConfirmationModal";
 import BASLogo from "src/assets/icons/logo.png";
+import { imageUrl } from "src/utils/FindingsUtils";
 
 interface ReactNodeProps {
   hasLogo?: boolean;
@@ -57,7 +58,8 @@ export default function TemplateTopBar({
 
   const { enqueueSnackbar } = useSnackbar();
   const { logo } = loggedUserDataStore();
-  const logoPic = logo ? `${process.env.VITE_HOST_URL}/${logo}` : BASLogo;
+  // const logoPic = logo ? `${process.env.VITE_HOST_URL}/${logo}` : BASLogo;
+  const logoPic = imageUrl;
 
   if (publicPage)
     return (
