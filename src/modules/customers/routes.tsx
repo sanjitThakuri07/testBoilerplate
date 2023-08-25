@@ -1,16 +1,16 @@
-import TenantRegister from ''src/modules/auth/TenantDashboard/TenantRegister/TenantRegister';
-import { permissionList } from 'src/constants/permission';
-import { AuthRoute, PrivateRoute } from 'src/constants/variables';
-import CustomerDashboard from 'containers/customers/Customer';
-import CustomerAdd from 'containers/customers/customer/index';
+import TenantRegister from "src/modules/auth/TenantDashboard/TenantRegister/TenantRegister";
+import { permissionList } from "src/constants/permission";
+import { AuthRoute, PrivateRoute } from "src/constants/variables";
+import CustomerDashboard from "containers/customers/Customer";
+import CustomerAdd from "containers/customers/customer/index";
 
-import { IndexHOC } from 'HOC/indexHOC';
-import CustomersTable from './customer/CustomersTable/CustomersTable';
-import ViewUsers from './customer/Form/ViewUsers';
+import { IndexHOC } from "HOC/indexHOC";
+import CustomersTable from "./customer/CustomersTable/CustomersTable";
+import ViewUsers from "./customer/Form/ViewUsers";
 
 export default [
   {
-    title: 'Customer Dashboard',
+    title: "Customer Dashboard",
     path: PrivateRoute.ORGANIZATION.CUSTOMERS?.LINK,
     component: IndexHOC({
       component: CustomerDashboard,
@@ -21,7 +21,7 @@ export default [
   },
 
   {
-    title: 'Create Customer',
+    title: "Create Customer",
     path: PrivateRoute.ORGANIZATION?.CUSTOMERS.ADD,
     component: IndexHOC({
       component: CustomerAdd,
@@ -31,7 +31,7 @@ export default [
     newPage: false,
   },
   {
-    title: 'Update Customer',
+    title: "Update Customer",
     path: PrivateRoute.ORGANIZATION?.CUSTOMERS.EDIT,
     component: IndexHOC({
       component: CustomerAdd,
@@ -41,7 +41,7 @@ export default [
     newPage: false,
   },
   {
-    title: 'View Customer',
+    title: "View Customer",
     path: PrivateRoute.ORGANIZATION?.CUSTOMERS.VIEW_CUSTOMER_USER,
     component: IndexHOC({
       component: CustomersTable,
@@ -51,7 +51,7 @@ export default [
     newPage: false,
   },
   {
-    title: 'View Customer Profile',
+    title: "View Customer Profile",
     path: PrivateRoute.ORGANIZATION?.CUSTOMERS.VIEW_CUSTOMER,
     component: IndexHOC({
       component: CustomerAdd,
@@ -61,7 +61,7 @@ export default [
     newPage: false,
   },
   {
-    title: 'View Customer User',
+    title: "View Customer User",
     path: PrivateRoute.ORGANIZATION?.CUSTOMERS.VIEW,
     component: IndexHOC({
       component: ViewUsers,
@@ -71,7 +71,7 @@ export default [
     newPage: false,
   },
   {
-    title: 'Edit Customer User',
+    title: "Edit Customer User",
     path: PrivateRoute.ORGANIZATION?.CUSTOMERS.EDIT_CUSTOMER_USER,
     component: IndexHOC({
       component: ViewUsers,
