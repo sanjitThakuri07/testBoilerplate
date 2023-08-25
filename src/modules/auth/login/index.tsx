@@ -125,12 +125,16 @@ const Login: React.FC = () => {
               <Box sx={{ width: "100%" }}>
                 <Box sx={{ padding: "0 22%" }}>
                   <Box>
-                    <img src={BrandLogo} alt="bas" style={{ height: "50px", width: "50px" }} />
+                    <img
+                      src="https://media.licdn.com/dms/image/C560BAQGwHd4oj4DKFg/company-logo_100_100/0/1659430562669?e=1701302400&v=beta&t=b6ne-5pbfns2JKY_S9S0h-ioIKyeFPB-sUHJE6CKTeU"
+                      alt="bas"
+                      style={{ height: "50px", width: "50px" }}
+                    />
                     <Box sx={{ marginTop: "26px" }}>
                       <Typography
                         variant="h4"
                         component="h4"
-                        sx={{ fontWeight: "600", color: "#384874" }}
+                        sx={{ fontWeight: "600", color: "rgb(48, 44, 44)" }}
                       >
                         Log In
                       </Typography>
@@ -278,6 +282,7 @@ const Login: React.FC = () => {
                             disabled={isSubmitting || (ERROR.block_time && count > 0)}
                             fullWidth
                             type="submit"
+                            sx={{ background: "rgb(48, 44, 44) !important" }}
                           >
                             {isSubmitting ? <ButtonLoaderSpinner /> : "Log in "}
                           </Button>
@@ -317,7 +322,7 @@ const Login: React.FC = () => {
                         my={3}
                         className="login_image_inner_text"
                       >
-                        We help you do the best inspections.
+                        Boiler Plate
                       </Typography>
                       <Typography
                         component="h6"
@@ -326,7 +331,7 @@ const Login: React.FC = () => {
                         my={2}
                         sx={{ color: "#EAECF0" }}
                       >
-                        Create a free account and get full access to all templates.
+                        Create a free account and get full access to custumize your forms.
                       </Typography>
                       <Stack direction="row" spacing={1} alignItems="center" sx={{ width: "100%" }}>
                         <Box>
