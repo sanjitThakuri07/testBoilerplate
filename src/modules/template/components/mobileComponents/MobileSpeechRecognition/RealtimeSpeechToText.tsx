@@ -10,10 +10,10 @@ import { Formik, FormikProps } from "formik";
 import useReconnectingSocket from "src/hooks/useReconnectingSocket";
 import useSocketManagement from "src/hooks/useSocketManagement";
 import { useCallback, useEffect, useState } from "react";
-import useAppStore from "src/store/zustand/app ";
 import ShowWithAnimation from "../../ShowWithAnimation";
 import { streamAudioFileToSocket } from "./recordingUtils";
 import { addMessageHandler, messageHandlers } from "./speechHandlers";
+import useAppStore from "src/store/zustand/app";
 
 let stop: any = null;
 
