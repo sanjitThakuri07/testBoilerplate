@@ -261,7 +261,6 @@ export default function GeneralSetting() {
               className: "filter__field",
               filteredOptionLength: presentFilter,
             }}
-            onDelete={(data) => {}}
             tableControls={(rowData: any) => {
               return {
                 duplicate: !location.pathname.includes("/country"),
