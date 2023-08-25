@@ -18,19 +18,18 @@ import { fetchTableData } from "src/modules/apiRequest/apiRequest";
 import CustomPopUp from "src/components/CustomPopup";
 import { usePayloadHook } from "src/constants/customHook/payloadOptions";
 import { lockFields } from "src/utils/url";
+import FullPageLoader from "src/components/FullPageLoader";
+import useGeneralStatusStore from "src/store/zustand/generalStatus";
 
 // =============== Contractor and services common component ==============
 export default function Booking() {
   const location = useLocation();
-  const [value, setValue] = React.useState(0);
-  const [loading, setLoading] = React.useState(false);
-  const [totalCount, setTotalCount] = React.useState(0);
   const [pathName, setPathName] = React.useState({
     backendUrl: "",
     pathUrl: "",
     deleteFieldName: "",
+    tableTiltle: "General Status",
   });
-  const [deleteEndpoint, setDeleteEndpoint] = React.useState("");
   const [getFilterValue, setFilterValue] = React.useState(BOOKING_STATUS_FILTER_INITIAL_VALUE);
   const { enqueueSnackbar } = useSnackbar();
   const [presentFilter, setPresentFilter] = React.useState(false);
@@ -38,102 +37,49 @@ export default function Booking() {
   const [openModal, setOpenModal] = React.useState(false);
   const [viewData, setViewData] = React.useState<any>({});
 
-  const [contractorData, setContractorData] = React.useState<BASConfigTableProps>({
-    items: [],
-    headers: [],
-    page: 1,
-    pages: 1,
-    size: 1,
-    total: 0,
-    archivedCount: 0,
-  });
+  const {
+    fetchGeneralStatuss,
+    tableDatas: GeneralTableData,
+    tableActionHandler: GeneralTableActionHandler,
+    loading,
+  }: any = useGeneralStatusStore();
+
   const { services, setServices } = useContractorServicesStore();
 
   const [urlUtils, setUrlUtils] = usePayloadHook();
 
   const { permissions } = usePermissionStore();
 
-  const getData = async () => {
+  const getData = async (signal?: any) => {
     let params = location.pathname.split("/").slice(-1).join("");
     // console.log({ params });
     // for api end point
     let returnedParams = "";
     let path = "";
+    let apiRequestResponse = false;
 
     switch (params) {
-      case "booking-status":
-        returnedParams = "booking-status";
+      case "general-status":
+        returnedParams = "general-status";
         path = "Booking Status";
+        apiRequestResponse = await fetchGeneralStatuss({
+          getAll: true,
+          enqueueSnackbar,
+          query: urlUtils,
+          signal,
+        });
         break;
 
       default:
         returnedParams = "";
         path = "";
     }
-    setPathName({ backendUrl: returnedParams, pathUrl: path, deleteFieldName: "id" });
-    setLoading(true);
-    await fetchTableData({
-      setData: setContractorData,
-      api: returnedParams,
-      setTotalCount,
-      enqueueSnackbar,
-      urlUtils,
-    });
-    setLoading(false);
-    // try {
-    //   setLoading(true);
-    //   const { status, data } = await getAPI(`${returnedParams}/?q=&archived=&page=1&size=25`);
-    //   if (status === 200) {
-    //     const itemss = data.items || [];
-    //     let newItems: any = [];
-    //     if (itemss?.length > 0) {
-    //       newItems = itemss?.map((item: any) => {
-    //         let phone_numbers = item?.phone_numbers?.length
-    //           ? item?.phone_numbers?.map((it: string) => it.split('/')?.reverse()[0])
-    //           : [];
-    //         return { ...item, phone_numbers };
-    //       });
-    //     }
-
-    //     //setting common page data
-    //     setContractorData((prev) => {
-    //       return {
-    //         ...prev,
-    //         items: newItems || [],
-    //         headers: data.headers,
-    //         page: data.page,
-    //         pages: data.pages,
-    //         size: data.size,
-    //         total: data.total,
-    //         archivedCount: data?.info?.archived_count,
-    //       };
-    //     });
-
-    //     setTotalCount(data.total);
-
-    //     // setting data to right store
-    //     if (path.toString().toLowerCase() === 'service') {
-    //       setServices({
-    //         items: data.items,
-    //         headers: data.headers,
-    //         page: data.page,
-    //         pages: data.pages,
-    //         size: data.size,
-    //         total: data.total,
-    //         archivedCount: data?.info?.archived_count,
-    //       });
-    //     }
-    //   }
-    // } catch (error: any) {
-    //   setLoading(false);
-    //   enqueueSnackbar(error.response.data.message || 'Something went wrong!', {
-    //     variant: 'error',
-    //   });
-    // }
-  };
-
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
+    setPathName((prev: any) => ({
+      ...prev,
+      backendUrl: returnedParams,
+      pathUrl: path,
+      deleteFieldName: "id",
+    }));
   };
 
   const onDataTableChange = ({ key, value }: any) => {
@@ -149,25 +95,30 @@ export default function Booking() {
   };
 
   useEffect(() => {
-    getData();
+    let controller = new AbortController();
+
+    getData(controller?.signal);
+
+    return () => {
+      controller?.abort();
+    };
   }, [urlUtils, location.pathname]);
+
+  const tableUpdateDatas: any = {
+    general: {
+      data: GeneralTableData,
+      setterFn: async ({ datas, type }: any) => {
+        await GeneralTableActionHandler({ values: datas, enqueueSnackbar, type: type });
+      },
+    },
+  };
+
+  console.log({ GeneralTableData });
 
   return (
     <OrganizationConfiguration>
       <Box sx={{ p: "20px" }} className="config-holder">
-        {loading && (
-          <Box
-            sx={{
-              position: "absolute",
-              left: "55.5%",
-              top: "50%",
-              zIndex: 9999,
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            <CircularProgress color="inherit" />
-          </Box>
-        )}
+        {loading && <FullPageLoader />}
 
         <CustomPopUp
           openModal={openModal}
@@ -175,23 +126,17 @@ export default function Booking() {
           setOpenModal={() => {
             setOpenModal(false);
           }}
-          headers={contractorData?.headers}
+          headers={tableUpdateDatas?.[`general`]?.data?.headers}
           viewData={viewData}
           chipOptions={["status"]}
-        >
-          {/* {JSON.stringify(viewData)} */}
-        </CustomPopUp>
+        ></CustomPopUp>
 
         <BASDataTableUpdate
-          data={contractorData}
-          deletePath={deleteEndpoint}
+          data={tableUpdateDatas?.["general"]?.data}
           onDataChange={onDataTableChange}
-          setterFunction={setContractorData}
-          configName={pathName?.pathUrl}
-          count={totalCount}
+          setterFunction={tableUpdateDatas?.["general"]?.setterFn}
           urlUtils={urlUtils}
-          keyName={"booking-status"}
-          backendUrl={"booking-status"}
+          keyName={"general-status"}
           tableControls={(rowData: any) => {
             let lockDEDL = lockFields?.includes(rowData?.name);
             return {
@@ -212,8 +157,8 @@ export default function Booking() {
             setOpenModal(true);
           }}
           tableIndicator={pathName}
-          permissions={permissions}
-          permission={permissionList.BookingStatus}
+          // permissions={permissions}
+          // permission={permissionList.BookingStatus}
           allowFilter={{
             filter: true,
             className: "filter__field",

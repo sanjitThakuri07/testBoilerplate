@@ -230,6 +230,13 @@ export const permissionList = {
     edit: "edit_BookingStatus",
     export: "export_BookingStatus",
   },
+  GeneralStatus: {
+    add: "add_GeneralStatus",
+    view: "view_GeneralStatus",
+    delete: "delete_GeneralStatus",
+    edit: "edit_GeneralStatus",
+    export: "export_GeneralStatus",
+  },
   Service: {
     add: "add_Service",
     view: "view_Service",

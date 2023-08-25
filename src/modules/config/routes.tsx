@@ -480,41 +480,41 @@ const inspectionTypes = [
 
 const bookingStatus = [
   {
-    title: "Booking Status",
+    title: "General Status",
     path: `/config/${PrivateRoute?.ORGCONFIG.BOOKING.LINK}`,
     component: IndexHOC({
       component: BookignSettingLayout,
-      permission: [permissionList.BookingStatus.view],
+      permission: [permissionList.GeneralStatus.view],
       role: [],
     }),
     newPage: false,
   },
   {
-    title: "Add Booking Status",
+    title: "Add General Status",
     path: `/config/${PrivateRoute?.ORGCONFIG.BOOKING.ADD}`,
     component: IndexHOC({
       component: AddBooking,
-      permission: [permissionList.BookingStatus.add],
+      permission: [permissionList.GeneralStatus.add],
       role: [],
     }),
     newPage: false,
   },
   {
-    title: "Edit Booking Status",
+    title: "Edit General Status",
     path: `/config/${PrivateRoute?.ORGCONFIG.BOOKING.EDIT}`,
     component: IndexHOC({
       component: AddBooking,
-      permission: [permissionList.BookingStatus.edit],
+      permission: [permissionList.GeneralStatus.edit],
       role: [],
     }),
     newPage: false,
   },
   {
-    title: "View Booking Status",
+    title: "View General Status",
     path: `/config/${PrivateRoute?.ORGCONFIG.BOOKING.VIEW}`,
     component: IndexHOC({
       component: AddBooking,
-      permission: [permissionList.BookingStatus.view],
+      permission: [permissionList.GeneralStatus.view],
       role: [],
     }),
     newPage: false,

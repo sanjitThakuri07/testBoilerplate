@@ -154,6 +154,7 @@ export interface serviceProps {
   name: string;
   status: "Active" | "Inactive";
   notes?: string;
+  module_id?: number;
 }
 
 export interface commonTypeProps {

@@ -39,13 +39,14 @@ let apiConfig: ApiProps = {
   },
 };
 
-export const postAPI = async (url: string, data: any): Promise<any> => {
+export const postAPI = async (url: string, data: any, signal: any): Promise<any> => {
   const { headers } = APICONFIG();
   return await axiosInstance({
     headers,
     method: "post",
     url: `${baseURL}${url}`,
     data,
+    signal: typeof signal === "object" ? signal?.signal : signal,
   }).then((response) => {
     return {
       status: response.status,
@@ -128,6 +129,7 @@ export const getAPI = async (
     headers: headers,
     method: "get",
     url: !replace ? `${baseURL}/${url}` : `${HOST_URL}${url}`,
+    signal: typeof signal === "object" ? signal?.signal : signal,
   }).then((response) => {
     return {
       status: response.status,

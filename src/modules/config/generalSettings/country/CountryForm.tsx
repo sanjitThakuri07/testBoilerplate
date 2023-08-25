@@ -220,28 +220,7 @@ const CountryForm: FC<{
                 },
                 enqueueSnackbar: enqueueSnackbar,
               });
-              // apiResponse = await putApiData({
-              //   values: { ...values, notification_email: values.notification_email },
-              //   id: values?.id,
-              //   url: 'country',
-              //   enqueueSnackbar: enqueueSnackbar,
-              //   setterFunction: (data: any) => {
-              //     updateCard?.((prev: any) => {
-              //       let filterDatas = prev?.filter(
-              //         (data: { id?: number }) => data?.id !== Number(values?.id),
-              //       );
-              //       return [
-              //         {
-              //           ...data?.data,
-              //           name: countryOptions?.find((it: any) => it?.value === data?.data?.country)
-              //             ?.label,
-              //         },
-              //         ...filterDatas,
-              //       ];
-              //     });
-              //   },
-              // });
-              updateCountries(values);
+              // updateCountries(values);
             } else {
               apiResponse = await postCountry({
                 values: [
@@ -266,28 +245,7 @@ const CountryForm: FC<{
                   ]);
                 },
               });
-              // apiResponse = await postApiData({
-              //   setterFunction: (data: any) => {
-              //     if (!data.data) return;
-              //     updateCard?.((prev: any) => [
-              //       {
-              //         ...data?.data[0],
-              //         name: countryOptions?.find(
-              //           (it: any) => it?.value === data?.data[0]?.country_id,
-              //         )?.label,
-              //       },
-              //       ...prev,
-              //     ]);
-              //   },
-              //   values: [
-              //     {
-              //       ...values,
-              //     },
-              //   ],
-              //   url: `/country/`,
-              //   enqueueSnackbar: enqueueSnackbar,
-              // });
-              addCountries(values);
+              // addCountries(values);
             }
             if (!apiResponse) {
               setLoading(false);

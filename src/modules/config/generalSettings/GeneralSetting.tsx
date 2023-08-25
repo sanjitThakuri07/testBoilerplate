@@ -108,7 +108,6 @@ export default function GeneralSetting() {
       tableTitle: returnedParams,
     }));
     let apiRequestResponse = false;
-    console.log({ urlUtils });
     switch (returnedParams) {
       case "location":
         apiRequestResponse = await fetchLocations({
@@ -262,9 +261,7 @@ export default function GeneralSetting() {
               className: "filter__field",
               filteredOptionLength: presentFilter,
             }}
-            onDelete={(data) => {
-              console.log({ data });
-            }}
+            onDelete={(data) => {}}
             tableControls={(rowData: any) => {
               return {
                 duplicate: !location.pathname.includes("/country"),

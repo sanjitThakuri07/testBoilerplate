@@ -11,12 +11,12 @@ export const subTabContainerInspection = [
     permission: [permissionList.InspectionName.view],
     role: [],
   },
-  {
-    label: "Inspection Status",
-    link: "/config/inspection-types/inspection-status",
-    permission: [permissionList.InspectionStatus.view],
-    role: [],
-  },
+  // {
+  //   label: "Inspection Status",
+  //   link: "/config/inspection-types/inspection-status",
+  //   permission: [permissionList.InspectionStatus.view],
+  //   role: [],
+  // },
 ];
 export default function InspectionTypesConfig() {
   const navigate = useNavigate();

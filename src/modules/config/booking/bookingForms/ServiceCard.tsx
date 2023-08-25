@@ -15,7 +15,7 @@ const ServiceCard: FC<
   const location = useLocation();
   const isActive = status === "Active" ? true : false;
   let check =
-    location.pathname.includes("booking-status") &&
+    location.pathname.includes("general-status") &&
     ["Completed", "In Progress", "Cancelled", "Invoiced"]?.includes(name || "");
   return (
     <div className="region-card">

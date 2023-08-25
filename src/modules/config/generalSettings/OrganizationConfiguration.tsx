@@ -75,9 +75,9 @@ export const tabContainerConfiguration = [
   },
   {
     id: 5,
-    label: "Booking Status",
-    link: "/config/booking-status",
-    permission: [permissionList.BookingStatus.view],
+    label: "General Status",
+    link: "/config/general-status",
+    permission: [permissionList.GeneralStatus.view],
     role: [],
     subTabContainer: [],
   },

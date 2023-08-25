@@ -39,6 +39,7 @@ const AddBooking = () => {
     name: "",
     status: "Active",
     notes: "",
+    module_id: null,
   });
 
   const [addAnother, setAddAnother] = useState(false);
@@ -60,8 +61,8 @@ const AddBooking = () => {
   const getBackEndApi = (params: string) => {
     let url = "";
     switch (params) {
-      case "booking-status":
-        url = "booking-status";
+      case "general-status":
+        url = "status";
         break;
       default:
         url = "";
@@ -71,12 +72,12 @@ const AddBooking = () => {
   };
 
   const DynamicTableChanger = () => {
-    if (location.pathname.includes("booking-status")) {
+    if (location.pathname.includes("general-status")) {
       setConfigName({
-        singular: "Booking Status",
-        plural: "Booking Status",
-        pathname: "booking-status",
-        parent_path: "booking-status",
+        singular: "General Status",
+        plural: "General Status",
+        pathname: "general-status",
+        parent_path: "general-status",
       });
     }
   };
@@ -208,7 +209,7 @@ const AddBooking = () => {
       setCustomRoutes({
         backendUrl: allRoutes?.activityStatus?.backendUrl,
       });
-    } else if (configName?.pathname === "booking-status") {
+    } else if (configName?.pathname === "general-status") {
       setCustomRoutes({
         backendUrl: url?.bookingStatus,
       });
@@ -292,7 +293,7 @@ const AddBooking = () => {
         </Stack>
       </div>
 
-      {!readOnly && (
+      {/* {!readOnly && (
         <div className="border-wrapper">
           {generalCardContainer.length > 0 && (
             <div className="regions">
@@ -318,11 +319,11 @@ const AddBooking = () => {
             </div>
           )}
         </div>
-      )}
+      )} */}
 
       <EditView permission={permissionList.BookingStatus.edit} />
 
-      {location.pathname.includes("booking-status") === true && (
+      {location.pathname.includes("general-status") === true && (
         <BookingStatusForm
           service={individualData}
           setIndividualData={setIndividualData}

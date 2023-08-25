@@ -16,6 +16,7 @@ interface CommonFetchInterface {
   replace?: boolean;
   toastMessage?: string;
   token?: string;
+  signal?: any;
 }
 
 interface postInterface extends CommonFetchInterface {
@@ -66,6 +67,7 @@ export const fetchApI = async ({
   replace = false,
   toastMessage,
   token,
+  signal,
 }: CommonFetchInterface) => {
   try {
     const isQueryObject = queryParam instanceof Object ? true : false;
@@ -73,7 +75,7 @@ export const fetchApI = async ({
 
     const { status, data } = await getAPI(
       `${queryParam ? `${url}?${isQueryObject ? queryMaker(queryParam) : queryParam}` : url}`,
-      "",
+      { signal },
       replace,
       enqueueSnackbar,
       token,
@@ -138,6 +140,7 @@ export const fetchExternalApI = async ({
   host,
   api_token,
   replace = false,
+  signal,
 }: any) => {
   try {
     const { status, data } = await getExternalAPI({
@@ -145,6 +148,7 @@ export const fetchExternalApI = async ({
       url: url,
       api_token: api_token,
       replace,
+      signal,
     });
     setterLoading?.(true);
     if (status === 200) {
@@ -176,6 +180,7 @@ export const fetchIndividualApi = async ({
   queryParam,
   customApiUrl,
   token,
+  signal,
 }: any) => {
   try {
     if (id) {
@@ -191,7 +196,7 @@ export const fetchIndividualApi = async ({
             ? `${url}`
             : `${url}/${id}`
         }`,
-        undefined,
+        { signal },
         undefined,
         enqueueSnackbar,
         token,
@@ -227,6 +232,7 @@ export const postApiData = async ({
   message,
   routeKey = "contractor",
   getError,
+  signal,
 }: postInterface) => {
   try {
     setterLoading?.(true);

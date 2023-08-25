@@ -134,6 +134,7 @@ export const menuData = {
         permissionList.Contractor.view,
         permissionList.Service.view,
         permissionList.BookingStatus.view,
+        permissionList.GeneralStatus.view,
         permissionList.InternalAttributes.view,
         permissionList.CustomAttributes.view,
         permissionList.ExternalAttributes.view,

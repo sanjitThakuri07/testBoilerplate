@@ -42,6 +42,8 @@ export const url: any = {
   role: "user-role",
   department: "user-department",
   userOrg: "organization-user",
+  generalStatus: "status",
+  module: "module",
 };
 
 export const moduleIdsFnR = [
