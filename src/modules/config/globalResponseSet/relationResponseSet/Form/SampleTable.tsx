@@ -91,6 +91,8 @@ import TableRow from "@mui/material/TableRow";
 const SampleTable = ({ format }: any) => {
   const { headers, items = [] } = format;
 
+  console.log({ headers, items });
+
   return (
     <>
       {items?.length > 0 ? (
@@ -98,17 +100,18 @@ const SampleTable = ({ format }: any) => {
           <Table stickyHeader size="small" sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                {items?.length > 0 &&
-                  Object?.entries(items[0] || {})?.map((item: any) => (
+                {Object.keys(headers || {})?.map((header: any) => {
+                  return (
                     <TableCell
                       style={{
                         backgroundColor: "#d6d6d6",
                       }}
-                      key={item[0]}
+                      key={header}
                     >
-                      {item[0]}
+                      {headers?.[header] || ""}
                     </TableCell>
-                  ))}
+                  );
+                })}
               </TableRow>
             </TableHead>
 
@@ -116,7 +119,7 @@ const SampleTable = ({ format }: any) => {
               {items?.length > 0 &&
                 items?.map((item: any) => (
                   <TableRow key={item?.id}>
-                    {Object.keys(item || {})
+                    {Object.keys(headers || {})
                       // .filter((item: any) => headers_key.includes(item))
                       .map((key: any) => (
                         <>

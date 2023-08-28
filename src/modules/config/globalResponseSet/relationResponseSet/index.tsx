@@ -81,11 +81,11 @@ const Index = () => {
   };
 
   useEffect(() => {
-    if (location.pathname.includes("internal")) {
+    if (location.pathname.includes("relation")) {
       setConfigName({
-        singular: "Internal Response",
-        plural: "Internal Responses",
-        pathname: "internal",
+        singular: "Relation Attributes",
+        plural: "Relation Attributes",
+        pathname: "relation",
         parent_path: "customResponse",
         parent_pathname: "custom",
       });

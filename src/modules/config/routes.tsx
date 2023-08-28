@@ -26,6 +26,7 @@ import AddServiceConfig from "src/modules/config/contractors/services/AddService
 
 import GlobalResponseSetSetting from "src/modules/config/globalResponseSet/GlobalResponse";
 import AddResponseSet from "src/modules/config/globalResponseSet/internalResponseSet/index";
+import AddRelationResponseSet from "src/modules/config/globalResponseSet/relationResponseSet/index";
 import AddExternalResponseSet from "src/modules/config/globalResponseSet/externalResponseSet/index";
 
 import ActivitySetting from "src/modules/config/activity/Activity";
@@ -747,9 +748,9 @@ const globalResponseSet = [
     newPage: false,
   },
 
-  // Relational Response Set
+  // Relation Response Set
   {
-    title: "Regional Response Set",
+    title: "Relation Response Set",
     path: `/config/${PrivateRoute.ORGCONFIG.GLOBALRESPONSESET.CHILD_LINKS.RELATIONALRESPONSESET.HOME}`,
     component: IndexHOC({
       component: GlobalResponseSetSetting,
@@ -759,30 +760,30 @@ const globalResponseSet = [
     newPage: false,
   },
   {
-    title: "Add Relational Response Set",
+    title: "Add Relation Response Set",
     path: `/config/${PrivateRoute.ORGCONFIG.GLOBALRESPONSESET.CHILD_LINKS.RELATIONALRESPONSESET.ADD}`,
     component: IndexHOC({
-      component: AddResponseSet,
+      component: AddRelationResponseSet,
       permission: [permissionList.InternalAttributes.add],
       role: [],
     }),
     newPage: false,
   },
   {
-    title: "View Relational Response Set",
+    title: "View Relation Response Set",
     path: `/config/${PrivateRoute.ORGCONFIG.GLOBALRESPONSESET.CHILD_LINKS.RELATIONALRESPONSESET.VIEW}`,
     component: IndexHOC({
-      component: AddResponseSet,
+      component: AddRelationResponseSet,
       permission: [permissionList.InternalAttributes.view],
       role: [],
     }),
     newPage: false,
   },
   {
-    title: "Edit Relational Response Set",
+    title: "Edit Relation Response Set",
     path: `/config/${PrivateRoute.ORGCONFIG.GLOBALRESPONSESET.CHILD_LINKS.RELATIONALRESPONSESET.EDIT}`,
     component: IndexHOC({
-      component: AddResponseSet,
+      component: AddRelationResponseSet,
       permission: [permissionList.InternalAttributes.edit],
       role: [],
     }),

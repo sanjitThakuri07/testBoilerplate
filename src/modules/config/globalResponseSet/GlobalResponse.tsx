@@ -98,7 +98,7 @@ export default function GlobalResponseSet() {
         break;
       case "relation":
         returnedParams = "relation-response";
-        path = "Relational Attributes";
+        path = "Relation Attributes";
         setPathName((prev: any) => ({
           ...prev,
           backendUrl: returnedParams,
@@ -110,7 +110,7 @@ export default function GlobalResponseSet() {
             titleFieldName: "name",
           },
           showAddButton: false,
-          tableTitle: "Relational Attributes",
+          tableTitle: "Relation Attributes",
         }));
         break;
       case "custom":
