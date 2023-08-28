@@ -82,6 +82,7 @@ export default function TemplateIndex() {
     tableDatas,
     tableActionHandler,
     isLoading: templateLoading,
+    postTemplateMenu,
   }: any = useTemplateStore();
 
   const getData = async () => {
@@ -174,7 +175,7 @@ export default function TemplateIndex() {
       {templateLoading && <FullPageLoader />}
       {selected && (
         <AddModal
-          confirmationHeading={`Assign inspection name to the template. ( ${selected?.name})`}
+          confirmationHeading={`Assign menu to the template. ( ${selected?.name})`}
           openModal={showModal === "assign_inspection"}
           setOpenModal={() => handleModalClose()}
         >
@@ -182,7 +183,7 @@ export default function TemplateIndex() {
             selected={selected}
             isLoading={isLoading}
             onCreate={async ({ values }: any) => {
-              if (await postAssignInspection({ query: values, enqueueSnackbar })) {
+              if (await postTemplateMenu({ values, enqueueSnackbar })) {
                 handleModalClose();
                 getData();
               }
@@ -207,62 +208,62 @@ export default function TemplateIndex() {
         duplicate={true}
         actionViewMode={{
           type: "dot",
-          // dotModeOptions: [
-          //   {
-          //     Icon: <img src="/src/assets/icons/manage_access.svg" alt="report" />,
-          //     label: "Create Layout",
-          //     handleButtonClick: ({ id }: any) => {
-          //       navigate(`layout/${id}`);
-          //     },
-          //     permission: [permissionList.Form.add],
-          //   },
-          //   {
-          //     Icon: <img src="/src/assets/icons/manage_access.svg" alt="report" />,
-          //     label: "Manage Access",
-          //     handleButtonClick: ({ id }: any) => {
-          //       navigate(`access-control/${id}`);
-          //     },
-          //     permission: [permissionList.Form.edit],
-          //   },
-          //   {
-          //     Icon: <img src={ScheduleIcon} alt="schedule-inspection" />,
-          //     label: "Schedule Inspection",
-          //     handleButtonClick: ({ id }: any) => {
-          //       navigate(`schedule-inspection/${id}`);
-          //     },
-          //     permission: [permissionList.Form.edit],
-          //   },
-          //   {
-          //     Icon: <img src="/src/assets/icons/manage_access.svg" alt="report" />,
-          //     label: "Assign Inspection",
-          //     handleButtonClick: (row: any) => {
-          //       // navigate(`layout/${id}`);
-          //       handleModalShow("assign_inspection");
-          //       setSelected(row);
-          //     },
-          //     permission: [permissionList.Form.add],
-          //   },
-          //   {
-          //     Icon: (
-          //       <ManageHistoryIcon style={{ width: "22px", height: "22px", color: "#667084" }} />
-          //     ),
-          //     label: "Manage Schedule",
-          //     handleButtonClick: ({ id }: any) => {
-          //       navigate(`/schedule/${id}`);
-          //     },
-          //     permission: [permissionList.Form.edit],
-          //   },
-          //   {
-          //     Icon: <img src={QRIcon} alt="report" />,
-          //     label: "Generate QR Code",
-          //     handleButtonClick: ({ id }: any) => {
-          //       setOpenModal(true);
-          //       setQrData(`${process.env.VITE_URL}/template/inspection/${id}`);
-          //     },
-          //     permission: [permissionList.Form.view],
-          //   },
-          // ],
-          dotModeOptions: [],
+          dotModeOptions: [
+            //   {
+            //     Icon: <img src="/src/assets/icons/manage_access.svg" alt="report" />,
+            //     label: "Create Layout",
+            //     handleButtonClick: ({ id }: any) => {
+            //       navigate(`layout/${id}`);
+            //     },
+            //     permission: [permissionList.Form.add],
+            //   },
+            //   {
+            //     Icon: <img src="/src/assets/icons/manage_access.svg" alt="report" />,
+            //     label: "Manage Access",
+            //     handleButtonClick: ({ id }: any) => {
+            //       navigate(`access-control/${id}`);
+            //     },
+            //     permission: [permissionList.Form.edit],
+            //   },
+            //   {
+            //     Icon: <img src={ScheduleIcon} alt="schedule-inspection" />,
+            //     label: "Schedule Inspection",
+            //     handleButtonClick: ({ id }: any) => {
+            //       navigate(`schedule-inspection/${id}`);
+            //     },
+            //     permission: [permissionList.Form.edit],
+            //   },
+            {
+              Icon: <img src="/src/assets/icons/manage_access.svg" alt="report" />,
+              label: "Assign Menu",
+              handleButtonClick: (row: any) => {
+                // navigate(`layout/${id}`);
+                handleModalShow("assign_inspection");
+                setSelected(row);
+              },
+              permission: [permissionList.Form.add],
+            },
+            //   {
+            //     Icon: (
+            //       <ManageHistoryIcon style={{ width: "22px", height: "22px", color: "#667084" }} />
+            //     ),
+            //     label: "Manage Schedule",
+            //     handleButtonClick: ({ id }: any) => {
+            //       navigate(`/schedule/${id}`);
+            //     },
+            //     permission: [permissionList.Form.edit],
+            //   },
+            //   {
+            //     Icon: <img src={QRIcon} alt="report" />,
+            //     label: "Generate QR Code",
+            //     handleButtonClick: ({ id }: any) => {
+            //       setOpenModal(true);
+            //       setQrData(`${process.env.VITE_URL}/template/inspection/${id}`);
+            //     },
+            //     permission: [permissionList.Form.view],
+            //   },
+          ],
+          // dotModeOptions: [],
         }}
         onEdit={(data: any) => {
           navigate(`/template/edit/${data?.id}`);

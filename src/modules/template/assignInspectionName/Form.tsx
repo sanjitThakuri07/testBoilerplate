@@ -5,6 +5,7 @@ import Select from "react-select";
 import { Form, Formik, FormikProps } from "formik";
 import ButtonLoaderSpinner from "src/components/ButtonLoaderSpinner/ButtonLoaderSpinner";
 import { useInspectionNameStore } from "src/store/zustand/inspection/inspectionName";
+import useGeneralStatusStore from "src/store/zustand/generalStatus";
 
 const AssignInspectionName = ({
   templateId,
@@ -16,9 +17,20 @@ const AssignInspectionName = ({
   selected,
 }: any) => {
   const { getInspectionNames, inspectionNames } = useInspectionNameStore();
+
+  const {
+    fetchGeneralStatuss,
+    postGeneralStatus,
+    updateGeneralStatus,
+    fetchIndividualGeneralStatus,
+    individualGeneralStatus,
+    generalStatuss,
+  }: any = useGeneralStatusStore();
+
   useEffect(() => {
-    getInspectionNames({});
+    fetchGeneralStatuss({ query: { tag: "Form" } });
   }, []);
+
   return (
     <>
       <Formik
@@ -26,15 +38,15 @@ const AssignInspectionName = ({
           formData
             ? {
                 template_id: formData.template_id,
-                inspection_id: formData.inspection_id,
+                menu_id: formData.menu_id,
               }
             : {
-                inspection_id: selected.inspection_type
+                menu_id: selected.inspection_type
                   ? {
-                      label: inspectionNames?.items?.find(
+                      label: generalStatuss?.find(
                         (inspectionName: any) => inspectionName.id === selected?.inspection_type,
                       ).name,
-                      value: inspectionNames?.items?.find(
+                      value: generalStatuss?.find(
                         (inspectionName: any) => inspectionName.id === selected?.inspection_type,
                       ).id,
                     }
@@ -44,13 +56,13 @@ const AssignInspectionName = ({
         }
         onSubmit={(values) => {
           let {
-            inspection_id,
+            menu_id,
 
             ...datas
           }: any = values;
           datas = {
             ...datas,
-            inspection_id: inspection_id.value,
+            menu_id: menu_id.value,
           };
           formData
             ? onUpdate({ templateAccessId: formData.id, datas })
@@ -76,12 +88,12 @@ const AssignInspectionName = ({
                 </InputLabel>
 
                 <Select
-                  name="inspection_id"
+                  name="menu_id"
                   onChange={(e: any) => {
-                    setFieldValue("inspection_id", e);
+                    setFieldValue("menu_id", e);
                   }}
-                  value={values.inspection_id}
-                  defaultValue={values.inspection_id}
+                  value={values.menu_id}
+                  defaultValue={values.menu_id}
                   closeMenuOnSelect={true}
                   //   isDisabled={true}
                   theme={(theme) => ({
@@ -93,10 +105,10 @@ const AssignInspectionName = ({
                   })}
                   isMulti={false}
                   options={
-                    inspectionNames.items?.length
-                      ? inspectionNames?.items?.map((inspectionName: any) => ({
-                          label: inspectionName.name,
-                          value: inspectionName.id,
+                    generalStatuss?.length
+                      ? generalStatuss?.map((status: any) => ({
+                          label: status.name,
+                          value: status.id,
                         }))
                       : []
                   }

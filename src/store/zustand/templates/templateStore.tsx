@@ -30,14 +30,6 @@ export const useTemplateStore = create(
         templatesMedia: [],
 
         postTemplate: async (values: any, navigate: any, enqueueSnackbar: any) => {
-          // const response = await postAPI('/templates/', values);
-          // if (response) {
-          //   navigate('/template');
-          //   return true;
-          // }
-          // set((state: any) => {
-          //   state.templates = response.data;
-          // });
           set({ isLoading: true });
           const apiResponse = await postApiData({
             values: values,
@@ -236,6 +228,40 @@ export const useTemplateStore = create(
           set((state: any) => {
             state.inspection = response?.data;
           });
+        },
+
+        postTemplateMenu: async ({ values, navigate, goTo, enqueueSnackbar }: any) => {
+          set({ isLoading: true });
+          const apiResponse = await postApiData({
+            // values: values,
+            queryParam: values,
+            url: url.assignMenu,
+            enqueueSnackbar: enqueueSnackbar,
+            setterFunction: (data: any) => {
+              resetTemplateValues();
+              set((state: any) => {
+                let tableDatas: any = [...(state?.tableDatas?.items || [])];
+                let updatedData: any = tableDatas?.map((tbData: any) => {
+                  if (tbData?.id === values?.template_id) {
+                    return { ...data?.data };
+                  }
+                  return { ...tbData };
+                });
+                return {
+                  templates: updatedData,
+                  isLoading: false,
+                  tableDatas: {
+                    ...state.tableDatas,
+                    items: updatedData,
+                  },
+                };
+              });
+            },
+            domain: "Form Builder",
+          });
+          set({ isLoading: false });
+          !apiResponse && set({ isLoading: false });
+          return apiResponse;
         },
 
         tableActionHandler: async ({ values, enqueueSnackbar, type, URL = url?.template }: any) => {

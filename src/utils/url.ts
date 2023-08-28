@@ -45,6 +45,7 @@ export const url: any = {
   generalStatus: "status",
   module: "module",
   orgazniationFormat: "organization-global-settings/format",
+  assignMenu: "/templates/assign-menu",
 };
 
 export const moduleIdsFnR = [

@@ -234,9 +234,13 @@ export const postApiData = async ({
   getError,
   signal,
 }: postInterface) => {
+  const isQueryObject = queryParam instanceof Object ? true : false;
   try {
     setterLoading?.(true);
-    const { status, data } = await postAPI(`${queryParam ? `${url}?${queryParam}` : url}`, values);
+    const { status, data } = await postAPI(
+      `${queryParam ? `${url}?${isQueryObject ? queryMaker(queryParam) : queryParam}` : url}`,
+      values,
+    );
     if (status === 200) {
       enqueueSnackbar?.(data?.message ? data?.message : "Data Created Successfully", {
         variant: "success",

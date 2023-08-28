@@ -132,8 +132,6 @@ const MenuListComponent: React.FC = () => {
     }
   }, []);
 
-  console.log({ appendSidebar });
-
   const handleListNavigation = ({ menu }: any) => {
     return menu.tabsContainer.length && menu.depth === 1
       ? handleNavigate(
