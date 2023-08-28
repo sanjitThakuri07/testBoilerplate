@@ -67,7 +67,7 @@ export const globalResponseSetUrl = [
     url: "global-response-set/relation",
     id: 0,
     backendUrl: "relation-response-set",
-    label: "Relational Attributes",
+    label: "Relation Attributes",
     permission: [permissionList.InternalAttributes.view],
     role: [],
   },

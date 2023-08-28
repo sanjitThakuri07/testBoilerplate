@@ -51,6 +51,8 @@ export const url: any = {
   externalResponse: "external-api",
   statusResponse: "multiple-response",
   regionalResponse: "regional-response",
+  relationFieldList: "relation-response/field-list",
+  relationSampleData: "relation-response/sample-data/",
 };
 
 export const moduleIdsFnR = [
