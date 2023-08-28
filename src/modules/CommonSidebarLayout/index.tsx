@@ -131,7 +131,7 @@ export default function CommonSidebarLayout() {
 
   return (
     <Box sx={{ p: "20px" }} className="config-holder">
-      {loading && <FullPageLoader />}
+      {/* {loading && <FullPageLoader />} */}
 
       <BASDataTable
         data={tableUpdateDatas?.page?.data || []}

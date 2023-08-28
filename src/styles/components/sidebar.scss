@@ -210,12 +210,15 @@
   }
 }
 
-// .nested__block {
-//   &:last-child {
-//     display: none !important;
-//     border: 2px solid red;
-//   }
-// }
+.nested__block {
+  padding-left: toRem(32);
+}
+
+.sidebar__list {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 .last__block {
   border-bottom: 1px solid $color-primary-bg-text;

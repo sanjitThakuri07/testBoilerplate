@@ -73,6 +73,7 @@ const MenuListComponent: React.FC = () => {
   }
 
   const handleNavigate = (path: string) => {
+    console.log("path", path);
     navigate(path);
   };
   const getIcon = (icon: string): any => {
@@ -158,8 +159,6 @@ const MenuListComponent: React.FC = () => {
           )
       : handleNavigate(menu.path);
   };
-
-  console.log({ permissionss });
 
   return (
     <Box
