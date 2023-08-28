@@ -484,6 +484,12 @@ export const PrivateRoute = {
           EDIT: "global-response-set/internal/edit/:internalResponseId",
           VIEW: "global-response-set/internal/view/:internalResponseId",
         },
+        RELATIONALRESPONSESET: {
+          HOME: "global-response-set/relational",
+          ADD: "global-response-set/relational/add",
+          EDIT: "global-response-set/relational/edit/:internalResponseId",
+          VIEW: "global-response-set/relational/view/:internalResponseId",
+        },
         EXTERNALRESPONSESET: {
           HOME: "global-response-set/external",
           ADD: "global-response-set/external/add",

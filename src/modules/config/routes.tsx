@@ -727,7 +727,7 @@ const globalResponseSet = [
     newPage: false,
   },
   {
-    title: "Edit Internal Response Set",
+    title: "View Internal Response Set",
     path: `/config/${PrivateRoute.ORGCONFIG.GLOBALRESPONSESET.CHILD_LINKS.INTERNALRESPONSESET.VIEW}`,
     component: IndexHOC({
       component: AddResponseSet,
@@ -739,6 +739,48 @@ const globalResponseSet = [
   {
     title: "Edit Internal Response Set",
     path: `/config/${PrivateRoute.ORGCONFIG.GLOBALRESPONSESET.CHILD_LINKS.INTERNALRESPONSESET.EDIT}`,
+    component: IndexHOC({
+      component: AddResponseSet,
+      permission: [permissionList.InternalAttributes.edit],
+      role: [],
+    }),
+    newPage: false,
+  },
+
+  // Relational Response Set
+  {
+    title: "Regional Response Set",
+    path: `/config/${PrivateRoute.ORGCONFIG.GLOBALRESPONSESET.CHILD_LINKS.RELATIONALRESPONSESET.HOME}`,
+    component: IndexHOC({
+      component: GlobalResponseSetSetting,
+      permission: [permissionList.InternalAttributes.view],
+      role: [],
+    }),
+    newPage: false,
+  },
+  {
+    title: "Add Relational Response Set",
+    path: `/config/${PrivateRoute.ORGCONFIG.GLOBALRESPONSESET.CHILD_LINKS.RELATIONALRESPONSESET.ADD}`,
+    component: IndexHOC({
+      component: AddResponseSet,
+      permission: [permissionList.InternalAttributes.add],
+      role: [],
+    }),
+    newPage: false,
+  },
+  {
+    title: "View Relational Response Set",
+    path: `/config/${PrivateRoute.ORGCONFIG.GLOBALRESPONSESET.CHILD_LINKS.RELATIONALRESPONSESET.VIEW}`,
+    component: IndexHOC({
+      component: AddResponseSet,
+      permission: [permissionList.InternalAttributes.view],
+      role: [],
+    }),
+    newPage: false,
+  },
+  {
+    title: "Edit Relational Response Set",
+    path: `/config/${PrivateRoute.ORGCONFIG.GLOBALRESPONSESET.CHILD_LINKS.RELATIONALRESPONSESET.EDIT}`,
     component: IndexHOC({
       component: AddResponseSet,
       permission: [permissionList.InternalAttributes.edit],

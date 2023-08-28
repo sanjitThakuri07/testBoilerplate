@@ -46,6 +46,11 @@ export const url: any = {
   module: "module",
   orgazniationFormat: "organization-global-settings/format",
   assignMenu: "/templates/assign-menu",
+  internalResponse: "internal-response",
+  customResponse: "global-response",
+  externalResponse: "external-api",
+  statusResponse: "multiple-response",
+  regionalResponse: "regional-response",
 };
 
 export const moduleIdsFnR = [

@@ -197,7 +197,7 @@ const DynamicMenuList = ({ handleListNavigation, getIcon, permissions, userType 
           })}
       </List>
     ),
-    [],
+    [templates],
   );
 };
 
