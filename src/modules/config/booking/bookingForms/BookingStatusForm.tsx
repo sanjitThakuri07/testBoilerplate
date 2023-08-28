@@ -23,7 +23,7 @@ import { fetchApI, fetchIndividualApi } from "src/modules/apiRequest/apiRequest"
 import FullPageLoader from "src/components/FullPageLoader";
 import { BOOKING_STATUS_DEFAULT } from "src/modules/config/generalSettings/constantsForm";
 import { useLocation } from "react-router-dom";
-import useGeneralStatusStore from "src/store/zustand/generalSettings/InsepctionStatus";
+import useGeneralStatusStore from "src/store/zustand/generalStatus/index";
 import useModuleStore from "src/store/zustand/module";
 
 const BookingStatusForm: FC<{
@@ -128,79 +128,7 @@ const BookingStatusForm: FC<{
         validationSchema={ServiceSchema({ blockName: "Booking Status" })}
         onSubmit={async (values, formikHelpers) => {
           if (disabled) return;
-          // try {
-          //   setIsFormLoading(true);
-          //   if (values?.id) {
-          //     const { data } = await putAPI(`booking-status/${values.id}`, {
-          //       ...values,
-          //     });
-          //     // update in the store and the variable used place
-          //     if (data?.data) {
-          //       const updatedData = {
-          //         name: data?.data?.name,
-          //         id: data?.data?.id,
-          //         status: data?.data?.status,
-          //         notes: data?.data?.notes,
-          //       };
-          //       // our useState variable
-          //       setIndividualData?.(updatedData);
-          //       // change in globalcard container
-          //       updateCard?.((prev: any) => {
-          //         let filterDatas = prev?.filter(
-          //           (data: { id?: number }) => data?.id !== Number(values?.id),
-          //         );
-          //         return [updatedData, ...filterDatas];
-          //       });
-          //       if (addAnother) {
-          //         setIndividualData?.(BOOKING_STATUS_DEFAULT);
-          //         setOpenModal(false);
-          //         formikHelpers.resetForm({ values: BOOKING_STATUS_DEFAULT });
-          //       } else if (!routeToHomePage && !addAnother) {
-          //         navigate("/config/general-status");
-          //       }
-          //     }
-          //   } else {
-          //     const { data } = await postAPI("/booking-status/", [
-          //       {
-          //         ...values,
-          //       },
-          //     ]);
-          //     if (data?.data?.length) {
-          //       updateCard?.((prev: any) => [
-          //         {
-          //           name: data?.data[0]?.name,
-          //           id: data?.data[0]?.id,
-          //           status: data?.data[0]?.status,
-          //           notes: data?.data[0]?.notes,
-          //         },
-          //         ...prev,
-          //       ]);
-          //       if (addAnother) {
-          //         setIndividualData?.(BOOKING_STATUS_DEFAULT);
-          //         setOpenModal(false);
-          //         formikHelpers.resetForm({ values: BOOKING_STATUS_DEFAULT });
-          //       } else if (!routeToHomePage && !addAnother) {
-          //         navigate("/config/general-status");
-          //       }
-          //     }
-          //   }
-          //   // setOpenModal(true);
-          //   setIsFormLoading(false);
-          // } catch (error: any) {
-          //   const {
-          //     response: {
-          //       data: { detail },
-          //     },
-          //   } = error;
 
-          //   enqueueSnackbar(
-          //     (detail?.message ? detail?.message : error?.message) || "Something went wrong!",
-          //     {
-          //       variant: "error",
-          //     },
-          //   );
-          //   setIsFormLoading(false);
-          // }
           let apiResponse: any = false;
 
           if (values.id) {
@@ -446,6 +374,7 @@ const BookingStatusForm: FC<{
                           type="submit"
                           disabled={!isValid || !dirty || isSubmitting}
                           onClick={(e: any) => {
+                            // handleSubmit();
                             setAddAnother?.(false);
                           }}
                         >
