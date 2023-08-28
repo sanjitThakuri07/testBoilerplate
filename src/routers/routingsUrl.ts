@@ -63,10 +63,10 @@ export const globalResponseSetUrl = [
     role: [],
   },
   {
-    type: "relationalResponseSet",
-    url: "global-response-set/relational",
+    type: "relationResponseSet",
+    url: "global-response-set/relation",
     id: 0,
-    backendUrl: "relational-response-set",
+    backendUrl: "relation-response-set",
     label: "Relational Attributes",
     permission: [permissionList.InternalAttributes.view],
     role: [],

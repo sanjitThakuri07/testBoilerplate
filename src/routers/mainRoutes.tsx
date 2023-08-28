@@ -36,7 +36,7 @@ import BillingPlans from "src/modules/Billing/BillingPlans";
 // import AddRegionsConfig from 'src/modules/config/generalSettings/region/AddRegionsConfig';
 // import PublicPDFPreview from 'src/modules/inspections/Report/PDFPreview/PublicPDFPreview';
 // import NotificationList from 'src/modules/notificationList';
-// import AddOrganization from 'src/modules/tenant/addOrganization';
+import AddOrganization from "src/modules/tenant/addOrganization";
 // import TwoFactor_QR from 'src/modules/twofactor';
 import PublicInvoicePage from "src/modules/pages/publicPages/invoicePage/invoicePage";
 // import { permissionList } from 'src/constants/permission';
@@ -225,18 +225,18 @@ export const privateRoutes: any = [
   //   component: AddInspectionStatusConfig,
   //   newPage: false,
   // },
-  // {
-  //   title: 'Add Organization',
-  //   path: PrivateRoute.ADD_ORGANIZATION,
-  //   component: IndexHOC({ component: AddOrganization, permission: [] }),
-  //   newPage: true,
-  // },
-  // {
-  //   title: 'View Organization',
-  //   path: PrivateRoute.VIEW_ORGANIZATION,
-  //   component: IndexHOC({ component: AddOrganization, permission: [] }),
-  //   newPage: true,
-  // },
+  {
+    title: "Add Organization",
+    path: PrivateRoute.ADD_ORGANIZATION,
+    component: IndexHOC({ component: AddOrganization, permission: [] }),
+    newPage: true,
+  },
+  {
+    title: "View Organization",
+    path: PrivateRoute.VIEW_ORGANIZATION,
+    component: IndexHOC({ component: AddOrganization, permission: [] }),
+    newPage: true,
+  },
   // {
   //   title: 'Add Tariff Rate',
   //   path: `${PrivateRoute.CONFIG.FINANCE.ADD_TAFIFF_RATE}/:tariffRateId`,

@@ -485,10 +485,10 @@ export const PrivateRoute = {
           VIEW: "global-response-set/internal/view/:internalResponseId",
         },
         RELATIONALRESPONSESET: {
-          HOME: "global-response-set/relational",
-          ADD: "global-response-set/relational/add",
-          EDIT: "global-response-set/relational/edit/:internalResponseId",
-          VIEW: "global-response-set/relational/view/:internalResponseId",
+          HOME: "global-response-set/relation",
+          ADD: "global-response-set/relation/add",
+          EDIT: "global-response-set/relation/edit/:internalResponseId",
+          VIEW: "global-response-set/relation/view/:internalResponseId",
         },
         EXTERNALRESPONSESET: {
           HOME: "global-response-set/external",

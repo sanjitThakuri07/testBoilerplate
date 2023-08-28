@@ -96,6 +96,23 @@ export default function GlobalResponseSet() {
           tableTitle: "Internal Attributes",
         }));
         break;
+      case "relation":
+        returnedParams = "relation-response";
+        path = "Relational Attributes";
+        setPathName((prev: any) => ({
+          ...prev,
+          backendUrl: returnedParams,
+          buttonName: path,
+          popUpField: {
+            key: "options",
+            label: "",
+            fieldName: "name",
+            titleFieldName: "name",
+          },
+          showAddButton: false,
+          tableTitle: "Relational Attributes",
+        }));
+        break;
       case "custom":
         returnedParams = "global-response";
         path = "Custom Attributes";
