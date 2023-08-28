@@ -37,6 +37,7 @@ import PaidOutlinedIcon from "@mui/icons-material/PaidOutlined";
 import jwt_decode from "jwt-decode";
 import { Tooltip } from "@mui/material";
 import { useTemplateStore } from "src/store/zustand/templates/templateStore";
+import DynamicMenuList from "./DynamicMenuList";
 
 export const sidebarFilter = ({ item, permissions, userType }: any) => {
   const checkRole = item?.role.length ? item?.role?.includes(userType) : true;
@@ -158,6 +159,8 @@ const MenuListComponent: React.FC = () => {
       : handleNavigate(menu.path);
   };
 
+  console.log({ permissionss });
+
   return (
     <Box
       sx={{
@@ -260,91 +263,14 @@ const MenuListComponent: React.FC = () => {
               ))}
             </List>
           ) : (
-            <List sx={{ flexDirection: "column" }} className="sidebar___comon-style">
-              {[
-                ...(menuData.ORGANIZATION || []),
-                ...(templates || [])?.map((template: any) => {
-                  return {
-                    ...template,
-                    label: template?.name,
-                    path: `/page/${template?.id}`,
-                    depth: 1,
-                    tabsContainer: [],
-                    permission: [],
-                    icon: "none",
-                    role: [],
-                    position: "",
-                  };
-                }),
-              ]
-                ?.filter((item) => sidebarFilter({ item, permissions: permissionss, userType }))
-                .map((menu, ind) => {
-                  return (
-                    <>
-                      {menu?.position === "end" ? (
-                        <div
-                          style={{ flex: "1", display: "flex", alignItems: "flex-end" }}
-                          className={menu?.className ? menu?.className : ""}
-                        >
-                          <ListItem
-                            disablePadding
-                            key={ind}
-                            className={`${location.pathname === menu.path ? "active" : ""}`}
-                            onClick={() => handleListNavigation({ menu })}
-                          >
-                            <ListItemButton>
-                              <ListItemIcon>{getIcon(menu.icon)}</ListItemIcon>
-                              {!layoutStore.menucollapsed && (
-                                <Tooltip title={menu.label} placement="top-start">
-                                  <ListItemText primary={menu.label} className="sidebar__text" />
-                                </Tooltip>
-                              )}
-                            </ListItemButton>
-                          </ListItem>
-                        </div>
-                      ) : (
-                        <ListItem
-                          disablePadding
-                          key={ind}
-                          className={`${location.pathname === menu.path ? "active" : ""}`}
-                          onClick={() => handleListNavigation({ menu })}
-                        >
-                          <ListItemButton>
-                            <Tooltip title={menu.label} arrow placement="right">
-                              <ListItemIcon
-                                style={{
-                                  margin: "0.3rem 0",
-                                  cursor: "pointer",
-                                }}
-                              >
-                                {menu?.icon === "none" ? (
-                                  <ListAltIcon
-                                    sx={{
-                                      fill: "rgb(122, 132, 161)",
-                                      width: "30px",
-                                      marginRight: "2px",
-                                    }}
-                                  />
-                                ) : (
-                                  getIcon(menu?.icon)
-                                )}
-                              </ListItemIcon>
-                            </Tooltip>
-
-                            {!layoutStore.menucollapsed && (
-                              <>
-                                <Tooltip title={menu.label} placement="top-start">
-                                  <ListItemText primary={menu.label} />
-                                </Tooltip>
-                              </>
-                            )}
-                          </ListItemButton>
-                        </ListItem>
-                      )}
-                    </>
-                  );
-                })}
-            </List>
+            <>
+              <DynamicMenuList
+                handleListNavigation={handleListNavigation}
+                getIcon={getIcon}
+                permissions={permissionss}
+                userType={userType}
+              />
+            </>
           ))}
         <Divider />
       </div>

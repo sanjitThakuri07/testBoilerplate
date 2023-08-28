@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Button, InputLabel } from "@mui/material";
 import Select from "react-select";
 
@@ -17,6 +17,8 @@ const AssignInspectionName = ({
   selected,
 }: any) => {
   const { getInspectionNames, inspectionNames } = useInspectionNameStore();
+
+  const removeRef = useRef(null);
 
   const {
     fetchGeneralStatuss,
@@ -55,14 +57,12 @@ const AssignInspectionName = ({
               }
         }
         onSubmit={(values) => {
-          let {
-            menu_id,
+          console.log({ removeRef }, removeRef.current);
+          let { menu_id, ...datas }: any = values;
 
-            ...datas
-          }: any = values;
           datas = {
             ...datas,
-            menu_id: menu_id.value,
+            menu_id: removeRef?.current === 0 ? 0 : menu_id.value,
           };
           formData
             ? onUpdate({ templateAccessId: formData.id, datas })
@@ -114,14 +114,30 @@ const AssignInspectionName = ({
                   }
                 />
               </div>
+              <div></div>
               <Button
                 variant="contained"
                 disabled={isLoading}
                 className="login_button"
                 fullWidth
                 type="submit"
+                onClick={() => {
+                  removeRef.current = null;
+                }}
               >
                 {isLoading ? <ButtonLoaderSpinner /> : "Done"}
+              </Button>
+              <Button
+                variant="outlined"
+                disabled={isLoading}
+                fullWidth
+                type="submit"
+                onClick={() => {
+                  removeRef.current = 0;
+                }}
+              >
+                {" "}
+                Remove Menu
               </Button>
             </Form>
           );

@@ -1,18 +1,16 @@
-import {create} from 'zustand';
-import { persist } from 'zustand/middleware';
-import { LayoutStoreType } from 'interfaces/layoutProps';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { LayoutStoreType } from "interfaces/layoutProps";
 
 export const useLayoutStore = create<LayoutStoreType>()(
   persist(
-    set => ({
+    (set) => ({
       menucollapsed: false,
-      setMenuCollapse: isCollapsed =>
-        set(() => ({ menucollapsed: isCollapsed })),
-      clearLayoutValues: () =>
-        set(() => ({ menucollapsed: false, theme: 'blue' })),
-      theme: 'blue',
-      changeTheme: selectedTheme => set(() => ({ theme: selectedTheme }))
+      setMenuCollapse: (isCollapsed) => set(() => ({ menucollapsed: isCollapsed })),
+      clearLayoutValues: () => set(() => ({ menucollapsed: false, theme: "blue" })),
+      theme: "blue",
+      changeTheme: (selectedTheme) => set(() => ({ theme: selectedTheme })),
     }),
-    { name: 'layout' }
-  )
+    { name: "layout" },
+  ),
 );
