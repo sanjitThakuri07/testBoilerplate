@@ -135,13 +135,14 @@ const Login: React.FC = () => {
                     />
 
                     <img
-                      src="/src/assets/icons/icon-check.svg"
-                      alt="icon-check"
-                      style={{ height: "50px", width: "50px" }}
-                    />
-                    <img
                       src="https://media.licdn.com/dms/image/C560BAQGwHd4oj4DKFg/company-logo_100_100/0/1659430562669?e=1701302400&v=beta&t=b6ne-5pbfns2JKY_S9S0h-ioIKyeFPB-sUHJE6CKTeU"
                       alt="bas"
+                      style={{ height: "50px", width: "50px" }}
+                    />
+
+                    <img
+                      src="/src/assets/icons/icon-check.svg"
+                      alt="icon-check"
                       style={{ height: "50px", width: "50px" }}
                     />
                     <Box sx={{ marginTop: "26px" }}>
