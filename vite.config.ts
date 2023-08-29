@@ -26,7 +26,7 @@ export default ({ mode }) => {
     build: {
       outDir: "build",
       emptyOutDir: true,
-      assetsInlineLimit: 0,
+      assetsInlineLimit: 500,
     },
     plugins: [react({ plugins: [["@swc/plugin-styled-components", {}]] }), svgr()],
     resolve: {
