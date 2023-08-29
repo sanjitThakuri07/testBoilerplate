@@ -35,6 +35,7 @@ import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import useAppStore from "src/store/zustand/app";
 import { useSnackbar } from "notistack";
 import ButtonLoaderSpinner from "src/components/ButtonLoaderSpinner/ButtonLoaderSpinner";
+import PlusWhite from "src/assets/icons/plus-white.svg";
 
 interface ISignUpForm {
   login_id: string;
@@ -125,6 +126,19 @@ const Login: React.FC = () => {
               <Box sx={{ width: "100%" }}>
                 <Box sx={{ padding: "0 22%" }}>
                   <Box>
+                    <img src={PlusWhite} alt="Icon" style={{ height: "50px", width: "50px" }} />
+
+                    <img
+                      src="/vite.svg"
+                      alt="icon-check"
+                      style={{ height: "50px", width: "50px" }}
+                    />
+
+                    <img
+                      src="/src/assets/icons/icon-check.svg"
+                      alt="icon-check"
+                      style={{ height: "50px", width: "50px" }}
+                    />
                     <img
                       src="https://media.licdn.com/dms/image/C560BAQGwHd4oj4DKFg/company-logo_100_100/0/1659430562669?e=1701302400&v=beta&t=b6ne-5pbfns2JKY_S9S0h-ioIKyeFPB-sUHJE6CKTeU"
                       alt="bas"
