@@ -164,7 +164,9 @@ const DynamicMenuList = ({ handleListNavigation, getIcon, permissions, userType 
           <span className={`icon__indicator`}>
             <ViewSidebarIcon />
           </span>
-          <span style={{ flex: "1", paddingLeft: "8px" }}>{label}</span>
+          <span style={{ flex: "1", paddingLeft: "8px" }} className="content__box">
+            {label}
+          </span>
 
           <span className={`icon__indicator ${toggle ? "up" : "down"}`}>
             <KeyboardArrowDownIcon />

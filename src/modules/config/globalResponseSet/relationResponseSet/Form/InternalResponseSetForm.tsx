@@ -85,6 +85,9 @@ const TableCellCustom = ({
               setFieldValue(`tableValues.${index}.checked`, event.target.checked);
               if (event.target.checked) {
                 setSelectedRow([...selectedRow, data?.module]);
+                setFieldValue(`tableValues.${index}.status`, "Active");
+                console.log({ data });
+                setFieldValue(`tableValues.${index}.form_id`, data?.form_id);
               } else {
                 setSelectedRow(selectedRow.filter((row: any) => row !== data?.module));
               }
@@ -96,7 +99,8 @@ const TableCellCustom = ({
         )}
       </TableCell>
       <TableCell>
-        {internalResponseId ? data?.variable_name : data?.module}
+        {/* {internalResponseId ? data?.variable_name : data?.module} */}
+        {data?.variable_name || ""}
         {/* {sampleData.map((it: string, i: number) => it)} */}
       </TableCell>
       <TableCell>
@@ -198,11 +202,8 @@ const InternalResponseSetForm: React.FC<{
   const [tableData, setTableData] = useState([]);
   const [selectedRow, setSelectedRow] = useState<any[] | undefined>([]);
   const [openModal, setOpenModal] = useState<boolean>(false);
-
-  const [moduleName, setModuleName] = useState<string>("");
-  const [moduleTag, setModuleTag] = useState<any>("");
-  const [moduleLink, setModuleLink] = useState<string>("");
   const [buttonLoader, setButtonLoader] = React.useState<boolean>(false);
+  const formId = React.useRef(null);
 
   const { enqueueSnackbar } = useSnackbar();
   // const handleOpen = () => setOpen(true);
@@ -260,18 +261,6 @@ const InternalResponseSetForm: React.FC<{
     fetchData({ internalResponseId: internalResponseId });
   }, [internalResponseId]);
 
-  // useEffect(() => {
-  //   // setTimeout(() => {
-  //   if (initial_data) {
-  //     setInitialValues(initial_data);
-  //   }
-  //   // }, 1000);
-
-  //   if (moduleData2) {
-  //     setModuleValues(moduleData2);
-  //   }
-  // }, [initial_data]);
-
   const submitHandler = async (values: any, actions: any, selectedRow: any) => {
     let final_data;
     if (internalResponseId) {
@@ -320,20 +309,22 @@ const InternalResponseSetForm: React.FC<{
       //     status: status ? status : "Active",
       //   }),
       // );
-      // await postApiData({
-      //   // setterFunction: setSomeState,
-      //   // values: final_data,
-      //   queryParam: { form_id: 6 },
-      //   url: "/internal-response/",
-      //   enqueueSnackbar: enqueueSnackbar,
-      //   navigateTo: (id: number) => navigate(`/config/global-response-set/internal`),
-      //   domain: "",
-      //   setterLoading: setButtonLoader,
-      // });
+      console.log({ values });
+      await postApiData({
+        // setterFunction: setSomeState,
+        values: values?.tableValues?.map((data: any) => ({ ...data, checked: undefined })),
+        // queryParam: { form_id: 6 },
+        url: "/relation-response/",
+        enqueueSnackbar: enqueueSnackbar,
+        // navigateTo: (id: number) => navigate(`/config/global-response-set/internal`),
+        domain: "",
+        setterLoading: setButtonLoader,
+      });
     }
   };
 
   const handleModelSelect = async (e: SelectChangeEvent<number | string>, data: any) => {
+    formId.current = e.target.value.id;
     let promises = [
       fetchFieldList({ query: { form_id: e.target.value.id } }),
       fetchRelationSampleData({ query: { form_id: e.target.value.id, getAll: true } }),
@@ -354,9 +345,6 @@ const InternalResponseSetForm: React.FC<{
     }));
   }
 
-  const dynamicSampleDataItemsKeys = convertToKeysArray(sampleDataItemsKeys);
-
-  console.log({ sampleData }, { fieldList });
   return (
     <div>
       <Box sx={{ width: "100%" }}>
@@ -614,26 +602,41 @@ const InternalResponseSetForm: React.FC<{
                               <TableCell style={{ minWidth: 10 }}>Status</TableCell>
                             </TableHead>
                             <TableBody>
-                              {Object.keys(fieldList || {})?.map((field: any) => {
-                                return <tr>{fieldList?.[field]}</tr>;
-                              })}
+                              {(() => {
+                                let keys = Object.keys(fieldList || {}) || [];
+                                let makeValue: any = keys?.map((key) => {
+                                  return {
+                                    display_name: fieldList?.[key], // Set the display_name as needed
+                                    module: key,
+                                    status: 1,
+                                    variable_name: fieldList?.[key],
+                                    form_id: formId?.current,
+                                  };
+                                });
 
-                              {moduleValues?.map((data: any, index: any) => {
+                                console.log({ makeValue });
+
                                 return (
-                                  <TableCellCustom
-                                    key={data?.id}
-                                    index={index}
-                                    sampleData={sampleDataItemsKeys}
-                                    selectedRow={selectedRow}
-                                    setSelectedRow={setSelectedRow}
-                                    data={data}
-                                    moduleValues={moduleValues}
-                                    setModuleValues={setModuleValues}
-                                    formikValues={props}
-                                    internalResponseId={internalResponseId}
-                                  />
+                                  <>
+                                    {makeValue?.map((data: any, index: any) => {
+                                      return (
+                                        <TableCellCustom
+                                          key={data?.id}
+                                          index={index}
+                                          sampleData={sampleDataItemsKeys}
+                                          selectedRow={selectedRow}
+                                          setSelectedRow={setSelectedRow}
+                                          data={data}
+                                          moduleValues={moduleValues}
+                                          setModuleValues={setModuleValues}
+                                          formikValues={props}
+                                          internalResponseId={internalResponseId}
+                                        />
+                                      );
+                                    })}
+                                  </>
                                 );
-                              })}
+                              })()}
                             </TableBody>
                           </Table>
                         </TableContainer>
