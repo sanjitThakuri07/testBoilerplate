@@ -2,7 +2,6 @@ import react from "@vitejs/plugin-react-swc";
 import { URL, fileURLToPath } from "node:url";
 import { defineConfig, loadEnv } from "vite";
 import svgr from "vite-plugin-svgr";
-import { default as REACT } from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default ({ mode }) => {
@@ -21,12 +20,6 @@ export default ({ mode }) => {
     },
     preview: {
       port: 3000,
-    },
-    base: "./",
-    build: {
-      outDir: "build",
-      emptyOutDir: true,
-      assetsInlineLimit: 500,
     },
     plugins: [react({ plugins: [["@swc/plugin-styled-components", {}]] }), svgr()],
     resolve: {
