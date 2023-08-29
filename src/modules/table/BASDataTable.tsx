@@ -65,6 +65,7 @@ import { checkDate, formatDate, getNestedDataObject } from "src/utils/keyFunctio
 import useAppStore from "src/store/zustand/app";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import { ACTION_TYPE } from "src/store/zustand/actionType";
+import PlusWhite from "src/assets/icons/plus-white.svg";
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -290,7 +291,8 @@ function AddButton({
           onClick={onAdd}
           disabled={onAddButtonDisabled ? true : false}
           variant="contained"
-          startIcon={<img src="/src/assets/icons/plus-white.svg" alt="plus" />}
+          // startIcon={<img src="/src/assets/icons/plus-white.svg" alt="plus" />}
+          startIcon={<img src={PlusWhite} alt="plus" />}
         >
           Add{" "}
           {letterHandler({
